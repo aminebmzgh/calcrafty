@@ -1,31 +1,195 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { calculators, calcPath } from '../lib/registry.ts';
+import { categories, categoryOrder } from '../lib/categories.ts';
+import { longDate } from '../lib/format.ts';
+import { live, formatAsOf } from '../data/live/index.ts';
+import { SITE } from '../lib/site.ts';
+import type { JsonLdNode } from '../lib/schema.ts';
+
+const POPULAR = ['mortgage-calculator', 'paycheck-calculator', 'bmi-calculator', 'percentage-calculator', 'calorie-calculator', 'auto-loan-calculator', 'compound-interest-calculator', 'age-calculator'];
+const popular = POPULAR.map((s) => calculators.find((c) => c.slug === s)).filter((c): c is NonNullable<typeof c> => !!c);
+const guides = (await getCollection('guides')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const recent = [...calculators].sort((a, b) => b.lastReviewed.localeCompare(a.lastReviewed) || a.name.localeCompare(b.name)).slice(0, 6);
+const rate = live.series.mortgage30;
+const index = calculators.map((c) => ({ slug: c.slug, name: c.name, path: calcPath(c) }));
+const itemList: JsonLdNode = {
+  '@type': 'ItemList',
+  name: 'Popular calculators',
+  itemListElement: popular.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${calcPath(c)}`, name: c.name })),
+};
 ---
 
 <BaseLayout
   title="Calcrafty: Free Online Calculators with the Math Shown"
   description="Free calculators for mortgages, loans, BMI, calories, percentages and dates. Live answers as you type, today's rates built in and every step of the math shown."
   path="/"
+  jsonLd={[itemList]}
 >
-  <section class="wrap py-12">
-    <h1>Calculators that show their work</h1>
-    <p class="mt-3 max-w-2xl text-lg muted">
-      Live answers as you type, today’s rates built in, and every step of the math shown in plain English.
-    </p>
-    {
-      calculators.length > 0 && (
-        <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {calculators.map((c) => (
+  <section class="border-b border-rule bg-surface">
+    <div class="wrap py-12 md:py-16">
+      <h1 class="max-w-3xl">Calculators that show their work</h1>
+      <p class="mt-3 max-w-2xl text-lg muted">
+        {calculators.length} free calculators for money, health, math and everyday questions. Answers update as you type, use today’s data where it matters, and explain every step in plain English.
+      </p>
+      <form action="/search/" method="get" role="search" class="mt-6 flex max-w-xl gap-2" id="home-search">
+        <label for="home-q" class="sr-only">Search calculators</label>
+        <div class="input-shell flex-1">
+          <input id="home-q" name="q" type="search" placeholder="Try “house payment” or “TDEE”" autocomplete="off" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      {
+        rate && (
+          <p class="mt-4 text-sm muted">
+            This week’s average 30-year mortgage rate: <strong class="num">{rate.value}%</strong> (as of {formatAsOf(rate.asOf)}, Freddie Mac). Built into our{' '}
+            <a href="/finance/mortgage-calculator/">mortgage calculator</a>.
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  <div class="wrap grid gap-14 py-12">
+    <section aria-labelledby="popular-h">
+      <h2 id="popular-h">Popular calculators</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          popular.map((c) => (
             <li>
-              <a class="calc-link" href={calcPath(c)}>
+              <a class="calc-link h-full" href={calcPath(c)}>
                 <strong>{c.name}</strong>
                 <span>{c.intro}</span>
               </a>
             </li>
-          ))}
-        </ul>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="cats-h">
+      <h2 id="cats-h">Browse by category</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        {
+          categoryOrder.map((id) => {
+            const list = calculators.filter((c) => c.category === id);
+            return (
+              <div class="panel">
+                <h3>
+                  <a href={`/${id}/`}>{categories[id].h1}</a>
+                </h3>
+                <p class="mt-1 text-sm muted">{categories[id].intro}</p>
+                <ul class="mt-3 flex flex-wrap gap-2">
+                  {list.map((c) => (
+                    <li>
+                      <a class="chip" href={calcPath(c)}>
+                        {c.name.replace(/ Calculator$/, '')}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    {
+      guides.length > 0 && (
+        <section aria-labelledby="guides-h">
+          <h2 id="guides-h">Guides to the big questions</h2>
+          <ul class="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {guides.map((g) => (
+              <li>
+                <a class="calc-link h-full" href={`/guides/${g.id}/`}>
+                  <strong>{g.data.title}</strong>
+                  <span>{g.data.intro}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       )
     }
-  </section>
+
+    <section aria-labelledby="why-h" class="grid gap-6 md:grid-cols-3">
+      <h2 id="why-h" class="md:col-span-3">Why Calcrafty</h2>
+      <div>
+        <h3>Live answers</h3>
+        <p class="mt-1 muted">No calculate button and no page reloads. Results, charts and explanations update as you type.</p>
+      </div>
+      <div>
+        <h3>The math, shown</h3>
+        <p class="mt-1 muted">Every result comes with the formula and your own numbers worked through step by step.</p>
+      </div>
+      <div>
+        <h3>Tested and sourced</h3>
+        <p class="mt-1 muted">Formulas are tested against published reference values and cite their sources. <a href="/methodology/">How we check</a>.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="updated-h">
+      <h2 id="updated-h">Recently reviewed</h2>
+      <ul class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          recent.map((c) => (
+            <li>
+              <a href={calcPath(c)}>{c.name}</a> <span class="text-sm muted">· {longDate(c.lastReviewed)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="mine-h" id="mine" hidden>
+      <h2 id="mine-h">Your calculators</h2>
+      <p class="mt-1 text-sm muted">Saved in this browser only.</p>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        <div id="mine-fav" hidden>
+          <h3>Favorites</h3>
+          <ul class="mt-2 flex flex-wrap gap-2"></ul>
+        </div>
+        <div id="mine-recent" hidden>
+          <h3>Recently used</h3>
+          <ul class="mt-2 flex flex-wrap gap-2"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="calc-index" set:html={JSON.stringify(index)} />
+  <script>
+    import { getFavorites, getRecent } from '../lib/storage.ts';
+
+    // Search box: open instant search instead of loading the /search/ page.
+    document.getElementById('home-search')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (document.getElementById('home-q') as HTMLInputElement).value;
+      void import('../components/layout/SearchDialog.tsx').then((m) => m.openSearchDialog(q));
+    });
+
+    // Favorites and recent calculators from local storage (section stays hidden when empty).
+    const index = JSON.parse(document.getElementById('calc-index')?.textContent ?? '[]') as { slug: string; name: string; path: string }[];
+    const fill = (id: string, slugs: string[]) => {
+      const items = slugs.map((s) => index.find((c) => c.slug === s)).filter((c): c is (typeof index)[number] => !!c);
+      if (!items.length) return false;
+      const box = document.getElementById(id)!;
+      const ul = box.querySelector('ul')!;
+      for (const c of items) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'chip';
+        a.href = c.path;
+        a.textContent = c.name;
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+      box.hidden = false;
+      return true;
+    };
+    const any = [fill('mine-fav', getFavorites()), fill('mine-recent', getRecent())].some(Boolean);
+    if (any) document.getElementById('mine')!.hidden = false;
+  </script>
 </BaseLayout>

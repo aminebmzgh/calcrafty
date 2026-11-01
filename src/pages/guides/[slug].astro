@@ -1,0 +1,67 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import RelatedCalculators from '../../components/content/RelatedCalculators.astro';
+import FaqSection from '../../components/content/FaqSection.astro';
+import { calculators } from '../../lib/registry.ts';
+import { categories } from '../../lib/categories.ts';
+import { article, breadcrumbList, faqPage } from '../../lib/schema.ts';
+import { longDate } from '../../lib/format.ts';
+
+export const getStaticPaths = (async () => (await getCollection('guides')).map((g) => ({ params: { slug: g.id }, props: { id: g.id } }))) satisfies GetStaticPaths;
+
+const entry = (await getCollection('guides')).find((g) => g.id === Astro.props.id)!;
+const { Content } = await render(entry);
+const d = entry.data;
+const path = `/guides/${entry.id}/`;
+const calcs = d.calculators.map((s) => {
+  const c = calculators.find((x) => x.slug === s);
+  if (!c) throw new Error(`guide ${entry.id}: unknown calculator ${s}`);
+  return c;
+});
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Guides', path: '/guides/' },
+  { name: d.title, path },
+];
+const updated = d.lastReviewed ?? d.published;
+const ymyl = categories[d.category].ymyl;
+---
+
+<BaseLayout
+  title={d.metaTitle}
+  description={d.metaDescription}
+  path={path}
+  noindex={d.status !== 'reviewed'}
+  ogImage={`/og/guides/${entry.id}.png`}
+  type="article"
+  jsonLd={[breadcrumbList(crumbs), article({ headline: d.h1, description: d.metaDescription, path, published: d.published, modified: updated }), ...(d.faq ? [faqPage(d.faq)] : [])]}
+>
+  <div class="wrap grid gap-10 py-8">
+    <header>
+      <Breadcrumbs crumbs={crumbs} />
+      <h1 class="mt-3">{d.h1}</h1>
+      <p class="mt-2 max-w-2xl text-lg muted">{d.intro}</p>
+      <p class="mt-2 text-sm muted">
+        {d.status === 'reviewed' && d.reviewedBy ? <>Reviewed by {d.reviewedBy} · </> : <>Awaiting expert review · </>}
+        Updated <time datetime={updated}>{longDate(updated)}</time>
+      </p>
+    </header>
+    <article class="prose">
+      <Content />
+    </article>
+    {d.faq && <FaqSection faq={d.faq} />}
+    <RelatedCalculators items={calcs} title="Calculators for this guide" />
+    {
+      ymyl && (
+        <p class="text-sm muted max-w-3xl">
+          {d.category === 'health'
+            ? 'For educational use only. This guide is not medical advice; talk to a doctor or registered dietitian about your health.'
+            : 'For educational use only. This guide is not financial, tax or legal advice; confirm important decisions with a qualified professional.'}
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

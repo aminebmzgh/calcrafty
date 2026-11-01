@@ -44,6 +44,9 @@ const itemList: JsonLdNode = {
     <Breadcrumbs crumbs={crumbs} />
     <h1 class="mt-4">{cat.h1}</h1>
     <p class="mt-3 max-w-2xl text-lg muted">{cat.intro}</p>
+    <div class="prose mt-4">
+      {cat.about.map((p) => <p>{p}</p>)}
+    </div>
     {list.length === 0 && <p class="mt-8">These calculators are being built. Browse <a href="/search/">every calculator</a> in the meantime.</p>}
     {
       groups.map((g) => (
