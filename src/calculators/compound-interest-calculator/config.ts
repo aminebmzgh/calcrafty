@@ -20,7 +20,7 @@ const config: CalculatorConfig<CompoundInput, CompoundOutput> = {
   intro: 'See how a balance grows with compound interest and regular deposits, compounded daily, monthly or yearly.',
   metaTitle: 'Compound Interest Calculator with Monthly Deposits',
   metaDescription:
-    'Free compound interest calculator: see how savings grow with daily, monthly or annual compounding and regular deposits, with APY, a growth chart and a yearly table.',
+    'Free compound interest calculator: see how savings grow with daily, monthly or annual compounding and monthly deposits, with APY, a chart and a yearly table.',
   primaryKeyword: 'compound interest calculator',
   secondaryKeywords: ['compound interest formula calculator', 'daily compound interest calculator', 'interest calculator'],
   synonyms: ['apy', 'interest', 'savings growth', 'cd', 'high yield savings'],

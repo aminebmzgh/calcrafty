@@ -11,7 +11,7 @@ const config: CalculatorConfig<InvestmentInput, InvestmentOutput> = {
   intro: 'Project what your investments could grow to with regular contributions, and what that’s worth in today’s dollars.',
   metaTitle: 'Investment Calculator: Growth with Monthly Contributions',
   metaDescription:
-    'Free investment calculator: project growth from a starting amount and monthly contributions, raise them each year and see the result in today’s dollars after inflation.',
+    'Free investment calculator: project growth from a starting amount and monthly contributions that rise each year, and see the result in today’s dollars.',
   primaryKeyword: 'investment calculator',
   secondaryKeywords: ['investment growth calculator', 'investment return calculator', 'stock investment calculator'],
   synonyms: ['stocks', 'index fund', 'portfolio', 'brokerage', 'roth ira', 'returns', 'inflation'],

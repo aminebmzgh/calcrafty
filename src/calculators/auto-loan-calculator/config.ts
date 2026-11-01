@@ -12,7 +12,7 @@ const config: CalculatorConfig<AutoLoanInput, AutoLoanOutput> = {
   intro: 'Your monthly car payment with down payment, trade-in, sales tax and fees, at today’s average auto loan rate.',
   metaTitle: 'Auto Loan Calculator: Car Payment with Tax & Trade-In',
   metaDescription:
-    'Calculate your monthly car payment with down payment, trade-in, sales tax and fees. See the amount financed, total interest and how loan length changes the cost.',
+    'Calculate your car payment with down payment, trade-in, sales tax and fees. See the amount financed, total interest and how loan length changes the total cost.',
   primaryKeyword: 'auto loan calculator',
   secondaryKeywords: ['car loan calculator', 'car payment calculator', 'auto payment calculator'],
   synonyms: ['car payment', 'vehicle loan', 'car finance', 'trade-in', 'truck loan'],

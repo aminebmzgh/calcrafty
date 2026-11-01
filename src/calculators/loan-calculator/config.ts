@@ -11,7 +11,7 @@ const config: CalculatorConfig<LoanInput, LoanOutput> = {
   intro: 'The monthly payment, total interest and payoff schedule for any fixed-rate loan, including extra payments.',
   metaTitle: 'Loan Calculator: Monthly Payment & Total Interest',
   metaDescription:
-    'Free loan calculator: find the monthly payment and total interest on a personal or other fixed-rate loan, see the amortization schedule and what extra payments save.',
+    'Free loan calculator: the monthly payment and total interest on a personal or other fixed-rate loan, with the amortization schedule and extra-payment savings.',
   primaryKeyword: 'loan calculator',
   secondaryKeywords: ['personal loan calculator', 'loan payment calculator', 'emi calculator', 'monthly payment calculator'],
   synonyms: ['emi', 'installment', 'personal loan', 'amortization', 'borrow', 'payment'],
