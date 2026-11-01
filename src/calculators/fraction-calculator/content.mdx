@@ -1,0 +1,95 @@
+---
+status: draft
+howTo:
+  - Enter the first fraction as a whole number (0 if none), numerator and denominator.
+  - Choose add, subtract, multiply or divide.
+  - Enter the second fraction the same way.
+  - Read the simplified answer, mixed number and decimal, and open Show the math for each step.
+faq:
+  - q: How do you add fractions with different denominators?
+    a: Find a common denominator, rewrite both fractions with it, then add the numerators. For 1/2 + 1/3, the least common denominator is 6, so 1/2 = 3/6 and 1/3 = 2/6, and 3/6 + 2/6 = 5/6. The calculator always uses the least common denominator, which keeps the numbers small.
+  - q: How do you multiply fractions?
+    a: Multiply the numerators together and the denominators together, then simplify. 2/3 × 9/4 = 18/12, and dividing the top and bottom by 6 gives 3/2, or 1 1/2. You can also cancel common factors before multiplying to keep the numbers smaller.
+  - q: How do you divide fractions?
+    a: Flip the second fraction and multiply, often remembered as "keep, change, flip." 5/8 ÷ 1/4 becomes 5/8 × 4/1 = 20/8, which simplifies to 5/2 or 2 1/2.
+  - q: How do I simplify a fraction?
+    a: Divide the numerator and denominator by their greatest common divisor (GCD). For 18/24, the GCD is 6, so 18/24 = 3/4. The calculator finds the GCD with Euclid's algorithm, which works for any size of number.
+  - q: How do I enter a mixed number?
+    a: Put the whole number in the first box, then the numerator and denominator of the fraction part. For 2 2/3, enter 2, 2 and 3. For a plain fraction, leave the whole number as 0. For a negative mixed number such as −1 1/2, make the whole number negative; the sign applies to the whole value.
+  - q: What is an improper fraction?
+    a: A fraction whose numerator is equal to or larger than its denominator, such as 7/4. It's the same value as the mixed number 1 3/4. Improper fractions are easier to calculate with, so the calculator converts mixed numbers first and converts back at the end.
+---
+
+## How to use this fraction calculator
+
+Enter two fractions or mixed numbers, choose an operation, and the simplified answer appears instantly as a fraction, a mixed number and a decimal. The **Show the math** panel lists every step, so you can check homework or follow the method.
+
+1. **First fraction.** Enter the whole number part (use 0 for a simple fraction), the numerator (top) and the denominator (bottom).
+2. **Operation.** Add, subtract, multiply or divide.
+3. **Second fraction.** Enter it the same way.
+
+The calculator uses exact whole-number arithmetic, so even very large numerators and denominators give exact answers, never rounded decimals.
+
+## Worked examples
+
+**Adding mixed numbers: 1 1/2 + 2 2/3**
+
+1. Convert to improper fractions: 1 1/2 = 3/2 and 2 2/3 = 8/3.
+2. Least common denominator of 2 and 3: 6.
+3. Rewrite: 3/2 = 9/6 and 8/3 = 16/6.
+4. Add the numerators: 9/6 + 16/6 = 25/6.
+5. As a mixed number: 25 ÷ 6 = 4 remainder 1, so **4 1/6**.
+
+**Subtracting: 3/4 − 1/6**
+
+The LCD of 4 and 6 is 12, so 3/4 = 9/12 and 1/6 = 2/12. Then 9/12 − 2/12 = **7/12**, which can't be simplified further.
+
+**Multiplying: 2/3 × 9/4**
+
+Multiply across: (2 × 9) / (3 × 4) = 18/12. The GCD of 18 and 12 is 6, so the answer is **3/2**, or 1 1/2.
+
+**Dividing: 5/8 ÷ 1/4**
+
+Flip the second fraction and multiply: 5/8 × 4/1 = 20/8. Dividing by the GCD, 4, gives **5/2**, or 2 1/2.
+
+## The fraction rules in plain English
+
+- **Add or subtract:** give both fractions the same denominator, then add or subtract the numerators. The **least common denominator (LCD)** is the least common multiple of the two denominators.
+- **Multiply:** numerator × numerator over denominator × denominator.
+- **Divide:** multiply by the reciprocal of the second fraction (swap its numerator and denominator).
+- **Simplify:** divide the top and bottom by their **greatest common divisor (GCD)**.
+- **Mixed numbers:** whole × denominator + numerator gives the new numerator of the improper fraction.
+
+The GCD comes from Euclid's algorithm: repeatedly replace the larger number with the remainder of dividing it by the smaller, until the remainder is zero. The last non-zero remainder is the GCD. For 18 and 12: 18 ÷ 12 leaves 6, then 12 ÷ 6 leaves 0, so the GCD is 6.
+
+## Common mistakes with fractions
+
+- **Adding denominators.** 1/2 + 1/3 is not 2/5. Fractions need a common denominator before adding.
+- **Forgetting to flip when dividing.** Only the second fraction is flipped, and only for division.
+- **Dropping the whole number in mixed numbers.** Convert to an improper fraction first, then calculate.
+- **Not simplifying.** 6/8 is correct but incomplete; most teachers expect 3/4.
+- **Sign errors with negative mixed numbers.** −1 1/2 means −(1 + 1/2) = −3/2, not −1 + 1/2.
+
+## Fractions, decimals and percentages
+
+Every fraction is also a division. 3/4 = 3 ÷ 4 = 0.75 = 75%. Some fractions give repeating decimals, such as 1/3 = 0.333…, which is why exact fraction answers are often more useful than decimals. The calculator shows the decimal to 10 significant places alongside the exact fraction.
+
+| Fraction | Decimal | Percent |
+|---|---|---|
+| 1/2 | 0.5 | 50% |
+| 1/3 | 0.333… | 33.3% |
+| 1/4 | 0.25 | 25% |
+| 1/8 | 0.125 | 12.5% |
+| 3/4 | 0.75 | 75% |
+
+## Key terms
+
+- **Numerator:** the top number, how many parts you have.
+- **Denominator:** the bottom number, how many equal parts make a whole.
+- **Mixed number:** a whole number and a fraction, like 2 1/3.
+- **Improper fraction:** numerator larger than or equal to the denominator.
+- **Reciprocal:** a fraction flipped upside down; 3/4 becomes 4/3.
+
+## What to do with your result
+
+Turn a fraction into a percentage with the [percentage calculator](/math/percentage-calculator/), or work with longer expressions, powers and roots in the [scientific calculator](/math/scientific-calculator/). For statistics homework, the [standard deviation calculator](/math/standard-deviation-calculator/) shows each step of the variance calculation, and the [GPA calculator](/everyday/gpa-calculator/) handles grade averages.
