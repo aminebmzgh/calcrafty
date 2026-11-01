@@ -124,8 +124,9 @@ export function requiredMonthly(target: Num, principal: Num, months: number, m: 
   const f = m.plus(1).pow(months);
   const gap = D(target).minus(D(principal).times(f));
   if (gap.lte(0)) return 0;
-  if (m.isZero()) return cents(gap.div(months)).toNumber();
-  return cents(gap.times(m).div(f.minus(1))).toNumber();
+  // Round up to the cent so paying this amount always reaches the target.
+  const pmt = m.isZero() ? gap.div(months) : gap.times(m).div(f.minus(1));
+  return pmt.toDecimalPlaces(2, Decimal.ROUND_UP).toNumber();
 }
 
 /** Months until the balance reaches `target` (Infinity if it never does within 100 years). */
