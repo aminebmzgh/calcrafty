@@ -1,0 +1,45 @@
+---
+import ProseLayout from '../layouts/ProseLayout.astro';
+import { SITE } from '../lib/site.ts';
+---
+
+<ProseLayout
+  title="About Calcrafty: Who Builds It and Why"
+  description="Calcrafty builds free calculators for money, health, math and everyday questions, with live data, plain-English answers and every step of the math shown."
+  path="/about/"
+  h1="About Calcrafty"
+  intro={SITE.description}
+  updated="2026-11-01"
+>
+  <h2>Why Calcrafty exists</h2>
+  <p>
+    Most calculator sites still work like it’s 2005: fill in a form, press a button, wait for the page to reload, and get a bare number with no
+    explanation. Calcrafty answers as you type, uses today’s data where it matters, and explains every result in plain English, with the formula
+    and your own numbers worked through step by step.
+  </p>
+  <p>
+    We build fewer calculators and make each one the most useful page for its question. A mortgage calculator should know this week’s average rate,
+    remove PMI at the right moment, and tell you what an extra $200 a month actually saves.
+  </p>
+
+  <h2>Who runs Calcrafty</h2>
+  <p>
+    Calcrafty is an independent site. It is not owned by a bank, lender, insurer or health company, and no lender can pay to change a result.
+    <!-- TODO: owner — add your name, background and why you started Calcrafty (see LAUNCH.md). -->
+  </p>
+
+  <h2>How we keep results accurate</h2>
+  <p>
+    Every formula lives in one tested module and is checked against published reference values before it ships. Pages are reviewed by a person
+    before search engines can index them. The full process is on the <a href="/methodology/">methodology page</a>.
+  </p>
+
+  <h2>What Calcrafty is not</h2>
+  <p>
+    Results are estimates for education and planning. They are not financial, tax, legal or medical advice. For decisions with real consequences,
+    confirm the numbers with a qualified professional, such as a lender, accountant or doctor.
+  </p>
+
+  <h2>Get in touch</h2>
+  <p>Found a bug, a wrong number or a calculator you wish existed? <a href="/contact/">Contact us</a>; we read every message.</p>
+</ProseLayout>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { calculators, calcPath } from '../lib/registry.ts';
+import { categories, categoryOrder } from '../lib/categories.ts';
+---
+
+<BaseLayout
+  title="Search Calculators | Calcrafty"
+  description="Search every Calcrafty calculator and guide by name or by what you want to work out, such as house payment, take-home pay, TDEE, EMI or days until a date."
+  path="/search/"
+  noindex
+>
+  <section class="wrap py-10">
+    <h1>Search calculators</h1>
+    <p class="mt-3 muted">Press <kbd>/</kbd> on any page to search. Every calculator is listed below too.</p>
+    <p class="mt-5">
+      <button type="button" class="btn btn-primary" id="search-page-open">Open search</button>
+    </p>
+    {
+      categoryOrder.map((id) => {
+        const list = calculators.filter((c) => c.category === id);
+        return (
+          list.length > 0 && (
+            <section class="mt-10">
+              <h2>{categories[id].h1}</h2>
+              <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {list.map((c) => (
+                  <li>
+                    <a class="calc-link" href={calcPath(c)}>
+                      <strong>{c.name}</strong>
+                      <span>{c.intro}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        );
+      })
+    }
+  </section>
+  <script>
+    const q = new URLSearchParams(location.search).get('q') ?? '';
+    const open = () => import('../components/layout/SearchDialog.tsx').then((m) => m.openSearchDialog(q));
+    document.getElementById('search-page-open')?.addEventListener('click', open);
+    if (q) void open();
+  </script>
+</BaseLayout>

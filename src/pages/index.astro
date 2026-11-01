@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { calculators, calcPath } from '../lib/registry.ts';
+---
+
+<BaseLayout
+  title="Calcrafty: Free Online Calculators with the Math Shown"
+  description="Free calculators for mortgages, loans, BMI, calories, percentages and dates. Live answers as you type, today's rates built in and every step of the math shown."
+  path="/"
+>
+  <section class="wrap py-12">
+    <h1>Calculators that show their work</h1>
+    <p class="mt-3 max-w-2xl text-lg muted">
+      Live answers as you type, today’s rates built in, and every step of the math shown in plain English.
+    </p>
+    {
+      calculators.length > 0 && (
+        <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {calculators.map((c) => (
+            <li>
+              <a class="calc-link" href={calcPath(c)}>
+                <strong>{c.name}</strong>
+                <span>{c.intro}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-11-01T03:31:59.228Z",
+  "series": {
+    "mortgage30": {
+      "value": 7.24,
+      "asOf": "2026-10-29",
+      "label": "30-year fixed mortgage rate",
+      "source": "Freddie Mac",
+      "seriesId": "MORTGAGE30US",
+      "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+    },
+    "mortgage15": {
+      "value": 6.6,
+      "asOf": "2026-10-29",
+      "label": "15-year fixed mortgage rate",
+      "source": "Freddie Mac",
+      "seriesId": "MORTGAGE15US",
+      "url": "https://fred.stlouisfed.org/series/MORTGAGE15US"
+    },
+    "cpiInflation": {
+      "value": 3.72,
+      "asOf": "2026-09-01",
+      "label": "CPI-U inflation, 12-month change",
+      "source": "U.S. Bureau of Labor Statistics",
+      "seriesId": "CPIAUCSL",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+    },
+    "treasury10": {
+      "value": 4.98,
+      "asOf": "2026-10-29",
+      "label": "10-year Treasury yield",
+      "source": "Board of Governors of the Federal Reserve System",
+      "seriesId": "DGS10",
+      "url": "https://fred.stlouisfed.org/series/DGS10"
+    },
+    "savingsRate": {
+      "value": 4,
+      "asOf": "2026-10-29",
+      "label": "3-month Treasury bill rate",
+      "source": "Board of Governors of the Federal Reserve System",
+      "seriesId": "DTB3",
+      "url": "https://fred.stlouisfed.org/series/DTB3"
+    },
+    "autoLoan60": {
+      "value": 7.54,
+      "asOf": "2026-08-01",
+      "label": "60-month new car loan rate (commercial banks)",
+      "source": "Board of Governors of the Federal Reserve System",
+      "seriesId": "RIFLPBCIANM60NM",
+      "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+    }
+  }
+}

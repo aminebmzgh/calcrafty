@@ -1,0 +1,48 @@
+---
+import ProseLayout from '../layouts/ProseLayout.astro';
+import { SITE } from '../lib/site.ts';
+---
+
+<ProseLayout
+  title="Privacy Policy | Calcrafty"
+  description="Calcrafty privacy policy: no accounts, no tracking cookies, calculator inputs that stay in your browser and cookie-free analytics that count visits anonymously."
+  path="/privacy/"
+  h1="Privacy Policy"
+  intro="Short version: we don’t want your data, and the site is built so we never get it."
+  updated="2026-11-01"
+>
+  <h2>Your calculator inputs stay on your device</h2>
+  <p>
+    Calculations run in your browser. The numbers you type are not sent to our servers. If you use a share link, your inputs are in that link’s
+    address, so anyone you send it to can see them.
+  </p>
+
+  <h2>History and favorites use local storage</h2>
+  <p>
+    Your recent calculations (up to 10), favorite calculators and theme choice are saved in your browser’s local storage so they are there next time.
+    They never leave your device. Clear them any time from the calculator page or by clearing your browser’s site data. The site works fully with
+    storage turned off.
+  </p>
+
+  <h2>Analytics without cookies</h2>
+  <p>
+    We use privacy-friendly, cookie-free analytics to count page views and measure page speed. It does not use cookies, does not track you across
+    sites, honors Do Not Track, and does not collect personal information. A sample of visits also reports anonymous page speed measurements (load
+    time, layout shift and responsiveness) with the page address.
+  </p>
+
+  <h2>No accounts, no ads tracking</h2>
+  <p>
+    There are no accounts or sign-ups. If we show ads in the future, this policy will be updated before they appear, describing any third parties
+    involved and your choices.
+  </p>
+
+  <h2>Hosting logs</h2>
+  <p>
+    Our web host keeps standard server logs (such as IP address, browser type and the page requested) for security and troubleshooting, for a
+    limited time.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <span>{SITE.email}</span>.</p>
+</ProseLayout>

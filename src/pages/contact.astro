@@ -1,0 +1,22 @@
+---
+import ProseLayout from '../layouts/ProseLayout.astro';
+import { SITE } from '../lib/site.ts';
+---
+
+<ProseLayout
+  title="Contact Calcrafty"
+  description="Contact the Calcrafty team to report a wrong result, suggest a new calculator or ask about embedding. Email us directly; there are no forms and no sign-up."
+  path="/contact/"
+  h1="Contact"
+  intro="Report a wrong number, suggest a calculator or ask a question."
+  updated="2026-11-01"
+>
+  <h2>Email</h2>
+  <p>Write to <strong class="num">{SITE.email}</strong>. We read every message and reply to most within a few working days.</p>
+
+  <h2>Reporting a wrong result</h2>
+  <p>Include the page address (use the calculator’s “Copy link” button so we see your exact inputs), the result you got and the result you expected. Confirmed calculation errors are fixed first.</p>
+
+  <h2>Suggesting a calculator</h2>
+  <p>Tell us the question you were trying to answer. The best suggestions describe a real decision, such as “should I refinance now or wait a year?”</p>
+</ProseLayout>

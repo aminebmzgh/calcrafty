@@ -1,0 +1,83 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import { categories, categoryOrder } from '../../lib/categories.ts';
+import { calculators, calcPath } from '../../lib/registry.ts';
+import { breadcrumbList, type JsonLdNode } from '../../lib/schema.ts';
+import { SITE } from '../../lib/site.ts';
+import type { Category } from '../../lib/types.ts';
+
+export const getStaticPaths = (() =>
+  categoryOrder.map((id) => ({ params: { category: id } }))) satisfies GetStaticPaths;
+
+const id = Astro.params.category as Category;
+const cat = categories[id];
+const list = calculators.filter((c) => c.category === id);
+const groups = cat.subtopics
+  .map((name) => ({ name, items: list.filter((c) => c.subtopic === name) }))
+  .filter((g) => g.items.length);
+const ungrouped = list.filter((c) => !cat.subtopics.includes(c.subtopic));
+if (ungrouped.length) throw new Error(`${id}: calculators with unknown subtopic: ${ungrouped.map((c) => c.slug).join(', ')}`);
+const guides = (await getCollection('guides')).filter((g) => g.data.category === id);
+
+const path = `/${id}/`;
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: cat.name, path },
+];
+const itemList: JsonLdNode = {
+  '@type': 'CollectionPage',
+  name: cat.h1,
+  url: `${SITE.url}${path}`,
+  description: cat.metaDescription,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: list.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${calcPath(c)}`, name: c.name })),
+  },
+};
+---
+
+<BaseLayout title={cat.metaTitle} description={cat.metaDescription} path={path} noindex={list.length === 0} ogImage={`/og/${id}.png`} jsonLd={[breadcrumbList(crumbs), itemList]}>
+  <div class="wrap py-8">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-4">{cat.h1}</h1>
+    <p class="mt-3 max-w-2xl text-lg muted">{cat.intro}</p>
+    {list.length === 0 && <p class="mt-8">These calculators are being built. Browse <a href="/search/">every calculator</a> in the meantime.</p>}
+    {
+      groups.map((g) => (
+        <section class="mt-10">
+          <h2>{g.name}</h2>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {g.items.map((c) => (
+              <li>
+                <a class="calc-link" href={calcPath(c)}>
+                  <strong>{c.name}</strong>
+                  <span>{c.intro}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+    {
+      guides.length > 0 && (
+        <section class="mt-10">
+          <h2>Guides</h2>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+            {guides.map((g) => (
+              <li>
+                <a class="calc-link" href={`/guides/${g.id}/`}>
+                  <strong>{g.data.title}</strong>
+                  <span>{g.data.intro}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>

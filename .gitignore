@@ -6,3 +6,4 @@ dist/
 .lighthouseci/
 playwright-report/
 test-results/
+dist-ads/

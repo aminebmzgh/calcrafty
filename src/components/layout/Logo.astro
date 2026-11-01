@@ -1,0 +1,13 @@
+---
+/** Calcrafty mark: an open "C" bracket holding an equals sign, i.e. "calculate". */
+interface Props {
+  size?: number;
+}
+const { size = 30 } = Astro.props;
+---
+
+<svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect width="32" height="32" rx="8" fill="var(--accent)"></rect>
+  <path d="M21.5 9.2A8.6 8.6 0 1 0 21.5 22.8" fill="none" stroke="var(--accent-ink)" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M14.5 14h7M14.5 18.5h7" stroke="var(--accent-ink)" stroke-width="2.6" stroke-linecap="round"></path>
+</svg>

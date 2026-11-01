@@ -1,0 +1,58 @@
+---
+import Logo from './Logo.astro';
+import { categories, categoryOrder } from '../../lib/categories.ts';
+import { SITE } from '../../lib/site.ts';
+
+const year = new Date().getFullYear();
+const company = [
+  { name: 'About', path: '/about/' },
+  { name: 'Methodology', path: '/methodology/' },
+  { name: 'Guides', path: '/guides/' },
+  { name: 'Privacy', path: '/privacy/' },
+  { name: 'Terms', path: '/terms/' },
+  { name: 'Contact', path: '/contact/' },
+];
+---
+
+<footer class="mt-20 border-t border-rule bg-surface">
+  <div class="wrap grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div class="max-w-sm">
+      <a href="/" class="inline-flex min-h-11 items-center gap-2 text-ink no-underline">
+        <Logo size={26} />
+        <span class="text-lg font-bold">Calcrafty</span>
+      </a>
+      <p class="mt-3 text-sm muted">{SITE.description}</p>
+    </div>
+    <nav aria-label="Calculator categories">
+      <h2 class="text-base">Calculators</h2>
+      <ul class="mt-3 grid gap-1 text-sm">
+        {
+          categoryOrder.map((id) => (
+            <li>
+              <a href={`/${id}/`} class="inline-flex min-h-8 items-center">
+                {categories[id].h1}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <nav aria-label="Calcrafty">
+      <h2 class="text-base">Calcrafty</h2>
+      <ul class="mt-3 grid gap-1 text-sm">
+        {
+          company.map((l) => (
+            <li>
+              <a href={l.path} class="inline-flex min-h-8 items-center">
+                {l.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap border-t border-rule py-5 text-sm muted">
+    <p>© {year} Calcrafty. Results are estimates for educational use, not financial, tax, legal or medical advice.</p>
+  </div>
+</footer>

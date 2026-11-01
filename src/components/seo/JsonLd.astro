@@ -1,0 +1,11 @@
+---
+import { graph, type JsonLdNode } from '../../lib/schema.ts';
+
+interface Props {
+  nodes: JsonLdNode[];
+}
+
+const json = graph(Astro.props.nodes);
+---
+
+<script type="application/ld+json" is:inline set:html={json} />

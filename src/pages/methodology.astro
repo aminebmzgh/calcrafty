@@ -1,0 +1,74 @@
+---
+import ProseLayout from '../layouts/ProseLayout.astro';
+import { live, formatAsOf, fredCitation } from '../data/live/index.ts';
+
+const series = Object.values(live.series);
+---
+
+<ProseLayout
+  title="Methodology: How Calcrafty Verifies Results"
+  description="How Calcrafty checks its math: formulas tested against published reference values, decimal money math, cited FRED live data and human review before indexing."
+  path="/methodology/"
+  h1="Methodology"
+  intro="How every Calcrafty result is calculated, tested, sourced and reviewed."
+  updated="2026-11-01"
+>
+  <h2>Formulas are tested against published references</h2>
+  <p>
+    Each calculator’s math lives in a single module of pure functions, separate from the page design. Before a calculator ships, its functions are
+    tested against at least four reference values from authoritative sources, for example a lender’s published amortization figures, IRS worked
+    examples or the original paper that defines a health formula. Edge cases are tested too: a 0% interest rate, a single payment period, very large
+    and very small values, and empty or negative input.
+  </p>
+
+  <h2>Money is calculated in decimal, not floating point</h2>
+  <p>
+    Computers store numbers like 0.1 approximately, which can make sums drift by fractions of a cent. Calcrafty does money math with decimal
+    arithmetic and rounds only when it displays a result, so a 360-payment schedule adds up exactly.
+  </p>
+
+  <h2>Live data and where it comes from</h2>
+  <p>
+    Some defaults use current data so the first answer you see is realistic. The data is refreshed every week at build time. If a source is
+    unavailable or returns an implausible value (for example a mortgage rate outside 1% to 20%), we keep the previous value rather than show a wrong
+    one. Every page that uses live data shows the source and “as of” date.
+  </p>
+  <table>
+    <thead><tr><th>Data</th><th>Value</th><th>As of</th><th>Source</th></tr></thead>
+    <tbody>
+      {
+        series.map((s) => (
+          <tr>
+            <td>{s.label}</td>
+            <td class="num">{s.value}%</td>
+            <td>{formatAsOf(s.asOf)}</td>
+            <td>
+              <a href={s.url}>{fredCitation(s)}</a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p>
+    Tax brackets, standard deductions and contribution limits come from the IRS and state revenue departments. They are stored in dated files with a
+    link to the source, and updated each year when the new figures are published.
+  </p>
+
+  <h2>Human review before indexing</h2>
+  <p>
+    New pages start as drafts. Drafts are visible on the site but marked <code>noindex</code>, so search engines don’t show them until a person has
+    checked the numbers, the explanations and the sources. Each reviewed page shows who reviewed it and when.
+  </p>
+
+  <h2>Corrections</h2>
+  <p>
+    If you find an error, <a href="/contact/">tell us</a>. We fix confirmed calculation errors as a priority and note the change date on the page.
+  </p>
+
+  <h2>Limits of any calculator</h2>
+  <p>
+    A calculator is only as good as its inputs and assumptions. Each page states its assumptions, such as fixed rates or a constant return. Results
+    are estimates for education and planning, not financial, tax, legal or medical advice.
+  </p>
+</ProseLayout>

@@ -1,0 +1,100 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Weekly data refresh + redeploy: Mondays 06:00 UTC.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    # Pushes to main deploy only after the full CI passes.
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: [ci]
+    if: always() && (needs.ci.result == 'success' || needs.ci.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Refresh live data (never fails the build)
+        run: npm run data:refresh
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+
+      - name: Unit tests (guards the refreshed data)
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          PUBLIC_ANALYTICS_ID: ${{ secrets.ANALYTICS_ID }}
+
+      - name: Validate build
+        run: npm run seo:validate && npm run links:check
+
+      - name: Commit refreshed snapshot to main
+        if: github.event_name != 'pull_request'
+        run: |
+          if ! git diff --quiet -- src/data/live/snapshot.json; then
+            git config user.name "calcrafty-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/live/snapshot.json
+            git commit -m "data: weekly live data refresh [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Previous deploy manifest (for IndexNow)
+        run: |
+          git fetch origin deploy --depth=1 2>/dev/null && git show origin/deploy:deploy-manifest.json > /tmp/prev-manifest.json 2>/dev/null || echo "{}" > /tmp/prev-manifest.json
+
+      - name: Push dist/ to the deploy branch
+        run: |
+          cd dist
+          git init -q -b deploy
+          git config user.name "calcrafty-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7} ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy
+
+      - name: Ping IndexNow with changed URLs
+        run: npm run indexnow -- --previous /tmp/prev-manifest.json
+        continue-on-error: true
+
+  # Fallback (only if Hostinger Git auto-deploy is unavailable): set the SSH_* secrets and enable this job.
+  rsync-fallback:
+    needs: [deploy]
+    if: vars.DEPLOY_VIA_SSH == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: deploy
+          path: site
+      - name: rsync to public_html
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh && echo "$SSH_KEY" > ~/.ssh/id_deploy && chmod 600 ~/.ssh/id_deploy
+          rsync -az --delete --exclude '.git' -e "ssh -i ~/.ssh/id_deploy -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=accept-new" \
+            site/ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/"
