@@ -37,6 +37,8 @@ interface BaseInput<I> {
   showIf?: (input: I) => boolean;
   /** Consecutive inputs sharing a group render side by side. */
   group?: string;
+  /** For text inputs: a valid alternative value the e2e suite types to check live updates. */
+  e2eValue?: string;
 }
 
 export interface NumberInputDef<I> extends BaseInput<I> {

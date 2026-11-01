@@ -1,0 +1,77 @@
+---
+status: draft
+howTo:
+  - Type or paste your numbers, separated by commas, spaces or new lines.
+  - Choose whether your data is a sample or the whole population.
+  - Read the standard deviation, variance, mean and standard error.
+  - Open the deviations table and Show the math to follow each step.
+faq:
+  - q: What is standard deviation?
+    a: Standard deviation measures how spread out numbers are around their average. A small standard deviation means values cluster near the mean; a large one means they're scattered. It's in the same units as the data, so a standard deviation of 4 points on a test means a typical score is about 4 points from the class average.
+  - q: What's the difference between sample and population standard deviation?
+    a: Population standard deviation (σ) divides the sum of squared deviations by n, and applies when your data includes every member of the group. Sample standard deviation (s) divides by n − 1, which corrects for the fact that a sample's mean is estimated from the same data. Use the sample version for surveys, experiments and most real-world data.
+  - q: How do you calculate standard deviation by hand?
+    a: Find the mean, subtract it from each value, square each difference, add the squares, divide by n − 1 (sample) or n (population) to get the variance, and take the square root. For 2, 4, 4, 4, 5, 5, 7, 9 the mean is 5, the squared deviations add up to 32, and the population standard deviation is √(32 ÷ 8) = 2.
+  - q: What is variance?
+    a: Variance is the average squared distance from the mean, the step before taking the square root. It's useful in statistical formulas, but because it's in squared units (such as dollars squared), standard deviation is easier to interpret.
+  - q: What is the standard error of the mean?
+    a: It estimates how much a sample's mean would vary from sample to sample: the sample standard deviation divided by the square root of n. It shrinks as samples get larger, which is why bigger studies give more precise averages.
+  - q: What does a standard deviation tell me about a normal distribution?
+    a: For data that is roughly bell-shaped, about 68% of values fall within one standard deviation of the mean, about 95% within two, and about 99.7% within three. This "68-95-99.7 rule" doesn't hold for skewed data, so check the shape of your data before relying on it.
+---
+
+## How to use this standard deviation calculator
+
+Paste or type your numbers and the calculator returns the standard deviation instantly, along with the mean, variance, standard error, median and range. Every intermediate step is shown, so you can check homework or a spreadsheet.
+
+1. **Your numbers.** Separate them with commas, spaces or new lines. You can paste a column straight from Excel or Google Sheets. Anything that isn't a number is skipped and reported.
+2. **Sample or population.** Choose **Sample** if your numbers are a subset of a larger group (the usual case); choose **Whole population** if they're every member of the group.
+
+The calculation uses exact decimal arithmetic, which avoids the rounding problems that can appear when values are very large or have many decimal places.
+
+## Worked example: seven quiz scores
+
+A teacher records seven quiz scores: 12, 15, 9, 20, 14, 18 and 11.
+
+1. **Mean:** (12 + 15 + 9 + 20 + 14 + 18 + 11) ÷ 7 = 99 ÷ 7 ≈ 14.143
+2. **Deviations from the mean:** −2.143, 0.857, −5.143, 5.857, −0.143, 3.857, −3.143
+3. **Squared deviations:** 4.592, 0.735, 26.449, 34.306, 0.020, 14.878, 9.878, which add up to about 90.857
+4. **Sample variance:** 90.857 ÷ (7 − 1) ≈ 15.143
+5. **Sample standard deviation:** √15.143 ≈ **3.891**
+
+If these seven scores were the entire class rather than a sample, the population variance would be 90.857 ÷ 7 ≈ 12.980 and the population standard deviation √12.980 ≈ **3.603**.
+
+So a typical score is a little under 4 points from the average of about 14.
+
+## The formulas in plain English
+
+- **Mean:** x̄ = Σx ÷ n, the sum of the values divided by how many there are.
+- **Population variance:** σ² = Σ(x − x̄)² ÷ n
+- **Sample variance:** s² = Σ(x − x̄)² ÷ (n − 1)
+- **Standard deviation:** the square root of the variance, σ = √σ² or s = √s².
+- **Standard error of the mean:** s ÷ √n
+
+Dividing by n − 1 instead of n for a sample is called **Bessel's correction**. A sample's own mean is always closer to its values than the true population mean is, so squared deviations from it are slightly too small; dividing by n − 1 corrects that bias in the variance.
+
+## When to use sample vs population
+
+Use **population** only when your data is the complete group you're describing: every employee's salary at one company, all 30 students in one class, every game a team played this season. Use **sample** when the data represents a larger group you didn't fully measure: a survey of 500 voters, 20 items from a production line, a clinical trial. When in doubt, use sample; it's the default in most statistics software, including Excel's STDEV.S and Google Sheets' STDEV.
+
+## Interpreting your result
+
+Standard deviation is easiest to read relative to the mean. A standard deviation of 5 is large for values averaging 10 but small for values averaging 1,000. The **coefficient of variation** (standard deviation ÷ mean) puts different data sets on the same footing.
+
+Outliers have a big effect because deviations are squared. One extreme value can inflate the standard deviation a lot, so check the deviations table for a single row that dominates the sum.
+
+## Key terms
+
+- **Mean (x̄):** the arithmetic average.
+- **Deviation:** a value minus the mean.
+- **Variance:** the average squared deviation.
+- **Standard deviation:** the square root of variance, in the same units as the data.
+- **Bessel's correction:** dividing by n − 1 for a sample.
+- **Standard error:** the standard deviation of the sample mean.
+
+## What to do with your result
+
+For percentages and percent change in your data, use the [percentage calculator](/math/percentage-calculator/). The [scientific calculator](/math/scientific-calculator/) handles further work with square roots, powers and logs. If your data involves fractions, the [fraction calculator](/math/fraction-calculator/) keeps the arithmetic exact, and the [GPA calculator](/everyday/gpa-calculator/) averages grades by credit hours.

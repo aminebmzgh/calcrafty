@@ -159,9 +159,9 @@ export default function InputField<I extends Record<string, unknown>>({ def, val
           </label>
           <div class="input-shell" data-invalid={msg ? 'true' : undefined}>
             {def.type === 'textarea' ? (
-              <textarea id={id} name={def.id} placeholder={def.placeholder} maxLength={def.maxLength} aria-invalid={msg ? true : undefined} aria-describedby={describedBy} value={String(values[def.id])} onInput={(e) => set(def.id, (e.target as HTMLTextAreaElement).value)} />
+              <textarea id={id} name={def.id} data-testid={def.e2eValue ? 'e2e-input' : undefined} data-e2e-value={def.e2eValue} placeholder={def.placeholder} maxLength={def.maxLength} aria-invalid={msg ? true : undefined} aria-describedby={describedBy} value={String(values[def.id])} onInput={(e) => set(def.id, (e.target as HTMLTextAreaElement).value)} />
             ) : (
-              <input id={id} name={def.id} type="text" placeholder={def.placeholder} maxLength={def.maxLength} autoComplete="off" aria-invalid={msg ? true : undefined} aria-describedby={describedBy} value={String(values[def.id])} onInput={(e) => set(def.id, (e.target as HTMLInputElement).value)} />
+              <input id={id} name={def.id} data-testid={def.e2eValue ? 'e2e-input' : undefined} data-e2e-value={def.e2eValue} type="text" placeholder={def.placeholder} maxLength={def.maxLength} autoComplete="off" aria-invalid={msg ? true : undefined} aria-describedby={describedBy} value={String(values[def.id])} onInput={(e) => set(def.id, (e.target as HTMLInputElement).value)} />
             )}
           </div>
           {help && (
