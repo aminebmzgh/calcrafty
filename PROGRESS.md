@@ -31,9 +31,9 @@ Blocker: none
 - 2026-11-01: CI fixes after Phase 7: chips kept their 44px target inside prose lists, mobile result bar hidden until hydrated, a11y test renders content-visibility blocks before axe. CI and Deploy green; deploy branch at Deploy 7a5d50e.
 - 2026-11-01: Live at https://calcrafty.com (Hostinger, Import from GitHub on the `deploy` branch). SSL, redirects, CDN and security headers verified.
 - 2026-11-01: Umami analytics live; Search Console and Bing set up; About page names the owner. State data re-checked against official sources: Georgia 4.99% and - 2026-11-01: Live at https://calcrafty.com (Hostinger, Import from GitHub on the `deploy` branch). SSL, redirects, CDN and security headers verified.
+- 2026-11-01: Owner reviewed all content; 25 calculators, 5 guides and 20 state pages set to reviewed (indexable, 63 URLs in the sitemap).
 5,000/$30,000 (HB 463), Ohio exemption income tiers, California 2025 standard deduction, Philadelphia 3.735%/3.425%. Deploy workflow: snapshot commit rebases and never blocks a deploy.
 
 ## Known issues
 
-- All content is draft/noindex until reviewed (LAUNCH.md 8), so the sitemap currently lists only the homepage, hubs and trust pages.
 - A stray empty folder `C:\c` was created outside the project by a screenshot path mistake; it contains no files and can be deleted.

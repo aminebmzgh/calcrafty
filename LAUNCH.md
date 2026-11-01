@@ -48,79 +48,15 @@ Note: Hostinger's CDN returns 403 to fake "Googlebot" requests from non-Google I
 
 - [ ] **Replace estimated keyword data with real data.** `research/keyword-map.csv` uses estimated volume and difficulty (marked `estimate` in `data_source`). Export keyword data from Ahrefs, Semrush or Google Keyword Planner into `research/raw/`, then ask Claude Code to "update the keyword map from research/raw".
 
-## 8. Review draft pages (makes them indexable)
+## 8. Content review (done 2026-11-01)
 
-Every content page starts as a **draft**: visible on the site, but `noindex` and left out of the sitemap. For each page:
+- [x] All 25 calculators, 5 guides and 20 state pages reviewed by the owner and set to `status: reviewed` (finance pages: "Amine Boumazzoughe, banker"; others: "Amine Boumazzoughe"). They're indexable and listed in the sitemap (63 URLs).
 
-1. Read it on the site (and ideally have a credentialed reviewer check finance and health pages; search each file for `TODO: expert review`).
-2. Edit the MDX file if needed.
-3. In its frontmatter set `status: reviewed`, `reviewedBy: "Name, credential"` and `lastReviewed: "YYYY-MM-DD"`.
-4. Commit and push; the page enters the sitemap and llms.txt on the next deploy.
+Optional, for stronger trust signals on health and retirement topics:
 
-### Calculators (25)
+- [ ] Have a clinician or registered dietitian check the health pages (BMI, calorie, body fat, macro, ideal weight, running pace, and the calories guide), and a CFP check the retirement guide. Search for `TODO: expert review` to see what each note asks. Then change `reviewedBy` to their name and credential.
 
-Edit `src/calculators/<slug>/content.mdx`. State pages under a calculator become indexable when that calculator is reviewed.
-
-- [ ] https://calcrafty.com/everyday/age-calculator/  (file: src/calculators/age-calculator/content.mdx)
-- [ ] https://calcrafty.com/everyday/days-between-dates-calculator/  (file: src/calculators/days-between-dates-calculator/content.mdx)
-- [ ] https://calcrafty.com/everyday/gpa-calculator/  (file: src/calculators/gpa-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/auto-loan-calculator/  (file: src/calculators/auto-loan-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/compound-interest-calculator/  (file: src/calculators/compound-interest-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/credit-card-payoff-calculator/  (file: src/calculators/credit-card-payoff-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/debt-payoff-calculator/  (file: src/calculators/debt-payoff-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/investment-calculator/  (file: src/calculators/investment-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/loan-calculator/  (file: src/calculators/loan-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/mortgage-affordability-calculator/  (file: src/calculators/mortgage-affordability-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/mortgage-calculator/  (file: src/calculators/mortgage-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/paycheck-calculator/  (file: src/calculators/paycheck-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/rent-vs-buy-calculator/  (file: src/calculators/rent-vs-buy-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/retirement-calculator/  (file: src/calculators/retirement-calculator/content.mdx)
-- [ ] https://calcrafty.com/finance/savings-goal-calculator/  (file: src/calculators/savings-goal-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/bmi-calculator/  (file: src/calculators/bmi-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/body-fat-calculator/  (file: src/calculators/body-fat-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/calorie-calculator/  (file: src/calculators/calorie-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/ideal-weight-calculator/  (file: src/calculators/ideal-weight-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/macro-calculator/  (file: src/calculators/macro-calculator/content.mdx)
-- [ ] https://calcrafty.com/health/running-pace-calculator/  (file: src/calculators/running-pace-calculator/content.mdx)
-- [ ] https://calcrafty.com/math/fraction-calculator/  (file: src/calculators/fraction-calculator/content.mdx)
-- [ ] https://calcrafty.com/math/percentage-calculator/  (file: src/calculators/percentage-calculator/content.mdx)
-- [ ] https://calcrafty.com/math/scientific-calculator/  (file: src/calculators/scientific-calculator/content.mdx)
-- [ ] https://calcrafty.com/math/standard-deviation-calculator/  (file: src/calculators/standard-deviation-calculator/content.mdx)
-
-### Guides (5)
-
-Edit `src/content/guides/<slug>.mdx`.
-
-- [ ] https://calcrafty.com/guides/how-many-calories-should-i-eat/
-- [ ] https://calcrafty.com/guides/how-much-do-i-need-to-retire/
-- [ ] https://calcrafty.com/guides/how-much-house-can-i-afford/
-- [ ] https://calcrafty.com/guides/how-to-calculate-percentage/
-- [ ] https://calcrafty.com/guides/how-to-pay-off-debt/
-
-### State pages and state indexes (22), reviewed with their parent calculator
-
-- [ ] https://calcrafty.com/finance/mortgage-calculator/california/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/florida/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/georgia/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/illinois/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/michigan/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/new-york/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/north-carolina/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/ohio/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/pennsylvania/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/states/
-- [ ] https://calcrafty.com/finance/mortgage-calculator/texas/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/california/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/florida/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/georgia/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/illinois/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/michigan/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/new-york/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/north-carolina/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/ohio/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/pennsylvania/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/states/
-- [ ] https://calcrafty.com/finance/paycheck-calculator/texas/
+To edit a page later: change its MDX file, update `lastReviewed`, commit and push.
 
 ### State data (checked 2026-11-01)
 
