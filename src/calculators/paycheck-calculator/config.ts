@@ -17,7 +17,7 @@ const config: CalculatorConfig<PaycheckInput, PaycheckOutput> = {
   metaTitle: `Paycheck Calculator ${TAX_YEAR}: Take-Home Pay | Calcrafty`,
   metaDescription: `Free ${TAX_YEAR} paycheck calculator: see take-home pay after federal tax, Social Security, Medicare, state tax and 401(k). Salary or hourly, any pay frequency.`,
   primaryKeyword: 'paycheck calculator',
-  secondaryKeywords: ['salary calculator', 'take home pay calculator', 'hourly to salary calculator', 'salary paycheck calculator'],
+  secondaryKeywords: ['salary calculator', 'take home pay calculator', 'salary paycheck calculator'],
   synonyms: ['net pay', 'take-home', 'withholding', 'salary', 'wage', 'hourly', 'gross to net', 'income tax'],
   inputs: [
     {
