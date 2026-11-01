@@ -6,7 +6,7 @@ export const SITE = {
     'Calcrafty builds free online calculators for money, health, math and everyday questions, with live data, plain-English answers and the math shown step by step.',
   email: 'hello@calcrafty.com',
   /** The person behind the site (About page and Organization schema). */
-  founder: { name: 'Amine Boumazzoughe', jobTitle: 'Banker' },
+  founder: { name: 'Amine Boumazzoughe', jobTitle: 'Bank auditor' },
   logo: 'https://calcrafty.com/icons/icon-512.png',
   /** Official profiles; add URLs once they exist. */
   sameAs: [] as string[],

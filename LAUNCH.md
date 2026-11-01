@@ -40,7 +40,7 @@ Note: Hostinger's CDN returns 403 to fake "Googlebot" requests from non-Google I
 
 ## 6. About page and contact
 
-- [x] About page: built and run by Amine Boumazzoughe (banker, coding enthusiast); also in the Organization schema as `founder`. Add more about why you started it whenever you like.
+- [x] About page: built and run by Amine Boumazzoughe (bank auditor, coding enthusiast); also in the Organization schema as `founder`. Add more about why you started it whenever you like.
 - [x] `hello@calcrafty.com` mailbox created.
 - [ ] When official social profiles exist, add their URLs to `SITE.sameAs` in `src/lib/site.ts` (used in Organization schema).
 
@@ -50,7 +50,7 @@ Note: Hostinger's CDN returns 403 to fake "Googlebot" requests from non-Google I
 
 ## 8. Content review (done 2026-11-01)
 
-- [x] All 25 calculators, 5 guides and 20 state pages reviewed by the owner and set to `status: reviewed` (finance pages: "Amine Boumazzoughe, banker"; others: "Amine Boumazzoughe"). They're indexable and listed in the sitemap (63 URLs).
+- [x] All 25 calculators, 5 guides and 20 state pages reviewed by the owner and set to `status: reviewed` (finance pages: "Amine Boumazzoughe, bank auditor"; others: "Amine Boumazzoughe"). They're indexable and listed in the sitemap (63 URLs).
 
 Optional, for stronger trust signals on health and retirement topics:
 
