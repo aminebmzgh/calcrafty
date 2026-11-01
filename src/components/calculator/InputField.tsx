@@ -20,6 +20,11 @@ export interface InputFieldProps<I extends Record<string, unknown>> {
 export default function InputField<I extends Record<string, unknown>>({ def, values, set, patch, error, renderCustom, idPrefix = 'in' }: InputFieldProps<I>) {
   const id = `${idPrefix}-${def.id}`;
   const help = def.helpText;
+  /** Select/segmented change: set the value plus any derived values (e.g. unit conversion). */
+  const choose = (v: string) => {
+    if (def.type !== 'select' && def.type !== 'segmented') return;
+    patch({ [def.id]: coerce(v, values[def.id]), ...(def.onChange?.(v, values) ?? {}) } as Partial<I>);
+  };
 
   switch (def.type) {
     case 'number': {
@@ -70,7 +75,7 @@ export default function InputField<I extends Record<string, unknown>>({ def, val
             {def.label}
           </label>
           <div class="input-shell">
-            <select id={id} name={def.id} value={String(values[def.id])} aria-describedby={help ? `${id}-help` : undefined} onChange={(e) => set(def.id, coerce((e.target as HTMLSelectElement).value, values[def.id]))}>
+            <select id={id} name={def.id} value={String(values[def.id])} aria-describedby={help ? `${id}-help` : undefined} onChange={(e) => choose((e.target as HTMLSelectElement).value)}>
               {def.options.map((o) => (
                 <option key={o.value} value={o.value}>
                   {o.label}
@@ -91,7 +96,7 @@ export default function InputField<I extends Record<string, unknown>>({ def, val
           <span class="field-label" id={`${id}-label`}>
             {def.label}
           </span>
-          <UnitToggle name={id} label={def.label} value={String(values[def.id])} options={def.options} onChange={(v) => set(def.id, coerce(v, values[def.id]))} />
+          <UnitToggle name={id} label={def.label} value={String(values[def.id])} options={def.options} onChange={choose} />
           {help && <p class="field-help">{help}</p>}
         </div>
       );

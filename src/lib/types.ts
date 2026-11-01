@@ -65,6 +65,8 @@ export interface NumberInputDef<I> extends BaseInput<I> {
 export interface SelectInputDef<I> extends BaseInput<I> {
   type: 'select' | 'segmented';
   options: { value: string; label: string }[];
+  /** Extra values to set when this changes (e.g. convert fields when switching imperial/metric; math lives in math.ts). */
+  onChange?: (value: string, input: I) => Partial<I>;
 }
 
 export interface CheckboxInputDef<I> extends BaseInput<I> {
