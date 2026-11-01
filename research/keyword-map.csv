@@ -1,16 +1,16 @@
 primary_keyword,secondary_keywords,intent,volume,difficulty,priority_score,url,page_type,status,data_source
-mortgage calculator,mortgage payment calculator|house payment calculator|home loan calculator|mortgage calculator with taxes and insurance|mortgage calculator with pmi,calculate,1500000,92,14705.9,/finance/mortgage-calculator/,calculator,planned,estimate
-loan calculator,personal loan calculator|loan payment calculator|emi calculator|monthly payment calculator,calculate,550000,85,5789.5,/finance/loan-calculator/,calculator,planned,estimate
-auto loan calculator,car loan calculator|car payment calculator|auto payment calculator,calculate,900000,82,9782.6,/finance/auto-loan-calculator/,calculator,planned,estimate
-compound interest calculator,compound interest formula calculator|daily compound interest calculator|interest calculator,calculate,820000,78,9318.2,/finance/compound-interest-calculator/,calculator,planned,estimate
-investment calculator,investment growth calculator|investment return calculator|stock investment calculator,calculate,200000,70,2500,/finance/investment-calculator/,calculator,planned,estimate
-retirement calculator,retirement savings calculator|401k retirement calculator|how much do i need to retire calculator,calculate,300000,80,3333.3,/finance/retirement-calculator/,calculator,planned,estimate
-mortgage affordability calculator,home affordability calculator|house affordability calculator|how much mortgage can i afford,calculate,250000,75,2941.2,/finance/mortgage-affordability-calculator/,calculator,planned,estimate
-rent vs buy calculator,rent or buy calculator|renting vs buying a home calculator|should i rent or buy,compare,40000,55,615.4,/finance/rent-vs-buy-calculator/,calculator,planned,estimate
-credit card payoff calculator,credit card payment calculator|credit card interest calculator|pay off credit card calculator,calculate,110000,60,1571.4,/finance/credit-card-payoff-calculator/,calculator,planned,estimate
-debt payoff calculator,debt snowball calculator|debt avalanche calculator|debt repayment calculator,calculate,90000,55,1384.6,/finance/debt-payoff-calculator/,calculator,planned,estimate
-paycheck calculator,salary calculator|take home pay calculator|hourly to salary calculator|salary paycheck calculator,calculate,1000000,85,10526.3,/finance/paycheck-calculator/,calculator,planned,estimate
-savings goal calculator,savings calculator|how long to save calculator|monthly savings calculator,calculate,60000,45,1090.9,/finance/savings-goal-calculator/,calculator,planned,estimate
+mortgage calculator,mortgage payment calculator|house payment calculator|home loan calculator|mortgage calculator with taxes and insurance|mortgage calculator with pmi,calculate,1500000,92,14705.9,/finance/mortgage-calculator/,calculator,built,estimate
+loan calculator,personal loan calculator|loan payment calculator|emi calculator|monthly payment calculator,calculate,550000,85,5789.5,/finance/loan-calculator/,calculator,built,estimate
+auto loan calculator,car loan calculator|car payment calculator|auto payment calculator,calculate,900000,82,9782.6,/finance/auto-loan-calculator/,calculator,built,estimate
+compound interest calculator,compound interest formula calculator|daily compound interest calculator|interest calculator,calculate,820000,78,9318.2,/finance/compound-interest-calculator/,calculator,built,estimate
+investment calculator,investment growth calculator|investment return calculator|stock investment calculator,calculate,200000,70,2500,/finance/investment-calculator/,calculator,built,estimate
+retirement calculator,retirement savings calculator|401k retirement calculator|how much do i need to retire calculator,calculate,300000,80,3333.3,/finance/retirement-calculator/,calculator,built,estimate
+mortgage affordability calculator,home affordability calculator|house affordability calculator|how much mortgage can i afford,calculate,250000,75,2941.2,/finance/mortgage-affordability-calculator/,calculator,built,estimate
+rent vs buy calculator,rent or buy calculator|renting vs buying a home calculator|should i rent or buy,compare,40000,55,615.4,/finance/rent-vs-buy-calculator/,calculator,built,estimate
+credit card payoff calculator,credit card payment calculator|credit card interest calculator|pay off credit card calculator,calculate,110000,60,1571.4,/finance/credit-card-payoff-calculator/,calculator,built,estimate
+debt payoff calculator,debt snowball calculator|debt avalanche calculator|debt repayment calculator,calculate,90000,55,1384.6,/finance/debt-payoff-calculator/,calculator,built,estimate
+paycheck calculator,salary calculator|take home pay calculator|hourly to salary calculator|salary paycheck calculator,calculate,1000000,85,10526.3,/finance/paycheck-calculator/,calculator,built,estimate
+savings goal calculator,savings calculator|how long to save calculator|monthly savings calculator,calculate,60000,45,1090.9,/finance/savings-goal-calculator/,calculator,built,estimate
 bmi calculator,body mass index calculator|bmi calculator for women|bmi calculator for men,calculate,2700000,80,30000,/health/bmi-calculator/,calculator,planned,estimate
 calorie calculator,tdee calculator|maintenance calorie calculator|calories burned per day calculator,calculate,1200000,75,14117.6,/health/calorie-calculator/,calculator,planned,estimate
 body fat calculator,body fat percentage calculator|navy body fat calculator|army body fat calculator,calculate,450000,65,6000,/health/body-fat-calculator/,calculator,planned,estimate
@@ -49,8 +49,8 @@ how to pay off debt,best way to pay off debt|debt snowball vs avalanche,learn,30
 how much do i need to retire,how much money do i need to retire|retirement number,learn,40000,65,533.3,/guides/how-much-do-i-need-to-retire/,guide,planned,estimate
 how many calories should i eat,how many calories should i eat to lose weight|daily calorie intake,learn,150000,65,2000,/guides/how-many-calories-should-i-eat/,guide,planned,estimate
 how to calculate percentage,how to find percentage|percentage formula,learn,120000,50,2000,/guides/how-to-calculate-percentage/,guide,planned,estimate
-finance calculators,financial calculators|money calculators,learn,30000,60,428.6,/finance/,hub,planned,estimate
-health calculators,fitness calculators|health and fitness calculators,learn,8000,45,145.5,/health/,hub,planned,estimate
-math calculators,online math calculator|math calculator,learn,60000,60,857.1,/math/,hub,planned,estimate
-everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/,hub,planned,estimate
-free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,planned,estimate
+finance calculators,financial calculators|money calculators,learn,30000,60,428.6,/finance/,hub,built,estimate
+health calculators,fitness calculators|health and fitness calculators,learn,8000,45,145.5,/health/,hub,built,estimate
+math calculators,online math calculator|math calculator,learn,60000,60,857.1,/math/,hub,built,estimate
+everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/,hub,built,estimate
+free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,built,estimate

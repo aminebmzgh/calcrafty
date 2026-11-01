@@ -45,3 +45,13 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **Mobile sticky result bar.** On phones the inputs push the readout below the fold, so a slim fixed bar shows the headline result and hides itself when the full readout is visible. It's `aria-hidden` because the readout itself is the live region.
 - **Expert-review TODOs in MDX use `{/* TODO: expert review */}`.** MDX doesn't support HTML comments.
 - **Related links may point at calculators built later.** The registry warns (instead of failing) for related slugs that don't exist yet and renders only the existing ones; the link checker still fails on any broken link in content.
+
+## 2026-11-01 (Phase 3)
+
+- **Two more FRED series.** `personalLoan24` (TERMCBPER24NS) for the loan calculator and `creditCard` (TERMCBCCALLNS) for the card calculator, so their default rates are real, cited averages.
+- **2026 tax data verified against the primary source.** Head-of-household thresholds were checked in the IRS Rev. Proc. 2025-32 PDF itself because a secondary site had them wrong ($201,775 / $256,225 vs the correct $201,750 / $256,200). Tests use the Rev. Proc.'s own "tax at threshold" amounts as references.
+- **Paycheck federal tax = annual liability.** It equals what Pub. 15-T percentage-method withholding targets for a W-4 with no adjustments. OBBBA's new tip and overtime deductions aren't modelled (most workers don't qualify; noted for expert review).
+- **Required payments round up to the cent** (savings goal, retirement), so following the plan always reaches the target.
+- **Vitest `fsModuleCache: false`.** Vitest 5's on-disk transform cache doesn't invalidate `import.meta.glob` results when new folders appear, so cached tests silently checked only the first 6 calculators. It's disabled in `vitest.config.ts`.
+- **Content gate counts the article body only** (FAQ excluded) toward the 800–1,500 words, matching the brief's page template, where the FAQ is a separate item.
+- **Rent vs buy ignores tax effects** (mortgage interest deduction, home sale exclusion) and says so on the page; most buyers take the standard deduction.

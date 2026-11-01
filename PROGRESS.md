@@ -1,4 +1,4 @@
-Current phase: 3
+Current phase: 4
 Status: in-progress
 Blocker: none
 
@@ -9,8 +9,8 @@ Blocker: none
 | 0 | Setup and keyword plan | done (repo push pending, see LAUNCH.md 1) |
 | 1 | Foundation | done (placeholder deploy pending the repo) |
 | 2 | Gold standard: Mortgage Calculator + live data | done |
-| 3 | Remaining finance calculators | in-progress |
-| 4 | Health, math and everyday calculators | pending |
+| 3 | Remaining finance calculators | done |
+| 4 | Health, math and everyday calculators | in-progress |
 | 5 | Site architecture and trust | pending |
 | 6 | State pages | pending |
 | 7 | Launch hardening | pending |
@@ -22,9 +22,9 @@ Blocker: none
 - 2026-11-01: Phase 1 done. Astro 7 static site, design tokens + dark theme, header/footer/logo, registry, SEO head, JSON-LD, sitemaps, robots, llms.txt, .htaccess, OG images, search, trust pages, validators (SEO, links, keyword map, uniqueness, budgets), Playwright + axe, LHCI configs, CI and deploy workflows. FRED snapshot seeded with real data.
 - 2026-11-01: GitHub repo created (private) and pushed after owner approval. Placeholder deploy triggered.
 - 2026-11-01: Phase 2 done. Mortgage calculator: decimal/integer-cent math with 29 unit tests (4 references, PMI at 78% LTV, extra payments, edge cases, 300-loan cross-check), live FRED rate default, all shared components (inputs, unit toggles, readout, explain, show-the-math, compare, share, history, favorites, charts, CSV tables), full MDX, FAQ/HowTo/WebApplication schema, OG image, embed page. Lighthouse mobile: Performance 1.0, LCP 1.3 s, TBT 10 ms, CLS 0. JS 31.7 KB gz.
+- 2026-11-01: Phase 3 done. 11 finance calculators (paycheck with verified 2026 IRS data, auto loan, compound interest, loan, retirement, mortgage affordability, investment, credit card payoff, debt payoff snowball vs avalanche, savings goal, rent vs buy). Shared math modules (money, growth, tax). 210 unit tests incl. config contract and content gates (800–1,500 words, 5–8 FAQs, ≥3 internal links). Lighthouse 1.0 on all sampled pages. Fixed: Vitest fsModuleCache hid new calculators from the registry in tests.
 
 ## Known issues
 
-- Link check fails until Phase 3 builds the calculators linked from the mortgage page (loan, affordability, rent vs buy, savings goal, paycheck).
 - Math and Everyday hubs are empty (noindex) until Phase 4, so their no-JS content-length test fails.
 - A stray empty folder `C:\c\Users\...` was created outside the project by a screenshot script path mistake; the owner can delete `C:\c` (it contains no files).

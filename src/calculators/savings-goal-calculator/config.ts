@@ -11,7 +11,7 @@ const config: CalculatorConfig<SavingsGoalInput, SavingsGoalOutput> = {
   intro: 'How much to save each month to reach a goal by a date, or how long it takes at the amount you can afford.',
   metaTitle: 'Savings Goal Calculator: How Much to Save Each Month',
   metaDescription:
-    'Free savings goal calculator: find the monthly amount to reach a goal by a deadline, or how long it takes at your budget, with interest included and a yearly plan.',
+    'Free savings goal calculator: the monthly amount to reach a goal by a deadline, or how long it takes at your budget, with interest included and a yearly plan.',
   primaryKeyword: 'savings goal calculator',
   secondaryKeywords: ['savings calculator', 'how long to save calculator', 'monthly savings calculator'],
   synonyms: ['down payment', 'emergency fund', 'sinking fund', 'save', 'goal'],

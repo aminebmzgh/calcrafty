@@ -11,6 +11,14 @@ async function interact(page: Page) {
   await page.locator('.calc[data-hydrated="true"]').waitFor();
 }
 
+/** A new value ~37% above the current one; whole numbers for integer fields (inputmode="numeric"). */
+async function bump(field: import('@playwright/test').Locator) {
+  const n = Number((await field.inputValue()).replace(/[^0-9.-]/g, '')) || 1;
+  const integer = (await field.getAttribute('inputmode')) === 'numeric';
+  const next = n * 1.37;
+  await field.fill(String(integer ? Math.max(Math.round(next), Math.round(n) + 1) : Math.round(next * 100) / 100));
+}
+
 async function firstEditableNumber(page: Page) {
   const fields = page.locator('.calc input[inputmode="decimal"]:visible, .calc input[inputmode="numeric"]:visible');
   await expect(fields.first()).toBeVisible();
@@ -34,10 +42,7 @@ for (const url of calculatorUrls()) {
       if (await custom.count()) {
         await custom.first().fill(await custom.first().getAttribute('data-e2e-value') ?? '1');
       } else {
-        const field = await firstEditableNumber(page);
-        const current = await field.inputValue();
-        const n = Number(current.replace(/[^0-9.-]/g, '')) || 1;
-        await field.fill(String(Math.round(n * 1.37 * 100) / 100));
+        await bump(await firstEditableNumber(page));
       }
       await expect(headline).not.toHaveText(before, { timeout: 3000 });
       await expect(headline).not.toHaveText(/NaN|Infinity|undefined/);
@@ -51,9 +56,7 @@ for (const url of calculatorUrls()) {
       if (await custom.count()) {
         await custom.first().fill(await custom.first().getAttribute('data-e2e-value') ?? '1');
       } else {
-        const field = await firstEditableNumber(page);
-        const n = Number((await field.inputValue()).replace(/[^0-9.-]/g, '')) || 1;
-        await field.fill(String(Math.round(n * 1.37 * 100) / 100));
+        await bump(await firstEditableNumber(page));
       }
       const headline = page.locator('[data-testid="headline-value"]').first();
       await expect(page).toHaveURL(/\?/, { timeout: 3000 });
