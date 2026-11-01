@@ -539,6 +539,48 @@
     margin-top: 0.9rem;
   }
 
+  .mobile-readout {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 1.1rem calc(0.7rem + env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--rule-strong);
+    box-shadow: 0 -8px 24px -16px rgb(20 33 61 / 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .mobile-readout span {
+    color: var(--ink-2);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .mobile-readout strong {
+    font-size: 1.5rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+  .mobile-readout[data-hidden='true'] {
+    transform: translateY(110%);
+  }
+  @media (min-width: 900px) {
+    .mobile-readout {
+      display: none;
+    }
+  }
+
+  /* Below-the-fold blocks: skip layout and paint until near the viewport (faster first paint). */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 900px;
+  }
+
   .panel {
     border: 1px solid var(--rule);
     background: var(--surface);

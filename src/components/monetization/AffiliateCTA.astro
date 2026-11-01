@@ -1,0 +1,23 @@
+---
+/** Clearly labelled sponsored link. Renders nothing unless ADS_ENABLED. */
+import { ADS_ENABLED } from '../../lib/site.ts';
+
+interface Props {
+  href: string;
+  label: string;
+  note: string;
+}
+const { href, label, note } = Astro.props;
+---
+
+{
+  ADS_ENABLED && (
+    <aside class="panel no-print" aria-label="Sponsored">
+      <p class="text-sm muted">Sponsored</p>
+      <p class="mt-1">{note}</p>
+      <a class="btn btn-primary mt-3" href={href} rel="sponsored noopener" target="_blank">
+        {label}
+      </a>
+    </aside>
+  )
+}

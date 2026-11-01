@@ -1,0 +1,38 @@
+---
+/**
+ * Ad slot with exact reserved dimensions (zero layout shift). Renders nothing unless ADS_ENABLED.
+ * Placement rule: below the fold, never between inputs and results (hard rule 10).
+ */
+import { ADS_ENABLED } from '../../lib/site.ts';
+
+interface Props {
+  id: string;
+  /** Reserved size on mobile / desktop. */
+  mobile?: [number, number];
+  desktop?: [number, number];
+}
+const { id, mobile = [300, 250], desktop = [728, 90] } = Astro.props;
+---
+
+{
+  ADS_ENABLED && (
+    <aside class="ad-wrap no-print" aria-label="Advertisement" data-ad-slot={id}>
+      <div class="ad-slot" style={`--w:${mobile[0]}px;--h:${mobile[1]}px;--dw:${desktop[0]}px;--dh:${desktop[1]}px`}>
+        Advertisement
+      </div>
+    </aside>
+  )
+}
+
+<style>
+  .ad-slot {
+    width: var(--w);
+    height: var(--h);
+  }
+  @media (min-width: 768px) {
+    .ad-slot {
+      width: var(--dw);
+      height: var(--dh);
+    }
+  }
+</style>

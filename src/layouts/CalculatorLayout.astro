@@ -1,0 +1,91 @@
+---
+/**
+ * Calculator page template (docs/BUILD-BRIEF.md section 11), in order:
+ * breadcrumbs, H1 + intro, widget (pre-rendered with the default result), AnswerBox,
+ * Explain + Show the math, charts/tables, related, MDX content, FAQ, sources + review line,
+ * embed snippet, YMYL disclaimer.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
+import RelatedCalculators from '../components/content/RelatedCalculators.astro';
+import FaqSection from '../components/content/FaqSection.astro';
+import SourcesSection from '../components/content/SourcesSection.astro';
+import EmbedSnippet from '../components/content/EmbedSnippet.astro';
+import AdSlot from '../components/monetization/AdSlot.astro';
+import type { AnyCalculatorConfig, Source } from '../lib/types.ts';
+import { categories } from '../lib/categories.ts';
+import { relatedOf } from '../lib/registry.ts';
+import { breadcrumbList, faqPage, howTo, webApplication, type Crumb, type JsonLdNode } from '../lib/schema.ts';
+import { getWidget } from '../lib/widgets.ts';
+
+interface Props {
+  config: AnyCalculatorConfig;
+  initial: Record<string, unknown>;
+  path: string;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  crumbs: Crumb[];
+  answer: string;
+  faq: { q: string; a: string }[];
+  status: 'draft' | 'reviewed';
+  reviewedBy?: string;
+  lastUpdated: string;
+  howToSteps?: string[];
+  ogImage?: string;
+  extraSources?: Source[];
+  /** Extra related links rendered under the calculator list (e.g. state links). */
+  jsonLdExtra?: JsonLdNode[];
+}
+
+const { config, initial, path, title, description, h1, intro, crumbs, answer, faq, status, reviewedBy, lastUpdated, howToSteps, ogImage, extraSources = [], jsonLdExtra = [] } = Astro.props;
+const cat = categories[config.category];
+const Widget = getWidget(config.slug);
+const widgetProps = { initial, path, answer };
+const jsonLd: JsonLdNode[] = [
+  webApplication(config, path, h1, description),
+  breadcrumbList(crumbs),
+  faqPage(faq),
+  ...(howToSteps?.length ? [howTo(`How to use the ${h1}`, howToSteps)] : []),
+  ...jsonLdExtra,
+];
+---
+
+<BaseLayout title={title} description={description} path={path} noindex={status !== 'reviewed'} ogImage={ogImage ?? `/og/${config.slug}.png`} jsonLd={jsonLd}>
+  <div class="wrap grid gap-10 py-6 md:py-8">
+    <div class="grid gap-6">
+      <div>
+        <Breadcrumbs crumbs={crumbs} />
+        <h1 class="mt-3">{h1}</h1>
+        <p class="mt-2 max-w-2xl text-lg muted">{intro}</p>
+      </div>
+      <div data-widget={config.slug} data-props={JSON.stringify(widgetProps)}>
+        <Widget {...widgetProps} />
+      </div>
+    </div>
+
+    <slot name="after-widget" />
+
+    <div class="defer-render grid gap-10">
+      <RelatedCalculators items={relatedOf(config)} />
+
+      <AdSlot id={`${config.slug}-mid`} />
+
+      <article class="prose">
+        <slot />
+      </article>
+
+      <FaqSection faq={faq} />
+    </div>
+
+    <div class="defer-render grid gap-10">
+      <SourcesSection sources={[...extraSources, ...config.sources]} reviewedBy={reviewedBy} lastUpdated={lastUpdated} status={status} ymyl={cat.ymyl} kind={config.category} />
+
+      <EmbedSnippet slug={config.slug} name={config.name} />
+    </div>
+  </div>
+  <script>
+    import '../scripts/islands-boot.ts';
+  </script>
+</BaseLayout>

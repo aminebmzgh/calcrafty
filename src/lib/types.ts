@@ -35,6 +35,8 @@ interface BaseInput<I> {
   advanced?: boolean;
   /** Hide the input unless this returns true (e.g. metric vs imperial fields). */
   showIf?: (input: I) => boolean;
+  /** Consecutive inputs sharing a group render side by side. */
+  group?: string;
 }
 
 export interface NumberInputDef<I> extends BaseInput<I> {
@@ -51,7 +53,13 @@ export interface NumberInputDef<I> extends BaseInput<I> {
   integer?: boolean;
   liveDefault?: LiveKey;
   /** Optional unit toggle: a sibling select input id whose value switches this field (e.g. $ vs %). */
-  unitToggle?: { id: Extract<keyof I, string>; options: { value: string; label: string; unit: NumberUnit }[] };
+  unitToggle?: {
+    id: Extract<keyof I, string>;
+    label: string;
+    options: { value: string; label: string; unit: NumberUnit; min: number; max: number; step: number; sliderMax?: number }[];
+    /** Converts the field value when the unit changes (math lives in math.ts). */
+    convert: (value: number, from: string, to: string, input: I) => number;
+  };
 }
 
 export interface SelectInputDef<I> extends BaseInput<I> {
@@ -166,10 +174,12 @@ export interface CalculatorConfig<I extends Record<string, unknown>, O> {
 export type AnyCalculatorConfig = CalculatorConfig<any, any>;
 
 export interface WidgetProps<I> {
-  /** Overrides merged on top of the config defaults (state pages, live data). */
-  initial?: Partial<I>;
+  /** Starting values: config defaults with live data and page overrides (state pages) merged in. */
+  initial: I;
+  /** Root-relative page path, used for share links and history. */
+  path: string;
+  /** Static AnswerBox sentence for the default scenario. */
+  answer?: string;
   /** Compact embed mode: no history, favorites or compare. */
   embed?: boolean;
-  /** Read inputs from and write inputs to the URL query string. Default true. */
-  urlState?: boolean;
 }

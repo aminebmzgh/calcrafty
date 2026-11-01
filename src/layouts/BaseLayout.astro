@@ -21,6 +21,16 @@ interface Props {
 
 const { title, description, path, noindex, ogImage, type, jsonLd = [], bare = false } = Astro.props;
 const nodes = [organization(), website(), ...jsonLd];
+
+/** Instant navigation: prerender same-site pages on hover/pointerdown (no JS). Embeds are excluded. */
+const SPECULATION_RULES = {
+  prerender: [
+    {
+      where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/embed/*' } }] },
+      eagerness: 'moderate',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -47,6 +57,7 @@ const nodes = [organization(), website(), ...jsonLd];
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <JsonLd nodes={nodes} />
+    <script is:inline type="speculationrules" set:html={JSON.stringify(SPECULATION_RULES)} />
     {ANALYTICS_ID && <script is:inline defer src={ANALYTICS_SRC} data-website-id={ANALYTICS_ID} data-do-not-track="true" />}
   </head>
   <body class={bare ? 'calc-embed' : ''}>

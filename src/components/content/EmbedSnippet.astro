@@ -1,0 +1,18 @@
+---
+interface Props {
+  slug: string;
+  name: string;
+  height?: number;
+}
+const { slug, name, height = 720 } = Astro.props;
+const code = `<iframe src="https://calcrafty.com/embed/${slug}/" title="${name}" width="100%" height="${height}" style="border:0;max-width:720px" loading="lazy"></iframe>\n<p style="font-size:13px">Powered by <a href="https://calcrafty.com/">Calcrafty</a></p>`;
+---
+
+<details class="disclose panel no-print">
+  <summary>Embed this calculator</summary>
+  <p class="mt-2 text-sm muted">Free to use on your site. Keep the “Powered by Calcrafty” link visible.</p>
+  <label for={`embed-${slug}`} class="sr-only">Embed code for the {name}</label>
+  <div class="input-shell mt-3">
+    <textarea id={`embed-${slug}`} readonly rows="4" class="num" style="font-family:ui-monospace,monospace;font-size:.8rem">{code}</textarea>
+  </div>
+</details>

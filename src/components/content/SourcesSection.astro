@@ -1,0 +1,45 @@
+---
+import type { Source } from '../../lib/types.ts';
+import { longDate } from '../../lib/format.ts';
+
+interface Props {
+  sources: Source[];
+  reviewedBy?: string;
+  lastUpdated: string;
+  status: 'draft' | 'reviewed';
+  ymyl: boolean;
+  kind: 'finance' | 'health' | 'math' | 'everyday';
+}
+const { sources, reviewedBy, lastUpdated, status, ymyl, kind } = Astro.props;
+---
+
+<section aria-labelledby="sources-h" class="prose">
+  <h2 id="sources-h">Sources</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} rel="noopener">
+            {s.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>
+    How we build and check every calculator: <a href="/methodology/">our methodology</a>.
+  </p>
+  <p class="text-sm muted">
+    {status === 'reviewed' && reviewedBy ? <>Reviewed by {reviewedBy} · </> : <>Awaiting expert review · </>}
+    Last updated <time datetime={lastUpdated}>{longDate(lastUpdated)}</time>
+  </p>
+  {
+    ymyl && (
+      <p class="text-sm muted">
+        {kind === 'health'
+          ? 'For educational use only. This calculator gives estimates and is not medical advice, diagnosis or treatment. Talk to a doctor or registered dietitian about your health.'
+          : 'For educational use only. Results are estimates, not financial, tax or legal advice. Confirm figures with a lender, tax professional or financial adviser before you decide.'}
+      </p>
+    )
+  }
+</section>

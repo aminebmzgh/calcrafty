@@ -33,8 +33,11 @@ function assertions({ perf, a11y, bp, seo, lcp, cls }) {
     'categories:performance': ['error', { minScore: perf }],
     'categories:accessibility': ['error', { minScore: a11y }],
     'categories:best-practices': ['error', { minScore: bp }],
-    // Embed and 404 pages are noindex by design, which Lighthouse SEO penalizes; those are checked via validate-seo.
-    'categories:seo': ['error', { minScore: seo, aggregationMethod: 'median-run' }],
+    // SEO: every Lighthouse SEO audit must pass except "is-crawlable", because draft and embed pages are
+    // noindex on purpose (content status gates indexing). validate-seo checks indexability against status.
+    ...Object.fromEntries(
+      ["document-title", "meta-description", "http-status-code", "link-text", "crawlable-anchors", "canonical", "hreflang", "image-alt", "robots-txt"].map((a) => [a, ["error", { minScore: seo }]]),
+    ),
     'largest-contentful-paint': ['error', { maxNumericValue: lcp }],
     'cumulative-layout-shift': ['error', { maxNumericValue: cls }],
     'total-blocking-time': ['error', { maxNumericValue: 150 }],

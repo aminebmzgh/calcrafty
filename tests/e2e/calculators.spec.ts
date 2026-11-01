@@ -5,6 +5,12 @@ import { calculatorUrls } from './pages.ts';
  * Every calculator: loads without console errors, accepts input, updates the result,
  * and its share URL round-trips the inputs.
  */
+/** Widgets hydrate on first interaction: focus the first field, then wait. */
+async function interact(page: Page) {
+  await page.locator('.calc input:visible').first().focus();
+  await page.locator('.calc[data-hydrated="true"]').waitFor();
+}
+
 async function firstEditableNumber(page: Page) {
   const fields = page.locator('.calc input[inputmode="decimal"]:visible, .calc input[inputmode="numeric"]:visible');
   await expect(fields.first()).toBeVisible();
@@ -20,7 +26,7 @@ for (const url of calculatorUrls()) {
         if (m.type() === 'error') errors.push(m.text());
       });
       await page.goto(url);
-      await page.locator('.calc[data-hydrated="true"]').waitFor();
+      await interact(page);
       const headline = page.locator('[data-testid="headline-value"]').first();
       const before = await headline.innerText();
 
@@ -40,7 +46,7 @@ for (const url of calculatorUrls()) {
 
     test('share URL round-trips inputs', async ({ page }) => {
       await page.goto(url);
-      await page.locator('.calc[data-hydrated="true"]').waitFor();
+      await interact(page);
       const custom = page.locator('[data-testid="e2e-input"]');
       if (await custom.count()) {
         await custom.first().fill(await custom.first().getAttribute('data-e2e-value') ?? '1');
@@ -56,6 +62,7 @@ for (const url of calculatorUrls()) {
 
       const fresh = await page.context().newPage();
       await fresh.goto(shared);
+      // Share links hydrate immediately (inputs in the query string).
       await fresh.locator('.calc[data-hydrated="true"]').waitFor();
       await expect(fresh.locator('[data-testid="headline-value"]').first()).toHaveText(expected);
       // Canonical never carries parameters.

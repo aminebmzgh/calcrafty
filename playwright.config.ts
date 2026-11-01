@@ -17,7 +17,7 @@ export default defineConfig({
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
   ],
   webServer: {
-    command: `npx astro preview --port ${PORT}`,
+    command: `npx astro preview --force --port ${PORT}`,
     url: `http://localhost:${PORT}/`,
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

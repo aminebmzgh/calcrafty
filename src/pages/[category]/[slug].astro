@@ -1,0 +1,44 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getEntry, render } from 'astro:content';
+import CalculatorLayout from '../../layouts/CalculatorLayout.astro';
+import { calculators, calcPath, resolvedDefaults } from '../../lib/registry.ts';
+import { categories } from '../../lib/categories.ts';
+
+export const getStaticPaths = (() => calculators.map((c) => ({ params: { category: c.category, slug: c.slug }, props: { slug: c.slug } }))) satisfies GetStaticPaths;
+
+const { slug } = Astro.props;
+const config = calculators.find((c) => c.slug === slug)!;
+const entry = await getEntry('calculators', slug);
+if (!entry) throw new Error(`src/calculators/${slug}/content.mdx is missing`);
+const { Content } = await render(entry);
+
+const path = calcPath(config);
+const initial = resolvedDefaults(config);
+const out = config.compute(initial);
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: categories[config.category].name, path: `/${config.category}/` },
+  { name: config.name, path },
+];
+const lastUpdated = [entry.data.lastReviewed, config.lastReviewed].filter(Boolean).sort().at(-1)!;
+---
+
+<CalculatorLayout
+  config={config}
+  initial={initial}
+  path={path}
+  title={config.metaTitle}
+  description={config.metaDescription}
+  h1={config.h1}
+  intro={config.intro}
+  crumbs={crumbs}
+  answer={config.answerSummary(initial, out)}
+  faq={entry.data.faq}
+  status={entry.data.status}
+  reviewedBy={entry.data.reviewedBy ?? config.reviewedBy}
+  lastUpdated={lastUpdated}
+  howToSteps={entry.data.howTo}
+>
+  <Content />
+</CalculatorLayout>

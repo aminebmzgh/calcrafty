@@ -19,7 +19,7 @@ function load(): AnyCalculatorConfig[] {
   const slugs = new Set(list.map((c) => c.slug));
   for (const c of list) {
     for (const r of c.related) {
-      if (!slugs.has(r)) throw new Error(`${c.slug}: related calculator "${r}" does not exist`);
+      if (!slugs.has(r)) console.warn(`[registry] ${c.slug}: related calculator "${r}" does not exist yet (skipped)`);
       if (r === c.slug) throw new Error(`${c.slug}: lists itself as related`);
     }
     for (const input of c.inputs) {
@@ -35,6 +35,11 @@ export function getCalculator(slug: string): AnyCalculatorConfig {
   const c = calculators.find((x) => x.slug === slug);
   if (!c) throw new Error(`Unknown calculator: ${slug}`);
   return c;
+}
+
+/** Related calculators that exist, in the config order. */
+export function relatedOf(c: AnyCalculatorConfig): AnyCalculatorConfig[] {
+  return c.related.map((s: string) => calculators.find((x) => x.slug === s)).filter((x): x is AnyCalculatorConfig => !!x);
 }
 
 export function byCategory(category: Category): AnyCalculatorConfig[] {

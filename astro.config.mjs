@@ -16,13 +16,8 @@ export default defineConfig({
     format: 'directory',
     inlineStylesheets: 'always',
   },
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'hover',
-  },
-  experimental: {
-    clientPrerender: true,
-  },
+  // Instant navigation uses a static Speculation Rules block in BaseLayout (zero JS); see DECISIONS.md.
+  prefetch: false,
   security: {
     csp: {
       directives: [
@@ -34,11 +29,16 @@ export default defineConfig({
         "base-uri 'self'",
         "form-action 'self'",
       ],
+      // Style attributes (charts, SSR markup) cannot be hashed; script-src stays hash-only.
+      styleDirective: {
+        resources: ["'self'", "'unsafe-inline'"],
+      },
       scriptDirective: {
         resources: ["'self'", ANALYTICS_ORIGIN],
       },
     },
   },
+  markdown: { syntaxHighlight: false },
   integrations: [preact(), mdx(), htaccess()],
   vite: {
     plugins: [tailwindcss()],

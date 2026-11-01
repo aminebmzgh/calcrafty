@@ -32,3 +32,16 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 | decimal.js-light | ~5 KB | Exact decimal money math (required by the brief) |
 | minisearch | ~7 KB | Search, loaded only when the search dialog opens |
 | web-vitals | ~2 KB | Real-user monitoring, loaded only for sampled visits |
+
+## 2026-11-01 (Phase 2)
+
+- **Shared money math in `src/lib/math/money.ts`.** Annuity payment and amortization are used by the mortgage, loan, auto loan and debt calculators, so they live in one tested module that each calculator's `math.ts` builds on. It's still "math lives in math modules only"; UI files have no formulas.
+- **Amortization loop in exact integer cents (BigInt).** The rate is held as an exact fraction and each month's interest is rounded half-up to the cent, which gives exactly what the Decimal version gives (a test cross-checks 300 random loans against a plain Decimal reference). It's about 10× faster, which matters for hydration on slow phones. Payments are still computed with decimal.js-light.
+- **PMI removal.** PMI stops at the earliest of: the balance first scheduled to reach 78% of the original value (Homeowners Protection Act automatic termination), the actual balance reaching 78% (earlier with extra payments), or the midpoint of the term. Borrower-requested cancellation at 80% isn't modelled.
+- **Interaction-driven hydration.** Calculator widgets are fully server-rendered with the default result. A ~1 KB dependency-free bootstrap (`src/scripts/islands-boot.ts`) hydrates on the first focus, pointer, key or click inside the widget, immediately for share links, and otherwise preloads the widget code 2 s after load. A button click that arrives before hydration is held and replayed. Lighthouse on the mortgage page went from Performance 0.83 / TBT 670 ms / LCP 2.0 s to 1.0 / 10 ms / 1.3 s.
+- **Speculation Rules instead of Astro prefetch.** Astro's prefetch script plus `selector_matches` rules cost about 400 ms of main-thread time. A static `<script type="speculationrules">` with `href_matches` and `moderate` eagerness gives native prerender on hover with zero JS. Browsers without Speculation Rules simply navigate normally.
+- **`content-visibility: auto` below the fold** (charts, article, FAQ, sources, footer) with `contain-intrinsic-block-size` only. The two-axis shorthand caused CLS 0.68 by reserving 900 px of width.
+- **CSP `style-src` allows `'unsafe-inline'`.** Hashes can't cover `style="…"` attributes, which SSR markup and charts use. `script-src` stays hash-only, which is where CSP protection matters.
+- **Mobile sticky result bar.** On phones the inputs push the readout below the fold, so a slim fixed bar shows the headline result and hides itself when the full readout is visible. It's `aria-hidden` because the readout itself is the live region.
+- **Expert-review TODOs in MDX use `{/* TODO: expert review */}`.** MDX doesn't support HTML comments.
+- **Related links may point at calculators built later.** The registry warns (instead of failing) for related slugs that don't exist yet and renders only the existing ones; the link checker still fails on any broken link in content.

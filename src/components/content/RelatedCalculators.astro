@@ -1,0 +1,28 @@
+---
+import type { AnyCalculatorConfig } from '../../lib/types.ts';
+import { calcPath } from '../../lib/registry.ts';
+
+interface Props {
+  items: AnyCalculatorConfig[];
+  title?: string;
+}
+const { items, title = 'People usually calculate this next' } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section aria-labelledby="related-h" class="no-print">
+      <h2 id="related-h">{title}</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((c) => (
+          <li>
+            <a class="calc-link" href={calcPath(c)}>
+              <strong>{c.name}</strong>
+              <span>{c.intro}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

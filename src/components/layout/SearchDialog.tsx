@@ -35,8 +35,11 @@ function Search({ initial, onClose }: { initial: string; onClose: () => void }) 
   const dialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    dialog.current?.showModal();
+    const d = dialog.current;
+    d?.showModal();
+    d?.addEventListener('close', onClose);
     loadIndex().then(setData, () => setFailed(true));
+    return () => d?.removeEventListener('close', onClose);
   }, []);
 
   const results = useMemo(() => {
@@ -58,6 +61,10 @@ function Search({ initial, onClose }: { initial: string; onClose: () => void }) 
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       setActive((a) => Math.max(a - 1, 0));
+    } else if (e.key === 'Escape') {
+      // type=search inputs swallow the first Escape to clear the text; close the dialog instead.
+      e.preventDefault();
+      dialog.current?.close();
     } else if (e.key === 'Enter' && results[active]) {
       e.preventDefault();
       go(results[active].url);
@@ -69,7 +76,6 @@ function Search({ initial, onClose }: { initial: string; onClose: () => void }) 
       ref={dialog}
       class="search-dialog"
       aria-label="Search calculators"
-      onClose={onClose}
       onClick={(e) => {
         if (e.target === dialog.current) dialog.current?.close();
       }}
