@@ -726,6 +726,20 @@
     contain: strict;
   }
 
+  .sci-keys {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .sci-key {
+    padding: 0.4rem 0.2rem;
+    font-size: 1rem;
+  }
+  .sci-digit {
+    background: var(--surface-2);
+  }
+
   .search-dialog {
     width: min(40rem, calc(100vw - 2rem));
     margin: 10vh auto auto;

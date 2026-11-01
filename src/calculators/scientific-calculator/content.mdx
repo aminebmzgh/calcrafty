@@ -1,0 +1,85 @@
+---
+status: draft
+howTo:
+  - Type an expression with your keyboard, or tap the keypad buttons.
+  - Choose whether angles are in degrees or radians for trig functions.
+  - Read the answer as you type; the calculator also shows how it read your expression.
+  - Use Copy result to copy the answer, and your recent calculations appear in your history.
+faq:
+  - q: What order does the calculator do operations in?
+    a: The standard mathematical order. Parentheses first, then powers (evaluated right to left, so 2^3^2 = 2^9 = 512), then multiplication and division left to right, then addition and subtraction. A minus sign in front of a power applies after the power, so −2² = −4; type (−2)^2 to get 4.
+  - q: How do I switch between degrees and radians?
+    a: Use the "Angles in" toggle. Degrees are typical in school geometry and everyday angles (a right angle is 90°); radians are used in calculus and physics (a right angle is π/2). In degree mode sin(30) = 0.5; in radian mode sin(π/6) = 0.5.
+  - q: Why does 0.1 + 0.2 show 0.3 here when some calculators show 0.30000000000000004?
+    a: Computers store numbers in binary, where 0.1 can't be represented exactly, which creates tiny errors. Calcrafty shows results to 12 significant digits, the same practical precision as most handheld scientific calculators, which hides that noise without affecting real answers.
+  - q: How do I type powers, roots and logs?
+    a: Use ^ for powers (2^10), sqrt( ) for square roots, cbrt( ) for cube roots, and x^(1/n) for other roots of positive numbers. ln( ) is the natural log and log( ) is base 10; log2( ) is base 2. Type e for Euler's number and pi or π for π. Scientific notation works too, such as 6.02e23.
+  - q: Can I multiply without typing the × sign?
+    a: Yes. Implicit multiplication works the way you'd write it on paper, so 2π, 3(4 + 1), (1 + 2)(3 + 4) and 2sin(30) are all understood. The "Read as" line shows every operator written out so you can confirm the calculator interpreted it the way you meant.
+  - q: What happens if I make a mistake?
+    a: The calculator explains the problem in plain words instead of showing "Error" or NaN, for example a missing parenthesis, division by zero, or the square root of a negative number. Fix the expression and the answer appears immediately.
+---
+
+## How to use this scientific calculator
+
+Type an expression in the box or tap the keys, and the answer updates live. There's no equals button to press. Below the answer, the calculator shows how it read your expression, with every operator written out, so you can catch a misplaced parenthesis before it matters.
+
+- **Keyboard:** type numbers and operators directly. Use `*` for ×, `/` for ÷ and `^` for powers. The `/` key won't open site search while you're typing.
+- **Keypad:** tap buttons to insert functions at the cursor. ⌫ deletes, C clears.
+- **Angles:** switch between degrees and radians for sin, cos, tan and their inverses.
+
+Every calculation can be shared with **Copy link**, and your recent ones are saved privately in your browser's history.
+
+## Worked examples
+
+| Expression | Answer | What it shows |
+|---|---|---|
+| (3 + 4) × 2^3 − sqrt(16) | 52 | Parentheses, then the power, then ×, then − |
+| 2^3^2 | 512 | Powers stack from the right: 2^9 |
+| −2^2 | −4 | The power applies before the minus sign |
+| sin(30) in degrees | 0.5 | Exact values for common angles |
+| sin(π/2) in radians | 1 | The same angle in radians |
+| log(1000) | 3 | Base-10 logarithm |
+| ln(e) | 1 | Natural logarithm |
+| 5! | 120 | 5 × 4 × 3 × 2 × 1 |
+| cbrt(−8) | −2 | Cube roots of negatives are real |
+| 6.02e23 / 1e3 | 6.02e+20 | Scientific notation in and out |
+
+**A practical example:** the hypotenuse of a right triangle with sides 7 and 24 is sqrt(7^2 + 24^2) = sqrt(625) = **25**.
+
+**Compound growth:** $5,000 growing 6% a year for 12 years is 5000 × 1.06^12 ≈ **10,060.98**.
+
+## Functions available
+
+- **Arithmetic:** + − × ÷, parentheses, % (divides by 100), ! (factorial up to 170!)
+- **Powers and roots:** ^, sqrt( ), cbrt( ), exp( )
+- **Logarithms:** ln( ) natural, log( ) base 10, log2( ) base 2
+- **Trigonometry:** sin, cos, tan and asin, acos, atan, in degrees or radians
+- **Hyperbolic:** sinh, cosh, tanh
+- **Rounding and sign:** abs( ), round( ), floor( ), ceil( )
+- **Constants:** π (type pi), e
+
+## How the calculator works
+
+Your expression is broken into numbers, names and operators, then read by a parser that applies the standard precedence rules: parentheses, then postfix ! and %, then powers (right-associative), then negation, then multiplication and division (including implicit multiplication), then addition and subtraction. It never uses a general-purpose "evaluate code" function, so typing anything unusual simply produces a clear message.
+
+Calculations use double-precision floating-point numbers (IEEE 754), the same standard used by spreadsheets and most programming languages, and results are shown to 12 significant digits. In degree mode, sine, cosine and tangent of whole multiples of common angles are cleaned to exact values, so sin(180°) shows 0 rather than a tiny leftover like 1.2 × 10⁻¹⁶. Undefined results, such as tan(90°), are reported rather than shown as huge numbers.
+
+## Common mistakes
+
+- **Negative bases with powers.** −3^2 is −9. If you mean "negative three, squared," type (−3)^2 = 9.
+- **Degrees vs radians.** sin(30) is 0.5 in degrees but about −0.988 in radians. Check the toggle when trig answers look odd.
+- **Missing parentheses with fractions.** 1/2π means (1/2) × π, about 1.571; type 1/(2π) if π belongs in the denominator.
+- **Percent.** 50% is simply 0.5 here. For "what is 20% of 80" or percent change, the percentage calculator is clearer.
+
+## Key terms
+
+- **Order of operations:** the agreed sequence for evaluating an expression.
+- **Radian:** the angle where the arc length equals the radius; 180° = π radians.
+- **Natural logarithm (ln):** the logarithm with base e ≈ 2.71828.
+- **Factorial (n!):** the product of all whole numbers from 1 to n.
+- **Significant digits:** the digits that carry meaning in a number's precision.
+
+## What to do with your result
+
+For everyday percentage questions, the [percentage calculator](/math/percentage-calculator/) explains each answer in words. Work with exact fractions and mixed numbers in the [fraction calculator](/math/fraction-calculator/), or analyze a list of numbers with the [standard deviation calculator](/math/standard-deviation-calculator/). For money that grows over time, the [compound interest calculator](/finance/compound-interest-calculator/) handles deposits and compounding for you.
