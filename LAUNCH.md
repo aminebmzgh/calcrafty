@@ -58,18 +58,9 @@ Optional, for stronger trust signals on health and retirement topics:
 
 To edit a page later: change its MDX file, update `lastReviewed`, commit and push.
 
-### New pages waiting for review (batch 1, 2026-11-01)
+### Growth batch 1 (reviewed 2026-11-01)
 
-Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 1 reviewed" or name the pages.
-
-- [ ] https://calcrafty.com/finance/apr-calculator/
-- [ ] https://calcrafty.com/finance/debt-to-income-ratio-calculator/
-- [ ] https://calcrafty.com/finance/salary-to-hourly-calculator/
-- [ ] https://calcrafty.com/finance/pay-raise-calculator/
-- [ ] https://calcrafty.com/finance/car-affordability-calculator/
-- [ ] https://calcrafty.com/guides/is-refinancing-worth-it/
-
-Check in particular the fee rules in the APR page and the lender guidelines and debt-counting rules in the DTI page (search each file for `TODO: expert review`).
+- [x] APR, debt-to-income ratio, salary to hourly, pay raise and car affordability calculators, and the "Is refinancing worth it?" guide: reviewed by the owner (bank auditor) and indexable.
 
 ### State data (checked 2026-11-01)
 
