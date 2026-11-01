@@ -38,9 +38,9 @@ function assertions({ perf, a11y, bp, seo, lcp, cls }) {
     ...Object.fromEntries(
       ["document-title", "meta-description", "http-status-code", "link-text", "crawlable-anchors", "canonical", "hreflang", "image-alt", "robots-txt"].map((a) => [a, ["error", { minScore: seo }]]),
     ),
-    'largest-contentful-paint': ['error', { maxNumericValue: lcp }],
-    'cumulative-layout-shift': ['error', { maxNumericValue: cls }],
-    'total-blocking-time': ['error', { maxNumericValue: 150 }],
+    'largest-contentful-paint': ['error', { maxNumericValue: lcp, aggregationMethod: 'median' }],
+    'cumulative-layout-shift': ['error', { maxNumericValue: cls, aggregationMethod: 'median' }],
+    'total-blocking-time': ['error', { maxNumericValue: 150, aggregationMethod: 'median' }],
   };
 }
 

@@ -52,6 +52,7 @@ export default function InputField<I extends Record<string, unknown>>({ def, val
           integer={def.integer}
           helpText={help}
           externalError={error}
+          e2eValue={def.e2eValue}
           onValue={(n) => set(def.id, n)}
           toggle={
             t && mode

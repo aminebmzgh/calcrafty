@@ -5,7 +5,7 @@ import { weightLabel } from '../../lib/math/body.ts';
 import { computeBodyFat, convertMeasurements, measurementsIn, type BodyFatInput, type BodyFatOutput } from './math.ts';
 
 const tape = (key: 'neck' | 'waist' | 'hip', label: string, help: string, female = false): InputDef<BodyFatInput>[] => [
-  { id: `${key}In`, label, type: 'number', unit: 'in', min: 5, max: 100, step: 0.25, slider: false, helpText: help, group: 'tape', showIf: (i) => i.units === 'imperial' && (!female || i.sex === 'female') },
+  { id: `${key}In`, label, type: 'number', unit: 'in', min: 5, max: 100, step: 0.25, slider: false, helpText: help, group: 'tape', e2eValue: key === 'waist' ? '38' : undefined, showIf: (i) => i.units === 'imperial' && (!female || i.sex === 'female') },
   { id: `${key}Cm`, label, type: 'number', unit: 'cm', min: 12, max: 250, step: 0.5, slider: false, helpText: help, group: 'tape', showIf: (i) => i.units === 'metric' && (!female || i.sex === 'female') },
 ];
 

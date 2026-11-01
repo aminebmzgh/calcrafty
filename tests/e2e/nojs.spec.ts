@@ -11,7 +11,9 @@ for (const url of builtUrls().filter((u) => !u.startsWith('/embed/'))) {
     await expect(page.locator('h1')).not.toBeEmpty();
     const text = (await page.locator('main').innerText()).trim();
     expect(text.length, 'main content length').toBeGreaterThan(200);
-    expect(text).not.toMatch(/\bNaN\b|\bInfinity\b|undefined/);
+    // Articles may mention "NaN" in prose; only the calculator's own output must never show it.
+    const widget = page.locator('.calc');
+    if (await widget.count()) expect(await widget.first().innerText()).not.toMatch(/\bNaN\b|\bInfinity\b|undefined/);
   });
 }
 

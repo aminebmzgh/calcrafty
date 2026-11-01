@@ -27,6 +27,8 @@ export interface NumberInputProps {
   footer?: ComponentChildren;
   /** Cross-field error from the calculator's validate(). */
   externalError?: string;
+  /** e2e hook: a valid alternative value the test suite types. */
+  e2eValue?: string;
 }
 
 export function rangeMessage(label: string, unit: NumberUnit, min: number, max: number): string {
@@ -91,6 +93,8 @@ export default function NumberInput(p: NumberInputProps) {
           inputMode={p.integer || (p.unit === 'usd' && p.step >= 1) ? 'numeric' : 'decimal'}
           autoComplete="off"
           spellcheck={false}
+          data-testid={p.e2eValue ? 'e2e-input' : undefined}
+          data-e2e-value={p.e2eValue}
           value={text}
           aria-invalid={shown ? true : undefined}
           aria-describedby={describedBy}

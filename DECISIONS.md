@@ -55,3 +55,17 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **Vitest `fsModuleCache: false`.** Vitest 5's on-disk transform cache doesn't invalidate `import.meta.glob` results when new folders appear, so cached tests silently checked only the first 6 calculators. It's disabled in `vitest.config.ts`.
 - **Content gate counts the article body only** (FAQ excluded) toward the 800–1,500 words, matching the brief's page template, where the FAQ is a separate item.
 - **Rent vs buy ignores tax effects** (mortgage interest deduction, home sale exclusion) and says so on the page; most buyers take the standard deduction.
+
+## 2026-11-01 (Phase 4)
+
+- **Health formulas.** BMR: Mifflin-St Jeor (default), revised Harris-Benedict (Roza & Shizgal 1984), Katch-McArdle. Body fat: US Navy (Hodgdon & Beckett 1984, inch form) plus Deurenberg BMI method; ACE categories. Ideal weight: Robinson, Miller, Devine, Hamwi plus the BMI 18.5–24.9 range. Unit conversions use the exact definitions (1 lb = 0.45359237 kg, 1 in = 2.54 cm).
+- **Calorie goals use 3,500 kcal per pound per week** as a planning approximation (stated on the page), with a warning below 1,200 (women) / 1,500 (men) kcal.
+- **Macro calculator reuses the calorie calculator's math** by importing `../calorie-calculator/math.ts`, so the two can never disagree.
+- **Scientific calculator: a hand-written Pratt parser over IEEE-754 doubles**, with no `eval`. Results show 12 significant digits (like handheld calculators), and degree-mode trig snaps values within 1e-12 of zero to exact 0. Decimal arithmetic isn't used here because decimal.js-light has no trigonometry.
+- **Exact arithmetic elsewhere.** Fractions use BigInt; percentages, statistics and GPA use decimal.js-light; the dates library works in UTC calendar days, so time zones never shift a date.
+- **Calendar months clamp to month end** (Jan 31 + 1 month = Feb 28/29). Feb 29 birthdays age on Feb 28 in common years (convention stated on the page).
+- **Business days** exclude US federal holidays per 5 U.S.C. 6103 with the observed-day rule; state and company holidays are out of scope.
+- **GPA weighting** is +0.5 Honors / +1.0 AP-IB (common convention, school policies vary; stated on the page).
+- **e2e hook `e2eValue`** on an input marks the field the generic e2e test should edit, for calculators where the first field doesn't move the headline (body fat) or isn't numeric (dates, text, keypad).
+- **FAQ and HowTo values are always JSON-quoted in frontmatter**, after two unquoted values containing ": " broke Astro's YAML parser. The content test now parses with the same strictness.
+- **Lighthouse assertions use the median of 3 runs** for LCP, CLS and TBT; single runs on this machine vary by about ±0.2 s.
