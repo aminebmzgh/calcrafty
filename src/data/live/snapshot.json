@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T03:31:59.228Z",
+  "generatedAt": "2026-11-01T04:58:52.803Z",
   "series": {
     "mortgage30": {
       "value": 7.24,
@@ -48,6 +48,22 @@
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "RIFLPBCIANM60NM",
       "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+    },
+    "personalLoan24": {
+      "value": 11.9,
+      "asOf": "2026-08-01",
+      "label": "24-month personal loan rate (commercial banks)",
+      "source": "Board of Governors of the Federal Reserve System",
+      "seriesId": "TERMCBPER24NS",
+      "url": "https://fred.stlouisfed.org/series/TERMCBPER24NS"
+    },
+    "creditCard": {
+      "value": 21.19,
+      "asOf": "2026-08-01",
+      "label": "Credit card interest rate, all accounts (commercial banks)",
+      "source": "Board of Governors of the Federal Reserve System",
+      "seriesId": "TERMCBCCALLNS",
+      "url": "https://fred.stlouisfed.org/series/TERMCBCCALLNS"
     }
   }
 }

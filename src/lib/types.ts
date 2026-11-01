@@ -7,7 +7,7 @@
 export type Category = 'finance' | 'health' | 'math' | 'everyday';
 
 /** Keys into src/data/live/snapshot.json that an input can default to. */
-export type LiveKey = 'mortgage30' | 'mortgage15' | 'cpiInflation' | 'treasury10' | 'savingsRate' | 'autoLoan60';
+export type LiveKey = 'mortgage30' | 'mortgage15' | 'cpiInflation' | 'treasury10' | 'savingsRate' | 'autoLoan60' | 'personalLoan24' | 'creditCard';
 
 export type NumberUnit =
   | 'usd'

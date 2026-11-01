@@ -30,6 +30,8 @@ export const SERIES: SeriesSpec[] = [
   { key: 'treasury10', seriesId: 'DGS10', label: '10-year Treasury yield', source: 'Board of Governors of the Federal Reserve System', range: [0, 20], transform: 'level' },
   { key: 'savingsRate', seriesId: 'DTB3', label: '3-month Treasury bill rate', source: 'Board of Governors of the Federal Reserve System', range: [0, 20], transform: 'level' },
   { key: 'autoLoan60', seriesId: 'RIFLPBCIANM60NM', label: '60-month new car loan rate (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [1, 25], transform: 'level' },
+  { key: 'personalLoan24', seriesId: 'TERMCBPER24NS', label: '24-month personal loan rate (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [1, 40], transform: 'level' },
+  { key: 'creditCard', seriesId: 'TERMCBCCALLNS', label: 'Credit card interest rate, all accounts (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [5, 40], transform: 'level' },
 ];
 
 type Obs = { date: string; value: number };
