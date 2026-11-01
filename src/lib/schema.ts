@@ -14,6 +14,7 @@ export function organization(): JsonLdNode {
     logo: { '@type': 'ImageObject', url: SITE.logo, width: 512, height: 512 },
     description: SITE.description,
     email: SITE.email,
+    founder: { '@type': 'Person', name: SITE.founder.name, jobTitle: SITE.founder.jobTitle, url: `${SITE.url}/about/` },
     ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
   };
 }

@@ -34,22 +34,18 @@ The Deploy workflow refreshes rates every Monday 06:00 UTC and redeploys.
 
 (Plausible works too; tell Claude Code to switch the script and CSP domain.)
 
-## 5. Search engines
+## 5. Search engines (done 2026-11-01)
 
-**Google Search Console**
-1. Go to https://search.google.com/search-console → **Add property** → **Domain** → `calcrafty.com`.
-2. Copy the TXT record and add it in hPanel → **Domains → DNS / Nameservers → DNS records** (type TXT, name `@`). Click **Verify**.
-3. **Sitemaps** → submit `https://calcrafty.com/sitemap-index.xml`.
+- [x] Google Search Console verified; `sitemap-index.xml` submitted. "Couldn't fetch" right after submitting is normal and clears within a day or two. The sitemap lists only reviewed pages, so it grows as you review drafts (section 8).
+- [x] Bing Webmaster Tools imported from Search Console.
+- [x] IndexNow: every deploy pings Bing and other IndexNow engines with changed URLs (key file `/4cadaef7ac8aae1d1f5165d207581ea6.txt`).
 
-**Bing Webmaster Tools**
-1. Go to https://www.bing.com/webmasters → **Import from Google Search Console** (easiest), or add the site and verify by DNS.
-2. Submit `https://calcrafty.com/sitemap-index.xml`.
-3. IndexNow is already set up: every deploy pings Bing and other IndexNow engines with changed URLs (key file `/4cadaef7ac8aae1d1f5165d207581ea6.txt`).
+Note: Hostinger's CDN returns 403 to fake "Googlebot" requests from non-Google IPs; real Googlebot is unaffected (check with URL Inspection → Test live URL).
 
 ## 6. About page and contact
 
-- [ ] Add who runs Calcrafty to `src/pages/about.astro` (search for `TODO: owner`): your name, background and why you started it. This matters for trust (E-E-A-T).
-- [ ] Set up the `hello@calcrafty.com` mailbox (hPanel → **Emails**), or change `SITE.email` in `src/lib/site.ts`.
+- [x] About page: built and run by Amine Boumazzoughe (banker, coding enthusiast); also in the Organization schema as `founder`. Add more about why you started it whenever you like.
+- [x] `hello@calcrafty.com` mailbox created.
 - [ ] When official social profiles exist, add their URLs to `SITE.sameAs` in `src/lib/site.ts` (used in Organization schema).
 
 ## 7. Keyword research
