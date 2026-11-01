@@ -1,0 +1,78 @@
+---
+status: draft
+howTo:
+  - Enter what you're starting with and how much you'll invest each month.
+  - Enter the average annual return you expect and how many years you'll invest.
+  - Under More options, set how much you'll raise contributions each year and the inflation rate (it starts at the latest CPI reading).
+  - Read the projected value and its worth in today's dollars, then check the chart and year-by-year table.
+faq:
+  - q: What rate of return should I use?
+    a: It depends on what you invest in and for how long. Diversified stock portfolios have historically earned more than bonds or savings over long periods, but with large swings from year to year, and past returns don't guarantee future ones. Many people plan with a conservative average and test a lower one too; the compare feature makes that easy.
+  - q: Why does the calculator show a value in today's dollars?
+    a: Because prices rise. A balance of $472,117 in 25 years won't buy what $472,117 buys today. At 3% average inflation it has the buying power of about $225,486 now. Planning in today's dollars keeps goals like retirement income realistic.
+  - q: How much difference does raising my contributions make?
+    a: A lot over long periods. Investing $400 a month at 6.5% for 25 years grows to about $375,378 with flat contributions. Raising the contribution 3% a year, roughly in line with typical pay raises, grows it to about $472,117, around $97,000 more.
+  - q: Does this calculator include taxes and fees?
+    a: No. Enter a return that's already net of fund fees, such as an expense ratio, if you want them reflected. Taxes depend on the account type. Growth in a 401(k) or traditional IRA is taxed when withdrawn, Roth accounts can be tax-free, and taxable brokerage accounts owe tax on dividends and gains as they happen.
+  - q: Is it better to invest a lump sum or monthly?
+    a: Research on historical markets has found that investing a lump sum right away has more often come out ahead, because markets have risen more often than they've fallen. Investing monthly (dollar-cost averaging) reduces the regret of bad timing and is how most people invest anyway, straight from each paycheck.
+  - q: How are returns compounded in this calculator?
+    a: The annual return is applied as a nominal rate compounded monthly, and contributions are added at the end of each month. The result is an estimate that assumes the same average return every year; real portfolios will end higher or lower depending on the order of good and bad years.
+---
+
+## How to use this investment calculator
+
+Enter a starting amount, a monthly contribution, an expected return and a time frame. The projected balance, the share that comes from growth and the value in today's dollars all update as you type.
+
+1. **Starting amount.** What's already invested, or 0.
+2. **Monthly contribution.** What you'll add each month, for example through a 401(k) or an automatic transfer to a brokerage account.
+3. **Expected annual return.** Use an average you're comfortable planning with, after fund fees.
+4. **Years to grow.** How long until you need the money.
+5. **More options.** Raise contributions each year to match pay raises, and set inflation. The inflation default is the latest 12-month change in the Consumer Price Index from the Bureau of Labor Statistics.
+
+## Worked example: $15,000 plus $400 a month for 25 years
+
+A 35-year-old has $15,000 invested, adds $400 a month, raises the contribution 3% each year and plans with a 6.5% average annual return and 3% inflation.
+
+- **Projected value at 60:** **$472,116.99**
+- **Total contributed:** $190,004.47
+- **Investment growth:** $282,112.52, which is 59.8% of the final balance
+- **Monthly contribution in year 25:** $813.12
+- **In today's dollars:** **$225,485.70**
+
+Three what-ifs show what drives the result:
+
+| Change | Projected value |
+|---|---|
+| As planned | $472,116.99 |
+| No yearly increase in contributions | $375,377.58 |
+| Returns average 4.5% instead of 6.5% | $347,368.51 |
+| Invest for 15 years instead of 25 | $184,965.19 |
+
+Cutting the time in half cuts the result by more than half, because the last years of compounding add the most dollars.
+
+## How the projection is calculated in plain English
+
+Each month, the balance earns one month of return and then the contribution is added:
+
+**balance = balance × (1 + r ÷ 12) + contribution**
+
+At the start of each new year, the contribution rises by the percentage you chose. After the final month, the projected balance is converted to today's dollars by dividing by (1 + inflation)^years. With no contributions this reduces to the classic compound growth formula, A = P(1 + r ÷ 12)^(12t).
+
+The projection uses a steady average return. Real markets don't move in a straight line, so treat the result as a planning estimate, and test lower returns too.
+
+## Key terms
+
+- **Rate of return:** the yearly percentage gain on an investment, including dividends reinvested.
+- **Compounding:** growth earning further growth.
+- **Real vs nominal value:** nominal is the future dollar amount; real is what it's worth in today's prices.
+- **Expense ratio:** a fund's yearly fee as a percentage of your balance; it comes straight out of returns.
+- **Dollar-cost averaging:** investing a fixed amount on a schedule regardless of market prices.
+
+## What to do with your result
+
+If the projection is meant for retirement, test it with the [retirement calculator](/finance/retirement-calculator/), which adds your age, income needs and withdrawals. To find the monthly amount needed for a specific target, use the [savings goal calculator](/finance/savings-goal-calculator/). For money you'll need within a few years, a savings account or CD is usually more suitable; model it with the [compound interest calculator](/finance/compound-interest-calculator/).
+
+Raising contributions with each raise is one of the easiest wins. Check what a 1% bump costs per paycheck with the [paycheck calculator](/finance/paycheck-calculator/); because 401(k) contributions are pre-tax, it costs less take-home pay than you'd expect.
+
+{/* TODO: expert review: confirm wording on historical returns and lump-sum research (avoid implying guarantees). */}

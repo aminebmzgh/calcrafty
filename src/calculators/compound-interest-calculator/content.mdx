@@ -1,0 +1,73 @@
+---
+status: draft
+howTo:
+  - Enter your starting balance and how much you'll add each month.
+  - Enter the annual interest rate. It starts at the 3-month Treasury bill yield, a benchmark for high-yield savings.
+  - Enter the number of years and choose how often interest compounds.
+  - Under More options, choose whether deposits are made at the start or end of each month.
+  - Read the final balance and interest earned, then open the year-by-year table.
+faq:
+  - q: What is the compound interest formula?
+    a: For a single deposit, A = P(1 + r/n)^(nt), where P is the starting amount, r is the annual rate as a decimal, n is the number of compounding periods per year and t is the number of years. With regular deposits, each deposit grows the same way from the month it's made, and the calculator adds them all up month by month.
+  - q: How much does compounding frequency matter?
+    a: Less than most people think. $5,000 plus $150 a month at 4.5% for 15 years grows to $48,307.93 compounded daily, $48,269.98 monthly and $47,853.19 annually. The rate itself and how long you leave the money matter far more than daily versus monthly compounding.
+  - q: What's the difference between APR and APY?
+    a: APR is the stated annual rate before compounding. APY is what you actually earn in a year once compounding is included, so it's always equal to or higher than the APR. A 4.5% rate compounded daily has an APY of about 4.60%. US banks must quote APY on savings accounts under the Truth in Savings Act, which makes it the right number for comparing them.
+  - q: How long does it take to double my money?
+    a: Divide 72 by the interest rate for a quick estimate (the Rule of 72). At 4.5%, that's 16 years. The exact figure at 4.5% compounded daily is 15.4 years, which the calculator shows in the explanation. Regular deposits get you to any target much sooner.
+  - q: Is compound interest calculated daily or monthly on savings accounts?
+    a: Most US high-yield savings accounts compound interest daily and pay it into your account monthly. CDs vary; some compound daily, others monthly or quarterly. Check the account's Truth in Savings disclosure, then choose the matching option here.
+  - q: Does this include taxes or inflation?
+    a: No. Interest in a regular savings account is taxed as ordinary income each year, which lowers the real growth, and inflation reduces what the final balance can buy. Use the investment calculator to see a balance in today's dollars, adjusted by current inflation.
+---
+
+## How to use this compound interest calculator
+
+Enter a starting balance, a monthly deposit, a rate and a number of years. The final balance, total interest and APY update as you type, and the chart shows how much of the balance is your money versus interest.
+
+1. **Starting balance.** What you have saved today. Use 0 if you're starting from scratch.
+2. **Monthly deposit.** How much you'll add every month.
+3. **Interest rate.** The default is the current 3-month Treasury bill yield from the Federal Reserve, a useful benchmark for what high-yield savings accounts and money market funds pay. Enter your bank's rate for a precise answer.
+4. **Compounded.** Daily is typical for savings accounts; CDs may compound monthly or quarterly.
+5. **Deposit timing.** Under **More options**, choose start-of-month deposits if you save on payday at the beginning of the month; they earn one extra month of interest.
+
+## Worked example: $5,000 plus $150 a month for 15 years
+
+Someone puts $5,000 into a high-yield savings account paying 4.5% compounded daily and adds $150 at the end of every month for 15 years.
+
+- **Total deposited:** $5,000 + ($150 × 180 months) = **$32,000**
+- **Interest earned:** **$16,307.93**
+- **Final balance:** **$48,307.93**
+- **APY:** 4.6025%
+
+In the first year the account earns $267.79 in interest. In the fifteenth year it earns $2,082.35, nearly eight times as much, even though the rate never changed. That's compounding: interest is paid on past interest, so growth speeds up as the balance grows.
+
+Without the monthly deposits, the $5,000 would grow to only $9,819.76. Leaving the plan running for 30 years instead of 15 turns $59,000 of deposits into $133,362.60, with interest ($74,362.60) larger than everything deposited.
+
+## The compound interest formula in plain English
+
+Each period, interest is added to the balance, and the next period's interest is calculated on that larger balance.
+
+**A = P × (1 + r ÷ n)^(n × t)**
+
+- **P** is the starting balance and **t** the number of years.
+- **r** is the annual rate as a decimal (4.5% = 0.045).
+- **n** is how many times a year interest compounds (365 for daily, 12 for monthly).
+
+Because deposits arrive monthly, Calcrafty steps through every month using the monthly rate that's exactly equivalent to your compounding choice, m = (1 + r ÷ n)^(n ÷ 12) − 1, and adds each deposit when it's made. For continuous compounding, m = e^(r ÷ 12) − 1. The **Show the math** panel shows m and each part of the balance with your numbers.
+
+## Key terms
+
+- **Principal:** the money you start with.
+- **Compounding:** earning interest on previously earned interest.
+- **APY (annual percentage yield):** the real one-year return including compounding.
+- **Rule of 72:** 72 ÷ rate ≈ years to double.
+- **Annuity due vs ordinary annuity:** deposits at the start versus the end of each period.
+
+## What to do with your result
+
+Shop the rate: a difference of one percentage point compounds into thousands over a decade. Set a concrete target and see the monthly amount it needs with the [savings goal calculator](/finance/savings-goal-calculator/). For money you won't need for many years, the [investment calculator](/finance/investment-calculator/) models higher long-term returns and shows the result in today's dollars, and the [retirement calculator](/finance/retirement-calculator/) checks whether you're on track.
+
+Compounding works against you on debt, too. A credit card at 21% doubles an unpaid balance in under four years; the [credit card payoff calculator](/finance/credit-card-payoff-calculator/) shows how to get ahead of it.
+
+{/* TODO: expert review: confirm savings account compounding conventions and Truth in Savings wording. */}
