@@ -1,0 +1,201 @@
+---
+/**
+ * State calculator pages (/finance/mortgage-calculator/texas/, /finance/paycheck-calculator/texas/).
+ * Generated only for states with complete, sourced data in src/data/static/states.ts.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getEntry } from 'astro:content';
+import CalculatorLayout from '../../../layouts/CalculatorLayout.astro';
+import { calculators, calcPath, resolvedDefaults } from '../../../lib/registry.ts';
+import { categories } from '../../../lib/categories.ts';
+import { relatedStates, stateDescription, stateTitle } from '../../../lib/states.ts';
+import { STATES, US_AVERAGE, type StateInfo } from '../../../data/static/states.ts';
+import { live, formatAsOf } from '../../../data/live/index.ts';
+import { pct, usd } from '../../../lib/format.ts';
+import { computeMortgage } from '../../../calculators/mortgage-calculator/math.ts';
+import { computePaycheck } from '../../../calculators/paycheck-calculator/math.ts';
+
+export const getStaticPaths = (() =>
+  calculators
+    .filter((c) => c.statePages)
+    .flatMap((c) => STATES.map((s) => ({ params: { category: c.category, slug: c.slug, state: s.slug }, props: { calcSlug: c.slug, stateSlug: s.slug } })))) satisfies GetStaticPaths;
+
+const config = calculators.find((c) => c.slug === Astro.props.calcSlug)!;
+const s: StateInfo = STATES.find((x) => x.slug === Astro.props.stateSlug)!;
+const kind = config.statePages!.kind;
+const entry = await getEntry('calculators', config.slug);
+const base = resolvedDefaults(config);
+const path = `${calcPath(config)}${s.slug}/`;
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: categories[config.category].name, path: `/${config.category}/` },
+  { name: config.name, path: calcPath(config) },
+  { name: s.name, path },
+];
+const rate = live.series.mortgage30;
+
+// ---------- Mortgage ----------
+const m = s.mortgage;
+const mortgageInitial = { ...base, homePrice: m.medianHomeValue, propertyTaxRate: m.propertyTaxRate, homeInsurance: m.insurance };
+const mOut = kind === 'mortgage' ? computeMortgage(mortgageInitial as Parameters<typeof computeMortgage>[0]) : null;
+const downRows = kind === 'mortgage' ? [5, 10, 20].map((d) => ({ d, o: computeMortgage({ ...(mortgageInitial as Parameters<typeof computeMortgage>[0]), downPayment: d, downMode: 'percent' }) })) : [];
+
+// ---------- Paycheck ----------
+const payInitial = { ...base, state: s.slug };
+const salaries = [40_000, 60_000, 80_000, 100_000, 150_000];
+const payRows =
+  kind === 'paycheck'
+    ? salaries.map((salary) => {
+        const here = computePaycheck({ ...(payInitial as Parameters<typeof computePaycheck>[0]), salary, retirementPct: 0 });
+        const noTax = computePaycheck({ ...(payInitial as Parameters<typeof computePaycheck>[0]), salary, retirementPct: 0, state: '', stateRate: 0 });
+        return { salary, here, diff: noTax.netAnnual - here.netAnnual };
+      })
+    : [];
+const pOut = kind === 'paycheck' ? computePaycheck(payInitial as Parameters<typeof computePaycheck>[0]) : null;
+
+const initial = kind === 'mortgage' ? mortgageInitial : payInitial;
+const h1 = kind === 'mortgage' ? `${s.name} Mortgage Calculator` : `${s.name} Paycheck Calculator`;
+const intro =
+  kind === 'mortgage'
+    ? `Your monthly ${s.name} mortgage payment with local property tax, ${s.name}’s average homeowners insurance and this week’s rate.`
+    : `Your 2026 take-home pay in ${s.name} after federal and state taxes, Social Security, Medicare and payroll deductions.`;
+const answer =
+  kind === 'mortgage'
+    ? `In ${m.county}, ${s.name}, a median-priced ${usd(m.medianHomeValue)} home with 20% down at ${pct(base.interestRate as number)} costs about ${usd(mOut!.totalMonthly)} a month, including ${pct(m.propertyTaxRate)} property tax and ${usd(m.insurance)} a year of insurance.`
+    : `On a ${usd(pOut!.grossAnnual)} salary in ${s.name}, a single filer paid every two weeks with 5% to a 401(k) takes home about ${usd(pOut!.netPerPeriod, true)} per paycheck, with ${usd(pOut!.stateAndLocal)} a year in ${s.name} state taxes.`;
+
+const faq =
+  kind === 'mortgage'
+    ? [
+        { q: `What is the property tax rate in ${s.name}?`, a: `It depends on the county and city. In ${m.county}, the state’s most populous county, the effective rate on owner-occupied homes is ${pct(m.propertyTaxRate)} (Tax Foundation, 2024 Census data), with a median bill of ${m.medianPropertyTax ? usd(m.medianPropertyTax) : 'over $10,000'} a year on a median home worth ${usd(m.medianHomeValue)}.` },
+        { q: `How much is homeowners insurance in ${s.name}?`, a: `The average HO-3 homeowners policy in ${s.name} cost ${usd(m.insurance)} a year in 2022, according to the NAIC, compared with ${usd(US_AVERAGE.insurance)} nationally. Your premium depends on the home’s value, age, location and coverage.` },
+        { q: `What is the monthly payment on a median-priced home in ${m.county}?`, a: `With 20% down at ${pct(base.interestRate as number)} for 30 years, a ${usd(m.medianHomeValue)} home costs about ${usd(mOut!.monthlyPI)} a month in principal and interest, plus ${usd(mOut!.monthlyTax)} property tax and ${usd(mOut!.monthlyInsurance)} insurance, about ${usd(mOut!.totalMonthly)} in total.` },
+        { q: `Do ${s.name} mortgage rates differ from the national average?`, a: `Rates vary more by borrower than by state: credit score, down payment, loan type and points matter most. This calculator starts with the national Freddie Mac average (${pct(rate.value)} as of ${formatAsOf(rate.asOf)}); replace it with a quote from a ${s.name} lender.` },
+        { q: `How much should I budget beyond the mortgage payment in ${s.name}?`, a: `Plan for closing costs at purchase, often 2% to 5% of the price, plus maintenance of around 1% of the home’s value a year. ${s.mortgage.notes[1]!.split('. ')[0]}.` },
+      ]
+    : [
+        { q: `Does ${s.name} have a state income tax?`, a: s.paycheck.summary },
+        { q: `How much is taken out of a paycheck in ${s.name}?`, a: `On a ${usd(pOut!.grossAnnual)} salary, a single filer paid biweekly with 5% to a 401(k) pays about ${usd(pOut!.federalTax)} in federal income tax, ${usd(pOut!.fica)} in Social Security and Medicare, and ${usd(pOut!.stateAndLocal)} in ${s.name} taxes a year, keeping ${usd(pOut!.netAnnual)}.` },
+        { q: `What is the take-home pay on $100,000 in ${s.name}?`, a: `A single filer earning $100,000 in ${s.name}, with no 401(k) or other deductions, takes home about ${usd(payRows.find((r) => r.salary === 100_000)!.here.netAnnual)} a year, or ${usd(payRows.find((r) => r.salary === 100_000)!.here.netPerPeriod, true)} every two weeks.` },
+        { q: `Are there local income taxes in ${s.name}?`, a: s.paycheck.local.length ? s.paycheck.local.map((l) => `${l.place}: ${l.detail}`).join(' ') : `No. ${s.name} cities and counties don’t levy income taxes on wages, so take-home pay depends only on federal and state rules.` },
+        { q: `How accurate is this ${s.name} paycheck estimate?`, a: `It uses 2026 federal brackets and ${s.name}’s 2026 tax rules for a full year of pay. Actual paychecks can differ because of W-4 and state withholding choices, bonuses, benefits and mid-year changes. Compare it with your pay stub.` },
+      ];
+
+const others = relatedStates(s.slug);
+const lastUpdated = [entry?.data.lastReviewed, config.lastReviewed].filter(Boolean).sort().at(-1)!;
+const extraSources =
+  kind === 'mortgage'
+    ? [
+        { title: 'Tax Foundation: Property Taxes by State and County (2024 Census ACS 5-year data)', url: 'https://taxfoundation.org/data/all/state/property-taxes-by-state-county/' },
+        { title: 'Insurance Information Institute: average homeowners premiums by state (NAIC, 2022)', url: 'https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance' },
+      ]
+    : [{ title: 'Tax Foundation: State Individual Income Tax Rates and Brackets, 2026', url: 'https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/' }];
+---
+
+<CalculatorLayout
+  config={config}
+  initial={initial}
+  path={path}
+  title={stateTitle(kind, s)}
+  description={stateDescription(kind, s)}
+  h1={h1}
+  intro={intro}
+  crumbs={crumbs}
+  answer={answer}
+  faq={faq}
+  status={entry?.data.status ?? 'draft'}
+  reviewedBy={entry?.data.reviewedBy}
+  lastUpdated={lastUpdated}
+  extraSources={extraSources}
+>
+  {
+    kind === 'mortgage' && mOut && (
+      <>
+        <h2>Property taxes and insurance in {s.name}</h2>
+        {s.mortgage.notes.map((n) => (
+          <p>{n}</p>
+        ))}
+        <h2>
+          What a median {m.county} home costs each month
+        </h2>
+        <p>
+          The median owner-occupied home in {m.county} is worth {usd(m.medianHomeValue)}, and the median property tax bill is {m.medianPropertyTax ? usd(m.medianPropertyTax) : 'over $10,000'} a year, an effective rate of {pct(m.propertyTaxRate)}. Here’s the monthly payment at {pct(base.interestRate as number)} for 30 years with {s.name}’s average insurance of {usd(m.insurance)} a year:
+        </p>
+        <table>
+          <thead>
+            <tr><th>Down payment</th><th>Loan</th><th>Principal & interest</th><th>Tax + insurance + PMI</th><th>Total monthly</th></tr>
+          </thead>
+          <tbody>
+            {downRows.map(({ d, o }) => (
+              <tr><td>{d}% ({usd(o.downPaymentAmount)})</td><td>{usd(o.loanAmount)}</td><td>{usd(o.monthlyPI)}</td><td>{usd(o.monthlyNonPI)}</td><td><strong>{usd(o.totalMonthly)}</strong></td></tr>
+            ))}
+          </tbody>
+        </table>
+        <h2>{s.name} compared with the national average</h2>
+        <p>
+          {s.name}’s average homeowners insurance premium of {usd(m.insurance)} a year is {m.insurance > US_AVERAGE.insurance ? `${usd(m.insurance - US_AVERAGE.insurance)} more` : `${usd(US_AVERAGE.insurance - m.insurance)} less`} than the US average of {usd(US_AVERAGE.insurance)} (NAIC, 2022), or about {usd(Math.abs(m.insurance - US_AVERAGE.insurance) / 12)} a month {m.insurance > US_AVERAGE.insurance ? 'more' : 'less'} on your payment. Property tax rates vary too much by county for a single national comparison; {m.county}’s {pct(m.propertyTaxRate)} rate means about {usd(mOut.monthlyTax)} a month on a median home.
+        </p>
+        <p>
+          Use the calculator above with your own price, down payment and quoted rate. For the full explanation of the formula, PMI and amortization, see the main <a href={calcPath(config)}>mortgage calculator</a>.
+        </p>
+      </>
+    )
+  }
+  {
+    kind === 'paycheck' && pOut && (
+      <>
+        <h2>How {s.name} taxes your paycheck</h2>
+        <p>{s.paycheck.summary}</p>
+        {s.paycheck.notes.map((n) => (
+          <p>{n}</p>
+        ))}
+        {s.paycheck.local.length > 0 && (
+          <>
+            <h3>Local income taxes</h3>
+            <ul>
+              {s.paycheck.local.map((l) => (
+                <li>
+                  <strong>{l.place}:</strong> {l.detail}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        <h2>Take-home pay in {s.name} by salary</h2>
+        <p>Single filer, paid every two weeks, no 401(k) or other pre-tax deductions, 2026 rules:</p>
+        <table>
+          <thead>
+            <tr><th>Salary</th><th>{s.name} taxes</th><th>Take-home per year</th><th>Per paycheck</th></tr>
+          </thead>
+          <tbody>
+            {payRows.map((r) => (
+              <tr><td>{usd(r.salary)}</td><td>{usd(r.here.stateAndLocal)}</td><td>{usd(r.here.netAnnual)}</td><td>{usd(r.here.netPerPeriod, true)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+        <h2>{s.name} compared with a state without income tax</h2>
+        <p>
+          {s.paycheck.noIncomeTax
+            ? `Because ${s.name} has no state income tax, take-home pay here matches the national baseline: only federal income tax, Social Security and Medicare apply. On $80,000, that’s about ${usd(payRows.find((r) => r.salary === 80_000)!.here.netAnnual)} a year.`
+            : `Compared with a state with no income tax, a single filer in ${s.name} keeps ${usd(payRows.find((r) => r.salary === 60_000)!.diff)} less a year on $60,000 and ${usd(payRows.find((r) => r.salary === 100_000)!.diff)} less on $100,000. Federal taxes are the same in every state.`}
+        </p>
+        <p>
+          For a step-by-step explanation of federal withholding, FICA and 401(k) effects, see the main <a href={calcPath(config)}>paycheck calculator</a>.
+        </p>
+      </>
+    )
+  }
+  <h2>{config.name.replace(' Calculator', '')} calculators for other states</h2>
+  <ul class="flex flex-wrap gap-2" style="list-style:none;padding-left:0">
+    {
+      others.map((o) => (
+        <li style="margin-top:0">
+          <a class="chip" href={`${calcPath(config)}${o.slug}/`}>{o.name} {config.name.toLowerCase()}</a>
+        </li>
+      ))
+    }
+    <li style="margin-top:0">
+      <a class="chip" href={`${calcPath(config)}states/`}>All states</a>
+    </li>
+  </ul>
+</CalculatorLayout>

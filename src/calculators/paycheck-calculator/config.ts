@@ -2,6 +2,7 @@ import type { CalculatorConfig } from '../../lib/types.ts';
 import { pct, usd } from '../../lib/format.ts';
 import { TAX_2026_SOURCES, STANDARD_DEDUCTION_2026, TAX_YEAR } from '../../data/static/tax-2026.ts';
 import { computePaycheck, type PaycheckInput, type PaycheckOutput } from './math.ts';
+import { getState, STATES } from '../../data/static/states.ts';
 
 const FREQ_LABEL = { weekly: 'weekly', biweekly: 'every two weeks', semimonthly: 'twice a month', monthly: 'monthly' } as const;
 const STATUS_LABEL = { single: 'single', mfj: 'married filing jointly', hoh: 'head of household' } as const;
@@ -55,7 +56,15 @@ const config: CalculatorConfig<PaycheckInput, PaycheckOutput> = {
       ],
     },
     { id: 'retirementPct', label: '401(k) contribution', type: 'number', unit: 'percent', min: 0, max: 100, step: 1, sliderMax: 30, helpText: 'Traditional (pre-tax) 401(k) or 403(b), % of gross pay. Capped at the 2026 limit of $24,500.' },
-    { id: 'stateRate', label: 'State income tax', type: 'number', unit: 'percent', min: 0, max: 15, step: 0.1, sliderMax: 10, helpText: 'Your effective state rate. Use 0 for states with no income tax, or pick your state below for exact brackets.' },
+    {
+      id: 'state',
+      label: 'State',
+      type: 'select',
+      options: [{ value: '', label: 'Other state (enter a rate)' }, ...STATES.map((st) => ({ value: st.slug, label: st.name }))],
+      helpText: 'Listed states use their 2026 brackets, deductions and payroll taxes.',
+    },
+    { id: 'stateRate', label: 'State income tax rate', type: 'number', unit: 'percent', min: 0, max: 15, step: 0.1, sliderMax: 10, showIf: (i) => i.state === '', helpText: 'Your effective state rate. Use 0 for states with no income tax.' },
+    { id: 'localRate', label: 'City or county income tax', type: 'number', unit: 'percent', min: 0, max: 10, step: 0.01, sliderMax: 5, advanced: true, helpText: 'For example NYC, Philadelphia, Detroit or Ohio cities. Leave at 0 if none.' },
     { id: 'preTaxAnnual', label: 'Pre-tax benefits per year', type: 'number', unit: 'usd', min: 0, max: 100_000, step: 100, sliderMax: 20_000, advanced: true, helpText: 'Health, dental and vision premiums, HSA and FSA through payroll (section 125). These lower income tax and FICA.' },
   ],
   defaults: {
@@ -67,7 +76,9 @@ const config: CalculatorConfig<PaycheckInput, PaycheckOutput> = {
     filingStatus: 'single',
     retirementPct: 5,
     preTaxAnnual: 0,
+    state: '',
     stateRate: 0,
+    localRate: 0,
   },
   compute: (i) => computePaycheck(i),
   summarize: (i, o) => ({
@@ -117,7 +128,7 @@ const config: CalculatorConfig<PaycheckInput, PaycheckOutput> = {
     },
   ],
   answerSummary: (i, o) =>
-    `On a ${usd(o.grossAnnual)} salary, a ${STATUS_LABEL[i.filingStatus]} filer paid ${FREQ_LABEL[i.payFrequency]} takes home about ${usd(o.netPerPeriod, true)} per paycheck (${usd(o.netAnnual)} a year) in ${TAX_YEAR}, before state income tax.`,
+    `On a ${usd(o.grossAnnual)} salary, a ${STATUS_LABEL[i.filingStatus]} filer paid ${FREQ_LABEL[i.payFrequency]} takes home about ${usd(o.netPerPeriod, true)} per paycheck (${usd(o.netAnnual)} a year) in ${TAX_YEAR}${getState(i.state) ? ` in ${getState(i.state)!.name}, after state taxes` : ', before state income tax'}.`,
   ogValue: (_i, o) => `${usd(o.netPerPeriod)}/check`,
   related: ['mortgage-affordability-calculator', 'retirement-calculator', 'savings-goal-calculator', 'debt-payoff-calculator', 'mortgage-calculator'],
   statePages: { kind: 'paycheck' },

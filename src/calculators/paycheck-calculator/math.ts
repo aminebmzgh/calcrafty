@@ -7,7 +7,8 @@
  */
 import { cents, D } from '../../lib/math/money.ts';
 import { bracketTax, type BracketSlice } from '../../lib/math/tax.ts';
-import { FEDERAL_BRACKETS_2026, FICA_2026, STANDARD_DEDUCTION_2026, RETIREMENT_LIMITS_2026, type Brackets, type FilingStatus } from '../../data/static/tax-2026.ts';
+import { FEDERAL_BRACKETS_2026, FICA_2026, STANDARD_DEDUCTION_2026, RETIREMENT_LIMITS_2026, type FilingStatus } from '../../data/static/tax-2026.ts';
+import { getState, type StateTaxSchedule } from '../../data/static/states.ts';
 
 export type PayFrequency = 'weekly' | 'biweekly' | 'semimonthly' | 'monthly';
 
@@ -24,20 +25,14 @@ export interface PaycheckInput extends Record<string, unknown> {
   retirementPct: number;
   /** Section 125 pre-tax deductions per year (health premiums, HSA via payroll). Reduce income tax and FICA. */
   preTaxAnnual: number;
-  /** Flat effective state income tax rate, % (used when no state schedule is given). */
+  /** State slug from src/data/static/states.ts, or '' to use the flat stateRate. */
+  state: string;
+  /** Flat effective state income tax rate, % (used when no state is selected). */
   stateRate: number;
+  /** Flat local (city/county) income tax rate on wages, %. */
+  localRate: number;
 }
 
-/** Optional state income tax schedule (state pages). */
-export interface StateSchedule {
-  brackets: Brackets;
-  standardDeduction: number;
-  /** Employee payroll taxes as a % of wages (e.g. SDI, PFML), with an optional wage cap. */
-  payroll?: { name: string; rate: number; wageCap?: number }[];
-  /** Flat local tax rate on wages (e.g. a city wage tax), %. */
-  localRate?: number;
-  localName?: string;
-}
 
 export interface PaycheckOutput {
   periods: number;
@@ -88,7 +83,23 @@ export function medicareTax(ficaWages: number): number {
   return cents(base.plus(extra)).toNumber();
 }
 
-export function computePaycheck(input: PaycheckInput, state?: StateSchedule): PaycheckOutput {
+/** State income tax and payroll taxes under a state's 2026 schedule. */
+export function stateTaxes(sch: StateTaxSchedule, status: FilingStatus, wages: { agi: number; fica: number; preTaxOnly: number }) {
+  const k = status === 'mfj' ? 'mfj' : 'single';
+  const base = sch.retirementTaxable ? wages.preTaxOnly : wages.agi;
+  const taxable = Math.max(0, base - sch.standardDeduction[k] - sch.exemption[k]);
+  const tax = Math.max(0, cents(D(bracketTax(taxable, sch.brackets[k]).tax).minus(sch.credit[k])).toNumber());
+  let payroll = D(0);
+  for (const p of sch.payroll) {
+    const amt = D(wages.fica).times(p.rate).div(100);
+    payroll = payroll.plus(p.maxAnnual !== undefined ? capAt(amt, p.maxAnnual) : amt);
+  }
+  return { taxable, tax, payroll: cents(payroll).toNumber() };
+}
+
+const capAt = (a: ReturnType<typeof D>, b: number) => (a.gt(b) ? D(b) : a);
+
+export function computePaycheck(input: PaycheckInput): PaycheckOutput {
   const periods = PERIODS[input.payFrequency];
   const gross = grossAnnualOf(input);
   const retirement = cents(Math.min(D(gross).times(input.retirementPct).div(100).toNumber(), RETIREMENT_LIMITS_2026.elective401k)).toNumber();
@@ -101,16 +112,17 @@ export function computePaycheck(input: PaycheckInput, state?: StateSchedule): Pa
   const socialSecurity = socialSecurityTax(ficaWages);
   const medicare = medicareTax(ficaWages);
 
+  const st = input.state ? getState(input.state) : undefined;
   let stateTax: number;
   let statePayroll = 0;
-  let localTax = 0;
-  if (state) {
-    stateTax = bracketTax(Math.max(0, agiWages - state.standardDeduction), state.brackets).tax;
-    for (const p of state.payroll ?? []) statePayroll += cents(D(p.wageCap ? Math.min(ficaWages, p.wageCap) : ficaWages).times(p.rate).div(100)).toNumber();
-    if (state.localRate) localTax = cents(D(agiWages).times(state.localRate).div(100)).toNumber();
+  if (st) {
+    const t = stateTaxes(st.paycheck.schedule, input.filingStatus, { agi: agiWages, fica: ficaWages, preTaxOnly: Math.max(0, gross - preTax) });
+    stateTax = t.tax;
+    statePayroll = t.payroll;
   } else {
     stateTax = cents(D(agiWages).times(input.stateRate).div(100)).toNumber();
   }
+  const localTax = cents(D(agiWages).times(input.localRate).div(100)).toNumber();
 
   const totalTax = cents(D(fed.tax).plus(socialSecurity).plus(medicare).plus(stateTax).plus(statePayroll).plus(localTax)).toNumber();
   const netAnnual = cents(D(gross).minus(totalTax).minus(retirement).minus(preTax)).toNumber();

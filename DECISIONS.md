@@ -69,3 +69,12 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **e2e hook `e2eValue`** on an input marks the field the generic e2e test should edit, for calculators where the first field doesn't move the headline (body fat) or isn't numeric (dates, text, keypad).
 - **FAQ and HowTo values are always JSON-quoted in frontmatter**, after two unquoted values containing ": " broke Astro's YAML parser. The content test now parses with the same strictness.
 - **Lighthouse assertions use the median of 3 runs** for LCP, CLS and TBT; single runs on this machine vary by about ±0.2 s.
+
+## 2026-11-01 (Phase 6)
+
+- **State data sources.** Income tax: Tax Foundation's 2026 state table (one consistent, dated source). California's 2026 bracket widths weren't indexed yet, so its 2025 widths are used and flagged. Georgia is 5.19% per the Tax Foundation; further HB 111 cuts are conditional, so it's flagged. Payroll: CA SDI 1.3% uncapped (EDD 2026), NY PFL 0.432% capped at $411.91 (NY DFS 2026), NY DBL 0.5% capped at $0.60/week.
+- **Property tax uses each state's most populous county** (Tax Foundation county table, 2024 ACS 5-year), not a statewide average. No authoritative 2024 statewide table was retrievable, and the Census API now requires a key. Pages say which county is used, and its median home value becomes the default price.
+- **Insurance: NAIC 2022 average HO-3 premiums** via the Insurance Information Institute; US average $1,569.
+- **Fields that couldn't be fully confirmed** are listed in each state's `verify` array and in LAUNCH.md; the pages stay noindex drafts until a person reviews them.
+- **State pages inherit the parent calculator's review status**, use the shared calculator layout with state defaults, and add unique sections (state rules, a median-home or salary table, a national comparison, state FAQ, links to 4 other states and the state index). Local income taxes are explained in text and can be entered as a rate; they're too varied to hard-code per city.
+- **Server-side comparisons on state pages** (insurance vs the US average, take-home pay vs a no-income-tax state) are computed in the page from the math module outputs; no formulas are duplicated.

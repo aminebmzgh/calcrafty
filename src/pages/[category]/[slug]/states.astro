@@ -1,0 +1,78 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs.astro';
+import { calculators, calcPath } from '../../../lib/registry.ts';
+import { categories } from '../../../lib/categories.ts';
+import { breadcrumbList } from '../../../lib/schema.ts';
+import { fitDescription } from '../../../lib/states.ts';
+import { STATES } from '../../../data/static/states.ts';
+import { pct, usd } from '../../../lib/format.ts';
+
+export const getStaticPaths = (() =>
+  calculators.filter((c) => c.statePages).map((c) => ({ params: { category: c.category, slug: c.slug }, props: { calcSlug: c.slug } }))) satisfies GetStaticPaths;
+
+const config = calculators.find((c) => c.slug === Astro.props.calcSlug)!;
+const kind = config.statePages!.kind;
+const entry = await getEntry('calculators', config.slug);
+const path = `${calcPath(config)}states/`;
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: categories[config.category].name, path: `/${config.category}/` },
+  { name: config.name, path: calcPath(config) },
+  { name: 'By state', path },
+];
+const title = kind === 'mortgage' ? 'Mortgage Calculator by State: Taxes & Insurance | Calcrafty' : 'Paycheck Calculator by State (2026) | Calcrafty';
+const description =
+  kind === 'mortgage'
+    ? fitDescription(['Mortgage calculators for each state with local property tax rates and average home insurance built in. Compare monthly payments in California, Texas and more.'])
+    : fitDescription(['2026 paycheck calculators for each state, using its income tax brackets, deductions and payroll taxes. See take-home pay in Texas, California and New York.']);
+---
+
+<BaseLayout title={title} description={description} path={path} noindex={entry?.data.status !== 'reviewed'} jsonLd={[breadcrumbList(crumbs)]}>
+  <div class="wrap py-8">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-3">{config.name} by State</h1>
+    <p class="mt-2 max-w-2xl text-lg muted">
+      {kind === 'mortgage' ? 'Local property tax and insurance data for each state, built into the calculator.' : 'Each state’s 2026 income tax rules, built into the calculator.'}
+    </p>
+    <div class="mt-8 overflow-x-auto">
+      <table class="data-table">
+        <caption class="sr-only">{config.name} by state</caption>
+        <thead>
+          {
+            kind === 'mortgage' ? (
+              <tr><th scope="col">State</th><th scope="col">County used</th><th scope="col">Property tax rate</th><th scope="col">Avg. insurance / year</th></tr>
+            ) : (
+              <tr><th scope="col">State</th><th scope="col">State income tax</th></tr>
+            )
+          }
+        </thead>
+        <tbody>
+          {
+            STATES.map((s) =>
+              kind === 'mortgage' ? (
+                <tr>
+                  <th scope="row"><a href={`${calcPath(config)}${s.slug}/`}>{s.name}</a></th>
+                  <td>{s.mortgage.county}</td>
+                  <td>{pct(s.mortgage.propertyTaxRate)}</td>
+                  <td>{usd(s.mortgage.insurance)}</td>
+                </tr>
+              ) : (
+                <tr>
+                  <th scope="row"><a href={`${calcPath(config)}${s.slug}/`}>{s.name}</a></th>
+                  <td style="white-space:normal">{s.paycheck.summary}</td>
+                </tr>
+              ),
+            )
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 text-sm muted">
+      {kind === 'mortgage' ? 'Property tax: Tax Foundation, 2024 Census ACS 5-year data, most populous county. Insurance: NAIC average HO-3 premium, 2022.' : 'Source: Tax Foundation, State Individual Income Tax Rates and Brackets, 2026, and state agencies for payroll taxes.'}
+      More states are added once their data is verified. Use the <a href={calcPath(config)}>main {config.name.toLowerCase()}</a> for any other state.
+    </p>
+  </div>
+</BaseLayout>

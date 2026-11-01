@@ -12,7 +12,9 @@ const base: PaycheckInput = {
   filingStatus: 'single',
   retirementPct: 0,
   preTaxAnnual: 0,
+  state: '',
   stateRate: 0,
+  localRate: 0,
 };
 
 describe('2026 federal brackets: tax at each threshold equals Rev. Proc. 2025-32 tables', () => {
@@ -104,4 +106,29 @@ describe('paycheck', () => {
     expect(z.effectiveRate).toBe(0);
     expect(computePaycheck({ ...base, salary: 10_000 }).federalTax).toBe(0);
   });
+});
+
+describe('state schedules (Tax Foundation 2026 table)', () => {
+  const st = (state: string, extra: Partial<PaycheckInput> = {}) => computePaycheck({ ...base, state, ...extra });
+  // Illinois: flat 4.95% after a $2,925 exemption → (75,000 − 2,925) × 4.95% = 3,567.71.
+  it('Illinois flat 4.95% with exemption', () => expect(st('illinois').stateTax).toBe(3_567.71));
+  // North Carolina: (75,000 − 12,750) × 3.99% = 2,483.78.
+  it('North Carolina 3.99% after standard deduction', () => expect(st('north-carolina').stateTax).toBe(2_483.78));
+  // Ohio: (75,000 − 2,400) = 72,600; 2.75% on the amount above 26,050 → 46,550 × 2.75% = 1,280.13.
+  it('Ohio 2.75% above $26,050', () => expect(st('ohio').stateTax).toBe(1_280.13));
+  // Pennsylvania taxes 401(k) deferrals: 3.07% of the full 75,000 = 2,302.50 even with 10% to the 401(k).
+  it('Pennsylvania includes 401(k) contributions', () => expect(st('pennsylvania', { retirementPct: 10 }).stateTax).toBe(2_302.5));
+  // California: bracket tax on 75,000 − 5,540 = 69,460, minus the $153 exemption credit.
+  it('California brackets, credit and 1.3% SDI', () => {
+    const o = st('california');
+    expect(o.stateTax).toBe(2_787.85); // 2,940.85 bracket tax − 153 credit
+    expect(o.statePayroll).toBe(975);
+  });
+  // New York PFL is capped at $411.91 and DBL at $31.20 a year.
+  it('New York payroll caps', () => expect(st('new-york', { salary: 200_000 }).statePayroll).toBe(411.91 + 31.2));
+  it('Texas and Florida have no state tax', () => {
+    expect(st('texas').stateTax).toBe(0);
+    expect(st('florida').stateAndLocal).toBe(0);
+  });
+  it('local income tax applies to wages after pre-tax deductions', () => expect(computePaycheck({ ...base, localRate: 2.4 }).localTax).toBe(1_800));
 });

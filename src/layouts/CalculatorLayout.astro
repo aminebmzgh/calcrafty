@@ -14,7 +14,8 @@ import EmbedSnippet from '../components/content/EmbedSnippet.astro';
 import AdSlot from '../components/monetization/AdSlot.astro';
 import type { AnyCalculatorConfig, Source } from '../lib/types.ts';
 import { categories } from '../lib/categories.ts';
-import { relatedOf } from '../lib/registry.ts';
+import { relatedOf, calcPath } from '../lib/registry.ts';
+import { statePagesFor } from '../lib/states.ts';
 import { breadcrumbList, faqPage, howTo, webApplication, type Crumb, type JsonLdNode } from '../lib/schema.ts';
 import { getWidget } from '../lib/widgets.ts';
 
@@ -42,6 +43,7 @@ interface Props {
 const { config, initial, path, title, description, h1, intro, crumbs, answer, faq, status, reviewedBy, lastUpdated, howToSteps, ogImage, extraSources = [], jsonLdExtra = [] } = Astro.props;
 const cat = categories[config.category];
 const Widget = getWidget(config.slug);
+const statePages = path === calcPath(config) ? statePagesFor(config) : [];
 const widgetProps = { initial, path, answer };
 const jsonLd: JsonLdNode[] = [
   webApplication(config, path, h1, description),
@@ -69,6 +71,28 @@ const jsonLd: JsonLdNode[] = [
 
     <div class="defer-render grid gap-10">
       <RelatedCalculators items={relatedOf(config)} />
+
+      {
+        statePages.length > 0 && (
+          <section aria-labelledby="states-h" class="no-print">
+            <h2 id="states-h">{config.name} by state</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {statePages.map((st) => (
+                <li>
+                  <a class="chip" href={`${path}${st.slug}/`}>
+                    {st.name}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a class="chip" href={`${path}states/`}>
+                  All states
+                </a>
+              </li>
+            </ul>
+          </section>
+        )
+      }
 
       <AdSlot id={`${config.slug}-mid`} />
 

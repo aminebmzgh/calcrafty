@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="You're offline | Calcrafty"
+  description="You're offline. Calculators you've already opened on Calcrafty keep working without a connection; reconnect to load new pages, rates and search results."
+  path="/offline/"
+  noindex
+>
+  <section class="wrap py-16">
+    <h1>You’re offline</h1>
+    <p class="mt-3 max-w-xl text-lg muted">
+      This page isn’t saved on your device yet. Calculators you’ve already opened still work offline; go back to one of them, or reconnect to load new pages.
+    </p>
+    <p class="mt-6"><a class="btn btn-primary" href="/">Go to the homepage</a></p>
+  </section>
+</BaseLayout>

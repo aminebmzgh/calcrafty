@@ -1,4 +1,4 @@
-Current phase: 6
+Current phase: 7
 Status: in-progress
 Blocker: none
 
@@ -12,8 +12,8 @@ Blocker: none
 | 3 | Remaining finance calculators | done |
 | 4 | Health, math and everyday calculators | done |
 | 5 | Site architecture and trust | done |
-| 6 | State pages | in-progress |
-| 7 | Launch hardening | pending |
+| 6 | State pages | done |
+| 7 | Launch hardening | in-progress |
 
 ## Log
 
@@ -25,6 +25,8 @@ Blocker: none
 - 2026-11-01: Phase 3 done. 11 finance calculators (paycheck with verified 2026 IRS data, auto loan, compound interest, loan, retirement, mortgage affordability, investment, credit card payoff, debt payoff snowball vs avalanche, savings goal, rent vs buy). Shared math modules (money, growth, tax). 210 unit tests incl. config contract and content gates (800–1,500 words, 5–8 FAQs, ≥3 internal links). Lighthouse 1.0 on all sampled pages. Fixed: Vitest fsModuleCache hid new calculators from the registry in tests.
 - 2026-11-01: Phase 4 done. 13 more calculators (BMI, calorie/TDEE, body fat, macro, ideal weight, running pace, percentage, scientific, fraction, standard deviation, age, days between dates, GPA). All 25 built. 414 unit tests; 446+ e2e checks incl. axe on every page in both themes; Lighthouse 1.0 on sampled page types. Content gate now uses strict YAML (caught two frontmatter errors); all FAQ/HowTo values JSON-quoted.
 - 2026-11-01: Phase 5 done. New homepage (search, popular, categories, guides, recently reviewed, local favorites/recent), hub intro text, 5 pillar guides (draft) with Article/FAQ schema, guide route. Trust pages, Organization/WebSite schema, AnswerBox on every calculator, no orphans (link check: every page ≤3 clicks), ≥3 contextual links per article (content gate), llms.txt lists reviewed pages only.
+- 2026-11-01: CI and Deploy passed for the first time (Phase 5 push); the deploy branch now holds the built site.
+- 2026-11-01: Phase 6 done. 20 state pages (mortgage + paycheck × CA, TX, FL, NY, PA, IL, OH, GA, NC, MI) and 2 state index pages, from sourced data in src/data/static/states.ts. Paycheck calculator gained a State selector (2026 brackets, deductions, exemption credits, SDI/PFL/DBL caps, PA 401(k) rule) and a local tax rate. Uniqueness check: highest pair 66%. axe clean on all state pages.
 
 ## Known issues
 
