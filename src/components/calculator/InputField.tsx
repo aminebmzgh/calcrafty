@@ -125,6 +125,8 @@ export default function InputField<I extends Record<string, unknown>>({ def, val
               id={id}
               name={def.id}
               type="date"
+              data-testid={def.e2eValue ? 'e2e-input' : undefined}
+              data-e2e-value={def.e2eValue}
               value={String(values[def.id])}
               min={def.min}
               max={def.max}
