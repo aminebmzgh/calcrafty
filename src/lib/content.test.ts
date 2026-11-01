@@ -14,7 +14,11 @@ function parse(file: string) {
   const raw = readFileSync(file, 'utf8');
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/.exec(raw);
   if (!m) throw new Error(`${file}: missing frontmatter`);
-  return { data: YAML.parse(m[1]!) as Record<string, unknown>, body: m[2]! };
+  // Same strictness as Astro's frontmatter loader: any YAML error or warning fails the test.
+  const doc = YAML.parseDocument(m[1]!, { prettyErrors: true });
+  const problems = [...doc.errors, ...doc.warnings].map((e) => e.message);
+  if (problems.length) throw new Error(`${file}: invalid frontmatter: ${problems.join('; ')}`);
+  return { data: doc.toJS() as Record<string, unknown>, body: m[2]! };
 }
 
 function words(md: string): number {

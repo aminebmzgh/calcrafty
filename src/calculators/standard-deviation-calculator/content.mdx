@@ -1,23 +1,23 @@
 ---
 status: draft
 howTo:
-  - Type or paste your numbers, separated by commas, spaces or new lines.
-  - Choose whether your data is a sample or the whole population.
-  - Read the standard deviation, variance, mean and standard error.
-  - Open the deviations table and Show the math to follow each step.
+  - "Type or paste your numbers, separated by commas, spaces or new lines."
+  - "Choose whether your data is a sample or the whole population."
+  - "Read the standard deviation, variance, mean and standard error."
+  - "Open the deviations table and Show the math to follow each step."
 faq:
-  - q: What is standard deviation?
-    a: Standard deviation measures how spread out numbers are around their average. A small standard deviation means values cluster near the mean; a large one means they're scattered. It's in the same units as the data, so a standard deviation of 4 points on a test means a typical score is about 4 points from the class average.
-  - q: What's the difference between sample and population standard deviation?
-    a: Population standard deviation (σ) divides the sum of squared deviations by n, and applies when your data includes every member of the group. Sample standard deviation (s) divides by n − 1, which corrects for the fact that a sample's mean is estimated from the same data. Use the sample version for surveys, experiments and most real-world data.
-  - q: How do you calculate standard deviation by hand?
-    a: Find the mean, subtract it from each value, square each difference, add the squares, divide by n − 1 (sample) or n (population) to get the variance, and take the square root. For 2, 4, 4, 4, 5, 5, 7, 9 the mean is 5, the squared deviations add up to 32, and the population standard deviation is √(32 ÷ 8) = 2.
-  - q: What is variance?
-    a: Variance is the average squared distance from the mean, the step before taking the square root. It's useful in statistical formulas, but because it's in squared units (such as dollars squared), standard deviation is easier to interpret.
-  - q: What is the standard error of the mean?
-    a: It estimates how much a sample's mean would vary from sample to sample: the sample standard deviation divided by the square root of n. It shrinks as samples get larger, which is why bigger studies give more precise averages.
-  - q: What does a standard deviation tell me about a normal distribution?
-    a: For data that is roughly bell-shaped, about 68% of values fall within one standard deviation of the mean, about 95% within two, and about 99.7% within three. This "68-95-99.7 rule" doesn't hold for skewed data, so check the shape of your data before relying on it.
+  - q: "What is standard deviation?"
+    a: "Standard deviation measures how spread out numbers are around their average. A small standard deviation means values cluster near the mean; a large one means they're scattered. It's in the same units as the data, so a standard deviation of 4 points on a test means a typical score is about 4 points from the class average."
+  - q: "What's the difference between sample and population standard deviation?"
+    a: "Population standard deviation (σ) divides the sum of squared deviations by n, and applies when your data includes every member of the group. Sample standard deviation (s) divides by n − 1, which corrects for the fact that a sample's mean is estimated from the same data. Use the sample version for surveys, experiments and most real-world data."
+  - q: "How do you calculate standard deviation by hand?"
+    a: "Find the mean, subtract it from each value, square each difference, add the squares, divide by n − 1 (sample) or n (population) to get the variance, and take the square root. For 2, 4, 4, 4, 5, 5, 7, 9 the mean is 5, the squared deviations add up to 32, and the population standard deviation is √(32 ÷ 8) = 2."
+  - q: "What is variance?"
+    a: "Variance is the average squared distance from the mean, the step before taking the square root. It's useful in statistical formulas, but because it's in squared units (such as dollars squared), standard deviation is easier to interpret."
+  - q: "What is the standard error of the mean?"
+    a: "It estimates how much a sample's mean would vary from sample to sample: the sample standard deviation divided by the square root of n. It shrinks as samples get larger, which is why bigger studies give more precise averages."
+  - q: "What does a standard deviation tell me about a normal distribution?"
+    a: "For data that is roughly bell-shaped, about 68% of values fall within one standard deviation of the mean, about 95% within two, and about 99.7% within three. This \"68-95-99.7 rule\" doesn't hold for skewed data, so check the shape of your data before relying on it."
 ---
 
 ## How to use this standard deviation calculator
@@ -62,6 +62,20 @@ Use **population** only when your data is the complete group you're describing: 
 Standard deviation is easiest to read relative to the mean. A standard deviation of 5 is large for values averaging 10 but small for values averaging 1,000. The **coefficient of variation** (standard deviation ÷ mean) puts different data sets on the same footing.
 
 Outliers have a big effect because deviations are squared. One extreme value can inflate the standard deviation a lot, so check the deviations table for a single row that dominates the sum.
+
+## Standard deviation in the real world
+
+Standard deviation turns "how spread out is this?" into a single number, which is why it shows up in so many fields:
+
+- **Test scores.** Standardized tests report scores relative to the mean in standard deviations; a score one standard deviation above the mean is better than about 84% of test-takers if scores are roughly normal.
+- **Finance.** The volatility of an investment is the standard deviation of its returns. Two funds with the same average return can have very different risk.
+- **Manufacturing.** Quality control charts flag a process when measurements drift more than about three standard deviations from the target.
+- **Science and medicine.** Results are often reported as mean ± SD, and the standard error is used to build confidence intervals around averages.
+- **Weather.** A month's temperature can be described as its average and how much days typically vary around it.
+
+In each case, standard deviation is most useful alongside the mean and a look at the data itself. A chart or the deviations table quickly shows whether one unusual value is driving the result, or whether the data is skewed in a way that a single number can't capture.
+
+In practice, report the standard deviation with the same precision as your data, and say whether it is the sample or population version.
 
 ## Key terms
 

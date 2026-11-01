@@ -70,7 +70,7 @@ const config: CalculatorConfig<PaceInput, PaceOutput> = {
       ],
     };
   },
-  explain: (i, o) => {
+  explain: (_i, o) => {
     const m = o.predictions.find((p) => p.key === 'marathon')!;
     const t = o.predictions.find((p) => p.key === '10k')!;
     return [

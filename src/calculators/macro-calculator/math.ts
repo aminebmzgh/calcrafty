@@ -4,7 +4,8 @@
  * Energy per gram (Atwater factors): protein 4 kcal, carbohydrate 4 kcal, fat 9 kcal.
  */
 import { D } from '../../lib/math/money.ts';
-import { computeCalories, type CalorieInput } from '../calorie-calculator/math.ts';
+import { computeCalories, type Activity, type Goal } from '../calorie-calculator/math.ts';
+import type { BodyFields, Sex } from '../../lib/math/body.ts';
 
 export const PRESETS = {
   balanced: { label: 'Balanced (25% protein, 50% carbs, 25% fat)', protein: 25, carbs: 50, fat: 25 },
@@ -15,7 +16,11 @@ export const PRESETS = {
 } as const;
 export type Preset = keyof typeof PRESETS;
 
-export interface MacroInput extends Omit<CalorieInput, 'formula' | 'bodyFat'>, Record<string, unknown> {
+export interface MacroInput extends BodyFields, Record<string, unknown> {
+  sex: Sex;
+  age: number;
+  activity: Activity;
+  goal: Goal;
   preset: Preset;
   customProtein: number;
   customCarbs: number;

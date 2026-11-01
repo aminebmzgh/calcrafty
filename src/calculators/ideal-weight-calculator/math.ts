@@ -33,7 +33,7 @@ export interface IdealWeightOutput {
   under5ft: boolean;
 }
 
-export function idealWeightKg(sex: Sex, heightIn: number, base: number, perInch: number): number {
+export function idealWeightKg(heightIn: number, base: number, perInch: number): number {
   return D(base).plus(D(perInch).times(D(heightIn).minus(60))).toNumber();
 }
 
@@ -41,7 +41,7 @@ export function computeIdealWeight(i: IdealWeightInput): IdealWeightOutput {
   const hIn = heightInOf(i);
   const results = FORMULAS.map((f) => {
     const [base, per] = i.sex === 'male' ? f.male : f.female;
-    return { id: f.id, name: f.name, kg: D(idealWeightKg(i.sex, hIn, base, per)).toDecimalPlaces(1).toNumber() };
+    return { id: f.id, name: f.name, kg: D(idealWeightKg(hIn, base, per)).toDecimalPlaces(1).toNumber() };
   });
   const kgs = results.map((r) => r.kg);
   const m2 = D(heightCmOf(i)).div(100).pow(2);

@@ -1,23 +1,23 @@
 ---
 status: draft
 howTo:
-  - Type an expression with your keyboard, or tap the keypad buttons.
-  - Choose whether angles are in degrees or radians for trig functions.
-  - Read the answer as you type; the calculator also shows how it read your expression.
-  - Use Copy result to copy the answer, and your recent calculations appear in your history.
+  - "Type an expression with your keyboard, or tap the keypad buttons."
+  - "Choose whether angles are in degrees or radians for trig functions."
+  - "Read the answer as you type; the calculator also shows how it read your expression."
+  - "Use Copy result to copy the answer, and your recent calculations appear in your history."
 faq:
-  - q: What order does the calculator do operations in?
-    a: The standard mathematical order. Parentheses first, then powers (evaluated right to left, so 2^3^2 = 2^9 = 512), then multiplication and division left to right, then addition and subtraction. A minus sign in front of a power applies after the power, so −2² = −4; type (−2)^2 to get 4.
-  - q: How do I switch between degrees and radians?
-    a: Use the "Angles in" toggle. Degrees are typical in school geometry and everyday angles (a right angle is 90°); radians are used in calculus and physics (a right angle is π/2). In degree mode sin(30) = 0.5; in radian mode sin(π/6) = 0.5.
-  - q: Why does 0.1 + 0.2 show 0.3 here when some calculators show 0.30000000000000004?
-    a: Computers store numbers in binary, where 0.1 can't be represented exactly, which creates tiny errors. Calcrafty shows results to 12 significant digits, the same practical precision as most handheld scientific calculators, which hides that noise without affecting real answers.
-  - q: How do I type powers, roots and logs?
-    a: Use ^ for powers (2^10), sqrt( ) for square roots, cbrt( ) for cube roots, and x^(1/n) for other roots of positive numbers. ln( ) is the natural log and log( ) is base 10; log2( ) is base 2. Type e for Euler's number and pi or π for π. Scientific notation works too, such as 6.02e23.
-  - q: Can I multiply without typing the × sign?
-    a: Yes. Implicit multiplication works the way you'd write it on paper, so 2π, 3(4 + 1), (1 + 2)(3 + 4) and 2sin(30) are all understood. The "Read as" line shows every operator written out so you can confirm the calculator interpreted it the way you meant.
-  - q: What happens if I make a mistake?
-    a: The calculator explains the problem in plain words instead of showing "Error" or NaN, for example a missing parenthesis, division by zero, or the square root of a negative number. Fix the expression and the answer appears immediately.
+  - q: "What order does the calculator do operations in?"
+    a: "The standard mathematical order. Parentheses first, then powers (evaluated right to left, so 2^3^2 = 2^9 = 512), then multiplication and division left to right, then addition and subtraction. A minus sign in front of a power applies after the power, so −2² = −4; type (−2)^2 to get 4."
+  - q: "How do I switch between degrees and radians?"
+    a: "Use the \"Angles in\" toggle. Degrees are typical in school geometry and everyday angles (a right angle is 90°); radians are used in calculus and physics (a right angle is π/2). In degree mode sin(30) = 0.5; in radian mode sin(π/6) = 0.5."
+  - q: "Why does 0.1 + 0.2 show 0.3 here when some calculators show 0.30000000000000004?"
+    a: "Computers store numbers in binary, where 0.1 can't be represented exactly, which creates tiny errors. Calcrafty shows results to 12 significant digits, the same practical precision as most handheld scientific calculators, which hides that noise without affecting real answers."
+  - q: "How do I type powers, roots and logs?"
+    a: "Use ^ for powers (2^10), sqrt( ) for square roots, cbrt( ) for cube roots, and x^(1/n) for other roots of positive numbers. ln( ) is the natural log and log( ) is base 10; log2( ) is base 2. Type e for Euler's number and pi or π for π. Scientific notation works too, such as 6.02e23."
+  - q: "Can I multiply without typing the × sign?"
+    a: "Yes. Implicit multiplication works the way you'd write it on paper, so 2π, 3(4 + 1), (1 + 2)(3 + 4) and 2sin(30) are all understood. The \"Read as\" line shows every operator written out so you can confirm the calculator interpreted it the way you meant."
+  - q: "What happens if I make a mistake?"
+    a: "The calculator explains the problem in plain words instead of showing \"Error\" or NaN, for example a missing parenthesis, division by zero, or the square root of a negative number. Fix the expression and the answer appears immediately."
 ---
 
 ## How to use this scientific calculator
@@ -71,6 +71,19 @@ Calculations use double-precision floating-point numbers (IEEE 754), the same st
 - **Degrees vs radians.** sin(30) is 0.5 in degrees but about −0.988 in radians. Check the toggle when trig answers look odd.
 - **Missing parentheses with fractions.** 1/2π means (1/2) × π, about 1.571; type 1/(2π) if π belongs in the denominator.
 - **Percent.** 50% is simply 0.5 here. For "what is 20% of 80" or percent change, the percentage calculator is clearer.
+
+## Tips for getting reliable answers
+
+Long expressions are where most mistakes happen, so a few habits help:
+
+- **Add parentheses generously.** They never hurt, and they make your intent explicit. Write (a + b) / (c + d), not a + b / c + d.
+- **Check the "Read as" line.** It shows exactly how the calculator understood your input, with every multiplication written out.
+- **Watch the angle mode.** Trig answers that look strange are usually in the wrong mode. A quick test: sin(90) should be 1 in degrees.
+- **Break long problems into steps.** Calculate a part, copy the result, then use it in the next expression. Your history keeps every step.
+- **Sanity-check the size of the answer.** If 12% of $250 comes out as $3,000, a decimal point went astray.
+- **Mind significant figures.** The calculator shows up to 12 digits, but your answer is only as precise as your least precise input. If you measured to two decimal places, round the result sensibly.
+
+For repeated financial or statistical calculations, a dedicated calculator is usually faster and less error-prone than a long expression: percentage, compound interest and standard deviation each have their own tools on Calcrafty, linked below.
 
 ## Key terms
 
