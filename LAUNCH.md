@@ -8,32 +8,14 @@ Everything here needs your accounts, keys or judgment. Claude Code has built and
 - [x] Private repo `aminebmzgh/calcrafty` created and pushed.
 - [x] CI and Deploy workflows pass; the `deploy` branch contains the built site.
 
-## 1. Hostinger: connect the deploy branch (makes the site live)
+## 1–2. Hostinger hosting, SSL and CDN (done 2026-11-01)
 
-1. Log in to **hPanel** → **Websites** → **calcrafty.com** → **Manage**.
-2. Delete Hostinger's default files: **Files → File Manager → public_html**, select all, delete (the folder must be empty).
-3. Open **Advanced → Git**.
-4. Repository: `git@github.com:aminebmzgh/calcrafty.git`. hPanel shows an SSH key: copy it, then on GitHub open **calcrafty → Settings → Deploy keys → Add deploy key**, paste it, leave "Allow write access" unticked, save.
-5. Branch: **`deploy`**. Install path: leave empty (= `public_html`). Click **Create**.
-6. Click **Auto deployment**, copy the webhook URL. On GitHub: **calcrafty → Settings → Webhooks → Add webhook**, paste it, content type `application/json`, "Just the push event", save.
-7. Back in hPanel, click **Deploy** once. Visit https://calcrafty.com/.
+- [x] Site created in hPanel and connected with **Import from GitHub**, branch **`deploy`** (prebuilt site; Hostinger's GitHub app redeploys on every push to `deploy`, so no SSH key or webhook is needed).
+- [x] SSL active; `http://` and `www` redirect to `https://calcrafty.com/`.
+- [x] Hostinger CDN active (Brotli). Security headers verified live: HSTS, CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
+- [x] Checked live: pages, robots.txt, sitemap-index.xml, 404 page, IndexNow key file, service worker; source files not exposed.
 
-**Fallback** (only if Git deployment isn't available on your plan): hPanel → **Advanced → SSH Access** → enable SSH, note host, port and username, add an SSH public key. Then run:
-
-```sh
-gh secret set SSH_HOST
-gh secret set SSH_PORT
-gh secret set SSH_USER
-gh secret set SSH_KEY < path/to/private_key
-gh variable set DEPLOY_VIA_SSH --body true
-```
-
-## 2. Hostinger: SSL, redirects and CDN
-
-1. hPanel → **Security → SSL**: install the free certificate for `calcrafty.com` and `www.calcrafty.com`. Wait until it shows **Active**.
-2. Check: `http://www.calcrafty.com/finance/` should redirect to `https://calcrafty.com/finance/` in one step.
-3. hPanel → **Performance → CDN**: enable it if your plan includes it. If not, consider Cloudflare's free plan in front of the site (SSL mode "Full (strict)").
-4. Check the security headers once live: open https://securityheaders.com/?q=calcrafty.com, which should show HSTS, CSP, X-Content-Type-Options, Referrer-Policy and Permissions-Policy. Tell Claude Code "check the live headers" to have it verify everything.
+Keep the branch on `deploy`: only builds that passed CI reach it.
 
 ## 3. Live mortgage rates and data (recommended)
 

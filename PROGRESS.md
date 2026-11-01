@@ -29,9 +29,9 @@ Blocker: none
 - 2026-11-01: Phase 6 done. 20 state pages (mortgage + paycheck × CA, TX, FL, NY, PA, IL, OH, GA, NC, MI) and 2 state index pages, from sourced data in src/data/static/states.ts. Paycheck calculator gained a State selector (2026 brackets, deductions, exemption credits, SDI/PFL/DBL caps, PA 401(k) rule) and a local tax rate. Uniqueness check: highest pair 66%. axe clean on all state pages.
 - 2026-11-01: Phase 7 done. Service worker + offline page, real-user vitals (20% sample, loads only with analytics), Speculation Rules prefetch, ads/affiliate components behind ADS_ENABLED, IndexNow, feature e2e tests (favorites, history, compare, CSV, reset, print, static files). LAUNCH.md completed with every owner step, the draft pages to review and the state data items to verify. All gates green locally: 422 unit tests, typecheck, lint, SEO (91 pages), links, keyword map, uniqueness (max 66%), budgets (≤2.9 KB JS at load, 6.2 KB CSS gzipped).
 - 2026-11-01: CI fixes after Phase 7: chips kept their 44px target inside prose lists, mobile result bar hidden until hydrated, a11y test renders content-visibility blocks before axe. CI and Deploy green; deploy branch at Deploy 7a5d50e.
+- 2026-11-01: Live at https://calcrafty.com (Hostinger, Import from GitHub on the `deploy` branch). SSL, redirects, CDN and security headers verified.
 
 ## Known issues
 
-- Not live yet: the owner needs to connect Hostinger to the `deploy` branch and enable SSL (LAUNCH.md 1–2). Live header checks happen after that.
 - All content is draft/noindex until reviewed (LAUNCH.md 8), so the sitemap currently lists only the homepage, hubs and trust pages.
 - A stray empty folder `C:\c` was created outside the project by a screenshot path mistake; it contains no files and can be deleted.
