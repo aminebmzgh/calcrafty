@@ -68,7 +68,8 @@ export default function Calculator<I extends Record<string, unknown>, O>(props: 
   const favorite = useSignal(false);
   const nextId = useRef(1);
   const resultsRef = useRef<HTMLDivElement>(null);
-  const readoutVisible = useSignal(false);
+  // Starts true so the bar stays hidden in the server HTML (it needs JS) until the observer reports the results off screen.
+  const readoutVisible = useSignal(true);
 
   // Mobile: a slim sticky bar shows the headline result while the full readout is off screen.
   useEffect(() => {
