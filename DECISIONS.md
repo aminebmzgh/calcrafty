@@ -78,3 +78,9 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **Fields that couldn't be fully confirmed** are listed in each state's `verify` array and in LAUNCH.md; the pages stay noindex drafts until a person reviews them.
 - **State pages inherit the parent calculator's review status**, use the shared calculator layout with state defaults, and add unique sections (state rules, a median-home or salary table, a national comparison, state FAQ, links to 4 other states and the state index). Local income taxes are explained in text and can be entered as a rate; they're too varied to hard-code per city.
 - **Server-side comparisons on state pages** (insurance vs the US average, take-home pay vs a no-income-tax state) are computed in the page from the math module outputs; no formulas are duplicated.
+
+## 2026-11-01 (Phase 7)
+
+- **Service worker:** hashed assets cache-first, pages network-first with cache and /offline/ fallbacks; registered only in production builds.
+- **Real-user vitals** load the `web-vitals` package on a 20% sample, only when the Umami script is present, and report LCP, CLS and INP with the path as `web-vitals` events.
+- **LAUNCH.md’s draft list is generated from the build** (every noindex content page), so it matches the site exactly.

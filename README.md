@@ -7,6 +7,17 @@ Static site: [Astro](https://astro.build) (static output) + [Preact](https://pre
 - Specification: [docs/BUILD-BRIEF.md](docs/BUILD-BRIEF.md)
 - Status: [PROGRESS.md](PROGRESS.md) · Decisions: [DECISIONS.md](DECISIONS.md) · Owner to-do: [LAUNCH.md](LAUNCH.md)
 
+## What's in it
+
+- **25 calculators** in `src/calculators/` (finance, health, math, everyday), each one folder.
+- **20 state pages** (mortgage and paycheck for 10 states) from sourced data in `src/data/static/states.ts`.
+- **5 pillar guides** in `src/content/guides/`, plus category hubs, trust pages and site search.
+- **Live data** from FRED (mortgage, auto, personal loan and card rates, Treasury yields, CPI), refreshed weekly.
+- **Quality gates:** 400+ unit tests with reference values, Playwright e2e (every calculator, share URLs, axe in both themes, no-JS, JS budgets), Lighthouse CI (ads off and on), SEO, link, keyword-map, uniqueness and byte-budget checks.
+- Works offline once visited (service worker), dark mode, shareable URLs, compare, history and favorites.
+
+All content starts as a draft (`noindex`) until a person reviews it; see LAUNCH.md.
+
 ## Run it locally
 
 Requires Node 22.23+ (CI uses Node 24).
@@ -32,7 +43,7 @@ Put `FRED_API_KEY=...` in a git-ignored `.env` to use the FRED API; without it, 
 3. Hostinger's Git auto-deployment pulls `deploy` into `public_html`.
 4. `scripts/indexnow.ts` pings IndexNow with the URLs whose HTML changed.
 
-`deploy.yml` also runs every Monday 06:00 UTC (weekly data refresh) and on demand (Actions → Deploy → Run workflow).
+`deploy.yml` also runs every Monday 06:00 UTC (weekly data refresh) and on demand (Actions → Deploy → Run workflow). The refresh commits the updated `snapshot.json` back to `main`, so pull before pushing.
 
 ## How to add a calculator
 

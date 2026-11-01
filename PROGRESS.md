@@ -1,19 +1,19 @@
 Current phase: 7
-Status: in-progress
+Status: done
 Blocker: none
 
 ## Phases
 
 | Phase | Name | Status |
 |---|---|---|
-| 0 | Setup and keyword plan | done (repo push pending, see LAUNCH.md 1) |
-| 1 | Foundation | done (placeholder deploy pending the repo) |
+| 0 | Setup and keyword plan | done |
+| 1 | Foundation | done |
 | 2 | Gold standard: Mortgage Calculator + live data | done |
 | 3 | Remaining finance calculators | done |
 | 4 | Health, math and everyday calculators | done |
 | 5 | Site architecture and trust | done |
 | 6 | State pages | done |
-| 7 | Launch hardening | in-progress |
+| 7 | Launch hardening | done |
 
 ## Log
 
@@ -27,7 +27,10 @@ Blocker: none
 - 2026-11-01: Phase 5 done. New homepage (search, popular, categories, guides, recently reviewed, local favorites/recent), hub intro text, 5 pillar guides (draft) with Article/FAQ schema, guide route. Trust pages, Organization/WebSite schema, AnswerBox on every calculator, no orphans (link check: every page ≤3 clicks), ≥3 contextual links per article (content gate), llms.txt lists reviewed pages only.
 - 2026-11-01: CI and Deploy passed for the first time (Phase 5 push); the deploy branch now holds the built site.
 - 2026-11-01: Phase 6 done. 20 state pages (mortgage + paycheck × CA, TX, FL, NY, PA, IL, OH, GA, NC, MI) and 2 state index pages, from sourced data in src/data/static/states.ts. Paycheck calculator gained a State selector (2026 brackets, deductions, exemption credits, SDI/PFL/DBL caps, PA 401(k) rule) and a local tax rate. Uniqueness check: highest pair 66%. axe clean on all state pages.
+- 2026-11-01: Phase 7 done. Service worker + offline page, real-user vitals (20% sample, loads only with analytics), Speculation Rules prefetch, ads/affiliate components behind ADS_ENABLED, IndexNow, feature e2e tests (favorites, history, compare, CSV, reset, print, static files). LAUNCH.md completed with every owner step, the draft pages to review and the state data items to verify. All gates green locally: 422 unit tests, typecheck, lint, SEO (91 pages), links, keyword map, uniqueness (max 66%), budgets (≤2.9 KB JS at load, 6.2 KB CSS gzipped).
 
 ## Known issues
 
-- A stray empty folder `C:\c\Users\...` was created outside the project by a screenshot script path mistake; the owner can delete `C:\c` (it contains no files).
+- Not live yet: the owner needs to connect Hostinger to the `deploy` branch and enable SSL (LAUNCH.md 1–2). Live header checks happen after that.
+- All content is draft/noindex until reviewed (LAUNCH.md 8), so the sitemap currently lists only the homepage, hubs and trust pages.
+- A stray empty folder `C:\c` was created outside the project by a screenshot path mistake; it contains no files and can be deleted.

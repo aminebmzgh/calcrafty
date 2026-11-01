@@ -63,3 +63,13 @@ document.addEventListener('keydown', (e) => {
     openSearch();
   }
 });
+
+// ---- Offline support (production only) ----
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  addEventListener('load', () => void navigator.serviceWorker.register('/sw.js').catch(() => undefined), { once: true });
+}
+
+// ---- Real-user vitals: only when analytics is configured (sampled inside) ----
+if (document.querySelector('script[data-website-id]')) {
+  addEventListener('load', () => void import('../lib/vitals.ts').then((m) => m.startVitals()), { once: true });
+}
