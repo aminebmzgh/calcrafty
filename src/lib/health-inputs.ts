@@ -6,7 +6,7 @@ export const BODY_DEFAULTS: BodyFields = { units: 'imperial', heightFt: 5, heigh
 
 type WithBody = BodyFields & Record<string, unknown>;
 
-export function unitsInput<I extends WithBody>(): InputDef<I> {
+export function unitsInput<I extends WithBody>(extra?: (to: string, input: I) => Partial<I>): InputDef<I> {
   return {
     id: 'units' as InputDef<I>['id'],
     label: 'Units',
@@ -15,7 +15,7 @@ export function unitsInput<I extends WithBody>(): InputDef<I> {
       { value: 'imperial', label: 'lb, ft/in' },
       { value: 'metric', label: 'kg, cm' },
     ],
-    onChange: (v, input) => convertBodyUnits(v, input) as Partial<I>,
+    onChange: (v, input) => ({ ...(convertBodyUnits(v, input) as Partial<I>), ...(extra?.(v, input) ?? {}) }),
   };
 }
 
