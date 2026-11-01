@@ -83,11 +83,18 @@ export function medicareTax(ficaWages: number): number {
   return cents(base.plus(extra)).toNumber();
 }
 
+/** Personal exemption: a fixed amount, or per person by income tier (Ohio). */
+export function stateExemption(sch: StateTaxSchedule, k: 'single' | 'mfj', income: number): number {
+  if (!sch.exemptionTiers) return sch.exemption[k];
+  const tier = sch.exemptionTiers.find((t) => income <= t.maxIncome);
+  return tier ? tier.perPerson * (k === 'mfj' ? 2 : 1) : 0;
+}
+
 /** State income tax and payroll taxes under a state's 2026 schedule. */
 export function stateTaxes(sch: StateTaxSchedule, status: FilingStatus, wages: { agi: number; fica: number; preTaxOnly: number }) {
   const k = status === 'mfj' ? 'mfj' : 'single';
   const base = sch.retirementTaxable ? wages.preTaxOnly : wages.agi;
-  const taxable = Math.max(0, base - sch.standardDeduction[k] - sch.exemption[k]);
+  const taxable = Math.max(0, base - sch.standardDeduction[k] - stateExemption(sch, k, base));
   const tax = Math.max(0, cents(D(bracketTax(taxable, sch.brackets[k]).tax).minus(sch.credit[k])).toNumber());
   let payroll = D(0);
   for (const p of sch.payroll) {

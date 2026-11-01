@@ -114,14 +114,20 @@ describe('state schedules (Tax Foundation 2026 table)', () => {
   it('Illinois flat 4.95% with exemption', () => expect(st('illinois').stateTax).toBe(3_567.71));
   // North Carolina: (75,000 − 12,750) × 3.99% = 2,483.78.
   it('North Carolina 3.99% after standard deduction', () => expect(st('north-carolina').stateTax).toBe(2_483.78));
-  // Ohio: (75,000 − 2,400) = 72,600; 2.75% on the amount above 26,050 → 46,550 × 2.75% = 1,280.13.
-  it('Ohio 2.75% above $26,050', () => expect(st('ohio').stateTax).toBe(1_280.13));
+  // Ohio (ORC 5747.025, tiers frozen for 2026): $75,000 → $2,150 exemption; (75,000 − 2,150 − 26,050) × 2.75% = 1,287.00.
+  it('Ohio 2.75% above $26,050 with the $40k–$80k exemption tier', () => expect(st('ohio').stateTax).toBe(1_287));
+  // $30,000 → $2,400 exemption: (30,000 − 2,400 − 26,050) × 2.75% = 42.625 → 42.63.
+  it('Ohio exemption tier up to $40,000', () => expect(st('ohio', { salary: 30_000 }).stateTax).toBe(42.63));
+  // $600,000 → no exemption at $500,000 or more: (600,000 − 26,050) × 2.75% = 15,783.625 → 15,783.63.
+  it('Ohio exemption is lost at $500,000', () => expect(st('ohio', { salary: 600_000 }).stateTax).toBe(15_783.63));
+  // Georgia HB 463 (2026): (75,000 − 15,000) × 4.99% = 2,994.00.
+  it('Georgia 4.99% after the $15,000 standard deduction', () => expect(st('georgia').stateTax).toBe(2_994));
   // Pennsylvania taxes 401(k) deferrals: 3.07% of the full 75,000 = 2,302.50 even with 10% to the 401(k).
   it('Pennsylvania includes 401(k) contributions', () => expect(st('pennsylvania', { retirementPct: 10 }).stateTax).toBe(2_302.5));
-  // California: bracket tax on 75,000 − 5,540 = 69,460, minus the $153 exemption credit.
+  // California (FTB 2025 amounts): bracket tax on 75,000 − 5,706 = 69,294, minus the $153 exemption credit.
   it('California brackets, credit and 1.3% SDI', () => {
     const o = st('california');
-    expect(o.stateTax).toBe(2_787.85); // 2,940.85 bracket tax − 153 credit
+    expect(o.stateTax).toBe(2_774.57); // 2,927.57 bracket tax − 153 credit
     expect(o.statePayroll).toBe(975);
   });
   // New York PFL is capped at $411.91 and DBL at $31.20 a year.

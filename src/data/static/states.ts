@@ -8,7 +8,13 @@
  * - Property tax: Tax Foundation, "Property Taxes by State and County" (effective rate on owner-occupied
  *   housing, 2024 ACS 5-year estimates), most populous county of each state.
  * - Homeowners insurance: NAIC average HO-3 premium, 2022 (via Insurance Information Institute).
- * - CA SDI: EDD 2026 contribution rate. NY PFL: NY DFS 2026 rate decision. NY DBL: NY DFS.
+ * - CA SDI: EDD 2026 contribution rate. NY PFL: NY DFS 2026 rate decision. NY DBL: 12 NYCRR Part 362 ($0.60/week cap).
+ * - Checked 2026-11-01 (supersede the Tax Foundation table where they differ):
+ *   - CA: FTB 2025 Form 540 2EZ tables (standard deduction $5,706 / $11,412; credit $153 / $306).
+ *   - GA: HB 463, signed 2026-05-11 (Governor’s office; GA DOR withholding guide rev. June 2026): 4.99%, $15,000 / $30,000.
+ *   - OH: ORC 5747.025 as amended by HB 96 (exemption tiers; indexing frozen 2025–2026; none at MAGI >= $500,000 from 2026).
+ *   - Philadelphia wage tax: phila.gov, rates effective July 1, 2026. PA UC employee rate 0.07% (PA L&I 2026).
+ *   - NYC resident rates 3.078%–3.876% and Detroit 2.4% / 1.2%: unchanged for 2026.
  */
 import type { Brackets } from './tax-2026.ts';
 
@@ -25,6 +31,8 @@ export interface StateTaxSchedule {
   standardDeduction: { single: number; mfj: number };
   /** Personal exemption deducted from income. */
   exemption: { single: number; mfj: number };
+  /** Exemption per person by income (Ohio): the first tier whose maxIncome covers the income applies; above all tiers, none. Overrides `exemption`. */
+  exemptionTiers?: { maxIncome: number; perPerson: number }[];
   /** Personal exemption credit subtracted from tax (California). */
   credit: { single: number; mfj: number };
   payroll: StatePayroll[];
@@ -88,7 +96,7 @@ export const STATES: StateInfo[] = [
           single: [[0, 0.01], [11_079, 0.02], [26_264, 0.04], [41_452, 0.06], [57_542, 0.08], [72_724, 0.093], [371_479, 0.103], [445_771, 0.113], [742_953, 0.123], [1_000_000, 0.133]],
           mfj: [[0, 0.01], [22_158, 0.02], [52_528, 0.04], [82_904, 0.06], [115_084, 0.08], [145_448, 0.093], [742_958, 0.103], [891_542, 0.113], [1_000_000, 0.123], [1_485_906, 0.133]],
         },
-        standardDeduction: { single: 5_540, mfj: 11_080 },
+        standardDeduction: { single: 5_706, mfj: 11_412 },
         exemption: { single: 0, mfj: 0 },
         credit: { single: 153, mfj: 306 },
         payroll: [{ name: 'State Disability Insurance (SDI)', rate: 1.3 }],
@@ -101,7 +109,7 @@ export const STATES: StateInfo[] = [
       ],
       local: [],
     },
-    verify: ['California 2026 bracket widths, standard deduction and exemption credit were not yet indexed when published; the 2025 amounts are used (Tax Foundation note).'],
+    verify: ['California 2026 indexed brackets, standard deduction and exemption credit: FTB had not published them as of 2026-11-01, so the 2025 amounts (FTB 2025 Form 540 tables) are used. Update when FTB publishes the 2026 amounts.'],
   },
   {
     slug: 'texas',
@@ -206,7 +214,7 @@ export const STATES: StateInfo[] = [
         { place: 'Yonkers', detail: 'Yonkers residents pay a city income tax surcharge calculated on their New York State tax.' },
       ],
     },
-    verify: ['NY disability (DBL) employee cap of $0.60 a week: confirm with NY DFS / WCB for 2026.', 'NYC resident income tax rates (3.078%–3.876%): confirm current NYC rates.'],
+    verify: [],
   },
   {
     slug: 'pennsylvania',
@@ -241,10 +249,10 @@ export const STATES: StateInfo[] = [
       ],
       local: [
         { place: 'Most municipalities', detail: 'Local earned income taxes (EIT) apply almost everywhere in Pennsylvania, commonly around 1% of wages, plus a local services tax of up to $52 a year.' },
-        { place: 'Philadelphia', detail: 'Philadelphia levies a city wage tax on residents (about 3.74%) and a lower rate on non-residents who work in the city.' },
+        { place: 'Philadelphia', detail: 'Philadelphia’s wage tax is 3.735% for residents and 3.425% for non-residents who work in the city (rates from July 1, 2026).' },
       ],
     },
-    verify: ['Philadelphia resident wage tax rate (about 3.74%): confirm the current rate with the City of Philadelphia.', 'PA employee unemployment compensation rate (0.07%): confirm for 2026.'],
+    verify: [],
   },
   {
     slug: 'illinois',
@@ -301,18 +309,23 @@ export const STATES: StateInfo[] = [
       schedule: {
         brackets: { single: flat(0.0275, 26_050), mfj: flat(0.0275, 26_050) },
         standardDeduction: { single: 0, mfj: 0 },
-        exemption: { single: 2_400, mfj: 4_800 },
+        exemption: { single: 0, mfj: 0 },
+        exemptionTiers: [
+          { maxIncome: 40_000, perPerson: 2_400 },
+          { maxIncome: 80_000, perPerson: 2_150 },
+          { maxIncome: 499_999.99, perPerson: 1_900 },
+        ],
         credit: { single: 0, mfj: 0 },
         payroll: [],
       },
       summary: 'From 2026 Ohio taxes income at a flat 2.75% above $26,050, with the first $26,050 untaxed, and most cities add their own income tax.',
       notes: [
         'Ohio’s 2026 change replaced its brackets with a single 2.75% rate above $26,050.',
-        'The personal exemption depends on income (it’s smaller at higher incomes); the calculator uses the $2,400 amount.',
+        'The personal exemption depends on income: $2,400 per person up to $40,000, $2,150 up to $80,000 and $1,900 above that, with none at $500,000 or more. These are the 2025 amounts, carried into 2026 because inflation indexing is frozen.',
       ],
       local: [{ place: 'Most cities and villages', detail: 'Ohio municipalities levy their own income taxes, commonly 1% to 2.5% (Columbus and Cleveland charge 2.5%). Enter your city’s rate under More options.' }],
     },
-    verify: ['Ohio personal exemption by income level for 2026 ($2,400 used for all incomes).'],
+    verify: [],
   },
   {
     slug: 'georgia',
@@ -333,20 +346,20 @@ export const STATES: StateInfo[] = [
     paycheck: {
       noIncomeTax: false,
       schedule: {
-        brackets: { single: flat(0.0519), mfj: flat(0.0519) },
-        standardDeduction: { single: 12_000, mfj: 24_000 },
+        brackets: { single: flat(0.0499), mfj: flat(0.0499) },
+        standardDeduction: { single: 15_000, mfj: 30_000 },
         exemption: { single: 0, mfj: 0 },
         credit: { single: 0, mfj: 0 },
         payroll: [],
       },
-      summary: 'Georgia taxes income at a flat 5.19% after a $12,000 standard deduction for single filers ($24,000 for married couples).',
+      summary: 'Georgia taxes income at a flat 4.99% in 2026 after a $15,000 standard deduction for single filers ($30,000 for married couples).',
       notes: [
-        'Georgia moved to a flat income tax in 2024 and has been cutting the rate since; further cuts toward 4.99% depend on state revenue targets.',
+        'Georgia moved to a flat income tax in 2024. A 2026 law (HB 463) cut the rate from 5.19% to 4.99%, retroactive to January 1, 2026, and raised the standard deduction by 25%. Further cuts of 0.125 points a year toward 3.99% depend on state revenue targets.',
         'There are no city or county income taxes in Georgia.',
       ],
       local: [],
     },
-    verify: ['Georgia 2026 rate: Tax Foundation lists 5.19%; scheduled 0.10-point annual cuts under HB 111 are subject to revenue triggers. Confirm with Georgia DOR Form 500 instructions.'],
+    verify: [],
   },
   {
     slug: 'north-carolina',
@@ -408,7 +421,7 @@ export const STATES: StateInfo[] = [
       notes: ['Michigan’s personal exemption is indexed to inflation each year.', 'There’s no state disability or family-leave deduction from Michigan paychecks.'],
       local: [{ place: 'Detroit and 23 other cities', detail: 'Some Michigan cities levy income taxes; Detroit charges residents 2.4% and non-residents who work there 1.2%. Enter your city’s rate under More options.' }],
     },
-    verify: ['Detroit resident (2.4%) / non-resident (1.2%) rates: confirm current rates.'],
+    verify: [],
   },
 ];
 

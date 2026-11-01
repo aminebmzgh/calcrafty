@@ -30,6 +30,8 @@ Blocker: none
 - 2026-11-01: Phase 7 done. Service worker + offline page, real-user vitals (20% sample, loads only with analytics), Speculation Rules prefetch, ads/affiliate components behind ADS_ENABLED, IndexNow, feature e2e tests (favorites, history, compare, CSV, reset, print, static files). LAUNCH.md completed with every owner step, the draft pages to review and the state data items to verify. All gates green locally: 422 unit tests, typecheck, lint, SEO (91 pages), links, keyword map, uniqueness (max 66%), budgets (≤2.9 KB JS at load, 6.2 KB CSS gzipped).
 - 2026-11-01: CI fixes after Phase 7: chips kept their 44px target inside prose lists, mobile result bar hidden until hydrated, a11y test renders content-visibility blocks before axe. CI and Deploy green; deploy branch at Deploy 7a5d50e.
 - 2026-11-01: Live at https://calcrafty.com (Hostinger, Import from GitHub on the `deploy` branch). SSL, redirects, CDN and security headers verified.
+- 2026-11-01: Umami analytics live; Search Console and Bing set up; About page names the owner. State data re-checked against official sources: Georgia 4.99% and - 2026-11-01: Live at https://calcrafty.com (Hostinger, Import from GitHub on the `deploy` branch). SSL, redirects, CDN and security headers verified.
+5,000/$30,000 (HB 463), Ohio exemption income tiers, California 2025 standard deduction, Philadelphia 3.735%/3.425%. Deploy workflow: snapshot commit rebases and never blocks a deploy.
 
 ## Known issues
 

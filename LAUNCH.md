@@ -26,13 +26,9 @@ Without a key, the weekly refresh uses FRED's public CSV download, which works t
 
 The Deploy workflow refreshes rates every Monday 06:00 UTC and redeploys.
 
-## 4. Analytics (privacy-friendly, no cookies)
+## 4. Analytics (done 2026-11-01)
 
-1. Create a free account at https://cloud.umami.is/ → **Add website** → domain `calcrafty.com`.
-2. Copy the **Website ID** (a UUID).
-3. Run `gh secret set ANALYTICS_ID` and paste it. The next deploy adds the script, and a 20% sample of visits reports Core Web Vitals as `web-vitals` events.
-
-(Plausible works too; tell Claude Code to switch the script and CSP domain.)
+- [x] Umami Cloud website created; Website ID stored as the `ANALYTICS_ID` GitHub secret. The script is live on every page (cookie-free, honors Do Not Track), and a 20% sample of visits reports Core Web Vitals as `web-vitals` events. See the dashboard at https://cloud.umami.is/.
 
 ## 5. Search engines (done 2026-11-01)
 
@@ -126,16 +122,19 @@ Edit `src/content/guides/<slug>.mdx`.
 - [ ] https://calcrafty.com/finance/paycheck-calculator/states/
 - [ ] https://calcrafty.com/finance/paycheck-calculator/texas/
 
-### State data to verify
+### State data (checked 2026-11-01)
 
-- [ ] California: California 2026 bracket widths, standard deduction and exemption credit were not yet indexed when published; the 2025 amounts are used (Tax Foundation note).
-- [ ] New York: NY disability (DBL) employee cap of $0.60 a week: confirm with NY DFS / WCB for 2026.
-- [ ] New York: NYC resident income tax rates (3.078%–3.876%): confirm current NYC rates.
-- [ ] Pennsylvania: Philadelphia resident wage tax rate (about 3.74%): confirm the current rate with the City of Philadelphia.
-- [ ] Pennsylvania: PA employee unemployment compensation rate (0.07%): confirm for 2026.
-- [ ] Ohio: Ohio personal exemption by income level for 2026 ($2,400 used for all incomes).
-- [ ] Georgia: Georgia 2026 rate: Tax Foundation lists 5.19%; scheduled 0.10-point annual cuts under HB 111 are subject to revenue triggers. Confirm with Georgia DOR Form 500 instructions.
-- [ ] Michigan: Detroit resident (2.4%) / non-resident (1.2%) rates: confirm current rates.
+Claude Code checked the 8 open items against official sources. Corrected in the data and on the pages:
+
+- [x] Georgia: HB 463 (signed May 11, 2026) cut the 2026 rate to **4.99%** (retroactive to January 1) and raised the standard deduction to **$15,000 / $30,000**. Was 5.19% and $12,000 / $24,000.
+- [x] Ohio: personal exemption now follows the income tiers ($2,400 / $2,150 / $1,900 per person, none at $500,000 or more). Was a flat $2,400.
+- [x] California: standard deduction corrected to the 2025 FTB amount ($5,706 / $11,412); it was the 2024 figure.
+- [x] Philadelphia: wage tax 3.735% resident / 3.425% non-resident from July 1, 2026 (phila.gov).
+- [x] Confirmed unchanged: NY DBL $0.60/week cap, NYC rates 3.078%–3.876%, PA UC 0.07%, Detroit 2.4% / 1.2%.
+
+Still open:
+
+- [ ] California: FTB hadn't published the 2026 indexed brackets, standard deduction and credit by 2026-11-01. The calculator uses the 2025 amounts; ask Claude Code to update `src/data/static/states.ts` once FTB publishes them (usually by December).
 
 ## 9. Monetization (optional, later)
 
