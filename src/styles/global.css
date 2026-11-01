@@ -238,7 +238,7 @@
     margin-top: 0.35em;
   }
   /* WCAG 2.5.8: list links get a 24px minimum target height. */
-  .prose li > a {
+  .prose li > a:not(.chip) {
     display: inline-block;
     min-height: 24px;
     padding-block: 2px;
