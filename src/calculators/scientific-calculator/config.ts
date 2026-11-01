@@ -10,7 +10,7 @@ const config: CalculatorConfig<SciInput, SciOutput> = {
   intro: 'A free online scientific calculator with trig, logs, powers, roots and factorials. Type or tap, and see the answer live.',
   metaTitle: 'Free Online Scientific Calculator | Calcrafty',
   metaDescription:
-    'Free online scientific calculator: trig in degrees or radians, logs, powers, roots, factorials and π. Type with your keyboard or tap the keypad; answers update live.',
+    'Free online scientific calculator: trig in degrees or radians, logs, powers, roots, factorials and π. Type on your keyboard or tap the keypad; answers are live.',
   primaryKeyword: 'scientific calculator',
   secondaryKeywords: ['online scientific calculator', 'calculator online', 'free scientific calculator'],
   synonyms: ['calculator', 'trig', 'sin', 'cos', 'tan', 'log', 'exponent', 'square root', 'pi'],
