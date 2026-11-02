@@ -1,6 +1,7 @@
 /**
- * Content gates for every calculator's content.mdx (docs/BUILD-BRIEF.md sections 11 and 15):
- * valid frontmatter, 800–1,500 words, H2 sections, at least 3 contextual internal links, 5–8 FAQs.
+ * Content gates for every calculator's content.mdx and every guide (docs/BUILD-BRIEF.md sections 11 and 15,
+ * word range raised in DECISIONS.md 2026-11-02): valid frontmatter, a word range, H2 sections,
+ * at least 3 contextual internal links, 5–8 FAQs.
  */
 import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -8,6 +9,12 @@ import path from 'node:path';
 import YAML from 'yaml';
 
 const root = path.resolve('src/calculators');
+const guidesRoot = path.resolve('src/content/guides');
+
+/** Body length for calculator pages and guides. */
+export const MIN_WORDS = 800;
+export const MAX_WORDS = 2500;
+export const GUIDE_MIN_WORDS = 500;
 const folders = readdirSync(root).filter((d) => existsSync(path.join(root, d, 'content.mdx')));
 
 function parse(file: string) {
@@ -49,15 +56,38 @@ describe('calculator content', () => {
           expect(f.a.length).toBeGreaterThan(40);
         }
       });
-      it('body is 800–1,500 words', () => {
+      it(`body is ${MIN_WORDS}–${MAX_WORDS} words`, () => {
         const n = words(body);
-        expect(n, `${d}: ${n} words`).toBeGreaterThanOrEqual(800);
-        expect(n, `${d}: ${n} words`).toBeLessThanOrEqual(1500);
+        expect(n, `${d}: ${n} words`).toBeGreaterThanOrEqual(MIN_WORDS);
+        expect(n, `${d}: ${n} words`).toBeLessThanOrEqual(MAX_WORDS);
       });
       it('has H2 sections and at least 3 internal links', () => {
         expect((body.match(/^## /gm) ?? []).length).toBeGreaterThanOrEqual(4);
         const links = new Set([...body.matchAll(/\]\((\/[^)]+)\)/g)].map((m) => m[1]));
         expect(links.size, `${d} internal links`).toBeGreaterThanOrEqual(3);
+      });
+    });
+  }
+});
+
+describe('guide content', () => {
+  for (const file of readdirSync(guidesRoot).filter((f) => f.endsWith('.mdx'))) {
+    describe(file, () => {
+      const { data, body } = parse(path.join(guidesRoot, file));
+      it('frontmatter is valid', () => {
+        expect(['draft', 'reviewed']).toContain(data.status);
+        const faq = (data.faq ?? []) as unknown[];
+        expect(faq.length).toBeLessThanOrEqual(8);
+      });
+      it(`body is ${GUIDE_MIN_WORDS}–${MAX_WORDS} words`, () => {
+        const n = words(body);
+        expect(n, `${file}: ${n} words`).toBeGreaterThanOrEqual(GUIDE_MIN_WORDS);
+        expect(n, `${file}: ${n} words`).toBeLessThanOrEqual(MAX_WORDS);
+      });
+      it('has H2 sections and at least 3 internal links', () => {
+        expect((body.match(/^## /gm) ?? []).length).toBeGreaterThanOrEqual(4);
+        const links = new Set([...body.matchAll(/\]\((\/[^)]+)\)/g)].map((m) => m[1]));
+        expect(links.size, `${file} internal links`).toBeGreaterThanOrEqual(3);
       });
     });
   }

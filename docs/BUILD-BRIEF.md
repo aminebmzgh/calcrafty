@@ -320,7 +320,7 @@ export interface CalculatorConfig<I, O> {
 5. ExplainPanel + ShowTheMath
 6. Charts / tables
 7. Related calculators
-8. **MDX content, 800–1,500 words.** Each H2 opens with a 2–3 sentence direct answer, then detail:
+8. **MDX content, 1,500–2,500 words** (raised from 800–1,500 on 2026-11-02, see DECISIONS.md). Each H2 opens with a 2–3 sentence direct answer, then detail:
    - How to use this calculator
    - Worked example with **unique, realistic** numbers
    - The formula in plain English

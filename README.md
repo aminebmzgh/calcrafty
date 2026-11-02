@@ -71,7 +71,7 @@ A calculator is **one folder** in `src/calculators/<slug>/`. Nothing else needs 
 
    The shell provides live results (150 ms debounce), validation messages, share links, copy result, compare (up to 3), favorites, history, print and reset. Charts live in `src/components/charts/` (LineChart, DonutChart, StackedBar); tables use `DataTable` (collapsible, CSV export). Widgets hydrate on first interaction; the server HTML already shows the default result.
 
-6. **`content.mdx`:** frontmatter `status: draft` (never set `reviewed` yourself; a person does that after review), 5–8 FAQ entries, optional `howTo` steps. Body: 800–1,500 words. Each H2 opens with a direct 2–3 sentence answer: how to use it, a worked example with unique, realistic numbers (compute them with `math.ts`), the formula in plain English, key terms, what to do with the result, and at least 3 links to related calculators or guides.
+6. **`content.mdx`:** frontmatter `status: draft` (never set `reviewed` yourself; a person does that after review), 5–8 FAQ entries, optional `howTo` steps. Body: 1,500–2,500 words. Each H2 opens with a direct 2–3 sentence answer: how to use it, a worked example with unique, realistic numbers (compute them with `math.ts`), the formula in plain English, key terms, what to do with the result, and at least 3 links to related calculators or guides.
 
 7. **Run the gates:** `npm test && npm run build && npm run check && npm run test:e2e`. The e2e suite picks up the new page automatically (load, live update, share-URL round-trip, axe in both themes, no-JS, JS budget).
 
