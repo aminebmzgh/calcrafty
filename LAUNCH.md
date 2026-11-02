@@ -70,6 +70,18 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
+### New pages waiting for review (batch 3, 2026-11-02)
+
+Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 3 reviewed" or name the pages.
+
+- [ ] https://calcrafty.com/finance/simple-interest-calculator/
+- [ ] https://calcrafty.com/finance/inflation-calculator/
+- [ ] https://calcrafty.com/finance/emergency-fund-calculator/
+- [ ] https://calcrafty.com/everyday/final-grade-calculator/
+- [ ] https://calcrafty.com/guides/minimum-payment-payoff-time/
+
+Yearly task: the inflation calculator's CPI history (`src/calculators/inflation-calculator/cpi.ts`) is a snapshot from FRED (series CPIAUCNS) taken 2026-11-02. Ask Claude Code to "refresh the CPI history" each February, once BLS has published the previous year's December index.
+
 ### State data (checked 2026-11-01)
 
 Claude Code checked the 8 open items against official sources. Corrected in the data and on the pages:

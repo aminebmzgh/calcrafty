@@ -88,3 +88,7 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 ## 2026-11-02 (content depth)
 
 - **Calculator pages and guides are 1,500–2,500 words** (was 800–1,500 for calculators, no rule for guides), at the owner's request. Enforced in `src/lib/content.test.ts`; raised in stages so CI stays green while existing pages were expanded; the 1,500 minimum applies to every page from 2026-11-02. New sections must add information (worked examples computed with each calculator's `math.ts`, comparison tables, common mistakes, follow-up questions), never filler.
+
+## 2026-11-02 (growth batch 3)
+
+- **Inflation calculator CPI history lives in the calculator's folder** (`src/calculators/inflation-calculator/cpi.ts`), keeping "one calculator = one folder". It's a committed snapshot of BLS CPI-U (FRED CPIAUCNS, not seasonally adjusted) with annual averages computed as BLS does; refreshed yearly by hand (LAUNCH.md). BLS published no October 2025 index (shutdown), so 2025 averages the 11 published months; this is stated on the page. The current year uses the latest monthly index, shown in the field help text as the "as of" month.
