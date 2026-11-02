@@ -20,7 +20,7 @@ pace calculator,running pace calculator|marathon pace calculator|race pace calcu
 percentage calculator,percent calculator|percent change calculator|percent off calculator|what percent of calculator,calculate,1800000,70,22500,/math/percentage-calculator/,calculator,built,estimate
 scientific calculator,online scientific calculator|calculator online|free scientific calculator,calculate,1300000,85,13684.2,/math/scientific-calculator/,calculator,built,estimate
 fraction calculator,fraction simplifier|adding fractions calculator|mixed number calculator,calculate,650000,60,9285.7,/math/fraction-calculator/,calculator,built,estimate
-standard deviation calculator,sample standard deviation calculator|population standard deviation calculator|variance calculator,calculate,250000,55,3846.2,/math/standard-deviation-calculator/,calculator,built,estimate
+standard deviation calculator,sample standard deviation calculator|population standard deviation calculator|variance calculator,calculate,250000,55,3846.2,/statistics/standard-deviation-calculator/,calculator,built,estimate
 age calculator,how old am i|birthday calculator|chronological age calculator,calculate,1100000,65,14666.7,/everyday/age-calculator/,calculator,built,estimate
 days between dates calculator,date calculator|business days calculator|how many days between dates,calculate,450000,55,6923.1,/everyday/days-between-dates-calculator/,calculator,built,estimate
 gpa calculator,weighted gpa calculator|college gpa calculator|high school gpa calculator,calculate,900000,65,12000,/everyday/gpa-calculator/,calculator,built,estimate
@@ -54,6 +54,7 @@ health calculators,health calculator|medical calculators,learn,8000,45,145.5,/he
 math calculators,online math calculator|math calculator,learn,60000,60,857.1,/math/,hub,built,estimate
 everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/,hub,built,estimate
 sports calculators,fitness calculators|sports and fitness calculators|running calculators,learn,,,,/sports/,hub,built,needs-data
+statistics calculators,statistics calculator|stats calculator|descriptive statistics calculator,learn,,,,/statistics/,hub,built,needs-data
 free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,built,estimate
 apr calculator,loan apr calculator|calculate apr with fees|true apr calculator,calculate,,,,/finance/apr-calculator/,calculator,built,needs-data
 debt to income ratio calculator,dti calculator|debt to income ratio for mortgage,calculate,,,,/finance/debt-to-income-ratio-calculator/,calculator,built,needs-data
@@ -75,7 +76,7 @@ how long to pay off credit card minimum payment,minimum payment payoff time|how 
 net worth calculator,calculate net worth|personal net worth calculator|net worth by age calculator|household net worth,calculate,,,,/finance/net-worth-calculator/,calculator,built,needs-data
 overtime calculator,time and a half calculator|overtime pay calculator|california overtime calculator|double time calculator,calculate,,,,/finance/overtime-calculator/,calculator,built,needs-data
 time card calculator,timesheet calculator|hours worked calculator|work hours calculator|clock in clock out calculator,calculate,,,,/everyday/time-card-calculator/,calculator,built,needs-data
-mean median mode calculator,average calculator|median calculator|mode calculator|mean median mode and range calculator,calculate,,,,/math/mean-median-mode-calculator/,calculator,built,needs-data
+mean median mode calculator,average calculator|median calculator|mode calculator|mean median mode and range calculator,calculate,,,,/statistics/mean-median-mode-calculator/,calculator,built,needs-data
 how much should i contribute to my 401k,what percentage should i contribute to 401k|how much to put in 401k|401k contribution percentage,learn,,,,/guides/how-much-to-contribute-to-401k/,guide,built,needs-data
 roth vs traditional 401k,roth 401k vs traditional 401k|traditional or roth 401k|should i do roth or traditional 401k,learn,,,,/guides/roth-vs-traditional-401k/,guide,built,needs-data
 how to read a pay stub,pay stub explained|pay stub abbreviations|what is ytd on a pay stub,learn,,,,/guides/how-to-read-a-pay-stub/,guide,built,needs-data

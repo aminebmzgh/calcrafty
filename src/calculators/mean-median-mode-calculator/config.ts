@@ -7,8 +7,8 @@ const list = (xs: number[]) => (xs.length ? xs.map((x) => num(x, 10)).join(', ')
 
 const config: CalculatorConfig<MmmInput, MmmOutput> = {
   slug: 'mean-median-mode-calculator',
-  category: 'math',
-  subtopic: 'Statistics',
+  category: 'statistics',
+  subtopic: 'Descriptive statistics',
   name: 'Mean, Median and Mode Calculator',
   h1: 'Mean, Median and Mode Calculator',
   intro: 'The mean, median, mode and range of any list of numbers, with the sorted list and every step shown.',

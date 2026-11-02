@@ -14,4 +14,6 @@ export const redirects: Redirect[] = [
   { from: '/tdee-calculator/', to: '/health/calorie-calculator/' },
   { from: '/salary-calculator/', to: '/finance/paycheck-calculator/' },
   { from: '/health/running-pace-calculator/', to: '/sports/running-pace-calculator/' },
+  { from: '/math/standard-deviation-calculator/', to: '/statistics/standard-deviation-calculator/' },
+  { from: '/math/mean-median-mode-calculator/', to: '/statistics/mean-median-mode-calculator/' },
 ];

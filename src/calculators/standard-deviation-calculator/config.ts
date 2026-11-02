@@ -6,8 +6,8 @@ const v = (n: number | null, dp = 6) => (n === null ? '—' : num(n, dp));
 
 const config: CalculatorConfig<StdDevInput, StdDevOutput> = {
   slug: 'standard-deviation-calculator',
-  category: 'math',
-  subtopic: 'Statistics',
+  category: 'statistics',
+  subtopic: 'Descriptive statistics',
   name: 'Standard Deviation Calculator',
   h1: 'Standard Deviation Calculator',
   intro: 'Paste a list of numbers to get the sample and population standard deviation, variance and mean, with every step shown.',
