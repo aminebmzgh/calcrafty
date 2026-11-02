@@ -70,15 +70,9 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
-### New pages waiting for review (batch 5, construction, 2026-11-02)
+### Growth batch 5, construction (reviewed 2026-11-02)
 
-Drafts (`noindex`, not in the sitemap) until you review them. The Construction hub (/construction/) also stays `noindex` until at least one of these is reviewed. Tell Claude Code "batch 5 reviewed" or name the pages. Each page ends with a `TODO: expert review` comment listing what to double-check.
-
-- [ ] https://calcrafty.com/construction/concrete-calculator/
-- [ ] https://calcrafty.com/construction/paint-calculator/
-- [ ] https://calcrafty.com/construction/flooring-calculator/
-- [ ] https://calcrafty.com/construction/gravel-calculator/
-- [ ] https://calcrafty.com/construction/roofing-calculator/
+- [x] Concrete, paint, flooring, gravel and roofing calculators: reviewed by the owner and indexable, along with the Construction hub.
 
 ### Growth batch 4 (reviewed 2026-11-02)
 
