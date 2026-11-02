@@ -22,7 +22,7 @@ export default defineConfig({
     csp: {
       directives: [
         "default-src 'self'",
-        `connect-src 'self' ${ANALYTICS_ORIGIN} https://api-gateway.umami.dev`,
+        `connect-src 'self' ${ANALYTICS_ORIGIN} https://gateway.umami.is https://api-gateway.umami.dev`,
         "img-src 'self' data:",
         "font-src 'self'",
         "object-src 'none'",
