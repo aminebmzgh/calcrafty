@@ -34,6 +34,7 @@ Blocker: none
 - 2026-11-01: Owner reviewed all content; 25 calculators, 5 guides and 20 state pages set to reviewed (indexable, 63 URLs in the sitemap).
 - 2026-11-01: Growth batch 1 (research/next-batch-plan.md): APR (Reg Z actuarial method), debt-to-income ratio, salary to hourly, pay raise and car affordability calculators, plus the "Is refinancing worth it?" guide. Reviewed by the owner the same day and indexable. 518 unit tests, all checks green.
 - 2026-11-02: Content depth: owner set calculator pages and guides to 1,500–2,500 words. All 30 calculator pages and 6 guides expanded with new, computed sections (worked examples from math.ts, tables, mistakes, follow-ups) and the rule enforced in content.test.ts. Corrected two retirement figures that were off by a cent. Re-read and approved by the owner the same day.
+- 2026-11-02: Growth batch 2: refinance (classic and true break-even, term-reset effect), CD (APY, after-tax and real return, early withdrawal penalty) and HELOC (CLTV limit, payment shock) calculators, plus guides "What is a good debt-to-income ratio?" and "How is APR calculated?". All 1,500+ words, drafts awaiting owner review. 596 unit tests, all checks green.
 5,000/$30,000 (HB 463), Ohio exemption income tiers, California 2025 standard deduction, Philadelphia 3.735%/3.425%. Deploy workflow: snapshot commit rebases and never blocks a deploy.
 
 ## Known issues

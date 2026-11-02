@@ -66,6 +66,18 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] All 30 calculator pages and 6 guides expanded to 1,500+ words and re-read by the owner; `lastReviewed` set to 2026-11-02.
 
+### New pages waiting for review (batch 2, 2026-11-02)
+
+Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 2 reviewed" or name the pages.
+
+- [ ] https://calcrafty.com/finance/refinance-calculator/
+- [ ] https://calcrafty.com/finance/cd-calculator/
+- [ ] https://calcrafty.com/finance/heloc-calculator/
+- [ ] https://calcrafty.com/guides/good-debt-to-income-ratio/
+- [ ] https://calcrafty.com/guides/how-apr-is-calculated/
+
+Each page has a `TODO: expert review` note listing what to check. The refinancing guide now also links to the refinance calculator, and its 25-year break-even reads 34 months (rounded up, matching the calculator).
+
 ### State data (checked 2026-11-01)
 
 Claude Code checked the 8 open items against official sources. Corrected in the data and on the pages:

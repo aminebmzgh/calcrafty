@@ -1,0 +1,147 @@
+---
+status: draft
+title: "How Is APR Calculated?"
+h1: "How Is APR Calculated? The Method Lenders Must Use"
+intro: "Step by step, the way US lenders calculate the annual percentage rate under federal law, with worked examples for a car loan, a personal loan and a mortgage."
+metaTitle: "How Is APR Calculated? Step-by-Step with Examples"
+metaDescription: "How APR is calculated under Regulation Z: the amount financed, the payment and the rate that ties them together, with car, personal loan and mortgage examples."
+primaryKeyword: "how is apr calculated"
+category: "finance"
+calculators: ["apr-calculator", "loan-calculator", "auto-loan-calculator", "mortgage-calculator", "credit-card-payoff-calculator"]
+published: "2026-11-02"
+faq:
+  - q: "How is APR calculated on a loan?"
+    a: "Subtract the prepaid finance charges (such as origination fees and points) from the loan amount to get the amount financed. Work out the monthly payment at the interest rate. The APR is the yearly rate at which the present value of those payments equals the amount financed. It's found by trial and error, the same way a spreadsheet's RATE function works."
+  - q: "What is the difference between APR and interest rate?"
+    a: "The interest rate sets your payment. The APR adds the lender's required fees and spreads them over the term as a yearly rate. On a $25,000 car loan at 6.9% with a $495 fee, the interest rate is 6.9% but the APR is 7.74%."
+  - q: "Which fees are included in APR?"
+    a: "Finance charges you must pay to get the loan: origination and underwriting fees, discount points, mortgage broker fees, prepaid interest and, on mortgages, mortgage insurance. Fees you'd pay in a cash purchase, and for mortgages most third-party charges such as title insurance and appraisals, are generally excluded."
+  - q: "Can I calculate APR in Excel?"
+    a: "Yes. Use =RATE(number of payments, −monthly payment, amount financed) × 12. For a 60-month loan with a $493.85 payment and $24,505 financed, =RATE(60,-493.85,24505)*12 returns about 7.74%."
+  - q: "How accurate does a lender's APR have to be?"
+    a: "Under Regulation Z, the disclosed APR on a regular loan must be within 1/8 of a percentage point of the exact figure, or 1/4 point for loans with irregular payments or amounts."
+  - q: "How is credit card APR calculated?"
+    a: "Credit card APR is simply the interest rate; it doesn't include annual or other fees. Issuers divide it by 365 (or 360) to get a daily periodic rate and charge it on your average daily balance. A 24% APR is a daily rate of about 0.0658%."
+---
+
+**Short answer:** APR is the yearly interest rate that makes your payments worth exactly the amount of credit you actually receive. Lenders find it in three steps: subtract the upfront finance charges from the loan to get the **amount financed**, work out the **monthly payment** at the note rate, then solve for the **rate** at which those payments equal the amount financed. Because fees reduce what you receive but not what you repay, the APR comes out higher than the interest rate whenever there are fees. The [APR calculator](/finance/apr-calculator/) does all three steps for you.
+
+## Why APR exists
+
+Before 1968, lenders could quote interest in many different ways, which made loans almost impossible to compare. The federal Truth in Lending Act fixed that by requiring one standard measure, the annual percentage rate, calculated the same way by every lender. Regulation Z, administered by the Consumer Financial Protection Bureau, sets out the method in detail. That's why the APR on a bank's Loan Estimate, a dealer's contract and an online lender's offer can be compared directly.
+
+## Step 1: Find the amount financed
+
+The **amount financed** is the credit you actually receive:
+
+**Amount financed = loan amount − prepaid finance charges**
+
+Prepaid finance charges are fees you pay to get the loan, either at closing or deducted from the money you receive. If the fees are added to the loan balance instead, the amount financed is the original amount you asked for, and the payment is calculated on the larger balance.
+
+**Example:** a $25,000 car loan with a $495 loan origination fee deducted from the proceeds. The amount financed is $25,000 − $495 = **$24,505**.
+
+## Step 2: Calculate the payment
+
+The payment is calculated on the full loan amount at the note rate, using the standard formula:
+
+**Payment = P × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)**, where P is the loan amount, r is the annual rate ÷ 12 and n is the number of payments.
+
+**Example:** $25,000 at 6.9% for 60 months gives a payment of **$493.85**. Over the loan, you'll pay 60 × $493.85 = $29,631 in total.
+
+## Step 3: Solve for the rate
+
+Now ask: at what interest rate would 60 payments of $493.85 be worth exactly $24,505 today? There's no formula that gives the answer directly, so it's found by trying rates and narrowing in:
+
+| Rate tried | Present value of 60 payments of $493.85 |
+|---|---|
+| 6.90% | $24,999.93 (too high: rate must be higher) |
+| 7.50% | $24,645.74 (still too high) |
+| 7.70% | $24,529.23 (close) |
+| 7.74% | $24,506.02 (almost exact) |
+| 7.75% | $24,500.22 (slightly too low) |
+
+The rate that gives exactly $24,505 is about **7.74%**. That's the APR. The $495 fee adds 0.84 percentage points to the 6.9% interest rate. Computers and the APR calculator do the same search in a fraction of a second.
+
+**The finance charge**, the total cost of credit, is everything you pay minus the amount financed: $29,631 − $24,505 = **$5,126**, made up of $4,631 of interest and the $495 fee.
+
+## What's included in APR, and what isn't
+
+Regulation Z defines a **finance charge** as any charge you pay as a condition of getting credit that you wouldn't pay in a comparable cash transaction.
+
+**Usually included:**
+- Interest
+- Origination, underwriting, processing and application fees charged to every borrower
+- Discount points paid to lower the rate
+- Mortgage broker fees
+- Prepaid interest on a mortgage
+- Mortgage insurance premiums (PMI or FHA mortgage insurance)
+
+**Usually excluded:**
+- Fees you'd pay in a cash purchase too, such as sales tax and vehicle registration
+- For mortgages, most third-party charges such as title insurance, appraisal, credit report and government recording fees
+- Late fees and returned-payment fees, which depend on your behavior
+- Optional products you're free to decline, such as credit insurance or extended warranties, when properly disclosed as voluntary
+
+Because these lists matter, two loans with the same fees can have different APRs if the fees are labeled differently. Always look at the total finance charge alongside the APR.
+
+## Upfront fees vs fees added to the loan
+
+How the fee is paid changes the APR slightly. A $12,000 personal loan at 11% for 36 months with a 6% origination fee ($720):
+
+| How the fee is paid | Monthly payment | Amount financed | Finance charge | APR |
+|---|---|---|---|---|
+| Deducted from the loan | $392.86 | $11,280 | $2,862.96 | 15.33% |
+| Added to the balance | $416.44 | $12,000 | $2,991.84 | 15.08% |
+
+With the fee deducted, you receive only $11,280 but repay a $12,000 loan, so the APR is higher. With the fee added, you receive the full $12,000 but pay interest on the fee too, so the finance charge is higher even though the APR is a little lower. Both APRs are far above the 11% interest rate, which is the point: a 6% fee on a three-year loan costs more than four percentage points a year.
+
+## Mortgage points and APR
+
+On a mortgage, points let you trade upfront cost for a lower rate, and APR shows the combined effect. Three offers on a $350,000, 30-year loan, each with $2,500 of other lender fees:
+
+| Offer | Rate | Points | Total fees | Monthly payment | APR |
+|---|---|---|---|---|---|
+| No points | 7.00% | 0 | $2,500 | $2,328.56 | 7.07% |
+| 1 point | 6.75% | $3,500 | $6,000 | $2,270.09 | 6.92% |
+| 2 points | 6.50% | $7,000 | $9,500 | $2,212.24 | 6.77% |
+
+Over 30 years, the 2-point offer is cheapest, and its APR is the lowest. But APR assumes you keep the loan for the full term. If you sell or refinance after a few years, the points are spread over far fewer payments and the no-points loan can work out cheaper. Use APR to compare offers, then ask how long you'll realistically keep the loan.
+
+## How precise is the disclosed APR?
+
+Regulation Z allows a small tolerance. For a regular loan, the disclosed APR must be within **1/8 of a percentage point** (0.125) of the exact figure; for loans with irregular payments or amounts, within **1/4 point**. That's why APRs are usually quoted to two or three decimal places, and why two correct calculations can differ in the last digit.
+
+## APR on adjustable-rate mortgages
+
+For an adjustable-rate mortgage, the disclosed APR is a composite: it uses the initial rate for the fixed period and assumes the rate then adjusts to the current fully indexed rate (the index plus the margin) for the rest of the term. It doesn't predict future rate changes, so an ARM's APR can understate the cost if rates rise. Compare ARMs by the APR and by the maximum payment shown on the Loan Estimate.
+
+## Credit card APR works differently
+
+On a credit card, the APR is just the interest rate; annual fees, balance transfer fees and cash advance fees aren't built into it. Issuers convert the APR to a **daily periodic rate** (APR ÷ 365, or 360 at some banks) and charge it on your average daily balance. At 24% APR, the daily rate is about 0.0658%. Because unpaid interest is added to the balance, the effective yearly cost of a balance you carry is higher than the APR, about 26.8% at 24% APR with monthly compounding.
+
+## APR on short-term loans
+
+The shorter the loan, the more a flat fee inflates the APR, because the fee is spread over a fraction of a year. A payday loan that charges $15 for every $100 borrowed for two weeks has an APR of about **391%**: the $15 fee is 15% of the amount for 14 days, and there are about 26 such periods in a year (15% × 365 ÷ 14).
+
+Lenders sometimes argue that APR overstates the cost of a loan you'll repay in two weeks. But if the loan is rolled over again and again, as many payday loans are, the fees really do add up at that rate. The APR is the honest way to compare a short-term loan with a credit card, a personal loan or a credit union's small-dollar loan.
+
+## Calculating APR in a spreadsheet
+
+Excel and Google Sheets can solve for the rate with the RATE function:
+
+**=RATE(number of payments, −payment, amount financed) × 12**
+
+For the car loan: =RATE(60, −493.85, 24505) × 12 ≈ **7.74%**. The negative sign on the payment tells the function that money flows out. This gives the same answer as the method lenders use for regular monthly loans.
+
+## Common misconceptions
+
+- **"APR is the interest I'll pay each year."** Not exactly. It's a rate that includes fees spread over the whole term. The dollar cost is the finance charge.
+- **"The loan with the lowest APR is always cheapest."** Only if you keep it for the full term. Short holding periods favor low fees over low rates.
+- **"APR and APY are the same."** APR excludes compounding within the year; APY includes it. Loans use APR, savings use APY.
+- **"No-fee loans have no APR."** They do; their APR simply equals the interest rate.
+
+## Put it to work
+
+When you compare offers, enter each one in the [APR calculator](/finance/apr-calculator/) with the same amount and term, and look at the APR and finance charge side by side. For the full payment schedule of the loan you choose, use the [loan calculator](/finance/loan-calculator/), the [auto loan calculator](/finance/auto-loan-calculator/) or the [mortgage calculator](/finance/mortgage-calculator/). If you carry credit card balances, the [credit card payoff calculator](/finance/credit-card-payoff-calculator/) shows how much the APR is costing you each month.
+
+{/* TODO: expert review: finance charge inclusions and exclusions, ARM composite APR wording. */}
