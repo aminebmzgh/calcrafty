@@ -7,7 +7,7 @@ import { calculatorUrls } from './pages.ts';
  */
 /** Widgets hydrate on first interaction: focus the first field, then wait. */
 async function interact(page: Page) {
-  await page.locator('.calc input:visible').first().focus();
+  await page.locator('.calc :is(input, textarea):visible').first().focus();
   await page.locator('.calc[data-hydrated="true"]').waitFor();
 }
 

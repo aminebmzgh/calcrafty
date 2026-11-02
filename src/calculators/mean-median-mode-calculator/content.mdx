@@ -1,0 +1,175 @@
+---
+status: draft
+howTo:
+  - "Type or paste your numbers into the box, separated by commas, spaces or new lines. You can paste a column straight from a spreadsheet."
+  - "Read the mean (average), median, mode and range, along with the count and sum."
+  - "Check the sorted list to confirm every value was read correctly; anything that isn't a number is listed separately and ignored."
+  - "Open Show the math to see each step of the working."
+faq:
+  - q: "How do you find the mean, median and mode?"
+    a: "Mean: add all the values and divide by how many there are. Median: sort the values and take the middle one, or the average of the two middle ones if there's an even count. Mode: the value that appears most often. For 3, 7, 7, 19, 24, the mean is 12, the median is 7 and the mode is 7."
+  - q: "What is the median of an even set of numbers?"
+    a: "The average of the two middle values once they're sorted. For 2, 4, 4, 5, 7, 9, the two middle values are 4 and 5, so the median is 4.5."
+  - q: "Can there be more than one mode?"
+    a: "Yes. If two or more values tie for the most appearances, each is a mode. In 1, 1, 2, 2, 3, both 1 and 2 appear twice, so the data has two modes (it's bimodal). If every value appears exactly once, there's no mode."
+  - q: "When should I use the median instead of the mean?"
+    a: "When the data is skewed or has outliers, such as incomes or house prices. One very large value pulls the mean up but barely moves the median. Adding a $250,000 salary to five salaries between $45,000 and $61,000 raises the mean from $52,200 to about $85,167, while the median only moves from $52,000 to $53,500."
+  - q: "What is the range?"
+    a: "The largest value minus the smallest. For test scores from 66 to 94, the range is 28. It's a quick measure of spread, but it depends entirely on the two most extreme values."
+  - q: "Is the average the same as the mean?"
+    a: "In everyday use, yes: average usually means the arithmetic mean. Strictly, the median and mode are also kinds of average, which is why statisticians call them measures of central tendency."
+---
+
+## How to use this mean, median and mode calculator
+
+1. **Enter your numbers** in the box, separated by commas, spaces or new lines. Paste a column from Excel or Google Sheets and each row is read as a value. Negative numbers and decimals are fine.
+2. **Read the results:** the mean, median, mode (or modes), range and sum, with the count of values.
+3. **Check the sorted list** below the result. It's the easiest way to spot a typo, such as 850 where you meant 85. Anything that isn't a number is listed and left out.
+4. **Open Show the math** for each step: the sorted list, the sum and division for the mean, the middle position for the median, the count behind the mode, and the subtraction for the range.
+
+The calculator uses exact decimal arithmetic, so 0.1 + 0.2 comes out as 0.3, not 0.30000000000000004 as in some software.
+
+## The formulas
+
+| Measure | How to find it |
+|---|---|
+| **Mean** | sum of the values ÷ number of values |
+| **Median** | the middle value once sorted; with an even count, the average of the two middle values |
+| **Mode** | the value (or values) that occur most often |
+| **Range** | largest value − smallest value |
+
+For a sorted list of *n* values, the median is at position (*n* + 1) ÷ 2. With 9 values that's position 5; with 10 it's position 5.5, which means the average of positions 5 and 6.
+
+## Worked example: ten test scores
+
+Scores: 72, 85, 90, 66, 85, 78, 94, 85, 70, 88.
+
+1. **Sort them:** 66, 70, 72, 78, 85, 85, 85, 88, 90, 94.
+2. **Mean:** the sum is 813, and there are 10 scores, so 813 ÷ 10 = **81.3**.
+3. **Median:** with 10 values, take the 5th and 6th: 85 and 85, so the median is **85**.
+4. **Mode:** 85 appears three times, more than any other score, so the mode is **85**.
+5. **Range:** 94 − 66 = **28**.
+
+The mean (81.3) is a little below the median (85) because the lower scores, 66 and 70, sit farther from the center than the higher ones. That's a mild left skew.
+
+## More examples
+
+| Data | Mean | Median | Mode | Range |
+|---|---|---|---|---|
+| 3, 7, 7, 19, 24 | 12 | 7 | 7 | 21 |
+| 2, 4, 4, 5, 7, 9 | 5.17 | 4.5 | 4 | 7 |
+| 1, 2, 3, 4, 5, 6 | 3.5 | 3.5 | none | 5 |
+| 1, 1, 2, 2, 3 | 1.8 | 2 | 1 and 2 | 2 |
+| 4, 8, 15, 16, 23, 42 | 18 | 15.5 | none | 38 |
+
+The first row shows how a couple of large values (19 and 24) pull the mean well above the median. In the third row, the values are evenly spread, so the mean and median are equal.
+
+## Mean vs median: which should you use?
+
+The **mean** uses every value, which makes it the natural choice for evenly spread data and the basis for most further statistics, such as the standard deviation. But that also makes it sensitive to **outliers**: a single extreme value can move it a long way.
+
+The **median** only cares about the middle of the sorted list, so outliers barely affect it. That makes it better for skewed data. Consider six salaries:
+
+| Salaries | Mean | Median |
+|---|---|---|
+| $45,000, $48,000, $52,000, $55,000, $61,000 | $52,200 | $52,000 |
+| The same, plus one at $250,000 | $85,167 | $53,500 |
+
+One high earner raises the mean by about $33,000, to a level that five of the six people don't come close to, while the median moves by only $1,500. That's why government agencies such as the Census Bureau report **median** household income, and why house prices are usually quoted as medians.
+
+A useful rule of thumb:
+
+- **Mean ≈ median:** the data is roughly symmetrical.
+- **Mean > median:** a few large values are pulling the mean up (right skew), as with incomes.
+- **Mean < median:** a few small values are pulling it down (left skew), as with test scores where most people do well.
+
+## When the mode is the right measure
+
+The mode is the only one of the three that works for **categories** as well as numbers: the most common shoe size sold, the most popular answer in a survey, the most frequent rating. For numbers, it's most useful when values repeat often, such as scores out of 10 or the number of children per family.
+
+Data can have:
+
+- **One mode** (unimodal), like the test scores above.
+- **Two modes** (bimodal), which can be a sign that two different groups are mixed together, such as the heights of adults and children.
+- **Several modes** (multimodal).
+- **No mode,** when every value appears once. This is common with measured values such as weights or times recorded to a decimal place.
+
+## How outliers affect each measure
+
+Add a score of 20 to the ten test scores in the worked example:
+
+| Measure | Original 10 scores | With a score of 20 added |
+|---|---|---|
+| Mean | 81.3 | 75.73 |
+| Median | 85 | 85 |
+| Mode | 85 | 85 |
+| Range | 28 | 74 |
+
+The mean drops by more than 5 points and the range more than doubles, while the median and mode don't move. If a value looks like an error, check it before removing it; if it's real, report the median alongside the mean so readers see both.
+
+## Finding a missing value for a target average
+
+If you know the average you need, you can work out the missing value: multiply the target mean by the total number of values, then subtract the sum you already have.
+
+For example, to bring the ten test scores (sum 813) to a mean of 82 with an eleventh score: 82 × 11 = 902, so you'd need 902 − 813 = **89**. For course grades with different weights, the [final grade calculator](/everyday/final-grade-calculator/) does this for you.
+
+## Weighted mean
+
+When some values count more than others, use a **weighted mean**: multiply each value by its weight, add the results, and divide by the total weight. A 3-credit course with a grade of 90 and a 1-credit course with 70 average (90 × 3 + 70 × 1) ÷ 4 = **85**, not the simple mean of 80. Grade point averages work this way; the [GPA calculator](/everyday/gpa-calculator/) weights each course by its credits.
+
+## Data in a frequency table
+
+Survey results often come as a frequency table rather than a list. Here are the number of children in 20 families:
+
+| Children | Families |
+|---|---|
+| 0 | 4 |
+| 1 | 6 |
+| 2 | 7 |
+| 3 | 3 |
+
+- **Mean:** multiply each value by its frequency and add: 0 × 4 + 1 × 6 + 2 × 7 + 3 × 3 = 29. Divide by the 20 families: **1.45** children.
+- **Median:** the 10th and 11th values in sorted order. The first 4 families have 0 children and the next 6 have 1, so the 10th value is 1; the 11th starts the group with 2. The median is (1 + 2) ÷ 2 = **1.5**.
+- **Mode:** 2, the value with the highest frequency (7 families).
+
+To use this calculator with a frequency table, enter each value as many times as it occurs, for example four 0s, six 1s, seven 2s and three 3s.
+
+## In Excel and Google Sheets
+
+The same measures are built into spreadsheets. For values in cells A1 to A10:
+
+| Measure | Formula |
+|---|---|
+| Mean | =AVERAGE(A1:A10) |
+| Median | =MEDIAN(A1:A10) |
+| Mode (one value) | =MODE.SNGL(A1:A10) |
+| All modes | =MODE.MULT(A1:A10) |
+| Range | =MAX(A1:A10)-MIN(A1:A10) |
+
+MODE.SNGL returns only the first mode it finds and an error when there's no mode, so this calculator, which lists every mode, is handy for checking. You can paste a column copied from the sheet straight into the box above.
+
+## Beyond the center: measuring spread
+
+Two data sets can share the same mean and median but look completely different. The values 50, 50, 50 and 0, 50, 100 both have a mean and median of 50, but the second is far more spread out. The range captures some of this, but the **standard deviation**, the typical distance of values from the mean, is the standard measure. Paste the same numbers into the [standard deviation calculator](/math/standard-deviation-calculator/) to see it, along with the variance.
+
+## Common mistakes
+
+- **Forgetting to sort before finding the median.** The middle of an unsorted list means nothing.
+- **Using the wrong middle position.** With an even number of values, average the two middle ones.
+- **Calling the most common value the "average".** That's the mode, which can be far from the mean.
+- **Reporting only the mean for skewed data,** such as incomes, house prices or waiting times.
+- **Mixing units,** such as minutes and hours, in the same list.
+
+## Key terms
+
+- **Mean (arithmetic mean):** the sum divided by the count.
+- **Median:** the middle value of sorted data.
+- **Mode:** the most frequent value.
+- **Range:** the difference between the largest and smallest values.
+- **Outlier:** a value far from the others.
+- **Skew:** a lopsided spread of data, with a longer tail on one side.
+- **Central tendency:** the general name for measures of the center, such as the mean, median and mode.
+
+## Related calculators
+
+For percentages of a total or percentage changes between values, use the [percentage calculator](/math/percentage-calculator/). To see how far each value sits from the average, and whether your data is tightly clustered or widely spread, the standard deviation calculator is the natural next step after finding the mean. For averages of grades with different weights, use the GPA or final grade calculators linked above.

@@ -1,0 +1,190 @@
+---
+status: draft
+howTo:
+  - "Type or paste one shift per line: the start time, a dash, the end time, then the minutes of unpaid break, for example Mon 8:30am - 5:15pm 30."
+  - "Use 12-hour times with am or pm, or 24-hour times. Day names are optional, and shifts past midnight are handled automatically."
+  - "Enter your hourly rate to see gross pay."
+  - "Under More options, change the weekly overtime threshold or the overtime multiplier if yours differ."
+  - "Read your total hours in hours and minutes and in decimal hours, your regular and overtime hours, and your gross pay."
+faq:
+  - q: "How do I calculate hours worked on a time card?"
+    a: "For each shift, subtract the start time from the end time, then subtract any unpaid break. 8:30am to 5:15pm is 8 hours 45 minutes; minus a 30-minute lunch, that's 8 hours 15 minutes, or 8.25 hours. Add up every shift for the week."
+  - q: "How do I convert minutes to decimal hours?"
+    a: "Divide the minutes by 60. 15 minutes is 0.25 hours, 30 minutes is 0.5, 45 minutes is 0.75, and 50 minutes is about 0.83. So 7 hours 50 minutes is 7.83 hours, not 7.50."
+  - q: "How do I calculate an overnight shift?"
+    a: "Add 24 hours to the end time if it's earlier than the start. A shift from 10pm to 6:30am is 8 hours 30 minutes; minus a 30-minute break, 8 hours. This calculator does that automatically."
+  - q: "Are breaks paid?"
+    a: "Under federal law, short breaks of about 5 to 20 minutes must be paid. Meal breaks of 30 minutes or more can be unpaid if you're fully relieved of duty. Some states, such as California, require meal and rest breaks."
+  - q: "Can my employer round my clock-in time?"
+    a: "Under federal rules, employers may round to the nearest 5, 6 or 15 minutes if the rounding is neutral over time, so that it doesn't consistently favor the employer. Some states are stricter."
+  - q: "How many hours is 9am to 5pm?"
+    a: "8 hours. With an unpaid 30-minute lunch, it's 7.5 hours of paid work, or 37.5 hours over a five-day week."
+---
+
+## How to use this time card calculator
+
+Type or paste your shifts into the box, one per line, in the form **start - end break**:
+
+```
+Mon 8:30am - 5:15pm 30
+Tue 7am - 3:30pm 30
+Wed 22:00 - 06:30 45
+```
+
+- **Times:** 12-hour times with am or pm (8:30am, 5pm, 5:15p) or 24-hour times (17:15). You can use a colon or a period between hours and minutes.
+- **Break:** the number at the end is unpaid break minutes. Leave it off if you didn't take an unpaid break.
+- **Days:** day names are optional, but they make the list easier to read.
+- **Overnight shifts:** if the end time is earlier than the start, the calculator assumes the shift ran past midnight.
+
+Enter your hourly rate to see gross pay. Under **More options**, you can change the weekly overtime threshold (40 hours under federal law) and the multiplier (1.5 for time and a half). Any line the calculator can't read is listed in the result so you can fix it.
+
+## The formula
+
+For each shift:
+
+**Hours worked = end time − start time − unpaid break**
+
+Then:
+
+**Decimal hours = total minutes ÷ 60**
+
+**Gross pay = regular hours × rate + overtime hours × rate × 1.5**
+
+Overtime here is weekly: hours over 40 in the week. If you work in a state with daily overtime, such as California, use the [overtime calculator](/finance/overtime-calculator/), which handles daily rules and double time.
+
+## Worked example: a typical week
+
+| Day | Start | End | Unpaid break | Hours worked | Decimal hours |
+|---|---|---|---|---|---|
+| Mon | 8:30am | 5:15pm | 30 min | 8:15 | 8.25 |
+| Tue | 8:30am | 5:15pm | 30 min | 8:15 | 8.25 |
+| Wed | 8:30am | 6:00pm | 30 min | 9:00 | 9.00 |
+| Thu | 8:30am | 5:15pm | 30 min | 8:15 | 8.25 |
+| Fri | 8:30am | 4:00pm | 30 min | 7:00 | 7.00 |
+| **Total** | | | | **40:45** | **40.75** |
+
+At $22 an hour:
+
+- **Regular pay:** 40 hours × $22 = **$880.00**.
+- **Overtime pay:** 0.75 hours × $22 × 1.5 = **$24.75**.
+- **Gross pay:** **$904.75** for the week, before tax.
+
+The 45 minutes over 40 hours come from the long Wednesday; without it, this week would have no overtime at all.
+
+## Converting minutes to decimal hours
+
+Payroll works in decimal hours, but clocks show hours and minutes. The most common time-card mistake is treating minutes as if they were hundredths: 7 hours 50 minutes is **7.83** hours, not 7.50. At $20 an hour, that mistake would cost about $6.67 for the shift.
+
+| Minutes | Decimal hours | Minutes | Decimal hours |
+|---|---|---|---|
+| 5 | 0.08 | 35 | 0.58 |
+| 10 | 0.17 | 40 | 0.67 |
+| 15 | 0.25 | 45 | 0.75 |
+| 20 | 0.33 | 50 | 0.83 |
+| 25 | 0.42 | 55 | 0.92 |
+| 30 | 0.50 | 60 | 1.00 |
+
+To convert, divide the minutes by 60. To go the other way, multiply the decimal part by 60: 0.6 hours is 36 minutes.
+
+## A second example: four long days and a short Friday
+
+A worker at $18 an hour works Monday to Thursday from 7am to 5:30pm with a 30-minute lunch, and Friday from 7am to 1pm with no break.
+
+- **Monday to Thursday:** 10 hours 30 minutes − 30 minutes = **10 hours** each, 40 hours in total.
+- **Friday:** **6 hours**.
+- **Week:** **46 hours**: 40 regular and 6 overtime.
+- **Pay:** 40 × $18 = $720, plus 6 × $18 × 1.5 = $162, for **$882**.
+
+Under California's daily rules, the same week would count 8 overtime hours instead of 6: 2 hours on each 10-hour day, with the remaining 38 hours at the regular rate. That pays 38 × $18 + 8 × $27 = **$900**, $18 more. The [overtime calculator](/finance/overtime-calculator/) applies the daily rules for you.
+
+## Subtracting times by hand
+
+If you're checking a time card without a calculator, convert both times to the 24-hour clock first, then subtract minutes and hours separately, borrowing an hour when the minutes don't go:
+
+- **Shift:** 8:30am to 5:15pm, which is 8:30 to 17:15.
+- **Minutes:** 15 − 30 doesn't go, so borrow an hour: 17:15 becomes 16:75.
+- **Subtract:** 16:75 − 8:30 = **8:45**, or 8 hours 45 minutes.
+- **Break:** minus 30 minutes = **8:15**, which is 8.25 hours.
+
+Another way is to convert both times to minutes after midnight (17:15 is 1,035; 8:30 is 510), subtract (525 minutes), take off the break (495 minutes), and divide by 60 (8.25 hours). That's exactly what this calculator does.
+
+## 12-hour and 24-hour times
+
+Many time clocks print 24-hour (military) times. To convert a pm time, add 12 to the hour, except for 12pm, which stays 12. For am times, 12am becomes 0, and every other hour stays the same.
+
+| 12-hour | 24-hour | 12-hour | 24-hour |
+|---|---|---|---|
+| 12:00am (midnight) | 0:00 | 12:00pm (noon) | 12:00 |
+| 6:00am | 6:00 | 3:30pm | 15:30 |
+| 8:30am | 8:30 | 5:15pm | 17:15 |
+| 11:45am | 11:45 | 10:00pm | 22:00 |
+
+You can enter either format in this calculator, and even mix them across lines.
+
+## Two-week pay periods
+
+Many employers pay every two weeks, but federal overtime is still counted **week by week**. Each workweek stands alone; you can't average a long week with a short one.
+
+At $22 an hour, a worker logs 45 hours in week one and 35 in week two, 80 hours in all:
+
+- **Week one:** 40 × $22 + 5 × $33 = **$1,045**.
+- **Week two:** 35 × $22 = **$770**.
+- **Pay period:** **$1,815**.
+
+Treating all 80 hours as regular time would pay only $1,760, $55 less. Enter each week separately in this calculator to get the overtime right.
+
+## Common time-card mistakes
+
+- **Reading minutes as decimals,** such as entering 8:45 as 8.45 hours instead of 8.75.
+- **Forgetting overnight shifts** and getting a negative number or a shift that's 24 hours too short.
+- **Subtracting paid breaks.** Only unpaid meal breaks come off; short rest breaks are paid time.
+- **Mixing up am and pm,** especially around noon and midnight: 12pm is noon and 12am is midnight.
+- **Averaging overtime across two weeks** instead of counting each workweek separately.
+
+## Overnight shifts
+
+When a shift crosses midnight, the end time is "smaller" than the start, so simple subtraction gives a negative number. The fix is to add 24 hours to the end time:
+
+- 10:00pm to 6:30am: 6:30 + 24:00 − 22:00 = **8 hours 30 minutes**.
+- Minus a 30-minute break: **8 hours** worked.
+
+The calculator does this automatically whenever the end time is earlier than or equal to the start. It assumes no shift lasts 24 hours or more. Under the FLSA, overtime is counted by the workweek in which the hours are worked, so a shift that starts Sunday night and ends Monday morning may be split between two workweeks if your workweek starts at midnight on Monday. Ask your employer how its payroll handles this.
+
+## Breaks: paid or unpaid?
+
+Federal law doesn't require employers to give breaks, but it sets rules for when breaks must be paid:
+
+- **Short rest breaks,** usually 5 to 20 minutes, count as work time and must be paid.
+- **Meal periods,** usually 30 minutes or more, can be unpaid if you're completely relieved of duty. If you have to stay at your desk and answer the phone, the time must be paid.
+
+Many states add their own rules. California, for example, requires a 30-minute meal break for shifts over 5 hours and a paid 10-minute rest break for every 4 hours worked. Only subtract the **unpaid** break time in this calculator.
+
+## Rounding time punches
+
+Many timekeeping systems round clock-in and clock-out times. Federal rules allow rounding to the nearest 5 minutes, tenth of an hour or quarter hour, as long as it averages out over time and doesn't consistently favor the employer. Under quarter-hour rounding, the usual "7-minute rule" means:
+
+- 8:07 rounds down to 8:00.
+- 8:08 rounds up to 8:15.
+
+So clocking in at 8:07 and out at 5:08 is recorded as 8:00 to 5:15. Some states and courts are stricter about rounding, and California courts have questioned it where exact punch times are available. If your recorded hours often look lower than your actual hours, keep your own log.
+
+## Keeping a good record
+
+- **Write down start, end and break times every day,** not at the end of the week.
+- **Record unpaid breaks honestly.** If a lunch break was interrupted by work, note it; that time may need to be paid.
+- **Keep copies** of your time cards and pay stubs for at least two years, the usual federal deadline for unpaid wage claims (three for willful violations).
+- **Compare your total with your pay stub.** Our guide on [how to read a pay stub](/guides/how-to-read-a-pay-stub/) explains where hours, rates and overtime appear.
+
+## From hours to take-home pay
+
+The gross pay shown here is before taxes and deductions. To see what lands in your bank account, enter it in the [paycheck calculator](/finance/paycheck-calculator/). If you know your annual salary rather than an hourly rate, the [salary to hourly calculator](/finance/salary-to-hourly-calculator/) converts it.
+
+## Key terms
+
+- **Clock-in, clock-out:** the start and end times recorded for a shift.
+- **Decimal hours:** time expressed as a decimal number of hours, such as 8.25 for 8 hours 15 minutes.
+- **Unpaid break:** time off duty that isn’t counted as hours worked, usually a meal break of 30 minutes or more during which you’re fully relieved of your duties.
+- **Workweek:** the fixed seven-day period over which weekly overtime is counted, set by your employer and the same every week.
+- **Rounding:** recording punch times to the nearest set interval, such as 15 minutes.
+
+{/* TODO: expert review: federal break and rounding rules, California meal and rest break wording. */}

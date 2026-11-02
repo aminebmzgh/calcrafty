@@ -70,6 +70,23 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
+### New pages waiting for review (batch 4, 2026-11-02)
+
+Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 4 reviewed" or name the pages. Each page ends with a `TODO: expert review` comment listing the facts worth double-checking (2026 limits, SCF medians, FLSA rules).
+
+- [ ] https://calcrafty.com/finance/401k-calculator/
+- [ ] https://calcrafty.com/finance/net-worth-calculator/
+- [ ] https://calcrafty.com/finance/overtime-calculator/
+- [ ] https://calcrafty.com/everyday/time-card-calculator/
+- [ ] https://calcrafty.com/math/mean-median-mode-calculator/
+- [ ] https://calcrafty.com/guides/how-much-to-contribute-to-401k/
+- [ ] https://calcrafty.com/guides/roth-vs-traditional-401k/
+- [ ] https://calcrafty.com/guides/how-to-read-a-pay-stub/
+- [ ] https://calcrafty.com/guides/good-net-worth-by-age/
+- [ ] https://calcrafty.com/guides/how-does-mortgage-amortization-work/
+
+Every three years: the net worth medians (`src/calculators/net-worth-calculator/math.ts`) come from the Federal Reserve's Survey of Consumer Finances (2022). Ask Claude Code to update them when the 2025 survey is published.
+
 ### Growth batch 3 (reviewed 2026-11-02)
 
 - [x] Simple interest, inflation, emergency fund and final grade calculators, and the guide "How long to pay off a credit card at minimum payments": reviewed by the owner and indexable.
