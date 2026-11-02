@@ -62,6 +62,15 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] APR, debt-to-income ratio, salary to hourly, pay raise and car affordability calculators, and the "Is refinancing worth it?" guide: reviewed by the owner (bank auditor) and indexable.
 
+### Content depth expansion (2026-11-02): please re-read
+
+Every calculator page and guide was expanded to 1,500+ words (new sections with worked examples computed from each calculator's math, comparison tables, common mistakes and follow-up questions). The pages stayed indexed under your existing "Reviewed by" line, so please read the new sections and tell Claude Code "content depth reviewed" (or name any page that needs changes). Pages with the most new factual material to check:
+
+- [ ] Finance: mortgage, paycheck, loan, auto loan, compound interest, mortgage affordability, credit card payoff, debt payoff, investment, retirement, savings goal, rent vs buy, APR, DTI, salary to hourly, pay raise, car affordability
+- [ ] Health (a clinician or dietitian review is still recommended): BMI, calorie, body fat, macro, ideal weight, running pace
+- [ ] Math and everyday: percentage, scientific, fraction, standard deviation, age, days between dates, GPA
+- [ ] Guides: all six
+
 ### State data (checked 2026-11-01)
 
 Claude Code checked the 8 open items against official sources. Corrected in the data and on the pages:

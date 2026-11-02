@@ -12,9 +12,9 @@ const root = path.resolve('src/calculators');
 const guidesRoot = path.resolve('src/content/guides');
 
 /** Body length for calculator pages and guides. */
-export const MIN_WORDS = 800;
+export const MIN_WORDS = 1500;
 export const MAX_WORDS = 2500;
-export const GUIDE_MIN_WORDS = 500;
+export const GUIDE_MIN_WORDS = 1500;
 const folders = readdirSync(root).filter((d) => existsSync(path.join(root, d, 'content.mdx')));
 
 function parse(file: string) {

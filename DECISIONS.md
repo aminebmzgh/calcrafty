@@ -87,4 +87,4 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 
 ## 2026-11-02 (content depth)
 
-- **Calculator pages and guides are 1,500–2,500 words** (was 800–1,500 for calculators, no rule for guides), at the owner's request. Enforced in `src/lib/content.test.ts`; raised in stages so CI stays green while existing pages are expanded. New sections must add information (worked examples computed with each calculator's `math.ts`, comparison tables, common mistakes, follow-up questions), never filler.
+- **Calculator pages and guides are 1,500–2,500 words** (was 800–1,500 for calculators, no rule for guides), at the owner's request. Enforced in `src/lib/content.test.ts`; raised in stages so CI stays green while existing pages were expanded; the 1,500 minimum applies to every page from 2026-11-02. New sections must add information (worked examples computed with each calculator's `math.ts`, comparison tables, common mistakes, follow-up questions), never filler.
