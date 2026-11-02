@@ -14,7 +14,7 @@ faq:
   - q: "What is the 4% rule?"
     a: "It's a guideline from research on historical US market returns suggesting that withdrawing 4% of your savings in the first year of retirement, then raising the amount with inflation, has usually lasted 30 years. It's a rule of thumb, not a guarantee; it depends on your investments, fees, taxes and the markets you retire into. The calculator shows your first-year withdrawal rate so you can compare."
   - q: "How much should I save each month for retirement?"
-    a: "A common guideline is 15% of pre-tax income including any employer match, starting in your 20s or early 30s. Starting later means saving more. In our example, a 40-year-old with $85,000 saved needs $1,519.45 a month, not $900, to fund $70,000 a year of income at 67."
+    a: "A common guideline is 15% of pre-tax income including any employer match, starting in your 20s or early 30s. Starting later means saving more. In our example, a 40-year-old with $85,000 saved needs $1,519.46 a month, not $900, to fund $70,000 a year of income at 67."
   - q: "How does Social Security fit in?"
     a: "Social Security replaces part of your income for life and rises with inflation, which lowers how much your savings must cover. Your estimate depends on your earnings history and the age you claim; check it at ssa.gov/myaccount. Enter it in today's dollars, and the calculator subtracts it from the income you want."
   - q: "Does retiring a few years later make a big difference?"
@@ -41,9 +41,9 @@ A 40-year-old has $85,000 in a 401(k), saves $900 a month including the employer
 - **Yearly gap savings must cover:** $70,000 − ($2,300 × 12) = $42,400 in today's dollars
 - **Nest egg needed at 67:** **$1,653,291.99** (about $848,800 today)
 - **Shortfall:** $499,617.38. At this pace, savings run out around age 83.
-- **Monthly saving needed instead of $900:** **$1,519.45**
+- **Monthly saving needed instead of $900:** **$1,519.46**
 
-Retiring at 70 instead changes the picture: savings grow to $1,415,982.43, the shortfall falls to $193,339.56, and the monthly amount needed drops to $1,092.47. Small changes in timing and savings rate add up because they compound for decades.
+Retiring at 70 instead changes the picture: savings grow to $1,415,982.43, the shortfall falls to $193,339.56, and the monthly amount needed drops to $1,092.48. Small changes in timing and savings rate add up because they compound for decades.
 
 ## How the calculation works in plain English
 
@@ -77,6 +77,61 @@ Every year you wait, the monthly amount needed to reach the same goal rises, bec
 Waiting from 30 to 40 raises the monthly amount by about 58%; waiting until 50 nearly triples it. If you're starting late, the levers that matter most are saving more now, working a few years longer, using catch-up contributions after 50, and delaying Social Security, which increases your monthly benefit for each year you wait up to age 70.
 
 Catch-up contributions help late starters. In 2026, workers aged 50 and older can add $8,000 a year to a 401(k) on top of the $24,500 limit, and those aged 60 to 63 can add $11,250 instead. IRA savers aged 50 and older can add $1,100 on top of the $7,500 limit.
+
+## How Social Security changes the number
+
+Social Security is the foundation of most retirement plans, and every dollar of monthly benefit lowers the nest egg you need to build. For the 40-year-old in the example, who wants $70,000 a year from 67 to 92:
+
+| Social Security per month | Gap savings must cover | Nest egg needed at 67 (today's dollars) | Monthly saving needed |
+|---|---|---|---|
+| $0 | $70,000 | $1,401,320 | $2,853.79 |
+| $1,500 | $52,000 | $1,040,981 | $1,983.57 |
+| $2,300 | $42,400 | $848,800 | $1,519.46 |
+| $3,000 | $34,000 | $680,641 | $1,113.36 |
+
+Each extra $100 a month of benefit reduces the nest egg needed by roughly $45,000 to $50,000 in today's dollars. Use the estimate on your own Social Security statement, which you can download from ssa.gov, rather than a guess.
+
+When you claim matters. For anyone born in 1960 or later, full retirement age is 67. Claiming at 62 permanently reduces the monthly benefit to 70% of the full amount; waiting until 70 raises it to 124%. If you change the retirement age above, adjust the Social Security field to the benefit you'd actually receive at the age you plan to claim.
+
+## Retiring earlier or later
+
+The retirement age changes three things at once: how long you save, how long the money has to last, and how much Social Security pays. Keeping everything else from the example the same (and leaving the benefit at $2,300 to isolate the effect of savings):
+
+| Retire at | Savings at retirement | Nest egg needed | Monthly saving needed | Savings last until about |
+|---|---|---|---|---|
+| 62 | $808,749 | $1,677,954 | $2,491.30 | 74 |
+| 65 | $1,003,217 | $1,669,679 | $1,861.72 | 79 |
+| 67 | $1,153,675 | $1,653,292 | $1,519.46 | 83 |
+| 70 | $1,415,982 | $1,609,322 | $1,092.48 | 88 |
+
+Working from 67 to 70 cuts the monthly saving needed by more than $400, and in practice the higher Social Security benefit at 70 would close the gap further. Retiring at 62 needs more than twice as much saving each month as retiring at 70.
+
+## The 4% rule and how much you need
+
+A widely quoted shortcut, the "4% rule", comes from research by financial planner William Bengen in 1994: withdrawing 4% of your savings in the first year, then raising the amount with inflation, historically lasted at least 30 years in US markets. It implies a nest egg of about 25 times the yearly amount savings need to cover.
+
+This calculator works it out directly from your returns, inflation and how many years retirement lasts. For a 25-year retirement (67 to 92) at a 4.5% return and 2.5% inflation, the nest egg needed comes out at about 20 times the yearly gap:
+
+| Yearly gap to cover | Nest egg (calculator, 25 years) | 4% rule (25×) |
+|---|---|---|
+| $20,000 | $400,377 | $500,000 |
+| $30,000 | $600,566 | $750,000 |
+| $40,000 | $800,754 | $1,000,000 |
+| $50,000 | $1,000,943 | $1,250,000 |
+
+The 4% rule is more conservative because it assumes a 30-year retirement and allows for bad market sequences. If you retire early, expect a long retirement, or want a margin of safety, set the "Plan to age" field higher or the retirement return lower. In the example, the first-year withdrawal would be 7.2% of savings at 67, well above 4%, another sign the plan needs more savings or a later retirement.
+
+## Which accounts to fill first
+
+The order you save in can matter as much as the amount, because each account type has different tax breaks. A common sequence:
+
+1. **401(k) or 403(b) up to the employer match.** A typical match of 50% to 100% on part of your pay is an instant return no investment can promise.
+2. **Health savings account (HSA)**, if you have an eligible high-deductible plan. Contributions go in pre-tax and come out tax-free for medical costs, which most retirees have plenty of.
+3. **Roth or traditional IRA,** up to $7,500 in 2026. A Roth often suits younger savers in lower brackets, since withdrawals in retirement are tax-free; a traditional IRA can lower today's tax bill if you're eligible to deduct it.
+4. **The rest of the 401(k),** up to $24,500 in 2026, plus catch-up contributions from age 50.
+5. **A taxable brokerage account** for anything beyond those limits.
+
+Include every account in the savings and monthly contribution fields above so the projection reflects your whole plan.
 
 ## What to do with your result
 
