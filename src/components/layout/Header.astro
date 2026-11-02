@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
-import { categories, categoryOrder } from '../../lib/categories.ts';
+import { categories } from '../../lib/categories.ts';
+import { liveCategories } from '../../lib/registry.ts';
 
 const current = Astro.url.pathname.split('/')[1];
 ---
@@ -14,7 +15,7 @@ const current = Astro.url.pathname.split('/')[1];
     <nav aria-label="Categories" class="order-last -mx-1 w-full overflow-x-auto pb-2 md:order-none md:mx-0 md:w-auto md:pb-0">
       <ul class="flex gap-1">
         {
-          categoryOrder.map((id) => (
+          liveCategories.map((id) => (
             <li>
               <a
                 href={`/${id}/`}

@@ -1,8 +1,8 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import { renderOg, type OgInput } from '../../lib/og.ts';
-import { calculators, resolvedDefaults } from '../../lib/registry.ts';
-import { categories, categoryOrder } from '../../lib/categories.ts';
+import { calculators, resolvedDefaults, liveCategories } from '../../lib/registry.ts';
+import { categories } from '../../lib/categories.ts';
 
 /** One OG image per page: /og/default.png, /og/<calculator-slug>.png, /og/guides/<slug>.png, /og/<category>.png */
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       props: { kicker: `${categories[c.category].name} calculator`, title: c.name, value: c.ogValue(input, out), valueLabel: 'example result' },
     });
   }
-  for (const id of categoryOrder) {
+  for (const id of liveCategories) {
     paths.push({ params: { key: id }, props: { kicker: 'Calcrafty', title: categories[id].h1 } });
   }
   for (const g of await getCollection('guides')) {

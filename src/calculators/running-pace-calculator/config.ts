@@ -8,8 +8,8 @@ const raceName = (i: PaceInput) => (i.race === 'custom' ? `${num(i.customDistanc
 
 const config: CalculatorConfig<PaceInput, PaceOutput> = {
   slug: 'running-pace-calculator',
-  category: 'health',
-  subtopic: 'Fitness',
+  category: 'sports',
+  subtopic: 'Running',
   name: 'Running Pace Calculator',
   h1: 'Running Pace Calculator',
   intro: 'Find your pace per mile or kilometer, your finish time or your distance, with splits and race-time predictions.',

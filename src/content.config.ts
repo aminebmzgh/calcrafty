@@ -44,7 +44,7 @@ const guides = defineCollection({
     metaTitle: z.string().max(60),
     metaDescription: z.string().min(140).max(160),
     primaryKeyword: z.string(),
-    category: z.enum(['finance', 'health', 'math', 'everyday']),
+    category: z.enum(['finance', 'health', 'sports', 'math', 'statistics', 'physics', 'chemistry', 'biology', 'ecology', 'construction', 'conversion', 'food', 'everyday', 'other']),
     /** Calculator slugs this guide links to and is linked from. */
     calculators: z.array(z.string()).min(1),
     faq: faq.optional(),

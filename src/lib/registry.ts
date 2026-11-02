@@ -4,6 +4,7 @@
  */
 import type { AnyCalculatorConfig, Category } from './types.ts';
 import { liveValue } from '../data/live/index.ts';
+import { categoryOrder } from './categories.ts';
 
 const modules = import.meta.glob<{ default: AnyCalculatorConfig }>('../calculators/*/config.ts', { eager: true });
 
@@ -45,6 +46,12 @@ export function relatedOf(c: AnyCalculatorConfig): AnyCalculatorConfig[] {
 export function byCategory(category: Category): AnyCalculatorConfig[] {
   return calculators.filter((c) => c.category === category);
 }
+
+/**
+ * Categories that have at least one calculator, in display order. Empty categories get no hub page,
+ * nav link or sitemap entry until their first calculator lands (hard rule 8: no thin pages).
+ */
+export const liveCategories: Category[] = categoryOrder.filter((id) => calculators.some((c) => c.category === id));
 
 export function calcPath(c: Pick<AnyCalculatorConfig, 'category' | 'slug'>): string {
   return `/${c.category}/${c.slug}/`;

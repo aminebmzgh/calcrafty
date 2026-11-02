@@ -4,7 +4,21 @@
  * calculator is generated from its `src/calculators/<slug>/config.ts`.
  */
 
-export type Category = 'finance' | 'health' | 'math' | 'everyday';
+export type Category =
+  | 'finance'
+  | 'health'
+  | 'sports'
+  | 'math'
+  | 'statistics'
+  | 'physics'
+  | 'chemistry'
+  | 'biology'
+  | 'ecology'
+  | 'construction'
+  | 'conversion'
+  | 'food'
+  | 'everyday'
+  | 'other';
 
 /** Keys into src/data/live/snapshot.json that an input can default to. */
 export type LiveKey = 'mortgage30' | 'mortgage15' | 'cpiInflation' | 'treasury10' | 'savingsRate' | 'autoLoan60' | 'personalLoan24' | 'creditCard';

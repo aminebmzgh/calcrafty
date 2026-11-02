@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { categories, categoryOrder } from '../lib/categories.ts';
+import { categories } from '../lib/categories.ts';
+import { liveCategories } from '../lib/registry.ts';
 ---
 
 <BaseLayout
@@ -17,7 +18,7 @@ import { categories, categoryOrder } from '../lib/categories.ts';
     </p>
     <ul class="mt-8 flex flex-wrap gap-2">
       {
-        categoryOrder.map((id) => (
+        liveCategories.map((id) => (
           <li>
             <a class="chip" href={`/${id}/`}>
               {categories[id].h1}

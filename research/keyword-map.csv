@@ -16,7 +16,7 @@ calorie calculator,tdee calculator|maintenance calorie calculator|calories burne
 body fat calculator,body fat percentage calculator|navy body fat calculator|army body fat calculator,calculate,450000,65,6000,/health/body-fat-calculator/,calculator,built,estimate
 macro calculator,macronutrient calculator|iifym calculator|keto macro calculator,calculate,500000,65,6666.7,/health/macro-calculator/,calculator,built,estimate
 ideal weight calculator,ideal body weight calculator|healthy weight calculator|how much should i weigh,calculate,110000,55,1692.3,/health/ideal-weight-calculator/,calculator,built,estimate
-pace calculator,running pace calculator|marathon pace calculator|race pace calculator,calculate,200000,50,3333.3,/health/running-pace-calculator/,calculator,built,estimate
+pace calculator,running pace calculator|marathon pace calculator|race pace calculator,calculate,200000,50,3333.3,/sports/running-pace-calculator/,calculator,built,estimate
 percentage calculator,percent calculator|percent change calculator|percent off calculator|what percent of calculator,calculate,1800000,70,22500,/math/percentage-calculator/,calculator,built,estimate
 scientific calculator,online scientific calculator|calculator online|free scientific calculator,calculate,1300000,85,13684.2,/math/scientific-calculator/,calculator,built,estimate
 fraction calculator,fraction simplifier|adding fractions calculator|mixed number calculator,calculate,650000,60,9285.7,/math/fraction-calculator/,calculator,built,estimate
@@ -50,9 +50,10 @@ how much do i need to retire,how much money do i need to retire|retirement numbe
 how many calories should i eat,how many calories should i eat to lose weight|daily calorie intake,learn,150000,65,2000,/guides/how-many-calories-should-i-eat/,guide,built,estimate
 how to calculate percentage,how to find percentage|percentage formula,learn,120000,50,2000,/guides/how-to-calculate-percentage/,guide,built,estimate
 finance calculators,financial calculators|money calculators,learn,30000,60,428.6,/finance/,hub,built,estimate
-health calculators,fitness calculators|health and fitness calculators,learn,8000,45,145.5,/health/,hub,built,estimate
+health calculators,health calculator|medical calculators,learn,8000,45,145.5,/health/,hub,built,estimate
 math calculators,online math calculator|math calculator,learn,60000,60,857.1,/math/,hub,built,estimate
 everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/,hub,built,estimate
+sports calculators,fitness calculators|sports and fitness calculators|running calculators,learn,,,,/sports/,hub,built,needs-data
 free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,built,estimate
 apr calculator,loan apr calculator|calculate apr with fees|true apr calculator,calculate,,,,/finance/apr-calculator/,calculator,built,needs-data
 debt to income ratio calculator,dti calculator|debt to income ratio for mortgage,calculate,,,,/finance/debt-to-income-ratio-calculator/,calculator,built,needs-data

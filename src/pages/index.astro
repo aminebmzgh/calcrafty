@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { calculators, calcPath } from '../lib/registry.ts';
-import { categories, categoryOrder } from '../lib/categories.ts';
+import { calculators, calcPath, liveCategories } from '../lib/registry.ts';
+import { categories } from '../lib/categories.ts';
 import { longDate } from '../lib/format.ts';
 import { live, formatAsOf } from '../data/live/index.ts';
 import { SITE } from '../lib/site.ts';
@@ -72,7 +72,7 @@ const itemList: JsonLdNode = {
       <h2 id="cats-h">Browse by category</h2>
       <div class="mt-4 grid gap-6 md:grid-cols-2">
         {
-          categoryOrder.map((id) => {
+          liveCategories.map((id) => {
             const list = calculators.filter((c) => c.category === id);
             return (
               <div class="panel">

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { calculators, calcPath } from '../lib/registry.ts';
-import { categories, categoryOrder } from '../lib/categories.ts';
+import { calculators, calcPath, liveCategories } from '../lib/registry.ts';
+import { categories } from '../lib/categories.ts';
 ---
 
 <BaseLayout
@@ -17,7 +17,7 @@ import { categories, categoryOrder } from '../lib/categories.ts';
       <button type="button" class="btn btn-primary" id="search-page-open">Open search</button>
     </p>
     {
-      categoryOrder.map((id) => {
+      liveCategories.map((id) => {
         const list = calculators.filter((c) => c.category === id);
         return (
           list.length > 0 && (

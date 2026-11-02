@@ -3,8 +3,8 @@
  * Sitemaps, llms.txt and the search index are generated from this list.
  */
 import { getCollection } from 'astro:content';
-import { calculators, calcPath } from './registry.ts';
-import { categories, categoryOrder } from './categories.ts';
+import { calculators, calcPath, liveCategories } from './registry.ts';
+import { categories } from './categories.ts';
 import { live } from '../data/live/index.ts';
 import { statePagesFor } from './states.ts';
 
@@ -47,7 +47,7 @@ export async function allPages(): Promise<PageEntry[]> {
   const siteLastmod = latest(dataAsOf(), ...calculators.map((c) => c.lastReviewed));
   const pages: PageEntry[] = CORE_PAGES.map((p) => ({ ...p, kind: 'core', indexable: true, lastmod: siteLastmod }));
 
-  for (const id of categoryOrder) {
+  for (const id of liveCategories) {
     const cat = categories[id];
     const inCat = calculators.filter((c) => c.category === id);
     pages.push({

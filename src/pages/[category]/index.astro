@@ -3,14 +3,14 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
-import { categories, categoryOrder } from '../../lib/categories.ts';
-import { calculators, calcPath } from '../../lib/registry.ts';
+import { categories } from '../../lib/categories.ts';
+import { calculators, calcPath, liveCategories } from '../../lib/registry.ts';
 import { breadcrumbList, type JsonLdNode } from '../../lib/schema.ts';
 import { SITE } from '../../lib/site.ts';
 import type { Category } from '../../lib/types.ts';
 
 export const getStaticPaths = (() =>
-  categoryOrder.map((id) => ({ params: { category: id } }))) satisfies GetStaticPaths;
+  liveCategories.map((id) => ({ params: { category: id } }))) satisfies GetStaticPaths;
 
 const id = Astro.params.category as Category;
 const cat = categories[id];

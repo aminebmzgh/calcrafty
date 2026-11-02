@@ -92,3 +92,10 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 ## 2026-11-02 (growth batch 3)
 
 - **Inflation calculator CPI history lives in the calculator's folder** (`src/calculators/inflation-calculator/cpi.ts`), keeping "one calculator = one folder". It's a committed snapshot of BLS CPI-U (FRED CPIAUCNS, not seasonally adjusted) with annual averages computed as BLS does; refreshed yearly by hand (LAUNCH.md). BLS published no October 2025 index (shutdown), so 2025 averages the 11 published months; this is stated on the page. The current year uses the latest monthly index, shown in the field help text as the "as of" month.
+
+## 2026-11-02 (categories expanded)
+
+- **Ten new categories defined:** sports, statistics, physics, chemistry, biology, ecology, construction, conversion, food and other, alongside finance, health, math and everyday (the owner's "Everyday life" maps to the existing `/everyday/`, so that URL is unchanged).
+- **Empty categories stay hidden.** `liveCategories` (registry.ts) lists only categories with at least one calculator; the hub page, nav, footer, home page, search, OG images and sitemap all use it. A new category's hub appears automatically with its first calculator, so no thin hub pages are published (hard rule 8) and adding a calculator is still one folder (hard rule 4).
+- **Health and fitness split.** Health keeps body composition and nutrition; the running pace calculator moved to the new Sports category (`/health/running-pace-calculator/` → `/sports/running-pace-calculator/`, 301 in redirects.ts). Sports is not YMYL, so it carries no medical disclaimer.
+- **Statistics calculators stay in Math for now** (`/math/standard-deviation-calculator/`, `/math/mean-median-mode-calculator/`), so the Statistics category is defined but hidden until it gets a calculator or the owner chooses to move them.

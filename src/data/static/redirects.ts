@@ -13,4 +13,5 @@ export const redirects: Redirect[] = [
   { from: '/percentage-calculator/', to: '/math/percentage-calculator/' },
   { from: '/tdee-calculator/', to: '/health/calorie-calculator/' },
   { from: '/salary-calculator/', to: '/finance/paycheck-calculator/' },
+  { from: '/health/running-pace-calculator/', to: '/sports/running-pace-calculator/' },
 ];
