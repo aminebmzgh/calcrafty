@@ -1,0 +1,182 @@
+---
+status: draft
+howTo:
+  - "Enter the length and width of the house, measured on the ground around the outside walls."
+  - "Enter the roof pitch as the rise in inches for every 12 inches of horizontal run."
+  - "Enter the overhang beyond the walls on each side, in inches."
+  - "Set a waste allowance: about 10% for a simple gable roof, 15% or more for hips, valleys and dormers."
+  - "Read the roof area, the number of squares and the bundles of shingles to buy."
+faq:
+  - q: "How do I calculate the square footage of a roof?"
+    a: "Measure the house footprint including the overhangs, then multiply by the pitch factor √(1 + (rise ÷ 12)²). A 40 × 30 ft house with 12-inch overhangs covers 42 × 32 = 1,344 sq ft; at a 6/12 pitch (factor 1.118), the roof is about 1,503 sq ft."
+  - q: "What is a roofing square?"
+    a: "A square is 100 sq ft of roof. Roofers price and order materials by the square, so a 1,503 sq ft roof is about 15 squares."
+  - q: "How many bundles of shingles are in a square?"
+    a: "Most asphalt shingles come 3 bundles to a square, so each bundle covers about 33.3 sq ft. Some heavier architectural shingles come 4 bundles to a square; check the wrapper."
+  - q: "How much waste should I add for roofing?"
+    a: "About 10% for a simple gable roof and 15% or more for a hip roof or one with valleys, dormers or many angles. The waste covers cutting, starter strips and overlaps at the edges."
+  - q: "How do I find my roof pitch?"
+    a: "Hold a level horizontally against the roof or a rafter, mark 12 inches along it, and measure straight up from that mark to the roof surface. The distance in inches is the rise: 6 inches means a 6/12 pitch."
+  - q: "Does a hip roof have more area than a gable roof?"
+    a: "Not if every plane has the same pitch: the area is the same, footprint × pitch factor. A hip roof does have more hips and edges to cut around, so it needs a higher waste allowance and more ridge and hip caps."
+---
+
+## How to use this roofing calculator
+
+1. **House length and width.** Measure the outside walls on the ground. It's much safer than measuring on the roof, and for a simple roof it gives the same answer.
+2. **Roof pitch.** Enter the rise in inches per 12 inches of run. A 6/12 roof rises 6 inches for every foot it runs horizontally.
+3. **Overhang.** How far the roof extends past the walls on each side, at the eaves and gable ends. 12 inches is common.
+4. **Waste allowance.** About 10% for a simple gable roof, 15% or more for hips, valleys and dormers.
+5. **Bundles per square (More options).** Usually 3 for asphalt shingles.
+
+The result shows the roof area, the number of roofing squares, the squares with waste, and the bundles of shingles to buy, along with the pitch angle and factor.
+
+## The formula
+
+**Footprint with overhang = (length + 2 × overhang) × (width + 2 × overhang)**
+
+**Pitch factor = √(1 + (rise ÷ 12)²)**
+
+**Roof area = footprint with overhang × pitch factor**
+
+**Squares = roof area ÷ 100 × (1 + waste %)**
+
+**Bundles = squares × bundles per square, rounded up**
+
+The pitch factor comes from the Pythagorean theorem. For every 12 inches of horizontal run, a roof with a rise of *r* inches has a sloped length of √(12² + *r*²), so the surface is that much longer than the flat footprint. For a roof where every plane has the same pitch, the formula is exact whether it's a gable, a hip or a combination: each plane's area is its footprint times the same factor.
+
+## Worked example: a 40 × 30 ft house
+
+A 6/12 roof with 12-inch overhangs and 10% waste:
+
+- **Footprint with overhang:** (40 + 2) × (30 + 2) = **1,344 sq ft**.
+- **Pitch factor:** √(1 + (6 ÷ 12)²) = √1.25 = **1.1180**.
+- **Roof area:** 1,344 × 1.1180 = **1,502.64 sq ft**, or **15.03 squares**.
+- **With 10% waste:** **16.53 squares**.
+- **Bundles:** 16.53 × 3 = 49.6, so **50 bundles**.
+
+Without the overhangs, the roof would be only 1,341.64 sq ft and 45 bundles, so leaving them out undercounts by about 10%.
+
+## Pitch factors
+
+| Pitch | Angle | Pitch factor | Extra area vs flat |
+|---|---|---|---|
+| 2/12 | 9.5° | 1.0138 | 1.4% |
+| 3/12 | 14.0° | 1.0308 | 3.1% |
+| 4/12 | 18.4° | 1.0541 | 5.4% |
+| 5/12 | 22.6° | 1.0833 | 8.3% |
+| 6/12 | 26.6° | 1.1180 | 11.8% |
+| 7/12 | 30.3° | 1.1577 | 15.8% |
+| 8/12 | 33.7° | 1.2019 | 20.2% |
+| 9/12 | 36.9° | 1.2500 | 25.0% |
+| 10/12 | 39.8° | 1.3017 | 30.2% |
+| 12/12 | 45.0° | 1.4142 | 41.4% |
+
+Low-slope roofs add little area, while steep roofs add a lot: a 12/12 roof has 41% more surface than its footprint.
+
+## How pitch changes the amount
+
+For the same 40 × 30 ft house with 12-inch overhangs and 10% waste:
+
+| Pitch | Roof area | Squares | Bundles |
+|---|---|---|---|
+| 4/12 | 1,417 sq ft | 14.17 | 47 |
+| 6/12 | 1,503 sq ft | 15.03 | 50 |
+| 8/12 | 1,615 sq ft | 16.15 | 54 |
+| 12/12 | 1,901 sq ft | 19.01 | 63 |
+
+## Roofs of different sizes
+
+With 12-inch overhangs and 10% waste:
+
+| Building | Footprint | Pitch | Roof area | Squares | Bundles |
+|---|---|---|---|---|---|
+| Two-car garage | 24 × 24 ft | 4/12 | 713 sq ft | 7.13 | 24 |
+| Small house | 30 × 24 ft | 5/12 | 901 sq ft | 9.01 | 30 |
+| Average house | 40 × 30 ft | 6/12 | 1,503 sq ft | 15.03 | 50 |
+| Large house | 60 × 40 ft | 7/12 | 3,015 sq ft | 30.15 | 100 |
+
+## How to measure your roof pitch
+
+You don't need to climb onto the roof:
+
+- **From the attic:** hold a level horizontally against the underside of a rafter, mark 12 inches along the level from the rafter, and measure straight up from the mark to the rafter. That measurement is the rise.
+- **From a ladder at the gable end:** hold the level against the roof edge in the same way.
+- **With a phone app:** many level apps show the angle; use the table above to convert degrees to pitch.
+
+## Waste: gable vs hip roofs
+
+The waste allowance covers shingles cut off at rakes, hips and valleys, the starter course along the eaves, and pieces that are damaged. For the 40 × 30 ft house:
+
+- **Simple gable, 10%:** 16.53 squares, 50 bundles.
+- **Hip roof or several valleys, 15%:** 17.28 squares, 52 bundles.
+
+Roofs with dormers, skylights, chimneys and several intersecting sections need more. When in doubt, ask your supplier whether unopened bundles can be returned.
+
+## Roofs with several sections
+
+If parts of the roof have different pitches, such as a porch roof at a lower pitch than the main roof, calculate each section separately with its own footprint and pitch, and add the squares together. Do the same for additions and attached garages. Dormers add area too; estimate them as small gable roofs and add them.
+
+## What else the roof needs
+
+Shingles aren't the only material. A typical asphalt shingle roof also uses:
+
+- **Underlayment** over the whole deck, in synthetic or felt rolls; check the coverage on the roll.
+- **Ice and water shield** along the eaves and in valleys in cold climates, where local codes often require it.
+- **Starter strip shingles** along the eaves and rakes.
+- **Ridge and hip caps,** sold by the linear foot of ridge and hips. A 40 × 30 ft gable roof with 12-inch overhangs has a ridge about 42 ft long.
+- **Drip edge** along the eaves and rakes.
+- **Flashing** around chimneys, walls, skylights and vents.
+- **Roofing nails,** typically four to six per shingle, depending on the manufacturer and wind rating.
+- **Ventilation** at the ridge and soffits.
+
+## Other roofing materials
+
+The roof area and squares apply to any material; only the way it's sold changes:
+
+- **Architectural (dimensional) shingles:** the most common choice today, usually 3 bundles per square, though some heavier lines use 4.
+- **Three-tab shingles:** lighter and flatter, typically 3 bundles per square.
+- **Metal roofing:** sold by the panel or the linear foot, in widths that depend on the profile. Divide the length of each roof plane from eave to ridge by the panel coverage width to count panels per side, and order trim and fasteners separately.
+- **Clay and concrete tile:** sold per square or per tile and much heavier than shingles, so the roof structure must be rated for the weight.
+- **Low-slope membranes** for roofs below about 2/12 or 3/12: sold in rolls by area. Most asphalt shingle manufacturers don't allow shingles below a minimum pitch, so check the product's requirements.
+
+## Estimates from aerial measurements
+
+Many roofers now measure from satellite or drone images, which report the area of each plane, the pitch and the lengths of ridges, hips, valleys and eaves. These reports are a good cross-check on the calculator: if the two differ by more than a few percent, look for sections you've missed, such as a porch, a dormer or a garage roof. The calculator is most accurate for simple roofs; for complex roofs with many sections, an aerial report or a roofer's measurement is worth having.
+
+## Signs a roof needs replacing
+
+- **Age:** asphalt shingle roofs commonly last 20 to 30 years, depending on the product, ventilation and climate.
+- **Curling, cracking or missing shingles,** especially after storms.
+- **Granules in the gutters,** a sign that the protective surface is wearing away.
+- **Daylight or stains in the attic,** or leaks inside the house.
+- **Sagging** along the roof line, which can point to a problem with the deck or framing and needs a professional inspection.
+
+Insurance may cover storm damage, so photograph any damage and contact your insurer before repairs begin. Getting quotes from two or three licensed contractors, each based on the same measurements and materials, makes them much easier to compare. Use the squares from this calculator to check that each quote covers the full roof.
+
+## Tear-off or overlay?
+
+Removing the old shingles (a tear-off) lets the roofer inspect and repair the deck and adds to the cost of labor and disposal. Laying new shingles over one existing layer is cheaper, but building codes commonly limit roofs to two layers, the extra weight adds load to the structure, and some manufacturers' warranties require a tear-off. Ask your roofer and check local codes.
+
+## Safety first
+
+Roofing is dangerous work. Falls from roofs are a leading cause of serious construction injuries. If you're measuring or working on a roof yourself, use a properly secured ladder, wear soft-soled shoes, avoid wet or windy days, and use fall protection. For steep roofs, most homeowners are better off hiring a licensed, insured roofing contractor.
+
+## Paying for a new roof
+
+A new roof is one of the larger home repairs. If you're funding it with home equity, the [HELOC calculator](/finance/heloc-calculator/) shows the monthly payments. For other projects around the house, the [paint calculator](/construction/paint-calculator/) and the [gravel calculator](/construction/gravel-calculator/) work out materials for walls and driveways.
+
+## Key terms
+
+- **Square:** 100 sq ft of roof surface.
+- **Pitch:** the roof's rise in inches per 12 inches of horizontal run.
+- **Pitch factor:** the multiplier that converts footprint area to sloped roof area.
+- **Eave:** the lower edge of the roof that overhangs the wall.
+- **Rake:** the sloped edge of a gable roof.
+- **Valley:** the inside angle where two roof planes meet.
+- **Hip:** the outside angle where two sloping planes meet.
+- **Ridge:** the horizontal line at the top of the roof where two planes meet.
+- **Deck:** the plywood or OSB sheathing the roofing is fastened to.
+- **Underlayment:** the water-resistant layer laid on the deck under the shingles.
+
+{/* TODO: expert review: waste allowances, two-layer code limit and accessory list. */}

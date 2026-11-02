@@ -55,7 +55,8 @@ export async function allPages(): Promise<PageEntry[]> {
       title: cat.h1,
       description: cat.metaDescription,
       kind: 'hub',
-      indexable: inCat.length > 0,
+      // A hub is indexable once at least one of its calculators has been reviewed (no hubs of drafts only).
+      indexable: inCat.some((c) => statusOf.get(c.slug)?.status === 'reviewed'),
       lastmod: inCat.length ? latest(...inCat.map((c) => c.lastReviewed)) : siteLastmod,
     });
   }

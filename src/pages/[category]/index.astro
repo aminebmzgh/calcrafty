@@ -21,6 +21,9 @@ const groups = cat.subtopics
 const ungrouped = list.filter((c) => !cat.subtopics.includes(c.subtopic));
 if (ungrouped.length) throw new Error(`${id}: calculators with unknown subtopic: ${ungrouped.map((c) => c.slug).join(', ')}`);
 const guides = (await getCollection('guides')).filter((g) => g.data.category === id);
+// Indexable once at least one calculator here has been reviewed by the owner.
+const reviewed = new Set((await getCollection('calculators')).filter((e) => e.data.status === 'reviewed').map((e) => e.id));
+const indexable = list.some((c) => reviewed.has(c.slug));
 
 const path = `/${id}/`;
 const crumbs = [
@@ -39,7 +42,7 @@ const itemList: JsonLdNode = {
 };
 ---
 
-<BaseLayout title={cat.metaTitle} description={cat.metaDescription} path={path} noindex={list.length === 0} ogImage={`/og/${id}.png`} jsonLd={[breadcrumbList(crumbs), itemList]}>
+<BaseLayout title={cat.metaTitle} description={cat.metaDescription} path={path} noindex={!indexable} ogImage={`/og/${id}.png`} jsonLd={[breadcrumbList(crumbs), itemList]}>
   <div class="wrap py-8">
     <Breadcrumbs crumbs={crumbs} />
     <h1 class="mt-4">{cat.h1}</h1>

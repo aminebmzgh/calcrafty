@@ -99,3 +99,9 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **Empty categories stay hidden.** `liveCategories` (registry.ts) lists only categories with at least one calculator; the hub page, nav, footer, home page, search, OG images and sitemap all use it. A new category's hub appears automatically with its first calculator, so no thin hub pages are published (hard rule 8) and adding a calculator is still one folder (hard rule 4).
 - **Health and fitness split.** Health keeps body composition and nutrition; the running pace calculator moved to the new Sports category (`/health/running-pace-calculator/` → `/sports/running-pace-calculator/`, 301 in redirects.ts). Sports is not YMYL, so it carries no medical disclaimer.
 - **Statistics split from Math** (owner decision, same day): standard deviation and mean/median/mode moved to `/statistics/` with 301s from their `/math/` URLs. Math keeps arithmetic and the scientific calculator.
+
+## 2026-11-02 (growth batch 5, construction)
+
+- **Category hubs are indexable only once a calculator in them is reviewed** (pages.ts and the hub page), so a new category doesn't publish an indexable page that lists only drafts.
+- **Default assumptions, all editable or stated on the page:** concrete bag yields from the QUIKRETE Concrete Mix data sheet (40 lb 0.30, 60 lb 0.45, 80 lb 0.60 cu ft); paint coverage 350 sq ft per gallon (low end of the usual 350 to 400 label range), doors 21 sq ft (3 × 7 ft) and windows 15 sq ft (3 × 5 ft); gravel 1.4 short tons per cubic yard (planning figures run 1.4 to 1.7; users are told to ask their supplier); 3 shingle bundles per square.
+- **Roof area uses footprint × pitch factor**, exact for any roof whose planes share one pitch (gable or hip); mixed pitches are calculated per section, as the page explains.

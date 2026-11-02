@@ -55,6 +55,7 @@ math calculators,online math calculator|math calculator,learn,60000,60,857.1,/ma
 everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/,hub,built,estimate
 sports calculators,fitness calculators|sports and fitness calculators|running calculators,learn,,,,/sports/,hub,built,needs-data
 statistics calculators,statistics calculator|stats calculator|descriptive statistics calculator,learn,,,,/statistics/,hub,built,needs-data
+construction calculators,building calculators|home improvement calculators|construction material calculator,learn,,,,/construction/,hub,built,needs-data
 free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,built,estimate
 apr calculator,loan apr calculator|calculate apr with fees|true apr calculator,calculate,,,,/finance/apr-calculator/,calculator,built,needs-data
 debt to income ratio calculator,dti calculator|debt to income ratio for mortgage,calculate,,,,/finance/debt-to-income-ratio-calculator/,calculator,built,needs-data
@@ -82,3 +83,8 @@ roth vs traditional 401k,roth 401k vs traditional 401k|traditional or roth 401k|
 how to read a pay stub,pay stub explained|pay stub abbreviations|what is ytd on a pay stub,learn,,,,/guides/how-to-read-a-pay-stub/,guide,built,needs-data
 good net worth by age,average net worth by age|median net worth by age|net worth by age,learn,,,,/guides/good-net-worth-by-age/,guide,built,needs-data
 how does mortgage amortization work,mortgage amortization explained|why is my mortgage payment mostly interest|amortization schedule explained,learn,,,,/guides/how-does-mortgage-amortization-work/,guide,built,needs-data
+concrete calculator,how much concrete do i need|concrete slab calculator|concrete bag calculator|cubic yards of concrete calculator,calculate,,,,/construction/concrete-calculator/,calculator,built,needs-data
+paint calculator,how much paint do i need|paint calculator for room|how many gallons of paint do i need|wall paint calculator,calculate,,,,/construction/paint-calculator/,calculator,built,needs-data
+flooring calculator,how much flooring do i need|laminate flooring calculator|vinyl plank flooring calculator|square footage calculator for flooring,calculate,,,,/construction/flooring-calculator/,calculator,built,needs-data
+gravel calculator,how much gravel do i need|crushed stone calculator|gravel tons calculator|driveway gravel calculator,calculate,,,,/construction/gravel-calculator/,calculator,built,needs-data
+roofing calculator,roof square footage calculator|shingle calculator|how many bundles of shingles do i need|roof pitch calculator,calculate,,,,/construction/roofing-calculator/,calculator,built,needs-data
