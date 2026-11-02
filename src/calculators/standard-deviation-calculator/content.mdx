@@ -65,6 +65,64 @@ Standard deviation is easiest to read relative to the mean. A standard deviation
 
 Outliers have a big effect because deviations are squared. One extreme value can inflate the standard deviation a lot, so check the deviations table for a single row that dominates the sum.
 
+## The 68-95-99.7 rule
+
+When data follows a roughly bell-shaped (normal) distribution, standard deviation tells you where most values fall:
+
+| Range | Share of values |
+|---|---|
+| Within 1 standard deviation of the mean | about 68% |
+| Within 2 standard deviations | about 95% |
+| Within 3 standard deviations | about 99.7% |
+
+For example, if exam scores have a mean of 500 and a standard deviation of 100, about 68% of students score between 400 and 600, about 95% between 300 and 700, and almost everyone between 200 and 800. A score of 750 is unusual: only about 2.5% of students score above 700.
+
+The rule only applies to roughly symmetric, bell-shaped data. Incomes, house prices and waiting times are usually skewed, with a long tail on one side, so a range of mean ± 2 standard deviations can even include impossible negative values. Look at the data before relying on the rule.
+
+## Z-scores: comparing results from different groups
+
+A **z-score** expresses a value as a number of standard deviations from the mean: **z = (value − mean) ÷ standard deviation**. It lets you compare results measured on different scales.
+
+Say a student scores 82 on a chemistry test where the class mean was 74 with a standard deviation of 6, and 88 on a history test with a mean of 82 and a standard deviation of 8.
+
+- **Chemistry:** (82 − 74) ÷ 6 = **1.33** standard deviations above average
+- **History:** (88 − 82) ÷ 8 = **0.75** standard deviations above average
+
+The chemistry score is the stronger performance relative to the class, even though the raw score is lower.
+
+## Standard deviation, standard error and range
+
+These three measures are easy to confuse:
+
+- **Standard deviation** describes how spread out the individual values are. For the seven quiz scores, it's about 3.89.
+- **Standard error of the mean** (standard deviation ÷ √n) describes how precisely the sample mean estimates the true mean. For the quiz scores, it's 3.891 ÷ √7 ≈ **1.47**. It shrinks as you collect more data; the standard deviation doesn't.
+- **Range** is the largest value minus the smallest: 20 − 9 = **11**. It's quick to calculate but depends entirely on the two most extreme values.
+
+**Variance** is the standard deviation squared. It's useful in further calculations, such as combining the spread of independent sources, but it's in squared units, so the standard deviation is easier to interpret.
+
+## How sample size affects the result
+
+A sample's standard deviation is an estimate of the spread in the whole population, and small samples give rough estimates. With five or six values, one unusual number can shift the result a lot; with hundreds, it barely moves it.
+
+Collecting more data doesn't make the standard deviation smaller. If the population is genuinely spread out, the standard deviation stays roughly the same however many values you add. What shrinks is the **standard error**, because it divides by √n: quadrupling the number of values halves the standard error, so your estimate of the mean becomes twice as precise. That's why surveys and experiments need large samples to detect small differences, and why a result based on a handful of values deserves real caution, however precise the number looks.
+
+## Mean absolute deviation: a simpler alternative
+
+The **mean absolute deviation** (MAD) is the average distance from the mean, without squaring. For the seven quiz scores it's about **3.02**, noticeably smaller than the standard deviation of 3.89, because squaring gives extra weight to the values furthest from the mean.
+
+MAD is easier to explain and less affected by a single outlier, which is why it's often taught first. Standard deviation is used far more widely, though, because it fits neatly into the rest of statistics, from the normal distribution to confidence intervals and regression.
+
+## Calculating it in Excel or Google Sheets
+
+Spreadsheets have built-in functions that match this calculator's results:
+
+- **STDEV.S** (or STDEV in Google Sheets): sample standard deviation
+- **STDEV.P**: population standard deviation
+- **VAR.S** and **VAR.P**: sample and population variance
+- **AVERAGE**: the mean
+
+If your spreadsheet answer differs slightly from the calculator's, check whether you've used the sample or population version, and that no blank or text cells were accidentally included in the range.
+
 ## Standard deviation in the real world
 
 Standard deviation turns "how spread out is this?" into a single number, which is why it shows up in so many fields:

@@ -72,6 +72,77 @@ The GCD comes from Euclid's algorithm: repeatedly replace the larger number with
 - **Not simplifying.** 6/8 is correct but incomplete; most teachers expect 3/4.
 - **Sign errors with negative mixed numbers.** −1 1/2 means −(1 + 1/2) = −3/2, not −1 + 1/2.
 
+## Finding the least common denominator
+
+The least common denominator (LCD) is the smallest number both denominators divide into evenly. There are three ways to find it:
+
+1. **List multiples.** For 4 and 6: multiples of 6 are 6, 12, 18…; the first that 4 also divides is **12**. Quick for small numbers.
+2. **Use prime factors.** 12 = 2 × 2 × 3 and 18 = 2 × 3 × 3. Take each prime the greatest number of times it appears in either: 2 × 2 × 3 × 3 = **36**.
+3. **Use the GCD.** LCD = (a × b) ÷ GCD(a, b). For 12 and 18, the GCD is 6, so (12 × 18) ÷ 6 = **36**.
+
+Multiplying the two denominators together always gives *a* common denominator, but not always the smallest, and larger numbers mean more simplifying at the end.
+
+## Simplifying with the greatest common divisor
+
+To reduce a fraction to lowest terms, divide the top and bottom by their greatest common divisor (GCD). For larger numbers, Euclid's algorithm finds the GCD quickly by repeated division:
+
+- Simplify **84/126**. Divide 126 by 84: remainder 42. Divide 84 by 42: remainder 0. So the GCD is **42**.
+- 84 ÷ 42 = 2 and 126 ÷ 42 = 3, so 84/126 = **2/3**.
+
+This is the method the calculator uses internally, with exact whole-number arithmetic, so even fractions with very large numbers simplify correctly.
+
+## Converting decimals to fractions
+
+A terminating decimal becomes a fraction over a power of ten, which you then simplify:
+
+- 0.6 = 6/10 = **3/5**
+- 0.375 = 375/1000 = **3/8**
+- 2.25 = 225/100 = 9/4 = **2 1/4**
+
+Repeating decimals have exact fraction forms too: 0.333… = **1/3**, 0.666… = **2/3** and 0.1666… = **1/6**. A rounded decimal such as 0.33 is not the same as 1/3; it equals 33/100. That's one reason to keep exact fractions until the final step.
+
+## Comparing and ordering fractions
+
+To tell which of two fractions is larger without a calculator, cross-multiply: compare the first numerator times the second denominator with the second numerator times the first denominator.
+
+- Is 5/8 bigger than 3/5? 5 × 5 = 25 and 3 × 8 = 24. Since 25 > 24, **5/8 is larger**.
+- To order several fractions, rewrite them all over a common denominator and compare the numerators, or convert each to a decimal.
+
+## Mixed numbers and improper fractions
+
+A **mixed number** like 2 3/4 combines a whole number and a fraction; an **improper fraction** like 11/4 has a numerator larger than its denominator. They're two ways of writing the same amount.
+
+- **Mixed to improper:** multiply the whole number by the denominator and add the numerator, keeping the same denominator. 2 3/4 → (2 × 4 + 3)/4 = **11/4**.
+- **Improper to mixed:** divide the numerator by the denominator. The quotient is the whole number and the remainder goes over the denominator. 11/4 → 11 ÷ 4 = 2 remainder 3 → **2 3/4**.
+
+Improper fractions are easier to calculate with, especially for multiplying and dividing, so convert to them first and back to a mixed number at the end. The calculator accepts either form and shows both in the result.
+
+## Solving fraction word problems
+
+Most everyday fraction problems come down to choosing the right operation:
+
+- **"Of" means multiply.** Two-thirds of a 3/4 cup of sugar is 2/3 × 3/4 = **1/2 cup**.
+- **"How many fit into" means divide.** A 6-foot board cut into pieces 3/4 of a foot long gives 6 ÷ 3/4 = **8 pieces**.
+- **Combining parts means add.** Running 1 1/4 miles in the morning and 2 2/3 miles in the evening is 1 1/4 + 2 2/3 = **3 11/12 miles**.
+- **"How much more" means subtract.** If a recipe needs 2 1/2 cups of flour and you have 1 3/4, you need 2 1/2 − 1 3/4 = **3/4 cup** more.
+
+When a word problem feels confusing, sketch it: a bar split into equal parts often makes the right operation obvious before you do any arithmetic at all.
+
+## Fractions on a tape measure
+
+US tape measures and drill bits use binary fractions of an inch: halves, quarters, eighths and sixteenths. Their decimal equivalents:
+
+| Fraction of an inch | Decimal |
+|---|---|
+| 1/16 | 0.0625 |
+| 1/8 | 0.125 |
+| 3/16 | 0.1875 |
+| 1/4 | 0.25 |
+| 5/16 | 0.3125 |
+| 3/8 | 0.375 |
+| 7/16 | 0.4375 |
+| 1/2 | 0.5 |
+
 ## Fractions, decimals and percentages
 
 Every fraction is also a division. 3/4 = 3 ÷ 4 = 0.75 = 75%. Some fractions give repeating decimals, such as 1/3 = 0.333…, which is why exact fraction answers are often more useful than decimals. The calculator shows the decimal to 10 significant places alongside the exact fraction.

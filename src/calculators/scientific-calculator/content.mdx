@@ -67,6 +67,63 @@ Your expression is broken into numbers, names and operators, then read by a pars
 
 Calculations use double-precision floating-point numbers (IEEE 754), the same standard used by spreadsheets and most programming languages, and results are shown to 12 significant digits. In degree mode, sine, cosine and tangent of whole multiples of common angles are cleaned to exact values, so sin(180°) shows 0 rather than a tiny leftover like 1.2 × 10⁻¹⁶. Undefined results, such as tan(90°), are reported rather than shown as huge numbers.
 
+## The order of operations, and the famous viral puzzle
+
+Every scientific calculator follows the same agreed order, often remembered as PEMDAS (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction):
+
+1. Work inside parentheses first, innermost first.
+2. Then powers and roots.
+3. Then multiplication and division, **left to right**, with equal priority.
+4. Then addition and subtraction, also left to right.
+
+The "left to right" part is where people disagree. The expression **8/2(2+2)** circulates online because it seems to have two answers. This calculator reads it as 8 ÷ 2 × (2 + 2), treating the implied multiplication like any other multiplication, so it works left to right and gets **16**. Some textbooks and older calculators give implied multiplication higher priority and get 1. Neither convention is "wrong"; the expression is ambiguous. If you mean 1, write **8/(2(2+2))**, which gives 1 everywhere. The "Read as" line under the result always shows which reading was used.
+
+## Logarithms and exponents in practice
+
+Logarithms answer "what power do I need?", which makes them useful far beyond math class:
+
+- **Doubling time.** How many years does money take to double at 7% a year? ln(2) ÷ ln(1.07) = **10.24** years.
+- **pH.** The pH of a solution is −log of its hydrogen ion concentration. Pure water at 25 °C, with a concentration of 1e−7, has pH −log(1e−7) = **7**.
+- **Decibels.** A sound 100 times more powerful than another is 10 × log(100) = **20** decibels louder.
+- **Powers of two.** 2^10 = **1,024**, which is why computer memory comes in sizes like 1,024 bytes.
+
+The natural logarithm (ln) uses base e ≈ 2.71828, which appears in continuous growth and decay, from compound interest to radioactive half-lives.
+
+## Trigonometry in practice
+
+Sine, cosine and tangent connect angles and lengths in right triangles. In degree mode:
+
+- **A ladder.** A 12-foot ladder leaning at 75° to the ground reaches 12 × sin(75) = **11.59 feet** up the wall.
+- **The height of a tree.** Standing 50 feet from a tree and looking up 30° to the top, the tree is about 50 × tan(30) = **28.87 feet** taller than your eye level.
+- **An angle from two sides.** A ramp that rises 3 feet over 4 feet of run has an angle of atan(3/4) = **36.87°**.
+
+## Degrees or radians: which mode to use
+
+Use **degrees** for everyday geometry, construction, navigation and most high school trigonometry, where angles are given like 30° or 45°. Use **radians** for calculus, physics and engineering formulas, and whenever an angle is written with π, such as π/6. A full turn is 360° or 2π radians, so one radian is about 57.3°. If a homework answer looks completely wrong, the angle mode is the first thing to check; switching it changes only how trig functions read their input, not any other part of the calculation.
+
+## Factorials and combinations
+
+The factorial n! multiplies every whole number from 1 to n, and it counts arrangements. There are 10! = **3,628,800** ways to order 10 books on a shelf. Divide factorials to count combinations, where order doesn't matter: the number of possible five-card poker hands from a 52-card deck is 52! ÷ (5! × 47!) = **2,598,960**, and the number of ways to pick 2 people from 6 is 6! ÷ (2! × 4!) = **15**.
+
+## Everyday problems you can type in one line
+
+Because the calculator accepts whole expressions, many everyday calculations take a single line:
+
+| Problem | Type | Answer |
+|---|---|---|
+| Area of a circle with a 5-inch radius | pi*5^2 | 78.54 square inches |
+| Volume of a cylinder, radius 3, height 10 | pi*3^2*10 | 282.74 |
+| 98.6 °F in Celsius | (98.6-32)*5/9 | 37 °C |
+| A 26.2-mile marathon in kilometers | 26.2*1.609344 | 42.16 km |
+| One radian in degrees | 180/pi | 57.2958° |
+| $1,000 at 5% compounded monthly for 10 years | 1000*(1+0.05/12)^(12*10) | 1,647.01 |
+
+Your history keeps each line, so you can copy a result into the next calculation without retyping it.
+
+## Scientific notation
+
+Very large and very small numbers are easier to write as a number times a power of ten. Type them with an "e": 1.5e8 means 1.5 × 10⁸, or 150,000,000. The calculator accepts and shows numbers this way, so 1.5e8 ÷ 3e5 = **500**. Results of 1e15 or more, or smaller than 1e−9, are shown in scientific notation automatically, so very large and very small answers keep their scale.
+
 ## Common mistakes
 
 - **Negative bases with powers.** −3^2 is −9. If you mean "negative three, squared," type (−3)^2 = 9.

@@ -70,6 +70,65 @@ Federal holidays are calculated for every year in the range from the rules in 5 
 
 Banks, schools and many private employers follow most of these, but not always all of them. If you need state holidays or your company's calendar, subtract those days from the business-day count by hand.
 
+## Federal holidays in 2027
+
+The observed dates the calculator uses for 2027, when four holidays fall on a weekend and move to a weekday:
+
+| Holiday | Observed in 2027 |
+|---|---|
+| New Year's Day | Friday, January 1 |
+| Martin Luther King Jr. Day | Monday, January 18 |
+| Washington's Birthday | Monday, February 15 |
+| Memorial Day | Monday, May 31 |
+| Juneteenth | Friday, June 18 (June 19 is a Saturday) |
+| Independence Day | Monday, July 5 (July 4 is a Sunday) |
+| Labor Day | Monday, September 6 |
+| Columbus Day | Monday, October 11 |
+| Veterans Day | Thursday, November 11 |
+| Thanksgiving Day | Thursday, November 25 |
+| Christmas Day | Friday, December 24 (December 25 is a Saturday) |
+| New Year's Day 2028 | Friday, December 31, 2027 (January 1, 2028 is a Saturday) |
+
+Because New Year's Day 2028 is observed on December 31, 2027, the year 2027 contains 12 observed federal holidays instead of the usual 11. Counting January 1 through December 31, 2027 gives 365 days, 261 weekdays and **249 federal working days**.
+
+## Dates 30, 60, 90 and 180 days out
+
+Many deadlines are set as a number of days after an event. Starting from January 1, 2027 (not counting the start day):
+
+| Days later | Date |
+|---|---|
+| 30 | January 31, 2027 |
+| 60 | March 2, 2027 |
+| 90 | April 1, 2027 |
+| 180 | June 30, 2027 |
+| 365 | January 1, 2028 |
+
+Because months have different lengths, "90 days" and "3 months" are not the same: three months after January 1 is April 1 here only by coincidence, while 90 days after March 1 is May 30 but three months after March 1 is June 1. When a contract or rule says "days," count days; when it says "months," count calendar months.
+
+## How many days are in each month and year
+
+| Month | Days |
+|---|---|
+| January, March, May, July, August, October, December | 31 |
+| April, June, September, November | 30 |
+| February | 28, or 29 in a leap year |
+
+An old memory trick uses your knuckles: make two fists side by side and count the months across them. Every month that lands on a knuckle has 31 days; every month in a dip between knuckles has 30, except February.
+
+A common year has 365 days and a leap year 366. Leap years are the years divisible by 4, except century years that aren't divisible by 400, so 2000 was a leap year, 2100 won't be, and the next leap years are 2028 and 2032. A common year is 52 weeks and 1 day long, which is why a date falls one weekday later each year, or two days later after February 29.
+
+## Bank holidays vs federal holidays
+
+Banks usually close on federal holidays, so transfers, checks and loan payments due on a holiday are generally processed on the next business day. There's one notable difference: when a holiday falls on a Saturday, the federal government gives employees the preceding Friday off, but the Federal Reserve, which runs much of the banking system's payment network, stays open on that Friday. In 2027, for example, federal offices are closed on Friday, June 18 for Juneteenth, but many banks are open and payments still move. If a payment date matters, check your bank's own holiday calendar as well as this count.
+
+## Week numbers
+
+Many businesses plan by week number. Under the international ISO 8601 standard, weeks start on Monday, and week 1 is the week that contains the year's first Thursday. Most years have 52 ISO weeks, but a year that starts on a Thursday, or a leap year that starts on a Wednesday, has 53. 2026 began on a Thursday, so it has 53 ISO weeks; 2027 has 52. US calendars often number weeks differently, starting on Sunday, so check which system a schedule uses.
+
+## Counting days in a spreadsheet
+
+In Excel or Google Sheets, subtracting one date cell from another gives the number of days between them (=B1−A1). For business days, **NETWORKDAYS(start, end, holidays)** counts weekdays and lets you supply a list of holiday dates to skip. It counts both the start and end dates, so it matches this calculator with **Count the end date too** switched on. For a different weekend pattern, such as Friday and Saturday, NETWORKDAYS.INTL lets you choose which days count as the weekend.
+
 ## Common uses for counting days
 
 People count days for very different reasons, and each has its own convention about the end date and business days:
