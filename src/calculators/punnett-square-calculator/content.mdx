@@ -1,0 +1,163 @@
+---
+status: draft
+howTo:
+  - "Enter each parent's genotype using two letters per gene, such as Aa for one gene or AaBb for two."
+  - "Use a capital letter for the dominant allele and a lowercase letter for the recessive one."
+  - "Make sure both parents list the same genes in the same order."
+  - "Read the Punnett square, the genotype ratio and the phenotype ratio, with the probability of each outcome."
+faq:
+  - q: "How do you do a Punnett square?"
+    a: "Write one parent's possible gametes along the top and the other's down the side, then fill each box with the alleles from its row and column. For Aa × Aa, the gametes are A and a for each parent, and the four boxes are AA, Aa, Aa and aa."
+  - q: "What is the ratio for a monohybrid cross?"
+    a: "Crossing two heterozygotes (Aa × Aa) gives a genotype ratio of 1 AA : 2 Aa : 1 aa and, with complete dominance, a phenotype ratio of 3 dominant : 1 recessive."
+  - q: "What is the 9:3:3:1 ratio?"
+    a: "It's the phenotype ratio from crossing two parents heterozygous for two independent genes (AaBb × AaBb): 9/16 show both dominant traits, 3/16 show the first dominant and second recessive, 3/16 the reverse, and 1/16 show both recessive traits."
+  - q: "What does the underscore in A_ mean?"
+    a: "It means either allele. A_ covers both AA and Aa, which look the same when A is dominant. It's a shorthand for the phenotype."
+  - q: "Does a 25% chance mean one in four children will have the trait?"
+    a: "No. It's the probability for each child separately. A couple with a 25% chance per child could have several children without the trait, or more than one with it. The ratios describe large numbers of offspring."
+  - q: "What is a test cross?"
+    a: "Crossing an individual showing the dominant trait with a homozygous recessive one (aa) to find out its genotype. If any offspring show the recessive trait, the parent must be Aa; if all show the dominant trait across many offspring, it's probably AA."
+---
+
+## How to use this Punnett square calculator
+
+1. **Enter parent 1's genotype.** Use two letters per gene: Aa for one gene, AaBb for two, AaBbCc for three. A capital letter is the dominant allele and a lowercase letter the recessive allele.
+2. **Enter parent 2's genotype** with the same genes in the same order, for example AaBb × aaBb.
+3. **Read the results.** The calculator draws the full Punnett square, lists every offspring genotype with how many boxes it fills and its probability, and gives the genotype and phenotype ratios.
+
+You can use any letters, as long as each gene uses one letter in two forms (Aa, Bb, Rr) and each gene has a different letter. Spaces are ignored, so "Aa Bb" works too.
+
+## How it works
+
+Each parent passes on one allele of each gene, chosen at random, in its gametes (eggs or sperm). The calculator:
+
+1. **Lists every possible gamete** for each parent. An Aa parent makes A and a gametes; an AaBb parent makes AB, Ab, aB and ab, assuming the genes assort independently.
+2. **Pairs every gamete of one parent with every gamete of the other.** Each pairing is one box of the Punnett square, and every box is equally likely.
+3. **Counts the outcomes.** Boxes with the same genotype are added up, and genotypes that look the same are grouped into phenotypes.
+
+The probability of an outcome is the number of boxes showing it divided by the total number of boxes.
+
+## Worked example: Aa × Aa
+
+Two parents are both heterozygous for one gene: each has one dominant allele (A) and one recessive allele (a).
+
+| Gametes | A | a |
+|---|---|---|
+| **A** | AA | Aa |
+| **a** | Aa | aa |
+
+- **Genotypes:** 1 AA : 2 Aa : 1 aa, or 25% AA, 50% Aa and 25% aa.
+- **Phenotypes:** AA and Aa both show the dominant trait, so 3 dominant : 1 recessive, or 75% and 25%.
+
+This is the classic ratio Gregor Mendel observed in his pea plants: when he crossed plants that were heterozygous for seed color, about three-quarters of the offspring had yellow seeds and one-quarter green.
+
+## Worked example: a dihybrid cross
+
+Two parents heterozygous for two genes, AaBb × AaBb, each make four kinds of gamete (AB, Ab, aB, ab), so the square has 4 × 4 = 16 boxes.
+
+| Phenotype | Boxes | Probability |
+|---|---|---|
+| A_ B_ (both dominant traits) | 9 | 56.25% |
+| A_ bb | 3 | 18.75% |
+| aa B_ | 3 | 18.75% |
+| aa bb (both recessive traits) | 1 | 6.25% |
+
+That's the famous **9 : 3 : 3 : 1** ratio. The genotypes are more varied: nine different genotypes in a 1 : 2 : 1 : 2 : 4 : 2 : 1 : 2 : 1 ratio, from AABB through AaBb (the most common, 4 boxes of 16) to aabb.
+
+## Common crosses
+
+| Cross | Genotype ratio | Phenotype ratio |
+|---|---|---|
+| Aa × Aa | 1 AA : 2 Aa : 1 aa | 3 : 1 |
+| Aa × aa (test cross) | 1 Aa : 1 aa | 1 : 1 |
+| AA × Aa | 1 AA : 1 Aa | all dominant |
+| AA × aa | all Aa | all dominant |
+| AaBb × aabb (dihybrid test cross) | 1 : 1 : 1 : 1 | 1 : 1 : 1 : 1 |
+| AaBb × Aabb | 1 : 2 : 1 : 1 : 2 : 1 | 3 : 3 : 1 : 1 |
+| AaBb × AaBb | 1 : 2 : 1 : 2 : 4 : 2 : 1 : 2 : 1 | 9 : 3 : 3 : 1 |
+
+For three genes, AaBbCc × AaBbCc, the square has 64 boxes and 27 genotypes; 27 of the 64 boxes (about 42.19%) show all three dominant traits.
+
+## Mendel's two laws
+
+The Punnett square is a way of applying the two principles Gregor Mendel worked out in the 1860s from his experiments with garden peas:
+
+- **The law of segregation:** each individual carries two alleles for a gene, and they separate when gametes form, so each gamete carries only one. That's why an Aa parent makes A and a gametes in equal numbers.
+- **The law of independent assortment:** alleles of different genes are sorted into gametes independently of each other. That's why an AaBb parent makes AB, Ab, aB and ab gametes in equal numbers, and why the dihybrid square has 16 equally likely boxes.
+
+The square itself is named after Reginald Punnett, a British geneticist who introduced the diagram in the early 1900s as a quick way to see every combination at once.
+
+## Working backwards from the offspring
+
+Punnett squares also help you deduce a parent's genotype from its offspring:
+
+- **If any offspring show the recessive trait,** both parents must carry at least one recessive allele, since an aa offspring needs an a from each parent.
+- **If two parents with the dominant trait have an offspring with the recessive trait,** both parents must be heterozygous (Aa). Their next offspring each have a 25% chance of the recessive trait.
+- **If a dominant-looking parent crossed with aa produces only dominant offspring** over many offspring, it's very likely AA. Even one recessive offspring proves it's Aa.
+
+Try each possible genotype in the calculator and compare the predicted ratios with what you observed.
+
+## Genotype and phenotype
+
+The **genotype** is the pair of alleles an individual carries, such as AA, Aa or aa. The **phenotype** is the trait you can see or measure, such as flower color or seed shape.
+
+With **complete dominance**, one dominant allele is enough to produce the dominant phenotype, so AA and Aa look identical. Only aa shows the recessive phenotype. That's why the calculator groups AA and Aa together as A_ when it counts phenotypes.
+
+Some useful terms:
+
+- **Homozygous:** two copies of the same allele (AA or aa).
+- **Heterozygous:** two different alleles (Aa).
+- **Carrier:** a heterozygous individual who carries a recessive allele without showing the recessive trait.
+
+## Probability, not prediction
+
+A Punnett square gives the probability for **each** offspring, independently. If two carriers of a recessive condition have a child, the chance the child is affected is 25%, and that chance is the same for every pregnancy. It doesn't mean one child in four will be affected.
+
+You can combine probabilities for several offspring by multiplying. The chance that two children in a row are both aa is 0.25 × 0.25 = 6.25%. The chance that at least one of three children is aa is 1 − 0.75³ = 1 − 0.4219 ≈ **57.8%**. In small families, actual counts often differ from the ratio; ratios become reliable only over large numbers of offspring, as in Mendel's experiments with thousands of pea plants.
+
+## When the simple ratios don't apply
+
+The calculator assumes Mendelian inheritance: complete dominance, genes on different chromosomes (or far apart on the same one), and every combination of gametes equally likely. Real inheritance is often more complicated:
+
+- **Incomplete dominance:** the heterozygote is intermediate, like pink flowers from red and white parents, so the phenotype ratio follows the genotype ratio (1 : 2 : 1).
+- **Codominance:** both alleles show, as in the AB blood type.
+- **Multiple alleles:** some genes have more than two alleles, like the A, B and O alleles of the ABO blood group.
+- **Sex-linked genes:** genes on the X chromosome are inherited differently in males and females.
+- **Linked genes:** genes close together on a chromosome tend to be inherited together, which changes the dihybrid ratios.
+- **Polygenic traits:** height, skin color and many other traits depend on many genes plus the environment, and don't follow a simple square.
+
+For human genetic conditions, a genetic counselor can explain the actual risks, which depend on the specific condition and family history.
+
+## Why squares get big quickly
+
+Each extra heterozygous gene doubles the number of gametes a parent can make, so the number of boxes in the square multiplies by four:
+
+- **One gene:** 2 × 2 = 4 boxes.
+- **Two genes:** 4 × 4 = 16 boxes.
+- **Three genes:** 8 × 8 = 64 boxes.
+- **Four genes:** 16 × 16 = 256 boxes.
+
+Beyond three genes, it's easier to multiply the probabilities of each gene separately. For AaBb × AaBb, the chance of A_ is 3/4 and of B_ is 3/4, so A_ B_ is 3/4 × 3/4 = 9/16, which matches the square. That's why this calculator stops at three genes, where the full square is still readable.
+
+## Tips for setting up a cross
+
+- **Use the same letter for both alleles of a gene,** with the dominant allele as the capital letter. Choose letters where upper and lower case look different; W/w and S/s are clearer than O/o.
+- **Keep genes in the same order** for both parents, such as AaBb × aaBb rather than AaBb × Bbaa.
+- **Work out unknown genotypes from the phenotype first.** Someone with the recessive phenotype must be aa. Someone with the dominant phenotype is A_, and their parents or offspring can reveal whether they're AA or Aa.
+
+## Related tools
+
+For working out probabilities as fractions or percentages, the [fraction calculator](/math/fraction-calculator/) and [percentage calculator](/math/percentage-calculator/) help. For a step-by-step walkthrough of drawing squares by hand, see our guide [how to do a Punnett square](/guides/how-to-do-a-punnett-square/). If you're analyzing real counts from an experiment, the [mean, median and mode calculator](/statistics/mean-median-mode-calculator/) summarizes your data.
+
+## Key terms
+
+- **Allele:** one version of a gene.
+- **Dominant:** an allele whose trait shows with just one copy.
+- **Recessive:** an allele whose trait shows only with two copies.
+- **Gamete:** a reproductive cell (egg or sperm) carrying one allele of each gene.
+- **Monohybrid cross:** a cross following one gene.
+- **Dihybrid cross:** a cross following two genes at once.
+- **Independent assortment:** the principle that alleles of different genes are passed on independently of each other.
+
+{/* TODO: expert review: Mendel example wording, carrier probability examples and exceptions list. */}

@@ -1,0 +1,182 @@
+---
+status: draft
+title: "Ohm's Law Explained"
+h1: "Ohm's Law Explained: Voltage, Current and Resistance"
+intro: "What voltage, current and resistance really are, how Ohm's law links them, and how to use it with power for everyday circuits, from LEDs to space heaters."
+metaTitle: "Ohm's Law Explained: V = I × R With Examples"
+metaDescription: "Ohm's law explained simply: what voltage, current and resistance are, how V = I × R and P = V × I work, and worked examples from LEDs to household circuits."
+primaryKeyword: "ohms law explained"
+category: "physics"
+calculators: ["ohms-law-calculator", "scientific-calculator", "length-converter"]
+published: "2026-11-02"
+faq:
+  - q: "What is Ohm's law in simple terms?"
+    a: "The current flowing through a conductor is proportional to the voltage across it: double the voltage and the current doubles. The constant that links them is the resistance, so V = I × R, or I = V ÷ R."
+  - q: "What is the water analogy for electricity?"
+    a: "Voltage is like water pressure, current is like the flow rate of water in a pipe, and resistance is like a narrow section of pipe that restricts the flow. More pressure or a wider pipe means more flow."
+  - q: "What is the difference between voltage and current?"
+    a: "Voltage is the push, the difference in electrical potential between two points, measured in volts. Current is the flow of charge that the push produces, measured in amps. You can have voltage without current, as with a battery not connected to anything."
+  - q: "How is Ohm's law used in real life?"
+    a: "To choose resistors for LEDs, size wires and fuses, check whether appliances will overload a circuit, find faults with a multimeter, and work out the power and heat in a component."
+  - q: "Who discovered Ohm's law?"
+    a: "The German physicist Georg Simon Ohm, who published it in 1827 after experiments with wires of different lengths and thicknesses. The unit of resistance, the ohm, is named after him."
+  - q: "Is Ohm's law always true?"
+    a: "No. It holds for ohmic materials such as metal resistors at constant temperature. Diodes, LEDs, transistors, and filaments that heat up don't have a constant resistance, so V ÷ I changes as the current changes."
+---
+
+**Short answer:** Ohm's law says that the current through a conductor equals the voltage across it divided by its resistance: **I = V ÷ R**, or **V = I × R**. Double the voltage across a resistor and twice the current flows; double the resistance and half the current flows. Combined with the power formula **P = V × I**, it lets you find any of the four quantities, voltage, current, resistance and power, from any two of the others. The [Ohm's law calculator](/physics/ohms-law-calculator/) does the arithmetic for any pair.
+
+## The three quantities
+
+### Voltage: the push
+
+**Voltage** (V), measured in **volts**, is the difference in electrical potential energy between two points. It's what drives charge around a circuit. A 1.5 V AA battery, a 12 V car battery and a 120 V wall outlet differ in how hard they push.
+
+Voltage is always measured *between* two points. When people say a battery "is 9 volts", they mean the difference between its two terminals.
+
+### Current: the flow
+
+**Current** (I), measured in **amperes** or **amps** (A), is the rate at which electric charge flows past a point. One amp is one coulomb of charge per second, roughly 6.24 × 10¹⁸ electrons every second. A phone charger might deliver 2 A; a space heater draws over 12 A; an LED indicator uses about 0.02 A (20 milliamps).
+
+The letter I comes from the French *intensité du courant*, the intensity of the current.
+
+### Resistance: the restriction
+
+**Resistance** (R), measured in **ohms** (Ω), is how strongly a material opposes the flow of current. Copper wire has very little resistance; the heating element in a toaster has a lot more; rubber and glass have so much that almost no current flows, which is why they're used as insulators.
+
+Resistance depends on the material, its length (longer means more resistance), its cross-section (thicker means less) and its temperature.
+
+## The water analogy
+
+A useful way to picture a circuit is as water in pipes:
+
+- **Voltage** is the **water pressure** from a pump or a tank high above.
+- **Current** is the **flow rate**, how much water passes each second.
+- **Resistance** is a **narrow section of pipe** that restricts the flow.
+
+More pressure pushes more water through the same pipe, just as more voltage drives more current through the same resistor. A narrower pipe lets less water through at the same pressure, just as a higher resistance lets less current flow. The analogy isn't perfect, but it captures why Ohm's law has the form it does.
+
+## The law itself
+
+In 1827, Georg Ohm found that, for a given wire at a constant temperature, the current was proportional to the voltage. The ratio between them, the resistance, stayed the same:
+
+**R = V ÷ I**
+
+Rearranged:
+
+**V = I × R** and **I = V ÷ R**
+
+Ohm's work was not well received at first; some contemporaries thought it too mathematical. Within a couple of decades it was widely accepted, and today it's one of the first things taught about electricity. The unit of resistance, the ohm, is named in his honor.
+
+A simple way to remember all three is the **VIR triangle**: V at the top, I and R side by side at the bottom. Cover the quantity you want to find. If V is left on top of R, divide; if I and R are side by side, multiply.
+
+### Example: a torch bulb
+
+A flashlight runs a bulb with a resistance of 4.5 Ω from three 1.5 V batteries in series, 4.5 V in total. The current is:
+
+I = V ÷ R = 4.5 ÷ 4.5 = **1 amp**.
+
+### Example: finding a resistance
+
+A device draws 0.5 A from a 12 V supply. Its resistance is:
+
+R = V ÷ I = 12 ÷ 0.5 = **24 Ω**.
+
+## Adding power
+
+Ohm's law tells you about current and voltage. To know how much energy is being used, you need **power** (P), measured in **watts** (W):
+
+**P = V × I**
+
+One watt is one joule of energy per second. Substituting Ohm's law into the power formula gives two more versions:
+
+**P = I² × R** and **P = V² ÷ R**
+
+These are especially useful because they show where the heat goes. In a resistor, all of the power becomes heat, which is exactly what you want in a heater and exactly what you don't want in a long extension cord.
+
+### Example: a space heater
+
+A 1,500 W heater on a 120 V outlet draws:
+
+I = P ÷ V = 1,500 ÷ 120 = **12.5 amps**,
+
+and its element has a resistance, when hot, of:
+
+R = V² ÷ P = 120² ÷ 1,500 = 14,400 ÷ 1,500 = **9.6 Ω**.
+
+### Example: a 12 V circuit
+
+A 6 Ω resistor across 12 V carries 12 ÷ 6 = 2 A and dissipates 12 × 2 = **24 W**. A resistor rated for only 1 W would quickly overheat.
+
+## Series and parallel circuits
+
+Most real circuits have more than one component. Two simple rules cover the basics.
+
+**In series**, components are connected end to end, so the same current flows through each:
+
+- Resistances add: R = R₁ + R₂ + …
+- The voltages across each component add up to the supply voltage.
+
+Two resistors of 100 Ω and 200 Ω in series across 9 V make 300 Ω. The current is 9 ÷ 300 = 0.03 A (30 mA). The voltage across the 100 Ω resistor is 0.03 × 100 = 3 V, and across the 200 Ω resistor 6 V, adding up to 9 V. This is how a **voltage divider** works.
+
+**In parallel**, components are connected across the same two points, so each has the same voltage:
+
+- The currents through each branch add up to the total current.
+- The combined resistance is smaller than the smallest branch: 1 ÷ R = 1 ÷ R₁ + 1 ÷ R₂ + …
+
+Household outlets are wired in parallel, which is why every appliance gets the full 120 V, and why plugging in more appliances increases the total current on the circuit.
+
+## Using Ohm's law at home
+
+The most practical everyday use is checking circuits and cords:
+
+- **Will it trip the breaker?** Add the watts of everything on a circuit and divide by the voltage. A 15 A circuit at 120 V can supply 1,800 W, and electricians generally keep continuous loads to about 80% of that, 1,440 W. A 1,500 W heater and a 1,000 W microwave together draw about 20.8 A, enough to trip a 15 A breaker.
+- **Is this extension cord heavy enough?** A thin cord has more resistance, so a high current produces more heat (P = I² × R) and a larger voltage drop. That's why heaters and air conditioners need heavy-gauge cords, or none at all.
+- **How much does it cost to run?** Power times hours gives energy: 1,500 W for 4 hours is 6 kilowatt-hours.
+
+Household voltages are dangerous. Use these calculations to understand and plan, and have a licensed electrician do any wiring work.
+
+## Using Ohm's law in electronics
+
+In electronics, Ohm's law is used constantly:
+
+- **LED resistors:** an LED needs a resistor to limit its current. With a 5 V supply, a 2 V LED and a 20 mA target, the resistor drops 3 V, so R = 3 ÷ 0.02 = **150 Ω**, dissipating 3 × 0.02 = 0.06 W.
+- **Pull-up and pull-down resistors** set default voltages on microcontroller pins while limiting current.
+- **Current sensing:** measuring the small voltage across a known low-value resistor reveals the current flowing through it.
+- **Fault finding:** with a multimeter, measuring the voltage across a component and the current through it shows whether its resistance is what it should be.
+
+## When Ohm's law doesn't apply
+
+Ohm's law describes **ohmic** components, whose resistance stays the same regardless of current. Many components aren't ohmic:
+
+- **Diodes and LEDs** barely conduct until the voltage reaches a threshold, then conduct heavily, so their "resistance" changes enormously.
+- **Incandescent bulb filaments** have much lower resistance when cold than when glowing hot, which is why bulbs often fail at the moment they're switched on.
+- **Transistors** are controlled by a separate input and don't follow a fixed V-I relationship.
+- **Motors and AC circuits with coils or capacitors** have reactance as well as resistance, so the relationship between voltage and current also depends on frequency.
+
+For these, V ÷ I still gives a resistance at one particular operating point, but it won't stay the same if the current changes.
+
+## Units and prefixes
+
+Electronics uses very large and very small values, so prefixes are everywhere:
+
+- **milliamp (mA):** 0.001 A. 20 mA = 0.02 A.
+- **kilohm (kΩ):** 1,000 Ω. 4.7 kΩ = 4,700 Ω.
+- **megohm (MΩ):** 1,000,000 Ω.
+- **kilowatt (kW):** 1,000 W.
+
+Convert to base units before calculating, or keep track of the prefixes carefully. Mixing milliamps and amps is the most common source of answers that are off by a factor of 1,000. The [scientific calculator](/math/scientific-calculator/) helps with powers of ten.
+
+## Key terms
+
+- **Volt (V):** the unit of voltage, the electrical push between two points.
+- **Ampere (A):** the unit of current, the rate of flow of charge.
+- **Ohm (Ω):** the unit of resistance.
+- **Watt (W):** the unit of power, one joule per second.
+- **Ohmic:** having a constant resistance regardless of current.
+- **Voltage divider:** two resistors in series that split a voltage in proportion to their resistances.
+- **Kilowatt-hour (kWh):** 1,000 watts used for an hour, the unit of energy on electricity bills.
+
+For measurement conversions such as cable lengths, see the [length converter](/conversion/length-converter/).
+
+{/* TODO: expert review: 80% continuous-load guidance and the non-ohmic examples. */}

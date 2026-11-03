@@ -1,0 +1,175 @@
+---
+status: draft
+howTo:
+  - "Choose the two values you already know, such as voltage and resistance."
+  - "Enter those two values in volts, amps, ohms or watts."
+  - "Read the other two values: the current, voltage, resistance or power."
+  - "Open Show the math to see which formulas were used and check the result."
+faq:
+  - q: "What is Ohm's law?"
+    a: "Ohm's law says that the current through a conductor equals the voltage across it divided by its resistance: I = V ÷ R, or equivalently V = I × R. Doubling the voltage across a fixed resistor doubles the current."
+  - q: "How do I calculate amps from watts and volts?"
+    a: "Divide watts by volts: I = P ÷ V. A 1,500 W space heater on a 120 V outlet draws 1,500 ÷ 120 = 12.5 amps."
+  - q: "How do I calculate watts?"
+    a: "Multiply volts by amps: P = V × I. A device drawing 2 amps at 5 volts uses 10 watts. If you know the resistance instead, use P = V² ÷ R or P = I² × R."
+  - q: "How many watts can a 15 amp circuit handle?"
+    a: "At 120 volts, 15 amps × 120 volts = 1,800 watts at the breaker's rating. For loads that run for hours, electricians commonly size circuits so the load stays at or below 80% of the rating, which is 1,440 watts on a 15 amp circuit."
+  - q: "What resistor do I need for an LED?"
+    a: "Subtract the LED's forward voltage from the supply voltage and divide by the LED's current. For a 2 V LED at 20 mA on a 5 V supply: (5 − 2) ÷ 0.02 = 150 ohms. The resistor dissipates 3 × 0.02 = 0.06 watts, so a standard ¼ watt resistor is fine."
+  - q: "Does Ohm's law apply to everything?"
+    a: "It applies to resistors and many simple loads, called ohmic devices. Components such as diodes, LEDs, transistors and lamp filaments change resistance with current or temperature, so Ohm's law only describes them at a particular operating point."
+---
+
+## How to use this Ohm's law calculator
+
+1. **Choose what you know.** Pick the pair of values you already have: voltage and resistance, voltage and current, current and resistance, or power with any one of the others.
+2. **Enter the two values.** Voltage is in volts (V), current in amps (A), resistance in ohms (Ω) and power in watts (W).
+3. **Read the result.** The calculator works out the two missing values and shows all four together.
+4. **Check the working.** **Show the math** lists the formulas used for your pair, with your numbers.
+
+For small values, convert first: 20 milliamps is 0.02 A, 4.7 kilohms is 4,700 Ω and 500 milliwatts is 0.5 W.
+
+## The formulas
+
+Ohm's law relates voltage, current and resistance:
+
+**V = I × R**
+
+Rearranged, **I = V ÷ R** and **R = V ÷ I**.
+
+Electrical power is voltage times current:
+
+**P = V × I**
+
+Combining the two gives the other forms:
+
+| You know | Find current | Find voltage | Find resistance | Find power |
+|---|---|---|---|---|
+| V and R | I = V ÷ R | given | given | P = V² ÷ R |
+| V and I | given | given | R = V ÷ I | P = V × I |
+| I and R | given | V = I × R | given | P = I² × R |
+| P and V | I = P ÷ V | given | R = V² ÷ P | given |
+| P and I | given | V = P ÷ I | R = P ÷ I² | given |
+| P and R | I = √(P ÷ R) | V = √(P × R) | given | given |
+
+A common memory aid is the triangle with V on top and I and R below: cover the value you want, and the other two show how to get it.
+
+## Worked example: a 12-volt circuit
+
+A 6-ohm resistor is connected across a 12-volt battery.
+
+- **Current:** I = 12 ÷ 6 = **2 amps**.
+- **Power:** P = 12² ÷ 6 = 144 ÷ 6 = **24 watts**.
+- **Check:** V = I × R = 2 × 6 = 12 volts, and P = V × I = 12 × 2 = 24 watts.
+
+The resistor turns those 24 watts into heat, so it needs a power rating comfortably above 24 W.
+
+## Everyday examples
+
+| Device or circuit | Known values | Result |
+|---|---|---|
+| Space heater | 1,500 W at 120 V | 12.5 A; 9.6 Ω |
+| Microwave oven | 1,000 W at 120 V | 8.33 A; 14.4 Ω |
+| LED light bulb | 9 W at 120 V | 0.075 A (75 mA) |
+| USB charger | 5 V at 2 A | 10 W |
+| Electric water heater | 4,500 W at 240 V | 18.75 A; 12.8 Ω |
+| 9 V battery across 1 kΩ | 9 V and 1,000 Ω | 9 mA; 0.081 W |
+
+The figures for heaters and appliances are their resistance when running. A heating element's resistance rises as it warms up, so its cold resistance measured with a meter will be lower.
+
+## Watts, amps and circuit breakers
+
+At home, the most common use of these formulas is checking whether appliances will overload a circuit. A typical U.S. household circuit runs at 120 V with a 15 A or 20 A breaker:
+
+| Breaker | Maximum at 120 V | 80% for continuous loads |
+|---|---|---|
+| 15 A | 1,800 W | 1,440 W |
+| 20 A | 2,400 W | 1,920 W |
+
+To check a circuit, add up the watts of everything that might run at the same time and divide by 120 to get amps. A 1,500 W heater (12.5 A) and a 1,000 W microwave (8.33 A) on the same 15 A circuit add up to 20.8 A, which would trip the breaker.
+
+The 80% figure reflects the common practice of sizing circuits so that loads running for three hours or more stay at or below 80% of the breaker rating. Electrical codes set the actual rules, and any new wiring should be done by a qualified electrician.
+
+## Choosing a resistor for an LED
+
+LEDs need a resistor in series to limit their current. The resistor drops the difference between the supply voltage and the LED's forward voltage:
+
+**R = (supply voltage − LED voltage) ÷ LED current**
+
+For a red LED with a forward voltage of about 2 V at 20 mA, on a 5 V supply:
+
+- **Voltage across the resistor:** 5 − 2 = 3 V.
+- **Resistance:** 3 ÷ 0.02 = **150 Ω**.
+- **Power in the resistor:** 3 × 0.02 = **0.06 W**.
+
+Enter 3 V and 0.02 A with "voltage and current" selected to check it. If the exact value isn't available, choose the next standard resistor value up, which slightly reduces the current. Check the LED's data sheet for its forward voltage and maximum current.
+
+## Unit prefixes
+
+Electronics uses metric prefixes constantly, and mixing them up is the most common source of wrong answers. Convert to base units before entering values:
+
+- **milli (m)** means one-thousandth: 20 mA = 0.02 A, 500 mW = 0.5 W.
+- **micro (µ)** means one-millionth: 50 µA = 0.00005 A.
+- **kilo (k)** means one thousand: 4.7 kΩ = 4,700 Ω, 1.5 kW = 1,500 W.
+- **mega (M)** means one million: 1 MΩ = 1,000,000 Ω.
+
+A quick sanity check helps too: household appliances draw a few amps to about 15 amps, while small electronics run on milliamps. A result of thousands of amps from a battery circuit almost always means a prefix was missed.
+
+## From watts to energy and cost
+
+Power in watts is a rate. Energy is power multiplied by time, and utilities bill it in kilowatt-hours (kWh): 1 kWh is 1,000 watts used for one hour.
+
+**kWh = watts × hours ÷ 1,000**
+
+A 1,500 W space heater running for 4 hours uses 1,500 × 4 ÷ 1,000 = **6 kWh**. At an electricity price of $0.17 per kWh, that's **$1.02** a day, or about **$30.60** over 30 days. Check your own price per kWh on your electricity bill, since rates vary widely by state and utility.
+
+This is also why high-wattage appliances matter more than they seem. A 9 W LED bulb left on for the same 4 hours uses only 0.036 kWh, less than a cent.
+
+## Voltage drop in long wires
+
+Wires have resistance too, so a long cable loses some voltage before the current reaches the load. Ohm's law gives the drop: **V = I × R of the wire**. Because current flows out and back, use the round-trip length.
+
+For example, a 100 ft extension cord with 14-gauge copper wire has about 200 ft of conductor in the circuit. At roughly 2.5 ohms per 1,000 ft, that's about 0.505 Ω. Running a 12.5 A heater through it drops about 12.5 × 0.505 = **6.3 volts**, about 5% of 120 V, so the heater sees about 113.7 V and puts out somewhat less heat, while the cord itself warms up. Thicker wire (a lower gauge number) has less resistance and a smaller drop, which is why long runs and high-current appliances need heavier cords.
+
+## Measuring with a multimeter
+
+A digital multimeter measures all three quantities in Ohm's law:
+
+- **Voltage:** set the meter to volts (DC or AC) and touch the probes across the component or the supply.
+- **Current:** set it to amps and connect it in series, so the current flows through the meter. Start on the highest range.
+- **Resistance:** set it to ohms and measure the component with the power off and, ideally, disconnected from the circuit, since other parts in parallel change the reading.
+
+Once you've measured any two, enter them here to find the other two and check your readings against each other.
+
+## Series and parallel resistors
+
+The calculator works with a single resistance. If you have several resistors, combine them first:
+
+- **In series** (end to end), resistances add: 100 Ω + 220 Ω = 320 Ω.
+- **In parallel** (side by side), the combined resistance is 1 ÷ (1/R₁ + 1/R₂ + …). Two 100 Ω resistors in parallel make 50 Ω.
+
+In a series circuit, the same current flows through every part and the voltages add up to the supply voltage. In a parallel circuit, every branch has the same voltage and the currents add up.
+
+## AC and DC
+
+Ohm's law and P = V × I apply directly to DC circuits such as batteries and USB power, and to purely resistive AC loads such as heaters and incandescent bulbs, using the standard (RMS) voltage of 120 V or 240 V. Motors, transformers and many electronic power supplies on AC have a power factor below 1, so the real power in watts is less than volts × amps. For those, use the watts on the device's label.
+
+## Safety
+
+The household voltages used in these examples can be lethal. Use the calculator for planning and understanding, and leave work on mains wiring to a licensed electrician. Never exceed the current rating of a cord, outlet or breaker, and switch off and verify power is off before touching any circuit.
+
+## Related tools
+
+For unit conversions, such as millimeters of wire or feet of cable, see the [length converter](/conversion/length-converter/). For powers, square roots and scientific notation, the [scientific calculator](/math/scientific-calculator/) handles any expression. Our guide [Ohm's law explained](/guides/ohms-law-explained/) goes through the ideas behind the formulas with more examples.
+
+## Key terms
+
+- **Voltage (V):** the electrical "pressure" that pushes current through a circuit, in volts.
+- **Current (I):** the rate at which electric charge flows, in amperes (amps).
+- **Resistance (R):** how strongly a material opposes current, in ohms (Ω).
+- **Power (P):** the rate at which energy is used, in watts (W).
+- **Series:** components connected one after another, carrying the same current.
+- **Parallel:** components connected across the same two points, sharing the same voltage.
+- **Kilowatt-hour (kWh):** 1,000 watts used for one hour, the unit on an electricity bill.
+
+{/* TODO: expert review: 80% continuous-load guidance and AC power-factor wording. */}

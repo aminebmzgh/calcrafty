@@ -56,6 +56,13 @@ everyday calculators,date calculators|everyday tools,learn,2000,30,50,/everyday/
 sports calculators,fitness calculators|sports and fitness calculators|running calculators,learn,,,,/sports/,hub,built,needs-data
 statistics calculators,statistics calculator|stats calculator|descriptive statistics calculator,learn,,,,/statistics/,hub,built,needs-data
 construction calculators,building calculators|home improvement calculators|construction material calculator,learn,,,,/construction/,hub,built,needs-data
+physics calculators,physics calculator|electricity calculators,learn,,,,/physics/,hub,built,needs-data
+chemistry calculators,chemistry calculator|solution calculators,learn,,,,/chemistry/,hub,built,needs-data
+biology calculators,biology calculator|genetics calculators,learn,,,,/biology/,hub,built,needs-data
+environmental calculators,ecology calculators|carbon footprint calculators,learn,,,,/ecology/,hub,built,needs-data
+unit conversion calculators,unit converters|conversion calculators,learn,,,,/conversion/,hub,built,needs-data
+cooking calculators,food calculators|kitchen calculators,learn,,,,/food/,hub,built,needs-data
+other calculators,useful calculators|everyday tools online,learn,,,,/other/,hub,built,needs-data
 free online calculators,online calculators|free calculators,learn,500000,90,5000,/,hub,built,estimate
 apr calculator,loan apr calculator|calculate apr with fees|true apr calculator,calculate,,,,/finance/apr-calculator/,calculator,built,needs-data
 debt to income ratio calculator,dti calculator|debt to income ratio for mortgage,calculate,,,,/finance/debt-to-income-ratio-calculator/,calculator,built,needs-data
@@ -88,3 +95,17 @@ paint calculator,how much paint do i need|paint calculator for room|how many gal
 flooring calculator,how much flooring do i need|laminate flooring calculator|vinyl plank flooring calculator|square footage calculator for flooring,calculate,,,,/construction/flooring-calculator/,calculator,built,needs-data
 gravel calculator,how much gravel do i need|crushed stone calculator|gravel tons calculator|driveway gravel calculator,calculate,,,,/construction/gravel-calculator/,calculator,built,needs-data
 roofing calculator,roof square footage calculator|shingle calculator|how many bundles of shingles do i need|roof pitch calculator,calculate,,,,/construction/roofing-calculator/,calculator,built,needs-data
+ohms law calculator,volts amps watts calculator|voltage calculator|resistance calculator|watts to amps calculator,calculate,,,,/physics/ohms-law-calculator/,calculator,built,needs-data
+molarity calculator,molar concentration calculator|mass to molarity calculator|grams to molarity calculator|solution concentration calculator,calculate,,,,/chemistry/molarity-calculator/,calculator,built,needs-data
+punnett square calculator,dihybrid cross calculator|monohybrid cross calculator|genotype calculator|phenotype ratio calculator,calculate,,,,/biology/punnett-square-calculator/,calculator,built,needs-data
+car co2 emissions calculator,car carbon footprint calculator|vehicle emissions calculator|co2 per mile calculator|car emissions calculator,calculate,,,,/ecology/car-co2-calculator/,calculator,built,needs-data
+length converter,feet to meters|cm to inches|meters to feet|miles to km,calculate,,,,/conversion/length-converter/,calculator,built,needs-data
+recipe scaler,recipe converter|recipe resizer|double a recipe calculator|half a recipe calculator,calculate,,,,/food/recipe-scaler/,calculator,built,needs-data
+tip calculator,gratuity calculator|bill split calculator|split the bill calculator|restaurant tip calculator,calculate,,,,/other/tip-calculator/,calculator,built,needs-data
+ohms law explained,what is ohms law|ohms law formula|voltage current resistance relationship,learn,,,,/guides/ohms-law-explained/,guide,built,needs-data
+how to calculate molarity,molarity formula|how to find molarity|molarity practice problems,learn,,,,/guides/how-to-calculate-molarity/,guide,built,needs-data
+how to do a punnett square,how to make a punnett square|punnett square practice problems|dihybrid cross punnett square,learn,,,,/guides/how-to-do-a-punnett-square/,guide,built,needs-data
+how much co2 does a car produce,co2 per gallon of gas|car co2 per mile|average car co2 per year,learn,,,,/guides/how-much-co2-does-a-car-produce/,guide,built,needs-data
+metric conversion chart,metric to imperial conversion|metric system conversion|us to metric conversion chart,learn,,,,/guides/metric-conversion-chart/,guide,built,needs-data
+how to scale a recipe,how to halve a recipe|how to double a recipe|scaling recipes,learn,,,,/guides/how-to-scale-a-recipe/,guide,built,needs-data
+how much to tip,tipping guide|how much to tip at a restaurant|tip etiquette,learn,,,,/guides/how-much-to-tip/,guide,built,needs-data
