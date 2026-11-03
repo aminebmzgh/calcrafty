@@ -70,24 +70,9 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
-### New pages waiting for review (batch 6, one calculator and guide per new category, 2026-11-03)
+### Growth batch 6, one per new category (reviewed 2026-11-03)
 
-Drafts (`noindex`, not in the sitemap) until you review them. The seven category hubs (Physics, Chemistry, Biology, Ecology, Conversion, Food, Other) are visible in the menu but stay `noindex` until their calculator is reviewed. Tell Claude Code "batch 6 reviewed" or name the pages. Each page ends with a `TODO: expert review` comment listing what to double-check; the tipping ranges in particular vary between sources.
-
-- [ ] https://calcrafty.com/physics/ohms-law-calculator/
-- [ ] https://calcrafty.com/chemistry/molarity-calculator/
-- [ ] https://calcrafty.com/biology/punnett-square-calculator/
-- [ ] https://calcrafty.com/ecology/car-co2-calculator/
-- [ ] https://calcrafty.com/conversion/length-converter/
-- [ ] https://calcrafty.com/food/recipe-scaler/
-- [ ] https://calcrafty.com/other/tip-calculator/
-- [ ] https://calcrafty.com/guides/ohms-law-explained/
-- [ ] https://calcrafty.com/guides/how-to-calculate-molarity/
-- [ ] https://calcrafty.com/guides/how-to-do-a-punnett-square/
-- [ ] https://calcrafty.com/guides/how-much-co2-does-a-car-produce/
-- [ ] https://calcrafty.com/guides/metric-conversion-chart/
-- [ ] https://calcrafty.com/guides/how-to-scale-a-recipe/
-- [ ] https://calcrafty.com/guides/how-much-to-tip/
+- [x] Ohm’s law, molarity, Punnett square, car CO2, length converter, recipe scaler and tip calculators, and their seven guides: reviewed by the owner and indexable, along with the Physics, Chemistry, Biology, Ecology, Conversion, Food and Other hubs.
 
 ### Growth batch 5, construction (reviewed 2026-11-02)
 
