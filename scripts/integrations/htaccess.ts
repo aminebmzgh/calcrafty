@@ -25,6 +25,17 @@ export function redirectRules(): string {
     .join('\n  ');
 }
 
+/**
+ * Hash of a page's <main> content, with hashed asset paths normalised, so layout or bundle changes
+ * that touch every page don't make every URL look changed to IndexNow.
+ */
+export function contentHash(html: string): string {
+  const main = html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html;
+  return createHash('sha1')
+    .update(main.replace(/\/_astro\/[^"'\s)]+/g, '/_astro/'))
+    .digest('hex');
+}
+
 /** Writes dist/.htaccess: the public/.htaccess template plus the generated redirect map. */
 export function htaccess(): AstroIntegration {
   return {
@@ -39,7 +50,7 @@ export function htaccess(): AstroIntegration {
         await writeFile(file, out);
         logger.info(`.htaccess written with ${redirects.length} redirects`);
 
-        // deploy-manifest.json: sitemap URL -> HTML hash, used by scripts/indexnow.ts to ping only changed pages.
+        // deploy-manifest.json: sitemap URL -> content hash, used by scripts/indexnow.ts to ping only changed pages.
         const root = fileURLToPath(dir);
         const manifest: Record<string, string> = {};
         const index = path.join(root, 'sitemap-index.xml');
@@ -49,7 +60,7 @@ export function htaccess(): AstroIntegration {
             for (const [, url] of map.matchAll(/<loc>([^<]+)<\/loc>/g)) {
               const p = new URL(url!).pathname;
               const html = await readFile(path.join(root, p, 'index.html'), 'utf8').catch(() => '');
-              manifest[p] = createHash('sha1').update(html).digest('hex');
+              manifest[p] = contentHash(html);
             }
           }
         }

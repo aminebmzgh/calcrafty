@@ -86,6 +86,7 @@ jobs:
       - name: Ping IndexNow with changed URLs
         run: npm run indexnow -- --previous /tmp/prev-manifest.json
         continue-on-error: true
+        timeout-minutes: 20
 
   # Fallback (only if Hostinger Git auto-deploy is unavailable): set the SSH_* secrets and enable this job.
   rsync-fallback:
