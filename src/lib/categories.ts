@@ -186,7 +186,7 @@ export const categories: Record<Category, CategoryMeta> = {
     h1: 'Construction Calculators',
     metaTitle: 'Construction Calculators: Concrete, Flooring | Calcrafty',
     metaDescription:
-      'Free construction calculators for concrete, flooring, paint, roofing and lumber. Quantities with waste allowances, in feet or meters, with the math shown.',
+      'Free construction calculators for concrete, flooring, paint, roofing, gravel and square footage: quantities with waste allowances and the math shown.',
     intro: 'Materials and quantities for building and home projects, with waste allowances included.',
     appCategory: 'UtilitiesApplication',
     ymyl: false,
@@ -200,9 +200,9 @@ export const categories: Record<Category, CategoryMeta> = {
     id: 'conversion',
     name: 'Conversion',
     h1: 'Unit Conversion Calculators',
-    metaTitle: 'Unit Converters: Length, Feet, Meters, Miles | Calcrafty',
+    metaTitle: 'Unit Converters: Length, Weight & Temperature | Calcrafty',
     metaDescription:
-      'Free unit converters: convert lengths between millimeters, centimeters, meters, kilometers, inches, feet, yards and miles with exact conversion factors.',
+      'Free unit converters for length, weight and temperature: feet to meters, kg to lbs, ounces to grams and Fahrenheit to Celsius, with exact conversion factors.',
     intro: 'Exact conversions between metric and U.S. units, with every unit shown at once.',
     appCategory: 'UtilitiesApplication',
     ymyl: false,
@@ -210,6 +210,7 @@ export const categories: Record<Category, CategoryMeta> = {
     about: [
       'These converters use exact defined factors, such as 1 inch = 2.54 centimeters and 1 foot = 0.3048 meters, so results are as precise as your measurement.',
       'The length converter shows the result in every unit at once, including feet and inches, so you can read off whichever you need.',
+      'The weight converter covers kilograms, pounds and ounces, stone and the three kinds of ton, and the temperature converter handles Fahrenheit, Celsius, kelvin and Rankine, including temperature changes, which convert differently from readings.',
     ],
   },
   food: {

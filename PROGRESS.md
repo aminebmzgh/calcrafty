@@ -42,6 +42,9 @@ Blocker: none
 - 2026-11-03: Growth batch 6: one calculator and one guide for each previously empty category (Ohm’s law, molarity, Punnett square, car CO2, length converter, recipe scaler, tip calculator; guides on Ohm’s law, molarity, Punnett squares, car CO2, metric conversions, scaling recipes and tipping). All 14 categories now have content; the header shows six categories plus a "More" menu. All 1,500+ words, reviewed by the owner the same day and indexable. 969 unit tests, all checks green.
 5,000/$30,000 (HB 463), Ohio exemption income tiers, California 2025 standard deduction, Philadelphia 3.735%/3.425%. Deploy workflow: snapshot commit rebases and never blocks a deploy.
 
+- 2026-11-06: CI split into a quick suite per push (~7 Actions minutes instead of ~84) and the full suite weekly; per-calculator e2e now covers all calculators (15 had been skipped).
+- 2026-11-06: Growth batch 7 (drafts): amortization (dated schedule, monthly/yearly/lump-sum extras, milestones), mortgage payoff (from today's balance, extra and lump sum, target date), student loan (Standard, Graduated estimate, Extended, 2026 Tiered Standard), square footage (rectangle, L-shape, circle, triangle), weight and temperature converters, plus guides on paying off a mortgage early, student loan repayment plans and calculating square footage. All 1,500+ words with figures from the real math; waiting for owner review.
+
 ## Known issues
 
 - A stray empty folder `C:\c` was created outside the project by a screenshot path mistake; it contains no files and can be deleted.

@@ -1,0 +1,168 @@
+---
+status: draft
+howTo:
+  - "Enter the loan amount, the interest rate and the term in years or months."
+  - "Set the date of the first payment, or leave it empty to start next month."
+  - "Open More options to add an extra payment every month, once a year, or a one-time lump sum with a chosen payment."
+  - "Read the monthly payment, payoff date, total interest and interest saved, then check the milestones and the full schedule."
+faq:
+  - q: "What is an amortization schedule?"
+    a: "A table of every payment on a loan, showing how much goes to interest, how much goes to principal and the balance left afterward. On a fixed-rate loan the payment stays the same, but the split changes every month: interest shrinks and principal grows as the balance falls."
+  - q: "Why is most of my early payment interest?"
+    a: "Interest is charged on the balance you still owe, and at the start that's the full loan. On $300,000 at 6.5%, the first month's interest is $1,625.00 of a $1,896.20 payment. As the balance falls, interest falls with it, so more of the same payment goes to principal."
+  - q: "When does more of my payment go to principal than interest?"
+    a: "It depends on the rate and term. On a 30-year loan at 6.5%, principal first exceeds interest with payment 233, more than 19 years in. Shorter terms and lower rates reach that point much sooner. The calculator shows the exact payment and date in the Milestones table."
+  - q: "How much do extra payments save?"
+    a: "On a $300,000 30-year loan at 6.5%, an extra $100 a month saves $60,995.81 and ends the loan 4 years early; $200 a month saves $103,450.19 and ends it almost 7 years early. Extra payments save the most when made early, while the balance is highest."
+  - q: "Is a lump sum or a monthly extra payment better?"
+    a: "For the same total, earlier is better. A $10,000 lump sum with the first payment saves $53,602.60 on the example loan, but the same $10,000 paid with payment 120 saves only $24,871.60. A monthly extra spreads the effect but starts working right away."
+  - q: "Does the last payment differ from the others?"
+    a: "Usually by a few cents or dollars. Each month's interest is rounded to the cent, so the scheduled payment doesn't clear the balance exactly. The last payment absorbs the difference: $1,900.91 instead of $1,896.20 in the 30-year example."
+  - q: "Does this include property tax and insurance?"
+    a: "No. The schedule covers principal and interest, the part of a payment that repays the loan. Escrow for property tax and insurance doesn't affect the balance. For a full monthly housing cost, use the mortgage calculator."
+---
+
+## How to use this amortization calculator
+
+1. **Enter the loan.** The amount you borrow, the annual interest rate and the term. Switch between years and months if your loan is quoted in months, as car loans often are.
+2. **Set the first payment date.** The schedule uses it to date every payment and to show your payoff date. Leave it empty and the first payment is the first of next month.
+3. **Add extra payments, if you plan any.** Under More options you can add an amount every month, an amount once a year (paid with every 12th payment, such as a tax refund) and a one-time lump sum with the payment number you choose. You can use all three together.
+4. **Read the results.** The headline shows the monthly payment and payoff date. Below it are total interest, the total of all payments, the number of payments and the interest your extra payments save.
+5. **Check the milestones and the schedule.** The Milestones table shows when principal first exceeds interest and when the balance drops below 75%, 50% and 25% of the loan. The schedule lists every payment, by year or by month, and can be downloaded as a CSV file.
+
+The [loan calculator](/finance/loan-calculator/) gives a quick payment and total interest. This page is for when you want the full, dated schedule and want to plan several kinds of extra payment.
+
+## How amortization works
+
+An amortizing loan is repaid in equal payments, each covering that month's interest plus some principal. The payment is set so that the last one brings the balance exactly to zero:
+
+**M = P × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)**
+
+where P is the amount borrowed, r is the monthly rate (the annual rate ÷ 12) and n is the number of payments. Each month:
+
+1. **Interest** = balance × r, rounded to the cent.
+2. **Principal** = payment − interest.
+3. **New balance** = balance − principal − any extra payment.
+
+Because the payment never changes but the balance shrinks, interest takes a smaller share of every payment and principal takes a bigger one. Rounding interest to the cent each month means the scheduled payment doesn't land exactly on zero, so the final payment is adjusted by a few cents or dollars to close the loan. The calculator does the same, so its schedule matches what a lender's would show.
+
+## Worked example: $300,000 at 6.5% for 30 years
+
+The monthly payment is **$1,896.20**, and over 360 payments you pay **$382,636.71** in interest, for a total of $682,636.71. More than half of what you pay is interest.
+
+The first payment is $1,625.00 interest (300,000 × 0.065 ÷ 12) and $271.20 principal, leaving $299,728.80. Here's how the split changes over the life of the loan:
+
+| Year | Principal paid | Interest paid | Balance at year end |
+|---|---|---|---|
+| 1 | $3,353.12 | $19,401.28 | $296,646.88 |
+| 10 | $6,009.32 | $16,745.08 | $254,329.14 |
+| 30 | $21,977.51 | $781.60 | $0.00 |
+
+After 5 years you still owe $280,833.26, after 10 years $254,329.14 and after 15 years $217,678.77. Halfway through the term, you've repaid less than 28% of the loan.
+
+The milestones for a loan with a first payment in January 2027:
+
+| Milestone | Payment | Date |
+|---|---|---|
+| Principal first exceeds interest | 233 | May 2046 |
+| Balance below 75% of the loan | 170 | February 2041 |
+| Balance below 50% of the loan | 257 | May 2048 |
+| Balance below 25% of the loan | 316 | April 2053 |
+| Paid off | 360 | December 2056 |
+
+The final payment is $1,900.91, $4.71 more than the others, because of cent rounding along the way.
+
+## What extra payments do
+
+Every extra dollar goes straight to principal. That lowers next month's interest, so more of the regular payment repays the loan, and the effect compounds. For the same $300,000 loan at 6.5%:
+
+| Extra payment | Payments | Paid off | Interest saved |
+|---|---|---|---|
+| None | 360 | 30 years | — |
+| $100 a month | 312 | 26 years | $60,995.81 |
+| $200 a month | 277 | 23 years 1 month | $103,450.19 |
+| $500 a month | 210 | 17 years 6 months | $179,761.68 |
+| $5,000 once a year | 228 | 19 years | $158,005.19 |
+| $200 a month + $2,000 a year | 237 | 19 years 9 months | $149,897.46 |
+
+The schedule is recalculated each month with the extra payment applied, and the monthly payment itself stays the same. Most lenders work the same way: extra principal shortens the loan rather than lowering the payment. To lower the payment instead, some lenders will **recast** the loan after a large lump sum, usually for a fee.
+
+## Timing matters: the same $10,000 at different points
+
+A lump sum saves more the earlier you pay it, because it removes principal that would otherwise have been charged interest for longer:
+
+| $10,000 paid with | Payments | Interest saved |
+|---|---|---|
+| Payment 1 | 327 | $53,602.60 |
+| Payment 12 | 329 | $50,230.40 |
+| Payment 120 (year 10) | 342 | $24,871.60 |
+
+The same $10,000 saves more than twice as much at the start of the loan as it does ten years in. That's why paying extra in the early years has the biggest effect, and why a windfall used at the start of a loan does so much.
+
+## Shorter terms compared
+
+A shorter term raises the payment but cuts interest sharply, even at the same rate:
+
+| Term | Monthly payment | Total interest |
+|---|---|---|
+| 15 years | $2,613.32 | $170,398.28 |
+| 20 years | $2,236.72 | $236,812.49 |
+| 30 years | $1,896.20 | $382,636.71 |
+
+Lenders usually charge a lower rate on 15-year loans, which widens the gap further. If the higher payment is a stretch, a 30-year loan with planned extra payments gives you a similar payoff date while keeping the option to pay the lower amount in a tight month. The [mortgage payoff calculator](/finance/mortgage-payoff-calculator/) works from your current balance if you already have a loan.
+
+## How the interest rate changes the schedule
+
+The rate affects more than the payment. It also decides how long the loan stays interest-heavy. For a $300,000 loan over 30 years:
+
+| Rate | Monthly payment | Total interest | First month's interest | Principal first exceeds interest |
+|---|---|---|---|---|
+| 4.5% | $1,520.06 | $247,218.25 | $1,125.00 | Payment 176 |
+| 5.5% | $1,703.37 | $313,210.43 | $1,375.00 | Payment 210 |
+| 6.5% | $1,896.20 | $382,636.71 | $1,625.00 | Payment 233 |
+| 7.5% | $2,097.64 | $455,155.38 | $1,875.00 | Payment 250 |
+
+Each percentage point adds roughly $180 to $200 a month and $66,000 to $73,000 of interest over the full term. At 4.5%, principal overtakes interest less than 15 years in; at 7.5%, it takes almost 21 years. The higher your rate, the more an extra payment saves, because each dollar of principal you remove would have been charged more interest.
+
+## Before you pay extra
+
+Paying down a loan early is a guaranteed return equal to its interest rate, but it isn't always the best use of spare money. Check these first:
+
+- **An emergency fund.** Money paid into a loan is hard to get back. Most planners suggest three to six months of expenses in savings first; the [emergency fund calculator](/finance/emergency-fund-calculator/) helps you set a target.
+- **Higher-interest debt.** A credit card at 22% costs far more than a mortgage at 6.5%. Pay the most expensive debt first; the [debt payoff calculator](/finance/debt-payoff-calculator/) compares strategies.
+- **Your employer's retirement match.** A 401(k) match is an instant return that no loan payoff can beat.
+- **The loan's rate against what savings earn.** If a high-yield savings account or CD pays more than your loan costs after tax, keeping the cash can make sense. If the loan rate is higher, prepaying usually wins.
+
+Extra payments are flexible: you can stop at any time, and the scheduled payment stays the same. That makes them lower-risk than committing to a shorter term you might struggle to pay in a bad year.
+
+## Amortization on other loans
+
+The same math applies to any fixed-rate installment loan: car loans, personal loans and student loans. A $30,000 car loan at 7.5% for 5 years costs $601.14 a month and $6,068.30 in interest. Its first payment is $187.50 interest and $413.64 principal, so a shorter loan reaches the point where principal dominates right away.
+
+Credit cards and lines of credit don't amortize this way, because their balance and minimum payment change from month to month. The [credit card payoff calculator](/finance/credit-card-payoff-calculator/) handles those.
+
+## Reading your lender's schedule
+
+Your lender's schedule may differ slightly from this one:
+
+- **Daily interest.** Some loans, including many auto and student loans, charge interest daily, so a payment made a few days late costs a little more interest and one made early costs a little less.
+- **Payment date versus due date.** Interest on most mortgages is paid in arrears: the payment due on February 1 covers January's interest.
+- **Escrow.** Mortgage statements include property tax and insurance in the payment, but those amounts don't reduce the balance.
+- **How extra payments are applied.** Ask your lender to apply extra money to principal, not to future payments. Some servicers hold an extra amount until it equals a full payment unless you tell them otherwise.
+
+## Prepayment penalties
+
+Most mortgages and car loans today let you pay extra at any time without a fee. Federal rules limit prepayment penalties on most home loans: where they're allowed, they apply only in the first three years and are capped. Check your loan documents or ask your lender before making a large prepayment, especially on a personal or older loan. Federal student loans never charge prepayment penalties.
+
+## Key terms
+
+- **Amortization:** repaying a loan in equal installments that cover interest and principal.
+- **Principal:** the amount still owed, not counting interest.
+- **Amortization schedule:** a payment-by-payment table of interest, principal and balance.
+- **Extra principal payment:** money paid on top of the scheduled payment that goes directly to reducing the balance.
+- **Recast:** recalculating the payment on the remaining balance after a lump sum, keeping the same payoff date.
+- **Prepayment penalty:** a fee some loans charge for paying off early.
+
+For the full monthly cost of a home loan, including taxes and insurance, use the [mortgage calculator](/finance/mortgage-calculator/). To check whether a lower rate is worth it, see the [refinance calculator](/finance/refinance-calculator/).
+
+{/* TODO: expert review: lender rounding and final-payment convention, prepayment penalty rules (Reg Z 1026.43(g)), recast practice. */}

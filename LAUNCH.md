@@ -70,6 +70,20 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
+### Growth batch 7, finance and quick wins (waiting for review, 2026-11-06)
+
+Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 7 reviewed" or name the pages. Each page ends with a `TODO: expert review` comment listing what to double-check. The student loan pages need the closest look: the July 2026 plan changes (Tiered Standard, RAP, which plans older loans keep) come from secondary sources and the CRS, not yet from StudentAid.gov itself, and the Graduated plan schedule is an estimate.
+
+- [ ] https://calcrafty.com/finance/amortization-calculator/
+- [ ] https://calcrafty.com/finance/mortgage-payoff-calculator/
+- [ ] https://calcrafty.com/finance/student-loan-calculator/
+- [ ] https://calcrafty.com/construction/square-footage-calculator/
+- [ ] https://calcrafty.com/conversion/weight-converter/
+- [ ] https://calcrafty.com/conversion/temperature-converter/
+- [ ] https://calcrafty.com/guides/how-to-pay-off-mortgage-early/
+- [ ] https://calcrafty.com/guides/student-loan-repayment-plans/
+- [ ] https://calcrafty.com/guides/how-to-calculate-square-footage/
+
 ### Growth batch 6, one per new category (reviewed 2026-11-03)
 
 - [x] Ohm’s law, molarity, Punnett square, car CO2, length converter, recipe scaler and tip calculators, and their seven guides: reviewed by the owner and indexable, along with the Physics, Chemistry, Biology, Ecology, Conversion, Food and Other hubs.
