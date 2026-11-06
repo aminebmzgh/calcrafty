@@ -144,7 +144,7 @@ Astro config essentials: `site: 'https://calcrafty.com'`, `trailingSlash: 'alway
 
 ### GitHub Actions workflows
 
-**`ci.yml`** (on every push and pull request to `main`): install → typecheck → lint → unit tests → build → Playwright + axe → Lighthouse CI → SEO validation → link check. Fails on any gate.
+**`ci.yml`** (quick suite on every push via `deploy.yml` and on pull requests; full suite with axe on every page and Lighthouse CI weekly and on demand, see DECISIONS.md 2026-11-06): install → typecheck → lint → unit tests → build → Playwright + axe → Lighthouse CI (full only) → SEO validation → link check. Fails on any gate.
 
 **`deploy.yml`** (on push to `main` after CI passes, on a **weekly schedule** every Monday 06:00 UTC, and on manual `workflow_dispatch`):
 1. Install, run `npm run data:refresh` (uses `FRED_API_KEY` secret if present; falls back to the committed snapshot otherwise).

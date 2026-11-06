@@ -19,8 +19,8 @@ const config: CalculatorConfig<RecipeInput, RecipeOutput> = {
   synonyms: ['scale recipe', 'halve a recipe', 'double recipe', 'servings', 'portions', 'cooking fractions'],
   inputs: [
     { id: 'servings', label: 'Recipe makes', type: 'number', unit: 'count', min: 0.25, max: 1_000, step: 0.25, slider: false, group: 'serv', helpText: 'Servings, or pieces, or batches.' },
-    { id: 'newServings', label: 'You want', type: 'number', unit: 'count', min: 0.25, max: 1_000, step: 0.25, slider: false, group: 'serv' },
-    { id: 'ingredients', label: 'Ingredients, one per line', type: 'textarea', placeholder: '2 cups flour', maxLength: 6_000, helpText: 'Start each line with the amount: 2, 1/2, 1 1/2, 0.75 or ½ all work.', e2eValue: '1 cup rice\n2 cups water' },
+    { id: 'newServings', label: 'You want', type: 'number', unit: 'count', min: 0.25, max: 1_000, step: 0.25, slider: false, group: 'serv', e2eValue: '9' },
+    { id: 'ingredients', label: 'Ingredients, one per line', type: 'textarea', placeholder: '2 cups flour', maxLength: 6_000, helpText: 'Start each line with the amount: 2, 1/2, 1 1/2, 0.75 or ½ all work.' },
   ],
   defaults: { servings: 4, newServings: 6, ingredients: SAMPLE },
   compute: computeRecipe,

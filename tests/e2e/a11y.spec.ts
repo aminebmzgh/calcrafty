@@ -1,13 +1,16 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { builtUrls } from './pages.ts';
+import { builtUrls, pageTypeSamples } from './pages.ts';
 
-// axe on every built page, in both themes, on the desktop project (mobile covers a sample).
+// axe on every built page, in both themes, on the desktop project (mobile covers light only).
+// Pages outside the per-type sample are tagged @full: the per-push run (npm run test:e2e:quick)
+// skips them, the weekly full CI run covers them.
 const urls = builtUrls();
+const samples = new Set(pageTypeSamples());
 
 for (const url of urls) {
   for (const theme of ['light', 'dark'] as const) {
-    test(`axe: ${url} (${theme})`, async ({ page }, info) => {
+    test(`axe: ${url} (${theme})${samples.has(url) ? '' : ' @full'}`, async ({ page }, info) => {
       if (info.project.name === 'mobile' && theme === 'dark') test.skip();
       await page.addInitScript((t) => localStorage.setItem('calcrafty:theme', t), theme);
       await page.goto(url);

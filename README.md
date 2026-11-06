@@ -29,6 +29,7 @@ npm run build         # production build into dist/
 npm run preview       # serve dist/
 npm run test          # unit tests (Vitest), including math reference values
 npm run test:e2e      # Playwright: calculators, share URLs, axe, no-JS (run after build)
+npm run verify        # quick suite, what CI runs before each deploy
 npm run lhci          # Lighthouse CI, ads-off and ads-on profiles (run after build)
 npm run check         # typecheck + lint + keyword map + SEO + links + uniqueness + budgets (run after build)
 npm run data:refresh  # fetch live data from FRED into src/data/live/snapshot.json
@@ -73,6 +74,6 @@ A calculator is **one folder** in `src/calculators/<slug>/`. Nothing else needs 
 
 6. **`content.mdx`:** frontmatter `status: draft` (never set `reviewed` yourself; a person does that after review), 5–8 FAQ entries, optional `howTo` steps. Body: 1,500–2,500 words. Each H2 opens with a direct 2–3 sentence answer: how to use it, a worked example with unique, realistic numbers (compute them with `math.ts`), the formula in plain English, key terms, what to do with the result, and at least 3 links to related calculators or guides.
 
-7. **Run the gates:** `npm test && npm run build && npm run check && npm run test:e2e`. The e2e suite picks up the new page automatically (load, live update, share-URL round-trip, axe in both themes, no-JS, JS budget).
+7. **Run the gates:** `npm run verify` (quick suite, same as CI before each deploy). The e2e suite picks up the new page automatically (load, live update, share-URL round-trip, axe in both themes, no-JS, JS budget).
 
 Draft pages are visible on the site but `noindex` and left out of the sitemap until their status is `reviewed`.

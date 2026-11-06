@@ -18,9 +18,13 @@ export function builtUrls(): string[] {
     .sort();
 }
 
-/** Calculator pages: /<category>/<slug>/ */
+/** Calculator pages: /<category>/<slug>/, where <slug> is a folder in src/calculators. */
 export function calculatorUrls(): string[] {
-  return builtUrls().filter((u) => /^\/(finance|health|math|everyday)\/[^/]+\/$/.test(u));
+  const slugs = new Set(readdirSync(path.resolve('src/calculators')));
+  return builtUrls().filter((u) => {
+    const m = u.match(/^\/([^/]+)\/([^/]+)\/$/);
+    return !!m && m[1] !== 'embed' && slugs.has(m[2]!);
+  });
 }
 
 /** One representative URL per page type, for expensive checks. */
