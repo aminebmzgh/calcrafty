@@ -1,0 +1,163 @@
+---
+status: draft
+howTo:
+  - "Enter the original price before any discount."
+  - "Choose Percent off or Dollars off, and enter the discount."
+  - "Optionally open More options to add an extra percent-off coupon and your sales tax rate."
+  - "Read the sale price, how much you save and the total discount as a percentage."
+  - "Use the table to compare common discounts on the same price."
+faq:
+  - q: "How do I calculate a discount?"
+    a: "Multiply the original price by the discount as a decimal to get the savings, then subtract it from the price. For 25% off $80: $80 × 0.25 = $20 saved, so the sale price is $80 − $20 = $60. Or multiply by what's left: $80 × 0.75 = $60."
+  - q: "How do I calculate 20% off?"
+    a: "Multiply the price by 0.8. On $45, that's $36. In your head: 10% of $45 is $4.50, so 20% is $9.00, and $45 − $9 = $36."
+  - q: "Is 25% off plus an extra 10% off the same as 35% off?"
+    a: "No. The extra 10% comes off the already reduced price. On $80, 25% off gives $60, and 10% off $60 gives $54. That's $26 off, or 32.5% in total. Multiply the remaining shares: 0.75 × 0.90 = 0.675, so you pay 67.5% of the price."
+  - q: "How do I find the original price from the sale price?"
+    a: "Divide the sale price by one minus the discount. A $42 item marked 40% off was originally $42 ÷ 0.60 = $70. Don't add 40% back to $42; that gives $58.80, which is wrong."
+  - q: "How do I work out what percent off a price is?"
+    a: "Subtract the sale price from the original price, divide by the original price and multiply by 100. A $120 jacket on sale for $90 is ($120 − $90) ÷ $120 = 25% off."
+  - q: "Is sales tax charged on the original price or the sale price?"
+    a: "In most states, sales tax is charged on the price you actually pay after a store's own discount. Manufacturer coupons can be treated differently: some states tax the price before the coupon, because the store is reimbursed for it. Check your state's rules if the difference matters."
+  - q: "Which is better, a percent off or a dollar amount off?"
+    a: "Compare them at the price you're paying. A $20-off coupon beats 15% off on anything under $133.33, and 15% off wins above that. Divide the dollar amount by the percentage as a decimal to find the break-even price: $20 ÷ 0.15 = $133.33."
+---
+
+## How to use this discount calculator
+
+Enter the price and the discount, and the sale price updates as you type.
+
+1. **Original price.** The price before the sale, from the tag or the listing.
+2. **Discount type.** Choose **Percent off** for "30% off" deals, or **Dollars off** for "$15 off" coupons and gift card credits.
+3. **Discount.** The percentage or dollar amount.
+4. **More options.** Add an **extra percent off** that applies after the first discount, as with "take an extra 20% off sale prices", and your **sales tax** rate to see the total at the register.
+
+The result shows the sale price, how much you save and the total discount as a percentage of the original price. The table underneath lists the sale price and savings at 10% to 75% off, so you can compare deals at a glance.
+
+## The formula
+
+**Savings = original price × discount % ÷ 100**
+
+**Sale price = original price − savings = original price × (1 − discount % ÷ 100)**
+
+For a dollar discount, the sale price is simply **original price − amount off**, and the equivalent percentage is **amount off ÷ original price × 100**.
+
+When a second discount applies to the reduced price:
+
+**Final price = original × (1 − first %) × (1 − second %)**
+
+Sales tax is then charged on the final price: **total = final price × (1 + tax rate)**. Each step is rounded to the cent, the way a register rounds.
+
+## Worked example: a jacket with a sale and a coupon
+
+A jacket lists for **$129.99**. It's marked **40% off**, you have a coupon for an **extra 15% off** sale prices, and your sales tax is **7%**.
+
+- **After 40% off:** $129.99 × 0.60 = $77.994, which rounds to **$77.99**.
+- **After the extra 15%:** $77.99 × 0.85 = $66.2915, which rounds to **$66.29**.
+- **You save:** $129.99 − $66.29 = **$63.70**.
+- **Total discount:** $63.70 ÷ $129.99 = **49.0%**, not the 55% you might expect from adding 40% and 15%.
+- **Sales tax:** $66.29 × 0.07 = **$4.64**.
+- **You pay:** $66.29 + $4.64 = **$70.93**.
+
+The quick check: 0.60 × 0.85 = 0.51, so after both discounts you pay 51% of the list price, which is a 49% discount.
+
+## Why stacked discounts don't add up
+
+The second discount is a percentage of a smaller number, so it's worth less than the same percentage of the original price. That's why two discounts always combine to less than their sum.
+
+| First discount | Extra discount | Looks like | Actually |
+|---|---|---|---|
+| 20% | 10% | 30% | 28% |
+| 25% | 10% | 35% | 32.5% |
+| 30% | 20% | 50% | 44% |
+| 40% | 15% | 55% | 49% |
+| 50% | 50% | 100% | 75% |
+
+The last row is the clearest: "50% off, then an extra 50% off" doesn't make the item free. It leaves a quarter of the price.
+
+## Percent off or dollars off: which order?
+
+When a store applies both a percentage and a fixed dollar amount, the order matters. On a $100 item with 20% off and a $10 coupon:
+
+- **Percentage first:** $100 × 0.80 = $80, then $80 − $10 = **$70**.
+- **Dollars first:** $100 − $10 = $90, then $90 × 0.80 = **$72**.
+
+Taking the percentage first is better for the shopper, because the percentage applies to the bigger number. Stores set the order in their coupon terms. To model a dollar coupon followed by a percentage, choose Dollars off as the first discount and enter the percentage as the extra discount.
+
+## Discounts in your head
+
+- **10% off:** move the decimal point one place left and subtract. On $64, that's $6.40 off, so $57.60.
+- **20% off:** double 10%. On $64, $12.80 off, so $51.20.
+- **25% off:** take a quarter off, or pay three-quarters. On $64, $48.
+- **30% off:** three times 10%. On $70, $21 off, so $49.
+- **50% off:** halve it.
+- **Any discount:** pay what's left. 35% off means paying 65%, so $40 × 0.65 = $26.
+
+## Finding the original price or the percent off
+
+Two related questions come up often, and they need a different calculation.
+
+**What was the original price?** Divide the sale price by the share you paid. An item that costs $42 after 40% off was $42 ÷ 0.60 = **$70**. Adding 40% back to $42 gives $58.80, because 40% of $42 is smaller than 40% of $70.
+
+**What percent off is it?** Divide the savings by the original price. A $120 jacket on sale for $90 is $30 ÷ $120 = **25%** off.
+
+Our guide on [how to calculate a discount](/guides/how-to-calculate-a-discount/) works through both, along with buy-one-get-one deals and price-per-unit comparisons.
+
+## Buy one, get one deals
+
+Multi-buy deals are discounts in disguise. Work out the price you pay for everything, then compare it with the full price:
+
+- **Buy one, get one free** on two $30 items: you pay $30 for $60 of goods, which is **50% off** each.
+- **Buy one, get one 50% off:** you pay $30 + $15 = $45 for $60, which is **25% off** each.
+- **Three for the price of two:** you pay for two out of three, which is **33.3% off** each.
+
+These deals only save money if you'd have bought the extra items anyway.
+
+## Is the "original price" real?
+
+The Federal Trade Commission's Guides Against Deceptive Pricing say a "former price" used to advertise a discount should be one the item was actually offered at, in good faith, for a reasonable period. In practice, some "compare at" prices are higher than anyone ever paid. Before trusting a big percentage, check what the item sells for elsewhere and what this store charged last month. A 60% discount from an inflated list price can be a worse deal than 20% off an honest one.
+
+## Sales tax and discounts
+
+Sales tax is usually worked out on the price after the store's discount, so a discount saves you the tax on the amount taken off as well. On the $129.99 jacket at 7% tax, paying full price would cost $139.09 with tax. After both discounts, you pay $70.93, a total saving of **$68.16** once the tax you avoid is counted.
+
+Rates differ a lot by place. Some states have no statewide sales tax, while combined state and local rates in parts of other states are above 9%. Clothing, groceries and other items are exempt or taxed at a lower rate in some states. Enter the rate on your receipt under More options for an exact total. If you're comparing an online price with a shop price, add tax to both, since most online sellers now collect it too.
+
+## Coupons, cash back and rewards
+
+Not every saving comes off the price at the register, which affects how you should count it.
+
+- **Store coupons and sale prices** reduce the price you pay, and usually the sales tax too.
+- **Manufacturer coupons** also reduce what you pay, but some states tax the price before the coupon.
+- **Cash back and rebates** arrive later, so you pay the full price and tax first. A $20 rebate on a $100 item is a 20% discount only if you actually send in the form.
+- **Loyalty points and store credit** are worth something only if you spend them. Treat a "spend $100, get $20 back" offer as a 16.7% discount at best, because you have to spend another $20 to use it: $100 of goods for $100 now, then $20 of goods for the $20 credit, so $120 of goods for $100.
+
+When you're comparing offers, convert each one into the final cash price for the same items. That's the only number that decides which deal is better.
+
+## Sale timing and price history
+
+The same item can be discounted by very different amounts at different times of year. Seasonal clearance at the end of a season, holiday sale events and new model launches all tend to bring deeper markdowns. If a purchase can wait, watching the price for a few weeks often shows what a genuinely good discount looks like. Some stores also offer a price adjustment if the price drops shortly after you buy; it's worth asking.
+
+## Discounts from the seller's side
+
+For a business, a discount comes out of profit, not just the price. A shop that buys an item for $45 and sells it for $75 makes $30 of gross profit. A 20% discount cuts the price to $60 but the profit to $15, so the shop needs to sell twice as many to earn the same. Sellers can check that effect with the [margin calculator](/finance/margin-calculator/).
+
+## Key terms
+
+- **Original price (list price):** the price before any discount.
+- **Sale price:** the price after the discount, before tax.
+- **Percent off:** the discount as a percentage of the original price.
+- **Stacked discount:** a second discount applied to an already reduced price.
+- **Markdown:** a permanent price cut by the retailer, often for clearance.
+- **Effective discount:** the total amount saved as a percentage of the original price, after every discount.
+
+## What to do with your result
+
+- **Compare deals on the final price,** not the percentage. A 30%-off price at one store can still be higher than the regular price somewhere else.
+- **Include tax and shipping** before deciding. A bigger discount with $12 shipping can cost more than a smaller one with free delivery.
+- **Check the price per unit** for groceries and household goods. Bulk packs aren't always cheaper per ounce.
+- **Budget the savings.** If you planned to spend $129.99 and paid $70.93, moving the difference to savings is how a discount becomes money you keep.
+
+For other percentage questions, such as percent change or what percent one number is of another, use the [percentage calculator](/math/percentage-calculator/). If you're a seller deciding how much of a discount you can afford, the [margin calculator](/finance/margin-calculator/) shows what a sale does to your profit margin.
+
+{/* TODO: expert review: state sales tax treatment of manufacturer coupons (FAQ) is described generally; confirm wording. FTC 16 CFR 233.1 summary. */}

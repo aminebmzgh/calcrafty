@@ -64,6 +64,26 @@
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "TERMCBCCALLNS",
       "url": "https://fred.stlouisfed.org/series/TERMCBCCALLNS"
+    },
+    "gasPrice": {
+      "value": 4.153,
+      "asOf": "2026-11-02",
+      "label": "U.S. regular gasoline price, weekly average",
+      "source": "U.S. Energy Information Administration",
+      "seriesId": "GASREGW",
+      "url": "https://fred.stlouisfed.org/series/GASREGW",
+      "unit": "usd",
+      "per": "gallon"
+    },
+    "electricityPrice": {
+      "value": 0.196,
+      "asOf": "2026-09-01",
+      "label": "Average electricity price per kWh, U.S. city average",
+      "source": "U.S. Bureau of Labor Statistics",
+      "seriesId": "APU000072610",
+      "url": "https://fred.stlouisfed.org/series/APU000072610",
+      "unit": "usd",
+      "per": "kWh"
     }
   }
 }

@@ -30,7 +30,7 @@ export const categories: Record<Category, CategoryMeta> = {
     intro: 'Mortgages, loans, savings and take-home pay, with today’s rates built in and the math shown.',
     appCategory: 'FinanceApplication',
     ymyl: true,
-    subtopics: ['Home buying', 'Loans and debt', 'Saving and investing', 'Income'],
+    subtopics: ['Home buying', 'Loans and debt', 'Saving and investing', 'Income', 'Business'],
     about: [
       'Money decisions are mostly about the same few things: how much a loan really costs, how fast savings grow, and what you actually take home. These calculators answer those questions with the same formulas lenders and planners use, and show every step.',
       'Where a current rate matters, the default comes from published data (Freddie Mac mortgage rates, Federal Reserve consumer credit rates, Treasury yields and the Consumer Price Index), with its source and date shown next to the field. Paycheck results use the 2026 IRS brackets and standard deduction.',
@@ -58,14 +58,15 @@ export const categories: Record<Category, CategoryMeta> = {
     h1: 'Math Calculators',
     metaTitle: 'Math Calculators: Percentages, Fractions | Calcrafty',
     metaDescription:
-      'Free math calculators for percentages, fractions and scientific functions. Every answer shows the working step by step, so you can follow it and check it.',
-    intro: 'Percentages, fractions and a full scientific calculator, with the working shown.',
+      'Free math calculators for percentages, discounts, fractions, the Pythagorean theorem and scientific functions, with the working shown step by step.',
+    intro: 'Percentages, discounts, fractions, right triangles and a full scientific calculator, with the working shown.',
     appCategory: 'EducationalApplication',
     ymyl: false,
-    subtopics: ['Arithmetic', 'Scientific'],
+    subtopics: ['Arithmetic', 'Geometry', 'Scientific'],
     about: [
       'Fast answers are only half the job: these calculators show the working, so you can check homework, follow a method or catch a typo. Fractions are simplified step by step, percentages show each operation, and the scientific calculator shows exactly how it read your expression. For averages and spread, see the statistics calculators.',
       'Arithmetic is exact wherever possible. Fractions use whole-number math and percentages use decimal arithmetic, so results like 0.1 + 0.2 come out as 0.3.',
+      'The discount calculator handles stacked coupons and sales tax, and the Pythagorean theorem calculator solves any side of a right triangle, with the exact square-root form, the angles, the area and the perimeter.',
     ],
   },
   everyday: {
@@ -122,14 +123,14 @@ export const categories: Record<Category, CategoryMeta> = {
     h1: 'Physics Calculators',
     metaTitle: 'Physics Calculators: Ohm’s Law, Volts, Amps | Calcrafty',
     metaDescription:
-      'Free physics calculators: find voltage, current, resistance and power with Ohm’s law and P = V × I, with the formula and every step of the working shown.',
-    intro: 'Electricity worked out step by step: volts, amps, ohms and watts from any two values.',
+      'Free physics calculators: volts, amps, ohms and watts with Ohm’s law, and what any appliance costs to run in kWh and dollars, with every step shown.',
+    intro: 'Electricity worked out step by step: volts, amps, ohms and watts, and what your appliances cost to run.',
     appCategory: 'EducationalApplication',
     ymyl: false,
     subtopics: ['Motion', 'Energy and power', 'Electricity'],
     about: [
       'These calculators use the standard formulas from introductory physics, name each one, and show the working with your numbers substituted, so they’re useful for checking homework as well as for quick answers.',
-      'The Ohm’s law calculator covers voltage, current, resistance and power. Remember that household voltages are dangerous: use the results for planning and understanding, and leave wiring to a licensed electrician.',
+      'The Ohm’s law calculator covers voltage, current, resistance and power, and the electricity cost calculator turns an appliance’s watts into kilowatt-hours and dollars at the U.S. average electricity price or your own rate. Remember that household voltages are dangerous: use the results for planning and understanding, and leave wiring to a licensed electrician.',
     ],
   },
   chemistry: {
@@ -233,16 +234,16 @@ export const categories: Record<Category, CategoryMeta> = {
     id: 'other',
     name: 'Other',
     h1: 'Other Calculators',
-    metaTitle: 'Other Calculators: Tip Calculator and More | Calcrafty',
+    metaTitle: 'Other Calculators: Tips, Fuel Cost and More | Calcrafty',
     metaDescription:
-      'Useful calculators that don’t fit a single category, starting with a tip calculator that works out the tip and total and splits the bill, step by step.',
+      'Useful calculators that don’t fit a single category: a tip calculator that splits the bill, and a fuel cost calculator for any road trip or commute.',
     intro: 'Useful everyday tools that don’t fit neatly anywhere else.',
     appCategory: 'UtilitiesApplication',
     ymyl: false,
-    subtopics: ['Miscellaneous'],
+    subtopics: ['Miscellaneous', 'Driving'],
     about: [
       'Some questions don’t belong to one subject. These calculators answer them with the same care as the rest of the site: a clear method, the working shown and sources where they matter.',
-      'The tip calculator works out the tip and the total, splits the bill between friends and can round each share up to the dollar.',
+      'The tip calculator works out the tip and the total, splits the bill between friends and can round each share up to the dollar. The fuel cost calculator prices a trip or a commute from distance, fuel economy and this week’s U.S. average gas price.',
     ],
   },
 };

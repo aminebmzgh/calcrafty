@@ -1,0 +1,151 @@
+---
+status: draft
+howTo:
+  - "Choose which side to find: the hypotenuse c, or leg a or leg b."
+  - "Enter the two sides you know, in the same unit."
+  - "Read the missing side, with its exact square-root form when the inputs are whole numbers."
+  - "Check the two acute angles, the area and the perimeter under the result."
+  - "Open Show the math to see each step of a² + b² = c² with your numbers."
+faq:
+  - q: "What is the Pythagorean theorem?"
+    a: "In any right triangle, the square of the hypotenuse (the side opposite the right angle) equals the sum of the squares of the other two sides: a² + b² = c². A triangle with legs 3 and 4 has a hypotenuse of 5, because 9 + 16 = 25."
+  - q: "How do I find the hypotenuse?"
+    a: "Square both legs, add them and take the square root. With legs 7 and 10: 49 + 100 = 149, and √149 ≈ 12.2066. In exact form, the answer is √149."
+  - q: "How do I find a missing leg?"
+    a: "Square the hypotenuse, subtract the square of the known leg and take the square root. With a hypotenuse of 10 and a leg of 6: 100 − 36 = 64, and √64 = 8."
+  - q: "Does the Pythagorean theorem work for any triangle?"
+    a: "No, only for right triangles, which have one 90° angle. For other triangles, use the law of cosines, c² = a² + b² − 2ab·cos(C), which reduces to the Pythagorean theorem when C is 90°."
+  - q: "What is a Pythagorean triple?"
+    a: "Three whole numbers that fit a² + b² = c², such as 3-4-5, 5-12-13, 8-15-17 and 7-24-25. Any multiple of a triple is also a triple, so 6-8-10 and 30-40-50 work too."
+  - q: "How do I know which side is the hypotenuse?"
+    a: "It's the side opposite the right angle and always the longest side. If your hypotenuse isn't longer than both legs, the numbers can't form a right triangle, and the calculator will say so."
+  - q: "How do I simplify a square root answer?"
+    a: "Find the largest perfect square that divides the number and take its root outside. √72 = √(36 × 2) = 6√2. The calculator does this automatically whenever the sides you enter are whole numbers."
+---
+
+## How to use this Pythagorean theorem calculator
+
+Choose the side you want to find, enter the other two and the answer appears straight away.
+
+1. **Find.** Pick the **hypotenuse c** if you know both legs, or **leg a** or **leg b** if you know the hypotenuse and one leg.
+2. **Enter two sides.** Any unit works, as long as both sides use the same one: inches, feet, meters or plain numbers from a homework problem.
+3. **Read the answer.** The missing side appears to four decimal places. When your inputs are whole numbers, the result also shows the **exact form**, such as √149 or 5√2, which most math teachers ask for.
+4. **Extras.** Below the answer you'll find both acute angles, the area and the perimeter, and a drawing of your triangle to scale.
+
+If you enter a hypotenuse that's shorter than a leg, the calculator explains why that isn't possible instead of giving a wrong answer.
+
+## The formula
+
+For a right triangle with legs **a** and **b** and hypotenuse **c**:
+
+**a² + b² = c²**
+
+Rearranged to find each side:
+
+- **Hypotenuse:** c = √(a² + b²)
+- **Leg a:** a = √(c² − b²)
+- **Leg b:** b = √(c² − a²)
+
+The angles come from trigonometry. The angle opposite side a is **A = arctan(a ÷ b)**, and the other acute angle is **B = 90° − A**. The area is **a × b ÷ 2**, because the two legs are the base and the height, and the perimeter is **a + b + c**.
+
+## Worked example: a ladder against a wall
+
+You have a **20-foot ladder** and want to know how high it reaches. OSHA's ladder rule for a non-self-supporting ladder is to place the base about one foot out from the wall for every four feet of working length, so for 20 feet, the foot of the ladder goes **5 feet** from the wall.
+
+The ladder is the hypotenuse (c = 20) and the distance from the wall is one leg (b = 5). The height is the other leg:
+
+- **Square the sides:** c² = 400 and b² = 25.
+- **Subtract:** a² = 400 − 25 = 375.
+- **Square root:** a = √375 ≈ **19.36 feet**.
+- **Exact form:** √375 = √(25 × 15) = **5√15**.
+- **Angle with the ground:** about **75.5°**, the angle the 4-to-1 rule is designed to give.
+
+Choose **Leg a** in the calculator, enter b = 5 and c = 20, and you'll see the same figures.
+
+## More real-world examples
+
+**TV screen size.** A TV's size is measured across the diagonal. For a 55-inch TV with a 16:9 screen, the diagonal of a 16 × 9 rectangle is √(256 + 81) = √337 ≈ 18.358. Scaling up, the screen is 55 × 16 ÷ 18.358 ≈ **47.9 inches wide** and 55 × 9 ÷ 18.358 ≈ **27.0 inches tall**. A 65-inch TV is about 56.7 by 31.9 inches.
+
+**Roof rafters.** A roof with a 12-foot run and a 6-foot rise (a 6-in-12 pitch) needs rafters √(144 + 36) = √180 ≈ **13.42 feet** long, before the overhang. In exact form, that's 6√5. The [roofing calculator](/construction/roofing-calculator/) uses the same idea, through the pitch factor, to turn a roof's footprint into its real surface area.
+
+**Squaring a corner.** Builders check that a corner is exactly 90° with the 3-4-5 rule: measure 3 feet along one side and 4 feet along the other, and the diagonal between the marks should be exactly 5 feet. For bigger layouts, use a multiple: 6-8-10 or 9-12-15.
+
+**Distance between two points.** On a grid, the straight-line distance between (2, 3) and (10, 18) is the hypotenuse of a triangle with legs 10 − 2 = 8 and 18 − 3 = 15, so √(64 + 225) = √289 = **17**. That's the distance formula, and it's the Pythagorean theorem in disguise.
+
+## Pythagorean triples
+
+Some right triangles have whole-number sides. These sets are called Pythagorean triples, and they turn up in textbooks because the arithmetic comes out clean.
+
+| a | b | c | Check |
+|---|---|---|---|
+| 3 | 4 | 5 | 9 + 16 = 25 |
+| 5 | 12 | 13 | 25 + 144 = 169 |
+| 8 | 15 | 17 | 64 + 225 = 289 |
+| 7 | 24 | 25 | 49 + 576 = 625 |
+| 20 | 21 | 29 | 400 + 441 = 841 |
+| 9 | 40 | 41 | 81 + 1,600 = 1,681 |
+
+Multiplying every side by the same number gives another triple, so 6-8-10, 12-16-20 and 30-40-50 all work. The calculator tells you when your three sides form a triple.
+
+## Exact form vs decimals
+
+Most hypotenuses aren't whole numbers. √149 is about 12.2066, but the decimal never ends, so any decimal answer is rounded. In algebra and geometry classes, the exact answer is usually written as a simplified square root.
+
+To simplify, find the largest perfect square that divides the number under the root:
+
+- √72 = √(36 × 2) = **6√2**
+- √50 = √(25 × 2) = **5√2**
+- √375 = √(25 × 15) = **5√15**
+- √149 can't be simplified, because 149 is prime.
+
+The calculator shows the exact form whenever the sides you enter are whole numbers. For decimals, such as 1.5 and 2, it gives the decimal answer (here exactly 2.5).
+
+For real measurements, the exact form matters less than sensible rounding. A tape measure reads to about 1/16 of an inch, so a rafter length of 13.4164 feet is best written as 13 feet 5 inches, plus whatever extra you need for the cut. Keep all the decimals while you calculate, and round only the final answer to the precision you can actually measure.
+
+## Isosceles right triangles and the 30-60-90 triangle
+
+Two special right triangles come up so often that it's worth knowing their side ratios:
+
+- **45-45-90 triangle:** both legs are equal, and the hypotenuse is **leg × √2**. With legs of 5, the hypotenuse is 5√2 ≈ 7.0711. This is the diagonal of a square.
+- **30-60-90 triangle:** the sides are in the ratio **1 : √3 : 2**. The short leg is half the hypotenuse. With a hypotenuse of 10, the legs are 5 and 5√3 ≈ 8.6603.
+
+You can check both with the calculator by entering the legs or the hypotenuse and one leg.
+
+## Is it a right triangle? The converse
+
+The theorem also works backwards: if three sides satisfy a² + b² = c², with c the longest, the triangle has a right angle. That's how you test whether a triangle is right-angled from its sides alone.
+
+- **Sides 9, 12 and 15:** 81 + 144 = 225, and 15² = 225, so it's a right triangle.
+- **Sides 6, 7 and 9:** 36 + 49 = 85, but 9² = 81. Because 85 is more than 81, the largest angle is less than 90°, so the triangle is acute.
+- **Sides 5, 6 and 9:** 25 + 36 = 61, but 81 is more than 61, so the largest angle is more than 90° and the triangle is obtuse.
+
+To check your own sides, choose **Hypotenuse c**, enter the two shorter sides as the legs and compare the answer with your longest side. If they match, the triangle is right-angled.
+
+## Why the theorem is true
+
+The relationship is named after the Greek mathematician Pythagoras, who lived in the 6th century BC, but it was known and used much earlier. Babylonian clay tablets from around 1800 BC, such as the one known as Plimpton 322, list sets of numbers that fit it, and Euclid gave a formal proof in his *Elements* around 300 BC. Hundreds of different proofs have been published since.
+
+One of the simplest uses rearrangement. Draw a large square with sides a + b, and place four copies of the right triangle inside it so that their hypotenuses form a smaller, tilted square in the middle. The large square's area is (a + b)², which also equals the four triangles, 4 × ab ÷ 2 = 2ab, plus the inner square, c². So (a + b)² = 2ab + c². Expanding the left side gives a² + 2ab + b² = 2ab + c², and subtracting 2ab from both sides leaves **a² + b² = c²**.
+
+## Common mistakes
+
+1. **Adding the sides instead of their squares.** Legs of 3 and 4 don't give a hypotenuse of 7. Square first: 9 + 16 = 25, and √25 = 5.
+2. **Adding when you should subtract.** To find a leg, subtract the known leg's square from the hypotenuse's square.
+3. **Using it on a triangle without a right angle.** The theorem only holds for right triangles.
+4. **Mixing units.** Convert 5 feet 6 inches to 5.5 feet, or to 66 inches, before squaring. The [length converter](/conversion/length-converter/) helps.
+5. **Rounding too early.** Keep the full value of a² + b² until the final square root.
+
+## Key terms
+
+- **Right triangle:** a triangle with one 90° angle.
+- **Legs (a and b):** the two sides that form the right angle.
+- **Hypotenuse (c):** the side opposite the right angle; always the longest.
+- **Pythagorean triple:** three whole numbers that satisfy a² + b² = c².
+- **Square root (√):** the number that, multiplied by itself, gives the original number.
+- **Simplified radical form:** a square root written with the largest perfect square taken out, like 6√2.
+
+## What to do with your result
+
+For homework, write the exact form if the question asks for it and the decimal rounded as instructed. For building and DIY projects, add a margin for cuts and overhangs, and measure twice. If you need the area of a floor or a whole room, the [square footage calculator](/construction/square-footage-calculator/) handles rectangles, L-shapes and triangles. For trigonometry beyond right triangles, the [scientific calculator](/math/scientific-calculator/) has sine, cosine and tangent. Our guide [how to use the Pythagorean theorem](/guides/how-to-use-the-pythagorean-theorem/) works through word problems step by step, including 3D diagonals.
+
+{/* TODO: expert review: OSHA 1926.1053(b)(5)(i) 4-to-1 ladder rule wording; 30-60-90 and TV examples. */}

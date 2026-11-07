@@ -70,6 +70,21 @@ To edit a page later: change its MDX file, update `lastReviewed`, commit and pus
 
 - [x] Refinance, CD and HELOC calculators, and the guides "What is a good debt-to-income ratio?" and "How is APR calculated?": reviewed by the owner (bank auditor) and indexable.
 
+### Growth batch 8, business, math and energy (waiting for review, 2026-11-06)
+
+Drafts (`noindex`, not in the sitemap) until you review them. Tell Claude Code "batch 8 reviewed" or name the pages. Each page ends with a `TODO: expert review` comment listing what to double-check. The appliance wattage table comes from an older Virginia Cooperative Extension / DOE fact sheet (energy.gov's own page now returns 404), so check it most closely. The fuel and electricity calculators default to two new live FRED series (EIA weekly gas price, BLS electricity price per kWh); their "as of" dates show under the fields.
+
+- [ ] https://calcrafty.com/finance/margin-calculator/
+- [ ] https://calcrafty.com/math/discount-calculator/
+- [ ] https://calcrafty.com/math/pythagorean-theorem-calculator/
+- [ ] https://calcrafty.com/physics/electricity-cost-calculator/
+- [ ] https://calcrafty.com/other/fuel-cost-calculator/
+- [ ] https://calcrafty.com/guides/margin-vs-markup/
+- [ ] https://calcrafty.com/guides/how-to-calculate-a-discount/
+- [ ] https://calcrafty.com/guides/how-to-use-the-pythagorean-theorem/
+- [ ] https://calcrafty.com/guides/how-much-electricity-do-appliances-use/
+- [ ] https://calcrafty.com/guides/how-to-calculate-gas-mileage/
+
 ### Growth batch 7, finance and quick wins (reviewed 2026-11-06)
 
 - [x] Amortization, mortgage payoff, student loan, square footage, weight converter and temperature converter calculators, and the guides "How to pay off your mortgage early", "Student loan repayment plans" and "How to calculate square footage": reviewed by the owner (finance pages as bank auditor) and indexable.

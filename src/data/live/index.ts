@@ -9,6 +9,10 @@ export interface LiveSeries {
   source: string;
   seriesId: string;
   url: string;
+  /** How the value reads: a rate in percent (default) or a price in dollars per unit. */
+  unit?: 'percent' | 'usd';
+  /** For prices: what one unit is ("gallon", "kWh"). */
+  per?: string;
 }
 
 export interface Snapshot {
@@ -32,6 +36,12 @@ export function formatAsOf(iso: string): string {
     year: 'numeric',
     timeZone: 'UTC',
   });
+}
+
+/** "7.18%" for rates, "$4.153 per gallon" for prices. */
+export function formatLive(s: LiveSeries): string {
+  if (s.unit === 'usd') return `$${s.value.toFixed(3)} per ${s.per ?? 'unit'}`;
+  return `${new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(s.value)}%`;
 }
 
 /** FRED attribution line, per FRED's terms of use. */

@@ -21,7 +21,7 @@ export type Category =
   | 'other';
 
 /** Keys into src/data/live/snapshot.json that an input can default to. */
-export type LiveKey = 'mortgage30' | 'mortgage15' | 'cpiInflation' | 'treasury10' | 'savingsRate' | 'autoLoan60' | 'personalLoan24' | 'creditCard';
+export type LiveKey = 'mortgage30' | 'mortgage15' | 'cpiInflation' | 'treasury10' | 'savingsRate' | 'autoLoan60' | 'personalLoan24' | 'creditCard' | 'gasPrice' | 'electricityPrice';
 
 export type NumberUnit =
   | 'usd'

@@ -1,6 +1,6 @@
 ---
 import ProseLayout from '../layouts/ProseLayout.astro';
-import { live, formatAsOf, fredCitation } from '../data/live/index.ts';
+import { live, formatAsOf, fredCitation, formatLive } from '../data/live/index.ts';
 
 const series = Object.values(live.series);
 ---
@@ -40,7 +40,7 @@ const series = Object.values(live.series);
         series.map((s) => (
           <tr>
             <td>{s.label}</td>
-            <td class="num">{s.value}%</td>
+            <td class="num">{formatLive(s)}</td>
             <td>{formatAsOf(s.asOf)}</td>
             <td>
               <a href={s.url}>{fredCitation(s)}</a>

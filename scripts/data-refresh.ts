@@ -21,6 +21,9 @@ interface SeriesSpec {
   range: [number, number];
   /** 'level' uses the latest value; 'yoy' computes the 12-month % change of a monthly index. */
   transform: 'level' | 'yoy';
+  /** Prices are stored in dollars per `per`; rates in percent (default). */
+  unit?: 'percent' | 'usd';
+  per?: string;
 }
 
 export const SERIES: SeriesSpec[] = [
@@ -32,6 +35,8 @@ export const SERIES: SeriesSpec[] = [
   { key: 'autoLoan60', seriesId: 'RIFLPBCIANM60NM', label: '60-month new car loan rate (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [1, 25], transform: 'level' },
   { key: 'personalLoan24', seriesId: 'TERMCBPER24NS', label: '24-month personal loan rate (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [1, 40], transform: 'level' },
   { key: 'creditCard', seriesId: 'TERMCBCCALLNS', label: 'Credit card interest rate, all accounts (commercial banks)', source: 'Board of Governors of the Federal Reserve System', range: [5, 40], transform: 'level' },
+  { key: 'gasPrice', seriesId: 'GASREGW', label: 'U.S. regular gasoline price, weekly average', source: 'U.S. Energy Information Administration', range: [1, 10], transform: 'level', unit: 'usd', per: 'gallon' },
+  { key: 'electricityPrice', seriesId: 'APU000072610', label: 'Average electricity price per kWh, U.S. city average', source: 'U.S. Bureau of Labor Statistics', range: [0.05, 0.6], transform: 'level', unit: 'usd', per: 'kWh' },
 ];
 
 type Obs = { date: string; value: number };
@@ -96,6 +101,7 @@ async function main() {
         source: spec.source,
         seriesId: spec.seriesId,
         url: `https://fred.stlouisfed.org/series/${spec.seriesId}`,
+        ...(spec.unit ? { unit: spec.unit, per: spec.per } : {}),
       };
       changed++;
     } catch (err) {

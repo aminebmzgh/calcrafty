@@ -37,8 +37,8 @@ const config: CalculatorConfig<PercentInput, PercentOutput> = {
   metaDescription:
     'Free percentage calculator: find X% of a number, what percent one number is of another, percent increase or decrease, and sale prices, with the working shown.',
   primaryKeyword: 'percentage calculator',
-  secondaryKeywords: ['percent calculator', 'percent change calculator', 'percent off calculator', 'what percent of calculator'],
-  synonyms: ['percent', 'percentage', 'discount', 'markup', 'increase', 'decrease', 'sale price', 'tip'],
+  secondaryKeywords: ['percent calculator', 'percent change calculator', 'what percent of calculator'],
+  synonyms: ['percent', 'percentage', 'discount', 'increase', 'decrease', 'tip'],
   inputs: [
     {
       id: 'mode',
