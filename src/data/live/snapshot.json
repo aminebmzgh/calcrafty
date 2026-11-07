@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T18:01:48.585Z",
+  "generatedAt": "2026-11-07T00:23:09.912Z",
   "series": {
     "mortgage30": {
       "value": 7.18,
@@ -26,16 +26,16 @@
       "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
     },
     "treasury10": {
-      "value": 4.9,
-      "asOf": "2026-11-04",
+      "value": 4.84,
+      "asOf": "2026-11-05",
       "label": "10-year Treasury yield",
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "DGS10",
       "url": "https://fred.stlouisfed.org/series/DGS10"
     },
     "savingsRate": {
-      "value": 4.03,
-      "asOf": "2026-11-04",
+      "value": 4,
+      "asOf": "2026-11-05",
       "label": "3-month Treasury bill rate",
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "DTB3",
