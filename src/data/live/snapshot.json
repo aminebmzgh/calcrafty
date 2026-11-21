@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-07T00:31:53.876Z",
+  "generatedAt": "2026-11-21T16:11:19.298Z",
   "series": {
     "mortgage30": {
-      "value": 7.18,
-      "asOf": "2026-11-05",
+      "value": 7.28,
+      "asOf": "2026-11-19",
       "label": "30-year fixed mortgage rate",
       "source": "Freddie Mac",
       "seriesId": "MORTGAGE30US",
       "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
     },
     "mortgage15": {
-      "value": 6.57,
-      "asOf": "2026-11-05",
+      "value": 6.66,
+      "asOf": "2026-11-19",
       "label": "15-year fixed mortgage rate",
       "source": "Freddie Mac",
       "seriesId": "MORTGAGE15US",
@@ -26,16 +26,16 @@
       "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
     },
     "treasury10": {
-      "value": 4.84,
-      "asOf": "2026-11-05",
+      "value": 5.04,
+      "asOf": "2026-11-19",
       "label": "10-year Treasury yield",
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "DGS10",
       "url": "https://fred.stlouisfed.org/series/DGS10"
     },
     "savingsRate": {
-      "value": 4,
-      "asOf": "2026-11-05",
+      "value": 4.16,
+      "asOf": "2026-11-19",
       "label": "3-month Treasury bill rate",
       "source": "Board of Governors of the Federal Reserve System",
       "seriesId": "DTB3",
@@ -66,8 +66,8 @@
       "url": "https://fred.stlouisfed.org/series/TERMCBCCALLNS"
     },
     "gasPrice": {
-      "value": 4.153,
-      "asOf": "2026-11-02",
+      "value": 3.805,
+      "asOf": "2026-11-16",
       "label": "U.S. regular gasoline price, weekly average",
       "source": "U.S. Energy Information Administration",
       "seriesId": "GASREGW",
@@ -76,8 +76,8 @@
       "per": "gallon"
     },
     "electricityPrice": {
-      "value": 0.196,
-      "asOf": "2026-09-01",
+      "value": 0.19,
+      "asOf": "2026-10-01",
       "label": "Average electricity price per kWh, U.S. city average",
       "source": "U.S. Bureau of Labor Statistics",
       "seriesId": "APU000072610",
