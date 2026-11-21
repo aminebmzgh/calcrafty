@@ -374,7 +374,7 @@ Goal: win searches like "mortgage calculator texas" and "paycheck calculator cal
 - Clean lowercase hyphenated URLs with trailing slash: `/finance/mortgage-calculator/`.
 - Self-referencing, parameter-free `<link rel="canonical">` on every page, using `https://calcrafty.com`.
 - XML sitemap index with per-type sitemaps; `lastmod` from `lastReviewed` or data `asOf`. Draft and embed pages excluded.
-- `robots.txt` generated at build; `Disallow: /embed/`; sitemap URL included.
+- `robots.txt` generated at build; sitemap URL included. `/embed/` is not disallowed, so crawlers can read its `noindex` (see DECISIONS.md 2026-11-21).
 - `/embed/*` pages are `noindex`.
 - Every page within 3 clicks of the homepage; no orphans.
 

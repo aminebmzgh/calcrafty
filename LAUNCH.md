@@ -38,6 +38,8 @@ The Deploy workflow refreshes rates every Monday 06:00 UTC and redeploys.
 
 Note: Hostinger's CDN returns 403 to fake "Googlebot" requests from non-Google IPs; real Googlebot is unaffected (check with URL Inspection → Test live URL).
 
+- [ ] Optional (5 min): in hPanel → Websites → calcrafty.com → Security / SSL, turn off "Force HTTPS". `.htaccess` already sends http and www to `https://calcrafty.com` in one 301. With Hostinger's setting on, `http://www.calcrafty.com` takes two hops. Afterwards, check that `http://www.calcrafty.com/` redirects straight to `https://calcrafty.com/`. If it doesn't, turn the setting back on. Two hops are harmless.
+
 ## 6. About page and contact
 
 - [x] About page: built and run by Amine Boumazzoughe (bank auditor, coding enthusiast); also in the Organization schema as `founder`. Add more about why you started it whenever you like.

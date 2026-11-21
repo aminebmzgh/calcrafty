@@ -141,3 +141,8 @@ Why things are the way they are. Newest at the bottom. Runtime dependencies list
 - **Pythagorean theorem** uses 30-digit decimal square roots; the exact simplified radical (6√2) is shown only when the known sides are whole numbers.
 - **Electricity cost** averages days per week over the year (× 365 ÷ 7) so day, week, month and year rows agree; a month is a twelfth of a year.
 - **Fuel cost** keeps separate US and metric fields (miles/mpg/$ per gallon vs km/L per 100 km/per litre) so the live gas price only ever fills the per-gallon field; switching units converts the trip. CO₂ uses the EPA's 8,887 g/gal gasoline and 10,180 g/gal diesel, the same factors as the car CO2 calculator.
+
+## 2026-11-21 (indexing audit)
+
+- **`/embed/` is no longer disallowed in robots.txt.** It was both disallowed and `noindex`. Google can't read a `noindex` on a page it may not crawl, so an embed URL linked from another site could show up as "Indexed, though blocked by robots.txt". The pages stay `noindex, follow` with a self-referencing canonical, and they stay out of the sitemap. They do not point their canonical at the main calculator, because `noindex` plus a canonical to another page sends conflicting signals. This changes the brief's robots.txt line, which has been updated.
+- **http://www → https://www → https://calcrafty.com is two hops** because Hostinger's CDN forces HTTPS before `.htaccess` runs. `.htaccess` already does both in one 301. This is harmless; it becomes one hop only if "Force HTTPS" is turned off in hPanel, which is the owner's call (see LAUNCH.md).

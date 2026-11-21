@@ -61,6 +61,6 @@ test.describe('power features', () => {
       const res = await request.get(url);
       expect(res.status(), url).toBe(200);
     }
-    expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /embed/');
+    expect(await (await request.get('/robots.txt')).text()).not.toContain('Disallow: /embed/');
   });
 });
