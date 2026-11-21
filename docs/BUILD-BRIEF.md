@@ -386,7 +386,7 @@ Goal: win searches like "mortgage calculator texas" and "paycheck calculator cal
 
 ### Structured data (JSON-LD)
 - Calculator pages: `WebApplication` (`applicationCategory`: FinanceApplication / HealthApplication / EducationalApplication / UtilitiesApplication; free `offers`), `FAQPage`, `BreadcrumbList`, `HowTo` where it fits.
-- Site-wide: `Organization` (name Calcrafty, logo, `sameAs` for official profiles once they exist) and `WebSite` with `SearchAction`.
+- Site-wide: `Organization` (name Calcrafty, logo, `sameAs` for official profiles once they exist) and `WebSite` (no `SearchAction`; see DECISIONS.md 2026-11-21).
 - Validated in tests.
 
 ### Architecture
