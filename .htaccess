@@ -1,0 +1,81 @@
+# Calcrafty: Apache / LiteSpeed configuration (Hostinger, public_html)
+# Generated redirect rules are appended at build time from src/data/static/redirects.ts.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+AddDefaultCharset utf-8
+AddType application/manifest+json .webmanifest
+AddType text/plain .txt
+AddType image/svg+xml .svg
+AddType font/woff2 .woff2
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS and the bare domain (www -> calcrafty.com) in one 301.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://calcrafty.com%{REQUEST_URI} [L,R=301,NE]
+
+  # Trailing slash for directory-style paths (no file extension, not an existing file).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,8}$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ https://calcrafty.com/$1/ [L,R=301,NE]
+
+  RewriteRule ^mortgage-calculator/?$ https://calcrafty.com/finance/mortgage-calculator/ [L,R=301]
+  RewriteRule ^bmi-calculator/?$ https://calcrafty.com/health/bmi-calculator/ [L,R=301]
+  RewriteRule ^percentage-calculator/?$ https://calcrafty.com/math/percentage-calculator/ [L,R=301]
+  RewriteRule ^tdee-calculator/?$ https://calcrafty.com/health/calorie-calculator/ [L,R=301]
+  RewriteRule ^salary-calculator/?$ https://calcrafty.com/finance/paycheck-calculator/ [L,R=301]
+  RewriteRule ^health/running-pace-calculator/?$ https://calcrafty.com/sports/running-pace-calculator/ [L,R=301]
+  RewriteRule ^math/standard-deviation-calculator/?$ https://calcrafty.com/statistics/standard-deviation-calculator/ [L,R=301]
+  RewriteRule ^math/mean-median-mode-calculator/?$ https://calcrafty.com/statistics/mean-median-mode-calculator/ [L,R=301]
+</IfModule>
+
+# Compression
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml application/xml application/javascript text/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript text/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
+
+# Caching
+<IfModule mod_headers.c>
+  # Default: HTML and anything else revalidates every time.
+  Header set Cache-Control "public, max-age=0, must-revalidate"
+
+  # Hashed build assets never change.
+  SetEnvIf Request_URI "^/_astro/" CALCRAFTY_HASHED
+  Header set Cache-Control "public, max-age=31536000, immutable" env=CALCRAFTY_HASHED
+
+  # Fonts and icons: 1 year.
+  <FilesMatch "\.(woff2|ico|png|svg|webmanifest)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+
+  # Sitemaps, robots.txt, llms.txt: 1 hour.
+  <FilesMatch "^(sitemap.*\.xml|robots\.txt|llms\.txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+
+  # The service worker must always be fresh.
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Security headers
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+  # Embeds (/embed/*) must be frameable by any site; everything else is same-origin only.
+  SetEnvIf Request_URI "^/embed/" CALCRAFTY_EMBED
+  Header always set X-Frame-Options "SAMEORIGIN" env=!CALCRAFTY_EMBED
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloud.umami.is https://gateway.umami.is https://api-gateway.umami.dev; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'" env=!CALCRAFTY_EMBED
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloud.umami.is https://gateway.umami.is https://api-gateway.umami.dev; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors *" env=CALCRAFTY_EMBED
+</IfModule>

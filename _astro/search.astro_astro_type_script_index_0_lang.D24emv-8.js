@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/SearchDialog.BpbWzB69.js","_astro/preact.DWcnGOAq.js","_astro/hooks.CUrW4qiz.js","_astro/jsxRuntime.CW7oJtka.js"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper.DHhhL8Zf.js";var t=new URLSearchParams(location.search).get(`q`)??``,n=()=>e(()=>import(`./SearchDialog.BpbWzB69.js`).then(e=>e.openSearchDialog(t)),__vite__mapDeps([0,1,2,3]));document.getElementById(`search-page-open`)?.addEventListener(`click`,n),t&&n();
